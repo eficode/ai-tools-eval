@@ -1,0 +1,95 @@
+# Compose specification
+
+services:
+  books-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: books-database-service
+    volumes:
+      - ./data:/app/data
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///data/books.db
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:8000/books/ || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - books-service-network
+
+  # Database initialization service
+  initialization:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - books-service
+    volumes:
+      - ./data:/app/data
+    environment:
+      - DATABASE_URL=sqlite:///data/books.db
+    command: >
+      sh -c "
+        mkdir -p /app/data
+        sleep 5
+        python -c 'import sys, os; sys.path.insert(0, os.path.abspath(\".\")); from fastapi_demo.database import Base, engine; Base.metadata.create_all(bind=engine); print(\"Database tables created\")'
+        python scripts/migrate_db.py
+        python -c 'import sqlite3; import os, sys; db_path=\"/app/data/books.db\"; conn = sqlite3.connect(db_path); cursor = conn.cursor(); cursor.execute(\"SELECT COUNT(*) FROM books\"); count = cursor.fetchone()[0]; conn.close(); print(f\"Found {count} books\"); sys.exit(0 if count > 0 else 1)' || python scripts/generate_books.py
+      "
+    restart: on-failure
+    networks:
+      - books-service-network
+
+  # RobotFramework MCP Server
+  robotframework-mcp:
+    build:
+      context: ./RobotFramework-MCP-server
+      dockerfile: Dockerfile
+    container_name: robotframework-mcp
+    init: true
+    shm_size: '2gb'
+    volumes:
+      - ./robot_tests:/tests:ro
+      - ./robot_results:/results:rw
+      - rf_library_docs:/app/docs:rw
+    environment:
+      - ROBOT_OUTPUT_DIR=/results
+      - RF_TESTS_DIR=/tests
+      - BROWSER=chromium
+      - HEADLESS=true
+    entrypoint: ["tail", "-f", "/dev/null"]
+    depends_on:
+      - books-service
+    networks:
+      - books-service-network
+
+  # Robot Framework 7.4.1 Documentation MCP Server
+  rf-docs-mcp:
+    build:
+      context: ./RobotFramework-MCP-server
+      dockerfile: Dockerfile.docs
+    container_name: rf-docs-mcp
+    volumes:
+      - rf_docs_cache:/cache
+    environment:
+      - RF_DOCS_CACHE=/cache
+    stdin_open: true
+    tty: true
+    entrypoint: ["tail", "-f", "/dev/null"]
+    networks:
+      - books-service-network
+
+networks:
+  books-service-network:
+    driver: bridge
+
+volumes:
+  db-data:
+  rf_docs_cache:
+  rf_library_docs:
+

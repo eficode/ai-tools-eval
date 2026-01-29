@@ -1,0 +1,26 @@
+[AI-INSTRUCTION] Robot Framework Testing Standards
+
+[1. CORE COMPLIANCE]
+    MANDATORY SOURCE AUTHORITY: Use ONLY library keywords found via rf-docs-mcp tools and local JSON documentation in robotframework-mcp:/app/docs/. Any keyword not found in these specific locations is INVALID.
+    SYNTAX STANDARD: Adhere strictly to Robot Framework 7.4.1 syntax and modern best practices.
+    VALIDATED VERSIONS: Validate code against robotframework==7.4.1, robotframework-browser==19.12.3, and robotframework-requests==0.9.7.
+
+[2. ARCHITECTURAL PATTERNS]
+    PAGE OBJECT MODEL: Implement the Page Object pattern for all UI tests to ensure long-term maintainability.
+    RESOURCE ABSTRACTION: Place all reusable keywords in dedicated Resource Files; do not define global logic within test suites.
+    SEPARATION OF CONCERNS: Maintain a strict separation of logic within keywords to prevent monolithic code blocks.
+    TEST TEMPLATES: Utilize Test Templates for data-driven scenarios to minimize code duplication.
+
+[3. TEST LOGIC & STABILITY]
+    WAIT STRATEGY: Use Explicit Wait conditions (e.g., Wait Until...). STRICTLY FORBIDDEN: Fixed Sleep commands.
+    INDEPENDENCE: Ensure every test is order-agnostic and fully independent.
+    ERROR RESILIENCE: Implement structured error handling and recovery within test cases.
+    FLAKINESS PREVENTION: Design all interactions to be stable and predictable.
+
+[4. METADATA & DATA MANAGEMENT]
+    BEHAVIORAL NAMING: Use Behavior-Focused names describing user actions (e.g., User Should Be Able To...).
+    DOCUMENTATION: Every keyword MUST have a clear [Documentation] block.
+    VARIABLE SCOPE: Use variables for all dynamic values; NO HARDCODED STRINGS.
+    DATA ISOLATION: Ensure test data is uniquely generated and isolated for each execution.
+    LIFECYCLE HOOKS: Implement robust Setup and Teardown procedures for every suite and test.
+    ORGANIZATION: Logically group tests into suites using effective Tagging for categorization and filtering.

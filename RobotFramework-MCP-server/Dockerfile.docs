@@ -1,0 +1,29 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+
+# Install required packages
+RUN pip install --no-cache-dir mcp
+
+# Copy the documentation server
+COPY rf_docs_server.py /app/
+
+# Create cache directory with proper permissions
+RUN mkdir -p /cache && chmod 777 /cache
+
+# Set environment variable for cache location
+ENV RF_DOCS_CACHE=/cache
+
+# Create initialization script to fetch docs on first startup
+RUN echo '#!/bin/bash\n\
+if [ ! -f /cache/.docs_initialized ]; then\n\
+    echo "Fetching Robot Framework 7.4.1 documentation..."\n\
+    python -c "import sys; sys.path.insert(0, \"/app\"); from rf_docs_server import fetch_rf_documentation; result = fetch_rf_documentation(force_refresh=False); print(\"Documentation fetched:\", result.get(\"success\"))"\n\
+    touch /cache/.docs_initialized\n\
+    echo "Documentation initialized successfully"\n\
+fi\n\
+tail -f /dev/null\n\
+' > /app/entrypoint.sh && chmod +x /app/entrypoint.sh
+
+# Use the initialization script as entrypoint
+CMD ["/app/entrypoint.sh"]
