@@ -44,6 +44,9 @@ This environment is started with the one-step helper only. No other run modes ar
 ./quick-start.sh
 ```
 
+After running the script, reload VS Code to activate MCP servers in the IDE:
+- Open Command Palette → "Developer: Reload Window" (or restart VS Code)
+
 What this starts and why:
 - Books API and UI (`books-service`) on http://localhost:8000 — baseline application under test (do not modify)
 - Database initialization (`initialization`) — creates tables, migrates, and seeds sample data
