@@ -56,7 +56,6 @@ services:
     volumes:
       - ./robot_tests:/tests:ro
       - ./robot_results:/results:rw
-      - rf_library_docs:/app/docs:rw
     environment:
       - ROBOT_OUTPUT_DIR=/results
       - RF_TESTS_DIR=/tests
@@ -86,10 +85,10 @@ services:
 
 networks:
   books-service-network:
+    name: books-service-network 
     driver: bridge
 
 volumes:
   db-data:
   rf_docs_cache:
-  rf_library_docs:
 
