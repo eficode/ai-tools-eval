@@ -33,20 +33,24 @@ Open:
 
 ## Generate Tool-Specific and Robot Framework Information Files
 
-The `template/` folder contains two key files for AI-assisted test generation:
+The files in the `template/` folder are **templates**, not tests or config files you run directly. You use them as input/prompts for your AI tool to generate a tool-specific Robot Framework instructions file. Based on that generated instructions file, your AI tool can then create Robot Framework test cases when you prompt it.
 
-- **Instruction Template.txt**: Robot Framework test structure template with placeholders for Settings, Variables, Test Cases, Keywords, and Comments sections
-- **Test Standards.txt**: AI generation rules including Page Object pattern, explicit wait strategies, behavioral naming, and library version constraints
+The `template/` folder contains two key reference files:
+
+- **Instruction Template.txt**: Example Robot Framework test structure with placeholders for Settings, Variables, Test Cases, Keywords, and Comments sections
+- **Test Standards.txt**: Example AI generation rules including Page Object pattern, explicit wait strategies, behavioral naming, and library version constraints
 
 Steps to generate tests:
 
-1. Use your IDE's feature to generate a tool-specific instructions file (e.g., Copilot's "Generate Chat Instructions" button to generate copilot-instructions.md)
-2. Ask your AI assistant to generate Robot Framework tests following the templates in the `template/` folder
-3. Ensure tests comply with the standards defined in Test Standards.txt (RF 7.4.1, Browser Library 19.12.3, RequestsLibrary 0.9.7) 
+1. Generate a **project-specific instructions file** using your AI tool's built-in function (for example, Copilot's "Generate Chat Instructions" which creates a copilot-instructions.md file, or Claude Code's `/init`). This file describes the project, coding style, and how you want the AI to behave.
+2. Prompt your AI assistant to create a **Robot Framework–specific information file** for this project, using the files in the template/ folder (Instruction Template.txt and Test Standards.txt) as examples and guidance. This RF information file should capture the RF structure, libraries, and standards you want the AI to follow.
+3. When you want tests, ask your AI assistant to generate Robot Framework test cases/suites for this project. The AI should use the RF-specific information file as its primary rule set, and may also use any other documentation or project files your tool makes available. Review the generated tests and ensure they comply with the standards defined in Test Standards.txt (RF 7.4.1, Browser Library 19.12.3, RequestsLibrary 0.9.7).
 
 ## Generate and Run Tests
 
 Place Robot Framework suites under `robot_tests/`. Use your IDE’s MCP integration (configured by `./quick-start.sh`) to list and run tests, or run manually via Docker exec.
+
+After you have generated and executed tests, use your AI assistant to run a **Robocop** audit over the Robot Framework suites (for example, by prompting it to run the project's Robocop command inside the RF container). This lets the AI surface style and best-practice violations for you to review and fix, keeping the suites aligned with the standards defined for this project.
 
 Next: [Development Workflow](development-workflow.md)
 

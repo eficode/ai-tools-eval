@@ -67,8 +67,7 @@ docker-compose down
 
 - Tests go under `robot_tests/`; results appear in `robot_results/`.
 - Do not change application code in `fastapi_demo/`; focus on tests and documentation.
-- Robot Framework MCP details live in RobotFramework-MCP-server; see that folder's README/SETUP for deeper dives.
-
+- Robot Framework MCP details live in RobotFramework-MCP-server.
 … [Getting Started](docs/getting-started.md) … [Development Workflow](docs/development-workflow.md) … [Architecture](docs/architecture.md) … [Testing](docs/testing.md) … [Troubleshooting](docs/troubleshooting.md) …
 
 Next: [Getting Started](docs/getting-started.md)
