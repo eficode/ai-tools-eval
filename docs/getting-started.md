@@ -40,15 +40,15 @@ The `template/` folder contains two key reference files:
 - **Instruction Template.txt**: Example Robot Framework test structure with placeholders for Settings, Variables, Test Cases, Keywords, and Comments sections
 - **Test Standards.txt**: Example AI generation rules including Page Object pattern, explicit wait strategies, behavioral naming, and library version constraints
 
-## Steps to generate instruction files for AI tool:
+## Steps to generate instruction files for AI tool
 
 1. Generate a **project-specific instructions file** using your AI tool's built-in function (for example, Copilot's "Generate Chat Instructions" which creates a copilot-instructions.md file, or Claude Code's `/init`). This file describes the project, coding style, and how you want the AI to behave.
 2. Prompt your AI assistant to create a **Robot Framework–specific information file** for this project, using the files in the template/ folder (Instruction Template.txt and Test Standards.txt) as examples and guidance. This RF information file should capture the RF structure, libraries, and standards you want the AI to follow.
 
 ## Generate and Run Tests
-When you want tests, ask with a spesific prompt your AI assistant to generate Robot Framework test cases/suites for this project. The AI should use the RF-specific information file as its primary rule set, and may also use any other documentation or project files your tool makes available. Robot Framework suites are saved under `robot_tests/`.
+When you want tests, ask with a specific prompt for your AI assistant to generate Robot Framework test cases/suites for this project. The AI should use the RF-specific information file as its primary rule set, and may also use any other documentation or project files your tool makes available. Robot Framework suites are saved under `robot_tests/`.
 
-Prompt AI tool to execute and fix test cases.
+After generating tests, prompt your AI tool to execute them and help investigate and fix any failing test cases.
 
 ## Run Robocop audit
 Run a **Robocop** audit over the Robot Framework suites using the helper script in the project root:
