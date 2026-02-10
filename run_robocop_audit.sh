@@ -1,9 +1,9 @@
 #!/bin/bash
 # Script to run Robocop audit on Robot Framework tests with timestamped reports
-# Usage: ./scripts/run_robocop_audit.sh
+# Usage: ./run_robocop_audit.sh
 #
-# Generates timestamped file:
-#   - robocop_YYYYMMDD_HHMMSS.txt  (console output)
+# Generates datestamped file:
+#   - robocop_YYYYMMDD.txt  (console output)
 
 
 set -e
@@ -13,9 +13,9 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
 RESULTS_DIR="${PROJECT_DIR}/robot_results"
 
-# Generate timestamp for all report filenames
-TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-OUTPUT_TXT="robocop_${TIMESTAMP}.txt"
+# Generate datestamp for all report filenames
+DATESTAMP=$(date +"%Y%m%d")
+OUTPUT_TXT="robocop_${DATESTAMP}.txt"
 
 # Container paths (mounted to local robot_results/)
 CONTAINER_OUTPUT_TXT="/results/${OUTPUT_TXT}"
@@ -35,7 +35,7 @@ fi
 
 echo "=================================================="
 echo "  Robot Framework Robocop Audit"
-echo "  Timestamp: ${TIMESTAMP}"
+echo "  Datestamp: ${DATESTAMP}"
 echo "=================================================="
 echo ""
 
