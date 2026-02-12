@@ -12,13 +12,13 @@
 
 Create a topic branch from `main` and include your AI tooling details at the end.
 
- Pattern: `r<Round>_<Tool>_<Model>`
+ Pattern: `r<round>/<tool>/<model>`
 
 Examples:
 
 ```bash
-git checkout -b r1_Copilot_Sonnet-4.5
-git checkout -b r2_AmazonQ_Sonnet-4.5
+git checkout -b r1/copilot/sonnet45
+git checkout -b r2/amazonq/Sonnet45
 ```
 
 ## Commits
