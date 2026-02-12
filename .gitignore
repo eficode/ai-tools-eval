@@ -163,3 +163,19 @@ cython_debug/
 #.idea/
 data/books.db
 *.db
+
+# Robot Framework / Robocop
+.robocop_cache/
+robot_results/browser/*
+!robot_results/browser/.gitkeep
+
+# Repo-wide ignores (consolidated from RobotFramework-MCP-server)
+.env.local
+pip-wheel-metadata/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+.docker/
