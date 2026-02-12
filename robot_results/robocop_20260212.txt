@@ -1,0 +1,3084 @@
+/tests/books_ui.robot:3:4 SPC01 Trailing whitespace at the end of line
+   |
+ 1 | *** Settings ***
+ 2 | Documentation     Books Library UI Test Suite - Gherkin Style
+ 3 | ...
+   |    ^^^^^^^^^^^^^^^ SPC01
+ 4 | ...               This test suite validates the Books Library web application UI functionality
+ 5 | ...               using modern Robot Framework 7.4.1 syntax with Gherkin-style keywords.
+   |
+
+/tests/books_ui.robot:6:4 SPC01 Trailing whitespace at the end of line
+   |
+ 4 | ...               This test suite validates the Books Library web application UI functionality
+ 5 | ...               using modern Robot Framework 7.4.1 syntax with Gherkin-style keywords.
+ 6 | ...
+   |    ^^^^^^^^^^^^^^^ SPC01
+ 7 | ...               Test focus areas:
+ 8 | ...               - Book creation through web form
+   |
+
+/tests/books_ui.robot:9:56 SPC01 Trailing whitespace at the end of line
+   |
+ 7 | ...               Test focus areas:
+ 8 | ...               - Book creation through web form
+ 9 | ...               - Book listing and display validation
+   |                                                        ^^ SPC01
+10 | ...               - Search and filter functionality
+11 | ...               - Favorite books management
+   |
+
+/tests/books_ui.robot:21:1 DEPR02 'Force Tags' is deprecated since Robot Framework version 6.0, use 'Test Tags' instead
+    |
+ 21 | Force Tags        books    ui    e2e
+    | ^^^^^^^^^^ DEPR02
+ 22 | Default Tags      smoke
+    |
+
+/tests/books_ui.robot:22:1 TAG07 Tags defined in Default Tags are always overwritten
+    |
+ 20 |
+ 21 | Force Tags        books    ui    e2e
+ 22 | Default Tags      smoke
+    | ^^^^^^^^^^^^ TAG07
+    |
+
+/tests/books_ui.robot:27:1 VAR02 Variable '${BROWSER_TYPE}' is assigned but not used
+    |
+ 25 | *** Variables ***
+ 26 | # Browser configuration - using BASE_URL from common.resource
+ 27 | ${BROWSER_TYPE}       chromium
+    | ^^^^^^^^^^^^^^^ VAR02
+ 28 | ${HEADLESS}           true
+    |
+
+/tests/books_ui.robot:28:1 VAR02 Variable '${HEADLESS}' is assigned but not used
+    |
+ 26 | # Browser configuration - using BASE_URL from common.resource
+ 27 | ${BROWSER_TYPE}       chromium
+ 28 | ${HEADLESS}           true
+    | ^^^^^^^^^^^ VAR02
+    |
+
+/tests/books_ui.robot:34:15 TAG06 Tag 'books' is already set by Force Tags in suite settings
+    |
+ 32 | User Should Be Able To Add New Book Through Web Form
+ 33 |     [Documentation]    Validates complete book creation workflow through web UI
+ 34 |     [Tags]    books    ui    create    happy-path
+    |               ^^^^^ TAG06
+ 35 |     Given User Is On Books Library Homepage
+ 36 |     When User Fills Book Creation Form
+    |
+
+/tests/books_ui.robot:34:24 TAG06 Tag 'ui' is already set by Force Tags in suite settings
+    |
+ 32 | User Should Be Able To Add New Book Through Web Form
+ 33 |     [Documentation]    Validates complete book creation workflow through web UI
+ 34 |     [Tags]    books    ui    create    happy-path
+    |                        ^^ TAG06
+ 35 |     Given User Is On Books Library Homepage
+ 36 |     When User Fills Book Creation Form
+    |
+
+/tests/books_ui.robot:38:39 SPC01 Trailing whitespace at the end of line
+    |
+ 36 |     When User Fills Book Creation Form
+ 37 |     ...    title=Robot Framework Testing Guide
+ 38 |     ...    author=Test Automation Team
+    |                                       ^^ SPC01
+ 39 |     ...    pages=350
+ 40 |     ...    category=Non-Fiction
+    |
+
+/tests/books_ui.robot:48:15 TAG06 Tag 'books' is already set by Force Tags in suite settings
+    |
+ 46 | User Should Be Able To Search For Books By Title
+ 47 |     [Documentation]    Validates book search functionality using title search
+ 48 |     [Tags]    books    ui    search    filter
+    |               ^^^^^ TAG06
+ 49 |     Given User Is On Books Library Homepage
+ 50 |     And Sample Books Are Already Present
+    |
+
+/tests/books_ui.robot:48:24 TAG06 Tag 'ui' is already set by Force Tags in suite settings
+    |
+ 46 | User Should Be Able To Search For Books By Title
+ 47 |     [Documentation]    Validates book search functionality using title search
+ 48 |     [Tags]    books    ui    search    filter
+    |                        ^^ TAG06
+ 49 |     Given User Is On Books Library Homepage
+ 50 |     And Sample Books Are Already Present
+    |
+
+/tests/books_ui.robot:49:44 SPC01 Trailing whitespace at the end of line
+    |
+ 47 |     [Documentation]    Validates book search functionality using title search
+ 48 |     [Tags]    books    ui    search    filter
+ 49 |     Given User Is On Books Library Homepage
+    |                                            ^^ SPC01
+ 50 |     And Sample Books Are Already Present
+ 51 |     When User Searches For Book    title=1984
+    |
+
+/tests/books_ui.robot:57:15 TAG06 Tag 'books' is already set by Force Tags in suite settings
+    |
+ 55 | User Should Be Able To Filter Books By Category
+ 56 |     [Documentation]    Validates category-based filtering of book collection
+ 57 |     [Tags]    books    ui    filter    category
+    |               ^^^^^ TAG06
+ 58 |     Given User Is On Books Library Homepage
+ 59 |     And Sample Books Are Already Present
+    |
+
+/tests/books_ui.robot:57:24 TAG06 Tag 'ui' is already set by Force Tags in suite settings
+    |
+ 55 | User Should Be Able To Filter Books By Category
+ 56 |     [Documentation]    Validates category-based filtering of book collection
+ 57 |     [Tags]    books    ui    filter    category
+    |                        ^^ TAG06
+ 58 |     Given User Is On Books Library Homepage
+ 59 |     And Sample Books Are Already Present
+    |
+
+/tests/books_ui.robot:66:15 TAG06 Tag 'books' is already set by Force Tags in suite settings
+    |
+ 64 | User Should Be Able To Mark Books As Favorites
+ 65 |     [Documentation]    Validates favorite books toggle functionality
+ 66 |     [Tags]    books    ui    favorites    interaction
+    |               ^^^^^ TAG06
+ 67 |     Given User Is On Books Library Homepage
+ 68 |     And Sample Books Are Already Present
+    |
+
+/tests/books_ui.robot:66:24 TAG06 Tag 'ui' is already set by Force Tags in suite settings
+    |
+ 64 | User Should Be Able To Mark Books As Favorites
+ 65 |     [Documentation]    Validates favorite books toggle functionality
+ 66 |     [Tags]    books    ui    favorites    interaction
+    |                        ^^ TAG06
+ 67 |     Given User Is On Books Library Homepage
+ 68 |     And Sample Books Are Already Present
+    |
+
+/tests/books_ui.robot:76:15 TAG06 Tag 'books' is already set by Force Tags in suite settings
+    |
+ 74 | User Should Be Able To Sort Books By Different Criteria
+ 75 |     [Documentation]    Validates book sorting functionality with different sort options
+ 76 |     [Tags]    books    ui    sorting    display
+    |               ^^^^^ TAG06
+ 77 |     Given User Is On Books Library Homepage
+ 78 |     And Sample Books Are Already Present
+    |
+
+/tests/books_ui.robot:76:24 TAG06 Tag 'ui' is already set by Force Tags in suite settings
+    |
+ 74 | User Should Be Able To Sort Books By Different Criteria
+ 75 |     [Documentation]    Validates book sorting functionality with different sort options
+ 76 |     [Tags]    books    ui    sorting    display
+    |                        ^^ TAG06
+ 77 |     Given User Is On Books Library Homepage
+ 78 |     And Sample Books Are Already Present
+    |
+
+/tests/books_ui.robot:85:15 TAG06 Tag 'books' is already set by Force Tags in suite settings
+    |
+ 83 | System Should Validate Required Fields On Book Creation
+ 84 |     [Documentation]    Validates form validation for required fields
+ 85 |     [Tags]    books    ui    validation    edge-case
+    |               ^^^^^ TAG06
+ 86 |     Given User Is On Books Library Homepage
+ 87 |     When User Attempts To Submit Empty Book Form
+    |
+
+/tests/books_ui.robot:85:24 TAG06 Tag 'ui' is already set by Force Tags in suite settings
+    |
+ 83 | System Should Validate Required Fields On Book Creation
+ 84 |     [Documentation]    Validates form validation for required fields
+ 85 |     [Tags]    books    ui    validation    edge-case
+    |                        ^^ TAG06
+ 86 |     Given User Is On Books Library Homepage
+ 87 |     When User Attempts To Submit Empty Book Form
+    |
+
+/tests/books_ui.robot:91:35 SPC01 Trailing whitespace at the end of line
+    |
+ 89 |     And No New Book Should Be Created
+ 90 |     When User Fills Only Title Field    Incomplete Book Entry
+ 91 |     And User Submits The Book Form
+    |                                   ^^ SPC01
+ 92 |     Then Remaining Required Field Errors Should Be Displayed
+    |
+
+/tests/books_ui.robot:96:15 TAG06 Tag 'books' is already set by Force Tags in suite settings
+    |
+ 94 | System Should Handle Large Book Collections Gracefully
+ 95 |     [Documentation]    Validates pagination and performance with many books
+ 96 |     [Tags]    books    ui    performance    pagination
+    |               ^^^^^ TAG06
+ 97 |     Given User Is On Books Library Homepage
+ 98 |     And Large Number Of Books Are Present
+    |
+
+/tests/books_ui.robot:96:24 TAG06 Tag 'ui' is already set by Force Tags in suite settings
+    |
+ 94 | System Should Handle Large Book Collections Gracefully
+ 95 |     [Documentation]    Validates pagination and performance with many books
+ 96 |     [Tags]    books    ui    performance    pagination
+    |                        ^^ TAG06
+ 97 |     Given User Is On Books Library Homepage
+ 98 |     And Large Number Of Books Are Present
+    |
+
+/tests/books_ui.robot:105:47 SPC01 Trailing whitespace at the end of line
+     |
+ 105 | System Should Handle Network Errors Gracefully
+     |                                               ^^ SPC01
+ 106 |     [Documentation]    Validates error handling when API is unavailable
+ 107 |     [Tags]    books    ui    error-handling    negative
+     |
+
+/tests/books_ui.robot:107:15 TAG06 Tag 'books' is already set by Force Tags in suite settings
+     |
+ 105 | System Should Handle Network Errors Gracefully
+ 106 |     [Documentation]    Validates error handling when API is unavailable
+ 107 |     [Tags]    books    ui    error-handling    negative
+     |               ^^^^^ TAG06
+ 108 |     Given User Is On Books Library Homepage
+ 109 |     When API Service Becomes Unavailable
+     |
+
+/tests/books_ui.robot:107:24 TAG06 Tag 'ui' is already set by Force Tags in suite settings
+     |
+ 105 | System Should Handle Network Errors Gracefully
+ 106 |     [Documentation]    Validates error handling when API is unavailable
+ 107 |     [Tags]    books    ui    error-handling    negative
+     |                        ^^ TAG06
+ 108 |     Given User Is On Books Library Homepage
+ 109 |     When API Service Becomes Unavailable
+     |
+
+/tests/books_ui.robot:116:1 SPC02 Missing trailing blank line at the end of file
+     |
+ 114 |     ...    category=Fiction
+ 115 |     Then Network Error Message Should Be Displayed
+ 116 |     And User Should Be Able To Retry Operation
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+     |
+
+/tests/resources/api_keywords.resource:2:67 SPC01 Trailing whitespace at the end of line
+   |
+ 1 | *** Settings ***
+ 2 | Documentation     API Keywords Resource - HTTP REST Implementation
+   |                                                                   ^^ SPC01
+ 3 | ...
+ 4 | ...               This resource implements all RequestsLibrary keywords for API testing.
+   |
+
+/tests/resources/api_keywords.resource:3:4 SPC01 Trailing whitespace at the end of line
+   |
+ 1 | *** Settings ***
+ 2 | Documentation     API Keywords Resource - HTTP REST Implementation
+ 3 | ...
+   |    ^^^^^^^^^^^^^^^ SPC01
+ 4 | ...               This resource implements all RequestsLibrary keywords for API testing.
+ 5 | ...               Uses modern Robot Framework 7.4.1 syntax with RequestsLibrary 0.9.7.
+   |
+
+/tests/resources/api_keywords.resource:6:4 SPC01 Trailing whitespace at the end of line
+   |
+ 4 | ...               This resource implements all RequestsLibrary keywords for API testing.
+ 5 | ...               Uses modern Robot Framework 7.4.1 syntax with RequestsLibrary 0.9.7.
+ 6 | ...
+   |    ^^^^^^^^^^^^^^^ SPC01
+ 7 | ...               Implementation layers:
+ 8 | ...               - Session management keywords (auth, headers, base URLs)
+   |
+
+/tests/resources/api_keywords.resource:14:19 IMP01 BuiltIn library import 'Collections' should be placed before 'RequestsLibrary'
+    |
+ 12 |
+ 13 | Library           RequestsLibrary
+ 14 | Library           Collections
+    |                   ^^^^^^^^^^^ IMP01
+ 15 | Resource          common.resource
+    |
+
+/tests/resources/api_keywords.resource:14:30 SPC01 Trailing whitespace at the end of line
+    |
+ 12 |
+ 13 | Library           RequestsLibrary
+ 14 | Library           Collections
+    |                              ^^ SPC01
+ 15 | Resource          common.resource
+    |
+
+/tests/resources/api_keywords.resource:38:43 SPC01 Trailing whitespace at the end of line
+    |
+ 36 |
+ 37 | # HTTP Retry Configuration
+ 38 | @{RETRY_STATUS_CODES}    502    503    504
+    |                                           ^^ SPC01
+ 39 | ...    pages=integer
+ 40 | ...    category=string
+    |
+
+/tests/resources/api_keywords.resource:45:34 SPC01 Trailing whitespace at the end of line
+    |
+ 43 | # HTTP Status Codes
+ 44 | ${STATUS_OK}                  200
+ 45 | ${STATUS_CREATED}             201
+    |                                  ^^ SPC01
+ 46 | ${STATUS_NO_CONTENT}          204
+ 47 | ${STATUS_BAD_REQUEST}         400
+    |
+
+/tests/resources/api_keywords.resource:53:1 VAR01 Empty variable value
+    |
+ 51 |
+ 52 | # Test Data Storage
+ 53 | @{CREATED_BOOK_IDS}
+    | ^^^^^^^^^^^^^^^^^^^ VAR01
+    |
+
+/tests/resources/api_keywords.resource:63:1 SPC01 Trailing whitespace at the end of line
+    |
+ 61 | Setup API Test Environment
+ 62 |     [Documentation]    Initializes API testing environment with session and auth
+ 63 |
+    | ^^^^ SPC01
+ 64 |     # Define variables before using them
+ 65 |     VAR    &{session_headers}    Content-Type=${CONTENT_TYPE_JSON}    Accept=${CONTENT_TYPE_JSON}
+    |
+
+/tests/resources/api_keywords.resource:67:1 SPC01 Trailing whitespace at the end of line
+    |
+ 65 |     VAR    &{session_headers}    Content-Type=${CONTENT_TYPE_JSON}    Accept=${CONTENT_TYPE_JSON}
+ 66 |     VAR    @{retry_codes}    502    503    504
+ 67 |
+    | ^^^^ SPC01
+ 68 |     Create Session    ${API_SESSION_ALIAS}    ${API_BASE_URL}
+ 69 |     ...    headers=&{session_headers}
+    |
+
+/tests/resources/api_keywords.resource:72:1 SPC01 Trailing whitespace at the end of line
+    |
+ 70 |     ...    timeout=${30}
+ 71 |     ...    retry_status_list=@{retry_codes}
+ 72 |
+    | ^^^^ SPC01
+ 73 |     Log    API test environment initialized with session: ${API_SESSION_ALIAS}
+    |
+
+/tests/resources/api_keywords.resource:91:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 89 |     [Documentation]    Performs GET request to retrieve all books
+ 90 |     ${response}=    GET On Session    ${API_SESSION_ALIAS}    ${BOOKS_ENDPOINT}
+ 91 |     Set Test Variable    ${API_RESPONSE}    ${response}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 92 |     Log    GET ${BOOKS_ENDPOINT} - Status: ${response.status_code}
+ 93 |     RETURN    ${response}
+    |
+
+/tests/resources/api_keywords.resource:91:5 VAR06 Variable defined with test/task scope
+    |
+ 89 |     [Documentation]    Performs GET request to retrieve all books
+ 90 |     ${response}=    GET On Session    ${API_SESSION_ALIAS}    ${BOOKS_ENDPOINT}
+ 91 |     Set Test Variable    ${API_RESPONSE}    ${response}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+ 92 |     Log    GET ${BOOKS_ENDPOINT} - Status: ${response.status_code}
+ 93 |     RETURN    ${response}
+    |
+
+/tests/resources/api_keywords.resource:95:27 SPC01 Trailing whitespace at the end of line
+    |
+ 95 | Client Requests Book By ID
+    |                           ^^ SPC01
+ 96 |     [Documentation]    Performs GET request for specific book by ID
+ 97 |     [Arguments]    ${book_id}
+    |
+
+/tests/resources/api_keywords.resource:100:5 DEPR05 Set Test Variable used instead of VAR
+     |
+  98 |     ${response}=    GET On Session    ${API_SESSION_ALIAS}    ${BOOKS_ENDPOINT}${book_id}
+  99 |     ...    expected_status=anything
+ 100 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 101 |     Log    GET ${BOOKS_ENDPOINT}${book_id} - Status: ${response.status_code}
+ 102 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:100:5 VAR06 Variable defined with test/task scope
+     |
+  98 |     ${response}=    GET On Session    ${API_SESSION_ALIAS}    ${BOOKS_ENDPOINT}${book_id}
+  99 |     ...    expected_status=anything
+ 100 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 101 |     Log    GET ${BOOKS_ENDPOINT}${book_id} - Status: ${response.status_code}
+ 102 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:110:1 SPC01 Trailing whitespace at the end of line
+     |
+ 108 |     ...    json=${book_data}
+ 109 |     ...    expected_status=anything
+ 110 |
+     | ^^^^ SPC01
+ 111 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |
+
+/tests/resources/api_keywords.resource:111:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 111 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/resources/api_keywords.resource:111:5 VAR06 Variable defined with test/task scope
+     |
+ 111 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/resources/api_keywords.resource:111:56 SPC01 Trailing whitespace at the end of line
+     |
+ 111 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |                                                        ^ SPC01
+     |
+
+/tests/resources/api_keywords.resource:112:1 SPC01 Trailing whitespace at the end of line
+     |
+ 110 |
+ 111 |     Set Test Variable    ${API_RESPONSE}    ${response}
+ 112 |
+     | ^^^^ SPC01
+ 113 |     # Track created book for cleanup
+ 114 |     IF    ${response.status_code} == ${STATUS_OK} or ${response.status_code} == ${STATUS_CREATED}
+     |
+
+/tests/resources/api_keywords.resource:117:9 DEPR05 Set Test Variable used instead of VAR
+     |
+ 115 |         VAR    ${book_id}    ${response.json()}[id]
+ 116 |         Append To List    ${CREATED_BOOK_IDS}    ${book_id}
+ 117 |         Set Test Variable    ${LAST_CREATED_BOOK_ID}    ${book_id}
+     |         ^^^^^^^^^^^^^^^^^ DEPR05
+ 118 |         Log    Created book with ID: ${book_id}
+ 119 |     END
+     |
+
+/tests/resources/api_keywords.resource:117:9 VAR06 Variable defined with test/task scope
+     |
+ 115 |         VAR    ${book_id}    ${response.json()}[id]
+ 116 |         Append To List    ${CREATED_BOOK_IDS}    ${book_id}
+ 117 |         Set Test Variable    ${LAST_CREATED_BOOK_ID}    ${book_id}
+     |         ^^^^^^^^^^^^^^^^^ VAR06
+ 118 |         Log    Created book with ID: ${book_id}
+ 119 |     END
+     |
+
+/tests/resources/api_keywords.resource:120:1 SPC01 Trailing whitespace at the end of line
+     |
+ 118 |         Log    Created book with ID: ${book_id}
+ 119 |     END
+ 120 |
+     | ^^^^ SPC01
+ 121 |     Log    POST ${BOOKS_ENDPOINT} - Status: ${response.status_code}
+ 122 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:130:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 128 |     ...    json=${updated_data}
+ 129 |     ...    expected_status=anything
+ 130 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 131 |     Log    PUT ${BOOKS_ENDPOINT}${book_id} - Status: ${response.status_code}
+ 132 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:130:5 VAR06 Variable defined with test/task scope
+     |
+ 128 |     ...    json=${updated_data}
+ 129 |     ...    expected_status=anything
+ 130 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 131 |     Log    PUT ${BOOKS_ENDPOINT}${book_id} - Status: ${response.status_code}
+ 132 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:139:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 137 |     ${response}=    DELETE On Session    ${API_SESSION_ALIAS}    ${BOOKS_ENDPOINT}${book_id}
+ 138 |     ...    expected_status=anything
+ 139 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/resources/api_keywords.resource:139:5 VAR06 Variable defined with test/task scope
+     |
+ 137 |     ${response}=    DELETE On Session    ${API_SESSION_ALIAS}    ${BOOKS_ENDPOINT}${book_id}
+ 138 |     ...    expected_status=anything
+ 139 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/resources/api_keywords.resource:140:1 SPC01 Trailing whitespace at the end of line
+     |
+ 138 |     ...    expected_status=anything
+ 139 |     Set Test Variable    ${API_RESPONSE}    ${response}
+ 140 |
+     | ^^^^ SPC01
+ 141 |     # Remove from tracking list if deletion successful
+ 142 |     IF    ${response.status_code} == ${STATUS_NO_CONTENT} or ${response.status_code} == ${STATUS_OK}
+     |
+
+/tests/resources/api_keywords.resource:149:1 SPC01 Trailing whitespace at the end of line
+     |
+ 147 |         END
+ 148 |     END
+ 149 |
+     | ^^^^ SPC01
+ 150 |     Log    DELETE ${BOOKS_ENDPOINT}${book_id} - Status: ${response.status_code}
+ 151 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:159:1 SPC01 Trailing whitespace at the end of line
+     |
+ 157 |     ${current_response}=    GET On Session    ${API_SESSION_ALIAS}    ${BOOKS_ENDPOINT}${book_id}
+ 158 |     VAR    ${current_favorite}    ${current_response.json()}[favorite]
+ 159 |
+     | ^^^^ SPC01
+ 160 |     IF    ${current_favorite} == ${True}
+ 161 |         VAR    &{favorite_data}    favorite=${False}
+     |
+
+/tests/resources/api_keywords.resource:160:11 MISC13 'IF' condition can be simplified
+     |
+ 160 |     IF    ${current_favorite} == ${True}
+     |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ MISC13
+ 161 |         VAR    &{favorite_data}    favorite=${False}
+ 162 |     ELSE
+     |
+
+/tests/resources/api_keywords.resource:165:1 SPC01 Trailing whitespace at the end of line
+     |
+ 163 |         VAR    &{favorite_data}    favorite=${True}
+ 164 |     END
+ 165 |
+     | ^^^^ SPC01
+ 166 |     ${response}=    PATCH On Session    ${API_SESSION_ALIAS}    ${BOOKS_ENDPOINT}${book_id}/favorite
+ 167 |     ...    json=${favorite_data}    expected_status=anything
+     |
+
+/tests/resources/api_keywords.resource:168:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 166 |     ${response}=    PATCH On Session    ${API_SESSION_ALIAS}    ${BOOKS_ENDPOINT}${book_id}/favorite
+ 167 |     ...    json=${favorite_data}    expected_status=anything
+ 168 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 169 |     Log    PATCH ${BOOKS_ENDPOINT}${book_id}/favorite - Status: ${response.status_code}
+ 170 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:168:5 VAR06 Variable defined with test/task scope
+     |
+ 166 |     ${response}=    PATCH On Session    ${API_SESSION_ALIAS}    ${BOOKS_ENDPOINT}${book_id}/favorite
+ 167 |     ...    json=${favorite_data}    expected_status=anything
+ 168 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 169 |     Log    PATCH ${BOOKS_ENDPOINT}${book_id}/favorite - Status: ${response.status_code}
+ 170 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:181:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 179 |     ${response}=    GET On Session    ${API_SESSION_ALIAS}    ${BOOKS_ENDPOINT}${invalid_id}
+ 180 |     ...    expected_status=anything
+ 181 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 182 |     Log    GET ${BOOKS_ENDPOINT}${invalid_id} - Status: ${response.status_code}
+ 183 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:181:5 VAR06 Variable defined with test/task scope
+     |
+ 179 |     ${response}=    GET On Session    ${API_SESSION_ALIAS}    ${BOOKS_ENDPOINT}${invalid_id}
+ 180 |     ...    expected_status=anything
+ 181 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 182 |     Log    GET ${BOOKS_ENDPOINT}${invalid_id} - Status: ${response.status_code}
+ 183 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:192:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 190 |     ...    json=${dummy_data}
+ 191 |     ...    expected_status=anything
+ 192 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 193 |     Log    PUT ${BOOKS_ENDPOINT}${invalid_id} - Status: ${response.status_code}
+ 194 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:192:5 VAR06 Variable defined with test/task scope
+     |
+ 190 |     ...    json=${dummy_data}
+ 191 |     ...    expected_status=anything
+ 192 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 193 |     Log    PUT ${BOOKS_ENDPOINT}${invalid_id} - Status: ${response.status_code}
+ 194 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:201:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 199 |     ${response}=    DELETE On Session    ${API_SESSION_ALIAS}    ${BOOKS_ENDPOINT}${invalid_id}
+ 200 |     ...    expected_status=anything
+ 201 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 202 |     Log    DELETE ${BOOKS_ENDPOINT}${invalid_id} - Status: ${response.status_code}
+ 203 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:201:5 VAR06 Variable defined with test/task scope
+     |
+ 199 |     ${response}=    DELETE On Session    ${API_SESSION_ALIAS}    ${BOOKS_ENDPOINT}${invalid_id}
+ 200 |     ...    expected_status=anything
+ 201 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 202 |     Log    DELETE ${BOOKS_ENDPOINT}${invalid_id} - Status: ${response.status_code}
+ 203 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:207:1 SPC01 Trailing whitespace at the end of line
+     |
+ 205 | Client Sends Malformed JSON To Create Book
+ 206 |     [Documentation]    Sends malformed JSON payload for error testing
+ 207 |
+     | ^^^^ SPC01
+ 208 |     # Create invalid JSON string and headers
+ 209 |     VAR    ${malformed_json}    {"title": "Test", "author": "Test", "pages":}
+     |
+
+/tests/resources/api_keywords.resource:211:1 SPC01 Trailing whitespace at the end of line
+     |
+ 209 |     VAR    ${malformed_json}    {"title": "Test", "author": "Test", "pages":}
+ 210 |     VAR    &{JSON_HEADER}    Content-Type=${CONTENT_TYPE_JSON}
+ 211 |
+     | ^^^^ SPC01
+ 212 |     ${response}=    POST On Session    ${API_SESSION_ALIAS}    ${BOOKS_ENDPOINT}
+ 213 |     ...    data=${malformed_json}
+     |
+
+/tests/resources/api_keywords.resource:216:1 SPC01 Trailing whitespace at the end of line
+     |
+ 214 |     ...    headers=&{JSON_HEADER}
+ 215 |     ...    expected_status=anything
+ 216 |
+     | ^^^^ SPC01
+ 217 |     Set Test Variable    ${API_RESPONSE}    ${response}
+ 218 |     Log    POST with malformed JSON - Status: ${response.status_code}
+     |
+
+/tests/resources/api_keywords.resource:217:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 217 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 218 |     Log    POST with malformed JSON - Status: ${response.status_code}
+ 219 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:217:5 VAR06 Variable defined with test/task scope
+     |
+ 217 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 218 |     Log    POST with malformed JSON - Status: ${response.status_code}
+ 219 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:226:1 SPC01 Trailing whitespace at the end of line
+     |
+ 224 |     VAR    ${data}    title=Test&author=Test&pages=100
+ 225 |     VAR    &{INVALID_HEADER}    Content-Type=${content_type}
+ 226 |
+     | ^^^^ SPC01
+ 227 |     ${response}=    POST On Session    ${API_SESSION_ALIAS}    ${BOOKS_ENDPOINT}
+ 228 |     ...    data=${data}
+     |
+
+/tests/resources/api_keywords.resource:231:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 229 |     ...    headers=&{INVALID_HEADER}
+ 230 |     ...    expected_status=anything
+ 231 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 232 |     Log    POST with content type ${content_type} - Status: ${response.status_code}
+ 233 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:231:5 VAR06 Variable defined with test/task scope
+     |
+ 229 |     ...    headers=&{INVALID_HEADER}
+ 230 |     ...    expected_status=anything
+ 231 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 232 |     Log    POST with content type ${content_type} - Status: ${response.status_code}
+ 233 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:239:1 LEN03 Keyword 'Books Collection Has Sample Data' has too many keywords inside (12/10)
+     |
+ 239 | Books Collection Has Sample Data
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN03
+ 240 |     [Documentation]    Ensures API has expected sample books for testing
+ 241 |     ${response}=    Client Requests All Books From API
+     |
+
+/tests/resources/api_keywords.resource:244:26 DEPR06 Create List used instead of VAR
+     |
+ 242 |     VAR    ${existing_books}    ${response.json()}
+ 243 |     VAR    @{expected_titles}    To Kill a Mockingbird    1984    The Great Gatsby
+ 244 |     ${missing_books}=    Create List
+     |                          ^^^^^^^^^^^ DEPR06
+     |
+
+/tests/resources/api_keywords.resource:245:1 SPC01 Trailing whitespace at the end of line
+     |
+ 243 |     VAR    @{expected_titles}    To Kill a Mockingbird    1984    The Great Gatsby
+ 244 |     ${missing_books}=    Create List
+ 245 |
+     | ^^^^ SPC01
+ 246 |     # Check which expected books are missing
+ 247 |     FOR    ${expected_title}    IN    @{expected_titles}
+     |
+
+/tests/resources/api_keywords.resource:259:1 SPC01 Trailing whitespace at the end of line
+     |
+ 257 |         END
+ 258 |     END
+ 259 |
+     | ^^^^ SPC01
+ 260 |     # Create missing expected books
+ 261 |     ${missing_count}=    Get Length    ${missing_books}
+     |
+
+/tests/resources/api_keywords.resource:272:29 SPC01 Trailing whitespace at the end of line
+     |
+ 270 |     [Documentation]    Creates specific missing sample books
+ 271 |     [Arguments]    @{missing_titles}
+ 272 |     VAR    &{book_templates}
+     |                             ^^^^ SPC01
+ 273 |     ...    To Kill a Mockingbird=${{ {"title": "To Kill a Mockingbird", "author": "Harper Lee", "pages": 281, "category": "Fiction"} }}
+ 274 |     ...    1984=${{ {"title": "1984", "author": "George Orwell", "pages": 328, "category": "Science Fiction"} }}
+     |
+
+/tests/resources/api_keywords.resource:273:120 LEN08 Line is too long (135/120)
+     |
+ 271 |     [Arguments]    @{missing_titles}
+ 272 |     VAR    &{book_templates}
+ 273 |     ...    To Kill a Mockingbird=${{ {"title": "To Kill a Mockingbird", "author": "Harper Lee", "pages": 281, "category": "Fiction"} }}
+     |                                                                                                                        ^^^^^^^^^^^^^^^^ LEN08
+ 274 |     ...    1984=${{ {"title": "1984", "author": "George Orwell", "pages": 328, "category": "Science Fiction"} }}
+ 275 |     ...    The Great Gatsby=${{ {"title": "The Great Gatsby", "author": "F. Scott Fitzgerald", "pages": 180, "category": "Fiction"} }}
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/resources/api_keywords.resource:275:120 LEN08 Line is too long (134/120)
+     |
+ 273 |     ...    To Kill a Mockingbird=${{ {"title": "To Kill a Mockingbird", "author": "Harper Lee", "pages": 281, "category": "Fiction"} }}
+ 274 |     ...    1984=${{ {"title": "1984", "author": "George Orwell", "pages": 328, "category": "Science Fiction"} }}
+ 275 |     ...    The Great Gatsby=${{ {"title": "The Great Gatsby", "author": "F. Scott Fitzgerald", "pages": 180, "category": "Fiction"} }}
+     |                                                                                                                        ^^^^^^^^^^^^^^^ LEN08
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/resources/api_keywords.resource:276:1 SPC01 Trailing whitespace at the end of line
+     |
+ 274 |     ...    1984=${{ {"title": "1984", "author": "George Orwell", "pages": 328, "category": "Science Fiction"} }}
+ 275 |     ...    The Great Gatsby=${{ {"title": "The Great Gatsby", "author": "F. Scott Fitzgerald", "pages": 180, "category": "Fiction"} }}
+ 276 |
+     | ^^^^ SPC01
+ 277 |     FOR    ${title}    IN    @{missing_titles}
+ 278 |         VAR    ${book_data}    ${book_templates}[${title}]
+     |
+
+/tests/resources/api_keywords.resource:286:27 SPC01 Trailing whitespace at the end of line
+     |
+ 284 | Create Sample Book Data For Testing
+ 285 |     [Documentation]    Creates minimal sample books needed for testing
+ 286 |     VAR    @{sample_books}
+     |                           ^^^^ SPC01
+ 287 |     ...    ${{ {"title": "To Kill a Mockingbird", "author": "Harper Lee", "pages": 281, "category": "Fiction"} }}
+ 288 |     ...    ${{ {"title": "1984", "author": "George Orwell", "pages": 328, "category": "Science Fiction"} }}
+     |
+
+/tests/resources/api_keywords.resource:288:108 SPC01 Trailing whitespace at the end of line
+     |
+ 286 |     VAR    @{sample_books}
+ 287 |     ...    ${{ {"title": "To Kill a Mockingbird", "author": "Harper Lee", "pages": 281, "category": "Fiction"} }}
+ 288 |     ...    ${{ {"title": "1984", "author": "George Orwell", "pages": 328, "category": "Science Fiction"} }}
+     |                                                                                                            ^^ SPC01
+ 289 |     ...    ${{ {"title": "The Great Gatsby", "author": "F. Scott Fitzgerald", "pages": 180, "category": "Fiction"} }}
+     |
+
+/tests/resources/api_keywords.resource:290:1 SPC01 Trailing whitespace at the end of line
+     |
+ 288 |     ...    ${{ {"title": "1984", "author": "George Orwell", "pages": 328, "category": "Science Fiction"} }}
+ 289 |     ...    ${{ {"title": "The Great Gatsby", "author": "F. Scott Fitzgerald", "pages": 180, "category": "Fiction"} }}
+ 290 |
+     | ^^^^ SPC01
+ 291 |     FOR    ${book_data}    IN    @{sample_books}
+ 292 |         ${response}=    Client Creates Book Via API    ${book_data}
+     |
+
+/tests/resources/api_keywords.resource:295:1 SPC01 Trailing whitespace at the end of line
+     |
+ 293 |         Should Be Equal As Integers    ${response.status_code}    200
+ 294 |     END
+ 295 |
+     | ^^^^ SPC01
+ 296 |     Log    Created ${len($sample_books)} sample books for testing
+     |
+
+/tests/resources/api_keywords.resource:307:1 SPC01 Trailing whitespace at the end of line
+     |
+ 305 |     ...    pages=${pages_int}
+ 306 |     ...    category=${category}
+ 307 |
+     | ^^^^ SPC01
+ 308 |     Set Test Variable    ${NEW_BOOK_DATA}    ${valid_book_data}
+ 309 |     Log    Prepared valid book data: ${title} by ${author}
+     |
+
+/tests/resources/api_keywords.resource:308:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 308 |     Set Test Variable    ${NEW_BOOK_DATA}    ${valid_book_data}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 309 |     Log    Prepared valid book data: ${title} by ${author}
+     |
+
+/tests/resources/api_keywords.resource:308:5 VAR06 Variable defined with test/task scope
+     |
+ 308 |     Set Test Variable    ${NEW_BOOK_DATA}    ${valid_book_data}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 309 |     Log    Prepared valid book data: ${title} by ${author}
+     |
+
+/tests/resources/api_keywords.resource:311:24 SPC01 Trailing whitespace at the end of line
+     |
+ 311 | Book Exists In Database
+     |                        ^ SPC01
+ 312 |     [Documentation]    Creates a book in database and stores its ID for testing
+ 313 |     [Arguments]    ${book_data}
+     |
+
+/tests/resources/api_keywords.resource:316:1 SPC01 Trailing whitespace at the end of line
+     |
+ 314 |     ${response}=    Client Creates Book Via API    ${book_data}
+ 315 |     Should Be Equal As Integers    ${response.status_code}    200
+ 316 |
+     | ^^^^ SPC01
+ 317 |     VAR    ${book_id}    ${response.json()}[id]
+ 318 |     Set Test Variable    ${EXISTING_BOOK_ID}    ${book_id}
+     |
+
+/tests/resources/api_keywords.resource:318:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 316 |
+ 317 |     VAR    ${book_id}    ${response.json()}[id]
+ 318 |     Set Test Variable    ${EXISTING_BOOK_ID}    ${book_id}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 319 |     Set Test Variable    ${EXISTING_BOOK_DATA}    ${book_data}
+ 320 |     Log    Created test book with ID: ${book_id}
+     |
+
+/tests/resources/api_keywords.resource:318:5 VAR06 Variable defined with test/task scope
+     |
+ 316 |
+ 317 |     VAR    ${book_id}    ${response.json()}[id]
+ 318 |     Set Test Variable    ${EXISTING_BOOK_ID}    ${book_id}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 319 |     Set Test Variable    ${EXISTING_BOOK_DATA}    ${book_data}
+ 320 |     Log    Created test book with ID: ${book_id}
+     |
+
+/tests/resources/api_keywords.resource:319:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 317 |     VAR    ${book_id}    ${response.json()}[id]
+ 318 |     Set Test Variable    ${EXISTING_BOOK_ID}    ${book_id}
+ 319 |     Set Test Variable    ${EXISTING_BOOK_DATA}    ${book_data}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 320 |     Log    Created test book with ID: ${book_id}
+ 321 |     RETURN    ${book_id}
+     |
+
+/tests/resources/api_keywords.resource:319:5 VAR06 Variable defined with test/task scope
+     |
+ 317 |     VAR    ${book_id}    ${response.json()}[id]
+ 318 |     Set Test Variable    ${EXISTING_BOOK_ID}    ${book_id}
+ 319 |     Set Test Variable    ${EXISTING_BOOK_DATA}    ${book_data}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 320 |     Log    Created test book with ID: ${book_id}
+ 321 |     RETURN    ${book_id}
+     |
+
+/tests/resources/api_keywords.resource:332:1 SPC01 Trailing whitespace at the end of line
+     |
+ 330 |     ...    pages=${pages_int}
+ 331 |     ...    category=${category}
+ 332 |
+     | ^^^^ SPC01
+ 333 |     Set Test Variable    ${UPDATED_BOOK_DATA}    ${updated_data}
+ 334 |     Log    Prepared updated book data: ${title} by ${author}
+     |
+
+/tests/resources/api_keywords.resource:333:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 333 |     Set Test Variable    ${UPDATED_BOOK_DATA}    ${updated_data}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 334 |     Log    Prepared updated book data: ${title} by ${author}
+     |
+
+/tests/resources/api_keywords.resource:333:5 VAR06 Variable defined with test/task scope
+     |
+ 333 |     Set Test Variable    ${UPDATED_BOOK_DATA}    ${updated_data}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 334 |     Log    Prepared updated book data: ${title} by ${author}
+     |
+
+/tests/resources/api_keywords.resource:340:1 SPC01 Trailing whitespace at the end of line
+     |
+ 338 |     [Arguments]    ${book_data}    ${favorite_status}
+ 339 |     VAR    &{book_with_favorite}    &{book_data}    favorite=${favorite_status}
+ 340 |
+     | ^^^^ SPC01
+ 341 |     ${response}=    Client Creates Book Via API    ${book_with_favorite}
+ 342 |     Should Be Equal As Integers    ${response.status_code}    200
+     |
+
+/tests/resources/api_keywords.resource:343:1 SPC01 Trailing whitespace at the end of line
+     |
+ 341 |     ${response}=    Client Creates Book Via API    ${book_with_favorite}
+ 342 |     Should Be Equal As Integers    ${response.status_code}    200
+ 343 |
+     | ^^^^ SPC01
+ 344 |     VAR    ${book_id}    ${response.json()}[id]
+ 345 |     Set Test Variable    ${EXISTING_BOOK_ID}    ${book_id}
+     |
+
+/tests/resources/api_keywords.resource:345:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 343 |
+ 344 |     VAR    ${book_id}    ${response.json()}[id]
+ 345 |     Set Test Variable    ${EXISTING_BOOK_ID}    ${book_id}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 346 |     Set Test Variable    ${EXISTING_BOOK_DATA}    ${book_with_favorite}
+ 347 |     Log    Created test book with ID: ${book_id}, favorite: ${favorite_status}
+     |
+
+/tests/resources/api_keywords.resource:345:5 VAR06 Variable defined with test/task scope
+     |
+ 343 |
+ 344 |     VAR    ${book_id}    ${response.json()}[id]
+ 345 |     Set Test Variable    ${EXISTING_BOOK_ID}    ${book_id}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 346 |     Set Test Variable    ${EXISTING_BOOK_DATA}    ${book_with_favorite}
+ 347 |     Log    Created test book with ID: ${book_id}, favorite: ${favorite_status}
+     |
+
+/tests/resources/api_keywords.resource:346:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 344 |     VAR    ${book_id}    ${response.json()}[id]
+ 345 |     Set Test Variable    ${EXISTING_BOOK_ID}    ${book_id}
+ 346 |     Set Test Variable    ${EXISTING_BOOK_DATA}    ${book_with_favorite}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 347 |     Log    Created test book with ID: ${book_id}, favorite: ${favorite_status}
+ 348 |     RETURN    ${book_id}
+     |
+
+/tests/resources/api_keywords.resource:346:5 VAR06 Variable defined with test/task scope
+     |
+ 344 |     VAR    ${book_id}    ${response.json()}[id]
+ 345 |     Set Test Variable    ${EXISTING_BOOK_ID}    ${book_id}
+ 346 |     Set Test Variable    ${EXISTING_BOOK_DATA}    ${book_with_favorite}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 347 |     Log    Created test book with ID: ${book_id}, favorite: ${favorite_status}
+ 348 |     RETURN    ${book_id}
+     |
+
+/tests/resources/api_keywords.resource:351:30 SPC01 Trailing whitespace at the end of line
+     |
+ 349 |
+ 350 | # =============================================================================
+ 351 | # Validation Data Preparation
+     |                              ^ SPC01
+ 352 | # =============================================================================
+     |
+
+/tests/resources/api_keywords.resource:362:1 SPC01 Trailing whitespace at the end of line
+     |
+ 360 |     ...    pages=${pages}
+ 361 |     ...    category=${category}
+ 362 |
+     | ^^^^ SPC01
+ 363 |     ${response}=    POST On Session    ${API_SESSION_ALIAS}    ${BOOKS_ENDPOINT}
+ 364 |     ...    json=${invalid_data}
+     |
+
+/tests/resources/api_keywords.resource:366:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 364 |     ...    json=${invalid_data}
+ 365 |     ...    expected_status=anything
+ 366 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 367 |     Log    POST with invalid data - Status: ${response.status_code}
+ 368 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:366:5 VAR06 Variable defined with test/task scope
+     |
+ 364 |     ...    json=${invalid_data}
+ 365 |     ...    expected_status=anything
+ 366 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 367 |     Log    POST with invalid data - Status: ${response.status_code}
+ 368 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:372:30 SPC01 Trailing whitespace at the end of line
+     |
+ 370 | Client Creates Book Missing Title Field
+ 371 |     [Documentation]    Attempts to create book without required title field
+ 372 |     VAR    &{incomplete_data}
+     |                              ^^^^ SPC01
+ 373 |     ...    author=Valid Author
+ 374 |     ...    pages=${200}
+     |
+
+/tests/resources/api_keywords.resource:376:1 SPC01 Trailing whitespace at the end of line
+     |
+ 374 |     ...    pages=${200}
+ 375 |     ...    category=Fiction
+ 376 |
+     | ^^^^ SPC01
+ 377 |     ${response}=    POST On Session    ${API_SESSION_ALIAS}    ${BOOKS_ENDPOINT}
+ 378 |     ...    json=${incomplete_data}
+     |
+
+/tests/resources/api_keywords.resource:380:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 378 |     ...    json=${incomplete_data}
+ 379 |     ...    expected_status=anything
+ 380 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 381 |     Log    POST without title field - Status: ${response.status_code}
+ 382 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:380:5 VAR06 Variable defined with test/task scope
+     |
+ 378 |     ...    json=${incomplete_data}
+ 379 |     ...    expected_status=anything
+ 380 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 381 |     Log    POST without title field - Status: ${response.status_code}
+ 382 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:390:1 SPC01 Trailing whitespace at the end of line
+     |
+ 388 |     ...    pages=${200}
+ 389 |     ...    category=Fiction
+ 390 |
+     | ^^^^ SPC01
+ 391 |     ${response}=    POST On Session    ${API_SESSION_ALIAS}    ${BOOKS_ENDPOINT}
+ 392 |     ...    json=${incomplete_data}
+     |
+
+/tests/resources/api_keywords.resource:394:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 392 |     ...    json=${incomplete_data}
+ 393 |     ...    expected_status=anything
+ 394 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 395 |     Log    POST without author field - Status: ${response.status_code}
+ 396 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:394:5 VAR06 Variable defined with test/task scope
+     |
+ 392 |     ...    json=${incomplete_data}
+ 393 |     ...    expected_status=anything
+ 394 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 395 |     Log    POST without author field - Status: ${response.status_code}
+ 396 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:404:1 SPC01 Trailing whitespace at the end of line
+     |
+ 402 |     ...    author=Valid Author
+ 403 |     ...    category=Fiction
+ 404 |
+     | ^^^^ SPC01
+ 405 |     ${response}=    POST On Session    ${API_SESSION_ALIAS}    ${BOOKS_ENDPOINT}
+ 406 |     ...    json=${incomplete_data}
+     |
+
+/tests/resources/api_keywords.resource:407:36 SPC01 Trailing whitespace at the end of line
+     |
+ 405 |     ${response}=    POST On Session    ${API_SESSION_ALIAS}    ${BOOKS_ENDPOINT}
+ 406 |     ...    json=${incomplete_data}
+ 407 |     ...    expected_status=anything
+     |                                    ^^ SPC01
+ 408 |     Set Test Variable    ${API_RESPONSE}    ${response}
+ 409 |     Log    POST without pages field - Status: ${response.status_code}
+     |
+
+/tests/resources/api_keywords.resource:408:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 406 |     ...    json=${incomplete_data}
+ 407 |     ...    expected_status=anything
+ 408 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 409 |     Log    POST without pages field - Status: ${response.status_code}
+ 410 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:408:5 VAR06 Variable defined with test/task scope
+     |
+ 406 |     ...    json=${incomplete_data}
+ 407 |     ...    expected_status=anything
+ 408 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 409 |     Log    POST without pages field - Status: ${response.status_code}
+ 410 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:421:1 SPC01 Trailing whitespace at the end of line
+     |
+ 419 |     ...    pages=${min_pages_int}
+ 420 |     ...    category=Fiction
+ 421 |
+     | ^^^^ SPC01
+ 422 |     ${response}=    POST On Session    ${API_SESSION_ALIAS}    ${BOOKS_ENDPOINT}
+ 423 |     ...    json=${boundary_data}
+     |
+
+/tests/resources/api_keywords.resource:425:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 423 |     ...    json=${boundary_data}
+ 424 |     ...    expected_status=anything
+ 425 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/resources/api_keywords.resource:425:5 VAR06 Variable defined with test/task scope
+     |
+ 423 |     ...    json=${boundary_data}
+ 424 |     ...    expected_status=anything
+ 425 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/resources/api_keywords.resource:426:1 SPC01 Trailing whitespace at the end of line
+     |
+ 424 |     ...    expected_status=anything
+ 425 |     Set Test Variable    ${API_RESPONSE}    ${response}
+ 426 |
+     | ^^^^ SPC01
+ 427 |     IF    ${response.status_code} == ${STATUS_OK}
+ 428 |         VAR    ${book_id}    ${response.json()}[id]
+     |
+
+/tests/resources/api_keywords.resource:431:1 SPC01 Trailing whitespace at the end of line
+     |
+ 429 |         Append To List    ${CREATED_BOOK_IDS}    ${book_id}
+ 430 |     END
+ 431 |
+     | ^^^^ SPC01
+ 432 |     Log    POST with minimum pages (${min_pages}) - Status: ${response.status_code}
+ 433 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:443:1 SPC01 Trailing whitespace at the end of line
+     |
+ 441 |     ...    pages=${200}
+ 442 |     ...    category=Fiction
+ 443 |
+     | ^^^^ SPC01
+ 444 |     ${response}=    POST On Session    ${API_SESSION_ALIAS}    ${BOOKS_ENDPOINT}
+ 445 |     ...    json=${boundary_data}
+     |
+
+/tests/resources/api_keywords.resource:447:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 445 |     ...    json=${boundary_data}
+ 446 |     ...    expected_status=anything
+ 447 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/resources/api_keywords.resource:447:5 VAR06 Variable defined with test/task scope
+     |
+ 445 |     ...    json=${boundary_data}
+ 446 |     ...    expected_status=anything
+ 447 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/resources/api_keywords.resource:448:1 SPC01 Trailing whitespace at the end of line
+     |
+ 446 |     ...    expected_status=anything
+ 447 |     Set Test Variable    ${API_RESPONSE}    ${response}
+ 448 |
+     | ^^^^ SPC01
+ 449 |     IF    ${response.status_code} == ${STATUS_OK}
+ 450 |         VAR    ${book_id}    ${response.json()}[id]
+     |
+
+/tests/resources/api_keywords.resource:453:1 SPC01 Trailing whitespace at the end of line
+     |
+ 451 |         Append To List    ${CREATED_BOOK_IDS}    ${book_id}
+ 452 |     END
+ 453 |
+     | ^^^^ SPC01
+ 454 |     Log    POST with maximum title length - Status: ${response.status_code}
+ 455 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:465:1 SPC01 Trailing whitespace at the end of line
+     |
+ 463 |     ...    pages=${300}
+ 464 |     ...    category=Fiction
+ 465 |
+     | ^^^^ SPC01
+ 466 |     ${response}=    POST On Session    ${API_SESSION_ALIAS}    ${BOOKS_ENDPOINT}
+ 467 |     ...    json=${unicode_data}
+     |
+
+/tests/resources/api_keywords.resource:469:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 467 |     ...    json=${unicode_data}
+ 468 |     ...    expected_status=anything
+ 469 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/resources/api_keywords.resource:469:5 VAR06 Variable defined with test/task scope
+     |
+ 467 |     ...    json=${unicode_data}
+ 468 |     ...    expected_status=anything
+ 469 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/resources/api_keywords.resource:470:1 SPC01 Trailing whitespace at the end of line
+     |
+ 468 |     ...    expected_status=anything
+ 469 |     Set Test Variable    ${API_RESPONSE}    ${response}
+ 470 |
+     | ^^^^ SPC01
+ 471 |     IF    ${response.status_code} == ${STATUS_OK}
+ 472 |         VAR    ${book_id}    ${response.json()}[id]
+     |
+
+/tests/resources/api_keywords.resource:474:9 DEPR05 Set Test Variable used instead of VAR
+     |
+ 472 |         VAR    ${book_id}    ${response.json()}[id]
+ 473 |         Append To List    ${CREATED_BOOK_IDS}    ${book_id}
+ 474 |         Set Test Variable    ${UNICODE_BOOK_DATA}    ${unicode_data}
+     |         ^^^^^^^^^^^^^^^^^ DEPR05
+ 475 |     END
+     |
+
+/tests/resources/api_keywords.resource:474:9 VAR06 Variable defined with test/task scope
+     |
+ 472 |         VAR    ${book_id}    ${response.json()}[id]
+ 473 |         Append To List    ${CREATED_BOOK_IDS}    ${book_id}
+ 474 |         Set Test Variable    ${UNICODE_BOOK_DATA}    ${unicode_data}
+     |         ^^^^^^^^^^^^^^^^^ VAR06
+ 475 |     END
+     |
+
+/tests/resources/api_keywords.resource:476:1 SPC01 Trailing whitespace at the end of line
+     |
+ 474 |         Set Test Variable    ${UNICODE_BOOK_DATA}    ${unicode_data}
+ 475 |     END
+ 476 |
+     | ^^^^ SPC01
+ 477 |     Log    POST with Unicode characters - Status: ${response.status_code}
+ 478 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:492:54 SPC01 Trailing whitespace at the end of line
+     |
+ 490 | Response Should Contain Book Collection
+ 491 |     [Documentation]    Validates response contains a list of books
+ 492 |     VAR    ${response_data}    ${API_RESPONSE.json()}
+     |                                                      ^^ SPC01
+ 493 |     ${is_list}=    Evaluate    isinstance($response_data, list)
+ 494 |     Should Be True    ${is_list}    Response data should be a list
+     |
+
+/tests/resources/api_keywords.resource:502:1 SPC01 Trailing whitespace at the end of line
+     |
+ 500 |     ${is_list}=    Evaluate    isinstance($books_list, list)
+ 501 |     Should Be True    ${is_list}    Response should be a list of books
+ 502 |
+     | ^^^^ SPC01
+ 503 |     IF    len($books_list) > 0
+ 504 |         VAR    ${first_book}    ${books_list}[0]
+     |
+
+/tests/resources/api_keywords.resource:509:42 SPC01 Trailing whitespace at the end of line
+     |
+ 509 | Response Should Contain Created Book Data
+     |                                          ^^ SPC01
+ 510 |     [Documentation]    Validates response contains data for newly created book
+ 511 |     VAR    ${response_data}    ${API_RESPONSE.json()}
+     |
+
+/tests/resources/api_keywords.resource:515:1 SPC01 Trailing whitespace at the end of line
+     |
+ 513 |     Should Be True    ${is_dict}    Response should be a dictionary
+ 514 |     Validate Book Schema    ${response_data}
+ 515 |
+     | ^^^^ SPC01
+ 516 |     # Verify core fields match input data
+ 517 |     Should Be Equal    ${response_data}[title]     ${NEW_BOOK_DATA}[title]
+     |
+
+/tests/resources/api_keywords.resource:521:1 SPC01 Trailing whitespace at the end of line
+     |
+ 519 |     Should Be Equal As Integers    ${response_data}[pages]     ${NEW_BOOK_DATA}[pages]
+ 520 |     Should Be Equal    ${response_data}[category]  ${NEW_BOOK_DATA}[category]
+ 521 |
+     | ^^^^ SPC01
+ 522 |     Log    Response contains correct created book data
+     |
+
+/tests/resources/api_keywords.resource:555:1 SPC01 Trailing whitespace at the end of line
+     |
+ 553 |     ${is_dict}=    Evaluate    isinstance($response_data, dict)
+ 554 |     Should Be True    ${is_dict}    Response should be a dictionary
+ 555 |
+     | ^^^^ SPC01
+ 556 |     # Verify all expected fields match
+ 557 |     Should Be Equal    ${response_data}[title]     ${expected_data}[title]
+     |
+
+/tests/resources/api_keywords.resource:561:1 SPC01 Trailing whitespace at the end of line
+     |
+ 559 |     Should Be Equal As Integers    ${response_data}[pages]     ${expected_data}[pages]
+ 560 |     Should Be Equal    ${response_data}[category]  ${expected_data}[category]
+ 561 |
+     | ^^^^ SPC01
+ 562 |     Log    Response contains correct book data matching expected values
+     |
+
+/tests/resources/api_keywords.resource:573:76 SPC01 Trailing whitespace at the end of line
+     |
+ 571 |
+ 572 | Response Should Contain Updated Book Data
+ 573 |     [Documentation]    Validates response contains updated book information
+     |                                                                            ^^ SPC01
+ 574 |     VAR    ${response_data}    ${API_RESPONSE.json()}
+ 575 |     ${is_dict}=    Evaluate    isinstance($response_data, dict)
+     |
+
+/tests/resources/api_keywords.resource:577:1 SPC01 Trailing whitespace at the end of line
+     |
+ 575 |     ${is_dict}=    Evaluate    isinstance($response_data, dict)
+ 576 |     Should Be True    ${is_dict}    Response should be a dictionary
+ 577 |
+     | ^^^^ SPC01
+ 578 |     # Verify updated fields
+ 579 |     Should Be Equal    ${response_data}[title]     ${UPDATED_BOOK_DATA}[title]
+     |
+
+/tests/resources/api_keywords.resource:583:1 SPC01 Trailing whitespace at the end of line
+     |
+ 581 |     Should Be Equal As Integers    ${response_data}[pages]     ${UPDATED_BOOK_DATA}[pages]
+ 582 |     Should Be Equal    ${response_data}[category]  ${UPDATED_BOOK_DATA}[category]
+ 583 |
+     | ^^^^ SPC01
+ 584 |     Log    Response contains correct updated book data
+     |
+
+/tests/resources/api_keywords.resource:591:1 SPC01 Trailing whitespace at the end of line
+     |
+ 589 |     ${get_response}=    Client Requests Book By ID    ${book_id}
+ 590 |     Should Be Equal As Integers    ${get_response.status_code}    ${STATUS_OK}
+ 591 |
+     | ^^^^ SPC01
+ 592 |     VAR    ${retrieved_data}    ${get_response.json()}
+ 593 |     Should Be Equal    ${retrieved_data}[title]     ${UPDATED_BOOK_DATA}[title]
+     |
+
+/tests/resources/api_keywords.resource:595:1 SPC01 Trailing whitespace at the end of line
+     |
+ 593 |     Should Be Equal    ${retrieved_data}[title]     ${UPDATED_BOOK_DATA}[title]
+ 594 |     Should Be Equal    ${retrieved_data}[author]    ${UPDATED_BOOK_DATA}[author]
+ 595 |
+     | ^^^^ SPC01
+ 596 |     Log    Updated book data is correctly retrievable via GET
+     |
+
+/tests/resources/api_keywords.resource:603:1 SPC01 Trailing whitespace at the end of line
+     |
+ 601 |     ${get_response}=    Client Requests Book By ID    ${book_id}
+ 602 |     VAR    ${current_data}    ${get_response.json()}
+ 603 |
+     | ^^^^ SPC01
+ 604 |     # Ensure no traces of original data remain
+ 605 |     Should Not Be Equal    ${current_data}[title]    ${EXISTING_BOOK_DATA}[title]
+     |
+
+/tests/resources/api_keywords.resource:607:1 SPC01 Trailing whitespace at the end of line
+     |
+ 605 |     Should Not Be Equal    ${current_data}[title]    ${EXISTING_BOOK_DATA}[title]
+ 606 |     Should Not Be Equal    ${current_data}[author]   ${EXISTING_BOOK_DATA}[author]
+ 607 |
+     | ^^^^ SPC01
+ 608 |     Log    Original book data has been completely replaced
+     |
+
+/tests/resources/api_keywords.resource:621:1 SPC01 Trailing whitespace at the end of line
+     |
+ 619 |     ${collection_response}=    Client Requests All Books From API
+ 620 |     VAR    ${books_list}    ${collection_response.json()}
+ 621 |
+     | ^^^^ SPC01
+ 622 |     FOR    ${book}    IN    @{books_list}
+ 623 |         Should Not Be Equal As Integers    ${book}[id]    ${EXISTING_BOOK_ID}
+     |
+
+/tests/resources/api_keywords.resource:625:1 SPC01 Trailing whitespace at the end of line
+     |
+ 623 |         Should Not Be Equal As Integers    ${book}[id]    ${EXISTING_BOOK_ID}
+ 624 |     END
+ 625 |
+     | ^^^^ SPC01
+ 626 |     Log    Deleted book no longer appears in books collection
+     |
+
+/tests/resources/api_keywords.resource:628:1 LEN03 Keyword 'Book Favorite Status Should Be Updated' has too many keywords inside (13/10)
+     |
+ 628 | Book Favorite Status Should Be Updated
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN03
+ 629 |     [Documentation]    Validates that favorite status was toggled correctly
+ 630 |     [Arguments]    ${expected_status}
+     |
+
+/tests/resources/api_keywords.resource:636:1 SPC01 Trailing whitespace at the end of line
+     |
+ 634 |     ${actual_str}=    Convert To String    ${actual_status}
+ 635 |     Should Be Equal As Strings    ${actual_str.lower()}    ${expected_str.lower()}
+ 636 |
+     | ^^^^ SPC01
+ 637 |     # Verify via GET as well
+ 638 |     VAR    ${book_id}    ${EXISTING_BOOK_ID}
+     |
+
+/tests/resources/api_keywords.resource:645:1 SPC01 Trailing whitespace at the end of line
+     |
+ 643 |     ${expected_str2}=    Convert To String    ${expected_status}
+ 644 |     Should Be Equal As Strings    ${retrieved_str.lower()}    ${expected_str2.lower()}
+ 645 |
+     | ^^^^ SPC01
+ 646 |     Log    Book favorite status updated to: ${expected_status}
+     |
+
+/tests/resources/api_keywords.resource:681:43 SPC01 Trailing whitespace at the end of line
+     |
+ 681 | Error Should Indicate Missing Author Field
+     |                                           ^^ SPC01
+ 682 |     [Documentation]    Validates specific field validation error for author
+ 683 |     VAR    ${response_data}    ${API_RESPONSE.json()}
+     |
+
+/tests/resources/api_keywords.resource:704:1 LEN03 Keyword 'Validate Book Schema' has too many keywords inside (21/10)
+     |
+ 704 | Validate Book Schema
+     | ^^^^^^^^^^^^^^^^^^^^ LEN03
+ 705 |     [Documentation]    Validates that book object has required schema fields
+ 706 |     [Arguments]    ${book_object}
+     |
+
+/tests/resources/api_keywords.resource:709:1 SPC01 Trailing whitespace at the end of line
+     |
+ 707 |     ${is_dict}=    Evaluate    isinstance($book_object, dict)
+ 708 |     Should Be True    ${is_dict}    Book object should be a dictionary
+ 709 |
+     | ^^^^ SPC01
+ 710 |     # Validate required fields exist
+ 711 |     Should Be True    'id' in $book_object        id field should exist
+     |
+
+/tests/resources/api_keywords.resource:714:75 SPC01 Trailing whitespace at the end of line
+     |
+ 712 |     Should Be True    'title' in $book_object     title field should exist
+ 713 |     Should Be True    'author' in $book_object    author field should exist
+ 714 |     Should Be True    'pages' in $book_object     pages field should exist
+     |                                                                           ^^ SPC01
+ 715 |     Should Be True    'category' in $book_object  category field should exist
+ 716 |     Should Be True    'favorite' in $book_object  favorite field should exist
+     |
+
+/tests/resources/api_keywords.resource:717:1 SPC01 Trailing whitespace at the end of line
+     |
+ 715 |     Should Be True    'category' in $book_object  category field should exist
+ 716 |     Should Be True    'favorite' in $book_object  favorite field should exist
+ 717 |
+     | ^^^^ SPC01
+ 718 |     # Validate field types
+ 719 |     ${id_is_int}=      Evaluate    isinstance($book_object['id'], int)
+     |
+
+/tests/resources/api_keywords.resource:731:1 SPC01 Trailing whitespace at the end of line
+     |
+ 729 |     Should Be True    ${category_is_str}  msg=Category should be string
+ 730 |     Should Be True    ${fav_is_bool}      msg=Favorite should be boolean
+ 731 |
+     | ^^^^ SPC01
+ 732 |     Log    Book object schema validation passed
+     |
+
+/tests/resources/api_keywords.resource:744:1 SPC01 Trailing whitespace at the end of line
+     |
+ 742 |     VAR    ${books_list}    ${API_RESPONSE.json()}
+ 743 |     VAR    @{expected_titles}    To Kill a Mockingbird    1984    The Great Gatsby
+ 744 |
+     | ^^^^ SPC01
+ 745 |     FOR    ${expected_title}    IN    @{expected_titles}
+ 746 |         VAR    ${title_found}    ${False}
+     |
+
+/tests/resources/api_keywords.resource:755:1 SPC01 Trailing whitespace at the end of line
+     |
+ 753 |         Should Be True    ${title_found}    Expected book '${expected_title}' not found in collection
+ 754 |     END
+ 755 |
+     | ^^^^ SPC01
+ 756 |     Log    Collection includes all expected sample books
+     |
+
+/tests/resources/api_keywords.resource:772:1 SPC01 Trailing whitespace at the end of line
+     |
+ 770 |     IF    $book_count > 0
+ 771 |         Log    Cleaning up ${book_count} created test books
+ 772 |
+     | ^^^^^^^^ SPC01
+ 773 |         FOR    ${book_id}    IN    @{CREATED_BOOK_IDS}
+ 774 |             TRY
+     |
+
+/tests/resources/api_keywords.resource:786:1 SPC01 Trailing whitespace at the end of line
+     |
+ 784 |             END
+ 785 |         END
+ 786 |
+     | ^^^^^^^^ SPC01
+ 787 |         # Clear the tracking list
+ 788 |         ${CREATED_BOOK_IDS}=    Create List
+     |
+
+/tests/resources/api_keywords.resource:788:9 VAR02 Variable '${CREATED_BOOK_IDS}' is assigned but not used
+     |
+ 786 |
+ 787 |         # Clear the tracking list
+ 788 |         ${CREATED_BOOK_IDS}=    Create List
+     |         ^^^^^^^^^^^^^^^^^^^ VAR02
+ 789 |     ELSE
+ 790 |         Log    No test books to clean up
+     |
+
+/tests/resources/api_keywords.resource:788:33 DEPR06 Create List used instead of VAR
+     |
+ 786 |
+ 787 |         # Clear the tracking list
+ 788 |         ${CREATED_BOOK_IDS}=    Create List
+     |                                 ^^^^^^^^^^^ DEPR06
+ 789 |     ELSE
+ 790 |         Log    No test books to clean up
+     |
+
+/tests/resources/api_keywords.resource:791:1 LEN28 File has too many lines (791/400)
+/tests/resources/api_keywords.resource:791:1 SPC02 Missing trailing blank line at the end of file
+     |
+ 789 |     ELSE
+ 790 |         Log    No test books to clean up
+ 791 |     END
+     | ^^^^^^^ SPC02
+     |
+
+/tests/resources/common.resource:3:4 SPC01 Trailing whitespace at the end of line
+   |
+ 1 | *** Settings ***
+ 2 | Documentation     Common Resource File - Shared Keywords and Variables
+ 3 | ...
+   |    ^^^^^^^^^^^^^^^ SPC01
+ 4 | ...               This resource provides shared test infrastructure including:
+ 5 | ...               - Common test data generation utilities
+   |
+
+/tests/resources/common.resource:6:62 SPC01 Trailing whitespace at the end of line
+   |
+ 4 | ...               This resource provides shared test infrastructure including:
+ 5 | ...               - Common test data generation utilities
+ 6 | ...               - Environment setup and teardown procedures
+   |                                                              ^^ SPC01
+ 7 | ...               - Shared variables and configuration
+ 8 | ...               - Test data cleanup and isolation utilities
+   |
+
+/tests/resources/common.resource:9:4 SPC01 Trailing whitespace at the end of line
+   |
+ 7 | ...               - Shared variables and configuration
+ 8 | ...               - Test data cleanup and isolation utilities
+ 9 | ...
+   |    ^^^^^^^^^^^^^^^ SPC01
+10 | ...               Used by both UI and API test suites to ensure consistency
+11 | ...               and avoid code duplication across test layers.
+   |
+
+/tests/resources/common.resource:15:19 IMP02 BuiltIn library import 'DateTime' should be placed before 'String'
+    |
+ 13 | Library           Collections
+ 14 | Library           String
+ 15 | Library           DateTime
+    |                   ^^^^^^^^ IMP02
+ 16 | Library           RequestsLibrary
+    |
+
+/tests/resources/common.resource:27:26 SPC01 Trailing whitespace at the end of line
+    |
+ 27 | # Test Data Configuration
+    |                          ^^ SPC01
+ 28 | ${DEFAULT_TIMEOUT}            30s
+ 29 | ${RETRY_INTERVAL}             1s
+    |
+
+/tests/resources/common.resource:42:39 SPC01 Trailing whitespace at the end of line
+    |
+ 40 | # Dynamic Test Variables (set during execution)
+ 41 | ${TEST_BOOK_TITLE}            ${EMPTY}
+ 42 | ${TEST_BOOK_AUTHOR}           ${EMPTY}
+    |                                       ^ SPC01
+ 43 | ${EXISTING_BOOK_ID}           ${EMPTY}
+ 44 | ${NEW_BOOK_DATA}              ${EMPTY}
+    |
+
+/tests/resources/common.resource:51:1 LEN03 Keyword 'Generate Unique Test Data' has too many keywords inside (11/10)
+    |
+ 49 |
+ 50 | *** Keywords ***
+ 51 | Generate Unique Test Data
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^ LEN03
+ 52 |     [Documentation]    Creates unique test data for test isolation
+ 53 |     VAR    ${timestamp}    Get Current Date    result_format=%Y%m%d_%H%M%S_%f
+    |
+
+/tests/resources/common.resource:55:1 SPC01 Trailing whitespace at the end of line
+    |
+ 53 |     VAR    ${timestamp}    Get Current Date    result_format=%Y%m%d_%H%M%S_%f
+ 54 |     VAR    ${unique_suffix}    ${timestamp[-6:]}    # Last 6 chars for uniqueness
+ 55 |
+    | ^^^^ SPC01
+ 56 |     Set Test Variable    ${TEST_BOOK_TITLE}    Test Book ${unique_suffix}
+ 57 |     Set Test Variable    ${TEST_BOOK_AUTHOR}   Test Author ${unique_suffix}
+    |
+
+/tests/resources/common.resource:56:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 56 |     Set Test Variable    ${TEST_BOOK_TITLE}    Test Book ${unique_suffix}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 57 |     Set Test Variable    ${TEST_BOOK_AUTHOR}   Test Author ${unique_suffix}
+    |
+
+/tests/resources/common.resource:56:5 VAR06 Variable defined with test/task scope
+    |
+ 56 |     Set Test Variable    ${TEST_BOOK_TITLE}    Test Book ${unique_suffix}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+ 57 |     Set Test Variable    ${TEST_BOOK_AUTHOR}   Test Author ${unique_suffix}
+    |
+
+/tests/resources/common.resource:57:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 55 |
+ 56 |     Set Test Variable    ${TEST_BOOK_TITLE}    Test Book ${unique_suffix}
+ 57 |     Set Test Variable    ${TEST_BOOK_AUTHOR}   Test Author ${unique_suffix}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+    |
+
+/tests/resources/common.resource:57:5 VAR06 Variable defined with test/task scope
+    |
+ 55 |
+ 56 |     Set Test Variable    ${TEST_BOOK_TITLE}    Test Book ${unique_suffix}
+ 57 |     Set Test Variable    ${TEST_BOOK_AUTHOR}   Test Author ${unique_suffix}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+    |
+
+/tests/resources/common.resource:58:1 SPC01 Trailing whitespace at the end of line
+    |
+ 56 |     Set Test Variable    ${TEST_BOOK_TITLE}    Test Book ${unique_suffix}
+ 57 |     Set Test Variable    ${TEST_BOOK_AUTHOR}   Test Author ${unique_suffix}
+ 58 |
+    | ^^^^ SPC01
+ 59 |     VAR    &{unique_book_data}
+ 60 |     ...    title=${TEST_BOOK_TITLE}
+    |
+
+/tests/resources/common.resource:61:38 SPC01 Trailing whitespace at the end of line
+    |
+ 59 |     VAR    &{unique_book_data}
+ 60 |     ...    title=${TEST_BOOK_TITLE}
+ 61 |     ...    author=${TEST_BOOK_AUTHOR}
+    |                                      ^^ SPC01
+ 62 |     ...    pages=${250}
+ 63 |     ...    category=Fiction
+    |
+
+/tests/resources/common.resource:65:1 SPC01 Trailing whitespace at the end of line
+    |
+ 63 |     ...    category=Fiction
+ 64 |     ...    favorite=${false}
+ 65 |
+    | ^^^^ SPC01
+ 66 |     Set Test Variable    ${NEW_BOOK_DATA}    ${unique_book_data}
+    |
+
+/tests/resources/common.resource:66:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 66 |     Set Test Variable    ${NEW_BOOK_DATA}    ${unique_book_data}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+    |
+
+/tests/resources/common.resource:66:5 VAR06 Variable defined with test/task scope
+    |
+ 66 |     Set Test Variable    ${NEW_BOOK_DATA}    ${unique_book_data}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+    |
+
+/tests/resources/common.resource:67:1 SPC01 Trailing whitespace at the end of line
+    |
+ 65 |
+ 66 |     Set Test Variable    ${NEW_BOOK_DATA}    ${unique_book_data}
+ 67 |
+    | ^^^^ SPC01
+ 68 |     # Generate long title for boundary testing
+ 69 |     VAR    ${base_title}    Very Long Book Title For Boundary Testing
+    |
+
+/tests/resources/common.resource:68:47 SPC01 Trailing whitespace at the end of line
+    |
+ 68 |     # Generate long title for boundary testing
+    |                                               ^^ SPC01
+ 69 |     VAR    ${base_title}    Very Long Book Title For Boundary Testing
+ 70 |     ${title_length}    Get Length    ${base_title}
+    |
+
+/tests/resources/common.resource:70:5 MISC04 The assignment sign is not consistent within the file. Expected '=' but got '' instead
+    |
+ 68 |     # Generate long title for boundary testing
+ 69 |     VAR    ${base_title}    Very Long Book Title For Boundary Testing
+ 70 |     ${title_length}    Get Length    ${base_title}
+    |     ^^^^^^^^^^^^^^^ MISC04
+ 71 |     ${padding_length}    Evaluate    255 - ${title_length}
+ 72 |     ${padding}    Evaluate    'X' * ${padding_length}
+    |
+
+/tests/resources/common.resource:71:5 MISC04 The assignment sign is not consistent within the file. Expected '=' but got '' instead
+    |
+ 69 |     VAR    ${base_title}    Very Long Book Title For Boundary Testing
+ 70 |     ${title_length}    Get Length    ${base_title}
+ 71 |     ${padding_length}    Evaluate    255 - ${title_length}
+    |     ^^^^^^^^^^^^^^^^^ MISC04
+ 72 |     ${padding}    Evaluate    'X' * ${padding_length}
+ 73 |     Set Test Variable    ${LONG_TITLE_255_CHARS}    ${base_title}${padding}
+    |
+
+/tests/resources/common.resource:72:5 MISC04 The assignment sign is not consistent within the file. Expected '=' but got '' instead
+    |
+ 70 |     ${title_length}    Get Length    ${base_title}
+ 71 |     ${padding_length}    Evaluate    255 - ${title_length}
+ 72 |     ${padding}    Evaluate    'X' * ${padding_length}
+    |     ^^^^^^^^^^ MISC04
+ 73 |     Set Test Variable    ${LONG_TITLE_255_CHARS}    ${base_title}${padding}
+    |
+
+/tests/resources/common.resource:73:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 71 |     ${padding_length}    Evaluate    255 - ${title_length}
+ 72 |     ${padding}    Evaluate    'X' * ${padding_length}
+ 73 |     Set Test Variable    ${LONG_TITLE_255_CHARS}    ${base_title}${padding}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+    |
+
+/tests/resources/common.resource:73:5 VAR06 Variable defined with test/task scope
+    |
+ 71 |     ${padding_length}    Evaluate    255 - ${title_length}
+ 72 |     ${padding}    Evaluate    'X' * ${padding_length}
+ 73 |     Set Test Variable    ${LONG_TITLE_255_CHARS}    ${base_title}${padding}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+    |
+
+/tests/resources/common.resource:75:26 SPC01 Trailing whitespace at the end of line
+    |
+ 75 | Generate Sample Book Data
+    |                          ^^ SPC01
+ 76 |     [Documentation]    Creates consistent sample book data for testing
+ 77 |     [Arguments]    ${title_prefix}=Sample Book    ${category}=Fiction
+    |
+
+/tests/resources/common.resource:78:1 SPC01 Trailing whitespace at the end of line
+    |
+ 76 |     [Documentation]    Creates consistent sample book data for testing
+ 77 |     [Arguments]    ${title_prefix}=Sample Book    ${category}=Fiction
+ 78 |
+    | ^^^^ SPC01
+ 79 |     VAR    ${timestamp}    Get Current Date    result_format=%M%S%f
+ 80 |     VAR    ${unique_id}    ${timestamp[-4:]}
+    |
+
+/tests/resources/common.resource:83:1 SPC01 Trailing whitespace at the end of line
+    |
+ 81 |     ${unique_id_int}=    Convert To Integer    ${unique_id}
+ 82 |     ${pages_count}=    Evaluate    200 + ${unique_id_int}
+ 83 |
+    | ^^^^ SPC01
+ 84 |     VAR    &{sample_book}
+ 85 |     ...    title=${title_prefix} ${unique_id}
+    |
+
+/tests/resources/common.resource:90:1 SPC01 Trailing whitespace at the end of line
+    |
+ 88 |     ...    category=${category}
+ 89 |     ...    favorite=${false}
+ 90 |
+    | ^^^^ SPC01
+ 91 |     RETURN    ${sample_book}
+    |
+
+/tests/resources/common.resource:106:1 SPC01 Trailing whitespace at the end of line
+     |
+ 104 |             Sleep    ${RETRY_INTERVAL}
+ 105 |         END
+ 106 |
+     | ^^^^^^^^ SPC01
+ 107 |         VAR    ${max_retries_minus_one}    Evaluate    ${MAX_RETRIES} - 1
+ 108 |         IF    ${attempt} == ${max_retries_minus_one}
+     |
+
+/tests/resources/common.resource:118:1 SPC01 Trailing whitespace at the end of line
+     |
+ 116 |     Should Be Equal As Integers    ${api_response.status_code}    200
+ 117 |     Log    API endpoint is healthy
+ 118 |
+     | ^^^^ SPC01
+ 119 |     ${ui_response}=    GET    ${BASE_URL}/
+ 120 |     Should Be Equal As Integers    ${ui_response.status_code}    200
+     |
+
+/tests/resources/common.resource:123:33 SPC01 Trailing whitespace at the end of line
+     |
+ 123 | Create Test Book Data Dictionary
+     |                                 ^^ SPC01
+ 124 |     [Documentation]    Creates book data dictionary with specified parameters
+ 125 |     [Arguments]    ${title}    ${author}    ${pages}    ${category}=Fiction    ${favorite}=false
+     |
+
+/tests/resources/common.resource:126:1 SPC01 Trailing whitespace at the end of line
+     |
+ 124 |     [Documentation]    Creates book data dictionary with specified parameters
+ 125 |     [Arguments]    ${title}    ${author}    ${pages}    ${category}=Fiction    ${favorite}=false
+ 126 |
+     | ^^^^ SPC01
+ 127 |     VAR    &{book_data}
+ 128 |     ...    title=${title}
+     |
+
+/tests/resources/common.resource:129:28 SPC01 Trailing whitespace at the end of line
+     |
+ 127 |     VAR    &{book_data}
+ 128 |     ...    title=${title}
+ 129 |     ...    author=${author}
+     |                            ^^ SPC01
+ 130 |     ...    pages=${pages}
+ 131 |     ...    category=${category}
+     |
+
+/tests/resources/common.resource:133:1 SPC01 Trailing whitespace at the end of line
+     |
+ 131 |     ...    category=${category}
+ 132 |     ...    favorite=${favorite}
+ 133 |
+     | ^^^^ SPC01
+ 134 |     RETURN    ${book_data}
+     |
+
+/tests/resources/common.resource:153:25 SPC01 Trailing whitespace at the end of line
+     |
+ 153 | Cleanup Test Environment
+     |                         ^^ SPC01
+ 154 |     [Documentation]    Common teardown tasks for all test suites
+ 155 |     Log    Cleaning up test environment    INFO
+     |
+
+/tests/resources/common.resource:156:1 SPC02 Missing trailing blank line at the end of file
+     |
+ 154 |     [Documentation]    Common teardown tasks for all test suites
+ 155 |     Log    Cleaning up test environment    INFO
+ 156 |     Cleanup Common Test Data
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+     |
+
+/tests/resources/ui_keywords.resource:3:4 SPC01 Trailing whitespace at the end of line
+   |
+ 1 | *** Settings ***
+ 2 | Documentation     UI Keywords Resource - Browser Automation Implementation
+ 3 | ...
+   |    ^^^^^^^^^^^^^^^ SPC01
+ 4 | ...               This resource implements all Browser Library keywords for UI testing.
+ 5 | ...               Uses modern Robot Framework 7.4.1 syntax with Playwright Browser Library 19.12.3.
+   |
+
+/tests/resources/ui_keywords.resource:6:4 SPC01 Trailing whitespace at the end of line
+   |
+ 4 | ...               This resource implements all Browser Library keywords for UI testing.
+ 5 | ...               Uses modern Robot Framework 7.4.1 syntax with Playwright Browser Library 19.12.3.
+ 6 | ...
+   |    ^^^^^^^^^^^^^^^ SPC01
+ 7 | ...               Implementation layers:
+ 8 | ...               - Page Object keywords (navigation, interaction)
+   |
+
+/tests/resources/ui_keywords.resource:9:61 SPC01 Trailing whitespace at the end of line
+   |
+ 7 | ...               Implementation layers:
+ 8 | ...               - Page Object keywords (navigation, interaction)
+ 9 | ...               - Business logic keywords (user workflows)
+   |                                                             ^^ SPC01
+10 | ...               - Verification keywords (assertions, validations)
+11 | ...               - Utility keywords (waits, retries, data handling)
+   |
+
+/tests/resources/ui_keywords.resource:14:19 IMP01 BuiltIn library import 'BuiltIn' should be placed before 'Browser'
+    |
+ 12 |
+ 13 | Library           Browser    timeout=30s    retry_assertions_for=10s
+ 14 | Library           BuiltIn
+    |                   ^^^^^^^ IMP01
+ 15 | Resource          common.resource
+    |
+
+/tests/resources/ui_keywords.resource:22:43 SPC01 Trailing whitespace at the end of line
+    |
+ 20 | ${BOOK_FORM}                      \#book-form
+ 21 | ${TITLE_INPUT}                    \#title
+ 22 | ${AUTHOR_INPUT}                   \#author
+    |                                           ^^ SPC01
+ 23 | ${PAGES_INPUT}                    \#pages
+ 24 | ${CATEGORY_SELECT}                \#category
+    |
+
+/tests/resources/ui_keywords.resource:63:28 SPC01 Trailing whitespace at the end of line
+    |
+ 61 |
+ 62 | # =============================================================================
+ 63 | # Form Interaction Keywords
+    |                            ^^ SPC01
+ 64 | # =============================================================================
+    |
+
+/tests/resources/ui_keywords.resource:69:1 SPC01 Trailing whitespace at the end of line
+    |
+ 67 |     [Documentation]    Fills the book creation form with provided data
+ 68 |     [Arguments]    ${title}    ${author}    ${pages}    ${category}
+ 69 |
+    | ^^^^ SPC01
+ 70 |     Wait For Elements State    ${BOOK_FORM}    visible    timeout=${DEFAULT_TIMEOUT}
+    |
+
+/tests/resources/ui_keywords.resource:71:1 SPC01 Trailing whitespace at the end of line
+    |
+ 69 |
+ 70 |     Wait For Elements State    ${BOOK_FORM}    visible    timeout=${DEFAULT_TIMEOUT}
+ 71 |
+    | ^^^^ SPC01
+ 72 |     Fill Text    ${TITLE_INPUT}    ${title}
+ 73 |     Fill Text    ${AUTHOR_INPUT}    ${author}
+    |
+
+/tests/resources/ui_keywords.resource:76:1 SPC01 Trailing whitespace at the end of line
+    |
+ 74 |     Fill Text    ${PAGES_INPUT}    ${pages}
+ 75 |     Select Options By    ${CATEGORY_SELECT}    value    ${category}
+ 76 |
+    | ^^^^ SPC01
+ 77 |     Log    Filled book form with: ${title}, ${author}, ${pages} pages, ${category}
+    |
+
+/tests/resources/ui_keywords.resource:82:1 SPC01 Trailing whitespace at the end of line
+    |
+ 80 |     [Documentation]    Clicks submit button, wait for processing and check success notification
+ 81 |     Click    ${SUBMIT_BUTTON}
+ 82 |
+    | ^^^^ SPC01
+ 83 |     # Check for success notification immediately (appears for 3 seconds)
+ 84 |     TRY
+    |
+
+/tests/resources/ui_keywords.resource:91:1 SPC01 Trailing whitespace at the end of line
+    |
+ 89 |         Log    Success notification not visible or already disappeared    WARN
+ 90 |     END
+ 91 |
+    | ^^^^ SPC01
+ 92 |     Sleep    2s
+ 93 |     Log    Book form submitted successfully
+    |
+
+/tests/resources/ui_keywords.resource:115:1 SPC01 Trailing whitespace at the end of line
+     |
+ 113 |     [Documentation]    Performs book search using the search input
+ 114 |     [Arguments]    ${title}
+ 115 |
+     | ^^^^ SPC01
+ 116 |     Wait For Elements State    ${SEARCH_INPUT}    visible    timeout=${DEFAULT_TIMEOUT}
+ 117 |     Fill Text    ${SEARCH_INPUT}    ${title}
+     |
+
+/tests/resources/ui_keywords.resource:125:1 SPC01 Trailing whitespace at the end of line
+     |
+ 123 |     [Documentation]    Applies category filter to book collection
+ 124 |     [Arguments]    ${category}
+ 125 |
+     | ^^^^ SPC01
+ 126 |     Wait For Elements State    ${CATEGORY_FILTER}    visible    timeout=${DEFAULT_TIMEOUT}
+ 127 |     Select Options By    ${CATEGORY_FILTER}    value    ${category}
+     |
+
+/tests/resources/ui_keywords.resource:141:1 SPC01 Trailing whitespace at the end of line
+     |
+ 139 |     [Documentation]    Changes the book sorting criteria
+ 140 |     [Arguments]    ${sort_criteria}
+ 141 |
+     | ^^^^ SPC01
+ 142 |     Wait For Elements State    ${SORT_BY_SELECT}    visible    timeout=${DEFAULT_TIMEOUT}
+ 143 |     Select Options By    ${SORT_BY_SELECT}    value    ${sort_criteria}
+     |
+
+/tests/resources/ui_keywords.resource:147:1 LEN03 Keyword 'User Changes Sort Direction To' has too many keywords inside (20/10)
+     |
+ 147 | User Changes Sort Direction To
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN03
+ 148 |     [Documentation]    Toggles sort direction (ascending/descending)
+ 149 |     [Arguments]    ${direction}
+     |
+
+/tests/resources/ui_keywords.resource:150:1 SPC01 Trailing whitespace at the end of line
+     |
+ 148 |     [Documentation]    Toggles sort direction (ascending/descending)
+ 149 |     [Arguments]    ${direction}
+ 150 |
+     | ^^^^ SPC01
+ 151 |     # Wait a bit longer after previous sort operation
+ 152 |     Sleep    2s
+     |
+
+/tests/resources/ui_keywords.resource:153:1 SPC01 Trailing whitespace at the end of line
+     |
+ 151 |     # Wait a bit longer after previous sort operation
+ 152 |     Sleep    2s
+ 153 |
+     | ^^^^ SPC01
+ 154 |     Wait For Elements State    ${SORT_DIRECTION_BTN}    visible    timeout=${DEFAULT_TIMEOUT}
+ 155 |     Log    Sort direction button found and visible
+     |
+
+/tests/resources/ui_keywords.resource:156:1 SPC01 Trailing whitespace at the end of line
+     |
+ 154 |     Wait For Elements State    ${SORT_DIRECTION_BTN}    visible    timeout=${DEFAULT_TIMEOUT}
+ 155 |     Log    Sort direction button found and visible
+ 156 |
+     | ^^^^ SPC01
+ 157 |     # Use a more straightforward approach - just check if we need to click
+ 158 |     Take Screenshot    before_sort_direction_change
+     |
+
+/tests/resources/ui_keywords.resource:159:1 SPC01 Trailing whitespace at the end of line
+     |
+ 157 |     # Use a more straightforward approach - just check if we need to click
+ 158 |     Take Screenshot    before_sort_direction_change
+ 159 |
+     | ^^^^ SPC01
+ 160 |     # Check current icon class to determine current direction
+ 161 |     ${icon_element}=    Get Elements    ${SORT_DIRECTION_BTN} i
+     |
+
+/tests/resources/ui_keywords.resource:163:1 SPC01 Trailing whitespace at the end of line
+     |
+ 161 |     ${icon_element}=    Get Elements    ${SORT_DIRECTION_BTN} i
+ 162 |     ${icon_count}=    Get Length    ${icon_element}
+ 163 |
+     | ^^^^ SPC01
+ 164 |     IF    ${icon_count} > 0
+ 165 |         ${current_classes}=    Get Attribute    ${SORT_DIRECTION_BTN} i    class
+     |
+
+/tests/resources/ui_keywords.resource:169:1 SPC01 Trailing whitespace at the end of line
+     |
+ 167 |         ${is_currently_ascending}=    Evaluate    'fa-sort-up' in "${current_classes}"
+ 168 |         Log    Is currently ascending: ${is_currently_ascending}
+ 169 |
+     | ^^^^^^^^ SPC01
+ 170 |         ${should_click}=    Evaluate    ('${direction}' == 'ascending' and not ${is_currently_ascending}) or ('${direction}' == 'descending' and ${is_currently_ascending})
+     |
+
+/tests/resources/ui_keywords.resource:170:120 LEN08 Line is too long (171/120)
+     |
+ 170 |         ${should_click}=    Evaluate    ('${direction}' == 'ascending' and not ${is_currently_ascending}) or ('${direction}' == 'descending' and ${is_currently_ascending})
+     |                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN08
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/resources/ui_keywords.resource:171:1 SPC01 Trailing whitespace at the end of line
+     |
+ 169 |
+ 170 |         ${should_click}=    Evaluate    ('${direction}' == 'ascending' and not ${is_currently_ascending}) or ('${direction}' == 'descending' and ${is_currently_ascending})
+ 171 |
+     | ^^^^^^^^ SPC01
+ 172 |         IF    ${should_click}
+ 173 |             Log    Clicking sort direction button to change to: ${direction}
+     |
+
+/tests/resources/ui_keywords.resource:186:1 SPC01 Trailing whitespace at the end of line
+     |
+ 184 |         Sleep    3s
+ 185 |     END
+ 186 |
+     | ^^^^ SPC01
+ 187 |     Log    Changed sort direction to: ${direction}
+     |
+
+/tests/resources/ui_keywords.resource:196:1 SPC01 Trailing whitespace at the end of line
+     |
+ 194 |     [Documentation]    Toggles favorite status for specified book
+ 195 |     [Arguments]    ${book_title}
+ 196 |
+     | ^^^^ SPC01
+ 197 |     VAR    ${book_selector}    xpath=//div[contains(@class, 'book-card')]//h3[text()='${book_title}']/ancestor::div[contains(@class, 'book-card')]//button[contains(@class, 'favorite-btn')]
+     |
+
+/tests/resources/ui_keywords.resource:197:120 LEN08 Line is too long (188/120)
+     |
+ 197 |     VAR    ${book_selector}    xpath=//div[contains(@class, 'book-card')]//h3[text()='${book_title}']/ancestor::div[contains(@class, 'book-card')]//button[contains(@class, 'favorite-btn')]
+     |                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN08
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/resources/ui_keywords.resource:198:1 SPC01 Trailing whitespace at the end of line
+     |
+ 196 |
+ 197 |     VAR    ${book_selector}    xpath=//div[contains(@class, 'book-card')]//h3[text()='${book_title}']/ancestor::div[contains(@class, 'book-card')]//button[contains(@class, 'favorite-btn')]
+ 198 |
+     | ^^^^ SPC01
+ 199 |     Wait For Elements State    ${book_selector}    visible    timeout=${DEFAULT_TIMEOUT}
+ 200 |     Click    ${book_selector}
+     |
+
+/tests/resources/ui_keywords.resource:203:1 LEN03 Keyword 'User Marks First Book As Favorite' has too many keywords inside (11/10)
+     |
+ 203 | User Marks First Book As Favorite
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN03
+ 204 |     [Documentation]    Toggles favorite status for the first book on the page and returns its title
+     |
+
+/tests/resources/ui_keywords.resource:205:1 SPC01 Trailing whitespace at the end of line
+     |
+ 203 | User Marks First Book As Favorite
+ 204 |     [Documentation]    Toggles favorite status for the first book on the page and returns its title
+ 205 |
+     | ^^^^ SPC01
+ 206 |     Wait For Elements State    css=.book-card:first-child    visible    timeout=${DEFAULT_TIMEOUT}
+ 207 |     ${first_book_title}=    Get Text    css=.book-card:first-child h3
+     |
+
+/tests/resources/ui_keywords.resource:208:1 SPC01 Trailing whitespace at the end of line
+     |
+ 206 |     Wait For Elements State    css=.book-card:first-child    visible    timeout=${DEFAULT_TIMEOUT}
+ 207 |     ${first_book_title}=    Get Text    css=.book-card:first-child h3
+ 208 |
+     | ^^^^ SPC01
+ 209 |     # Check if the book is already marked as favorite
+ 210 |     ${initial_classes}=    Get Attribute    css=.book-card:first-child .favorite-btn    class
+     |
+
+/tests/resources/ui_keywords.resource:213:1 SPC01 Trailing whitespace at the end of line
+     |
+ 211 |     ${is_already_favorite}=    Evaluate    "active" in "${initial_classes}"
+ 212 |     Log    Book '${first_book_title}' is already favorite: ${is_already_favorite}
+ 213 |
+     | ^^^^ SPC01
+ 214 |     # If already favorite, click once to unfavorite, then click again to favorite
+ 215 |     IF    ${is_already_favorite}
+     |
+
+/tests/resources/ui_keywords.resource:220:1 SPC01 Trailing whitespace at the end of line
+     |
+ 218 |         Sleep    3s
+ 219 |     END
+ 220 |
+     | ^^^^ SPC01
+ 221 |     # Now click to make it favorite (should end up with active class)
+ 222 |     Click    css=.book-card:first-child .favorite-btn
+     |
+
+/tests/resources/ui_keywords.resource:224:1 SPC01 Trailing whitespace at the end of line
+     |
+ 222 |     Click    css=.book-card:first-child .favorite-btn
+ 223 |     Sleep    3s
+ 224 |
+     | ^^^^ SPC01
+ 225 |     RETURN    ${first_book_title}
+     |
+
+/tests/resources/ui_keywords.resource:227:29 SPC01 Trailing whitespace at the end of line
+     |
+ 227 | User Clicks Load More Button
+     |                             ^^ SPC01
+ 228 |     [Documentation]    Clicks load more button to expand book collection
+ 229 |     Wait For Elements State    ${LOAD_MORE_BUTTON}    visible    timeout=${DEFAULT_TIMEOUT}
+     |
+
+/tests/resources/ui_keywords.resource:243:1 LEN01 Keyword 'New Book Should Appear In Books List' is too long (41/40)
+     |
+ 243 | New Book Should Appear In Books List
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN01
+ 244 |     [Documentation]    Verifies that newly created book appears in the collection
+ 245 |     [Arguments]    ${expected_title}
+     | Suggestion: Split the keyword into smaller, focused keywords.
+     |
+
+/tests/resources/ui_keywords.resource:246:1 SPC01 Trailing whitespace at the end of line
+     |
+ 244 |     [Documentation]    Verifies that newly created book appears in the collection
+ 245 |     [Arguments]    ${expected_title}
+ 246 |
+     | ^^^^ SPC01
+ 247 |     # Wait for books to load and check if our book is there
+ 248 |     VAR    ${book_found}    false
+     |
+
+/tests/resources/ui_keywords.resource:276:1 SPC01 Trailing whitespace at the end of line
+     |
+ 274 |         END
+ 275 |     END
+ 276 |
+     | ^^^^ SPC01
+ 277 |     IF    not $book_found
+ 278 |         Log    Books currently visible:    INFO
+     |
+
+/tests/resources/ui_keywords.resource:283:1 SPC01 Trailing whitespace at the end of line
+     |
+ 281 |         FAIL    Book "${expected_title}" was not found in the books list after ${15} attempts
+ 282 |     END
+ 283 |
+     | ^^^^ SPC01
+ 284 |     Log    ✓ Book "${expected_title}" successfully appears in the list
+     |
+
+/tests/resources/ui_keywords.resource:300:1 SPC01 Trailing whitespace at the end of line
+     |
+ 298 |     [Documentation]    Verifies that search results show only matching books
+ 299 |     [Arguments]    ${search_term}
+ 300 |
+     | ^^^^ SPC01
+ 301 |     ${visible_books}=    Get Elements    ${BOOK_CARD}
+ 302 |     ${book_count}=    Get Element Count    ${BOOK_CARD}
+     |
+
+/tests/resources/ui_keywords.resource:304:1 SPC01 Trailing whitespace at the end of line
+     |
+ 302 |     ${book_count}=    Get Element Count    ${BOOK_CARD}
+ 303 |     ${book_count_int}=    Convert To Integer    ${book_count}
+ 304 |
+     | ^^^^ SPC01
+ 305 |     FOR    ${index}    IN RANGE    ${book_count_int}
+ 306 |         ${book_element}=    Get From List    ${visible_books}    ${index}
+     |
+
+/tests/resources/ui_keywords.resource:310:1 SPC01 Trailing whitespace at the end of line
+     |
+ 308 |         Should Contain    ${title_text}    ${search_term}    ignore_case=True
+ 309 |     END
+ 310 |
+     | ^^^^ SPC01
+ 311 |     Log    All ${book_count} displayed books match search term: ${search_term}
+     |
+
+/tests/resources/ui_keywords.resource:316:1 SPC01 Trailing whitespace at the end of line
+     |
+ 314 |     [Documentation]    Verifies that category filter shows only matching books
+ 315 |     [Arguments]    ${expected_category}
+ 316 |
+     | ^^^^ SPC01
+ 317 |     ${book_count}=    Get Element Count    ${BOOK_CARD}
+ 318 |     ${book_count_int}=    Convert To Integer    ${book_count}
+     |
+
+/tests/resources/ui_keywords.resource:320:1 SPC01 Trailing whitespace at the end of line
+     |
+ 318 |     ${book_count_int}=    Convert To Integer    ${book_count}
+ 319 |     Should Be True    ${book_count_int} > 0    No books displayed after category filter
+ 320 |
+     | ^^^^ SPC01
+ 321 |     FOR    ${index}    IN RANGE    ${book_count_int}
+ 322 |         ${xpath_index}=    Evaluate    ${index} + 1
+     |
+
+/tests/resources/ui_keywords.resource:323:120 LEN08 Line is too long (140/120)
+     |
+ 321 |     FOR    ${index}    IN RANGE    ${book_count_int}
+ 322 |         ${xpath_index}=    Evaluate    ${index} + 1
+ 323 |         VAR    ${category_selector}    xpath=(//div[contains(@class, 'book-card')]//span[contains(@class, 'book-category')])[${xpath_index}]
+     |                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^ LEN08
+ 324 |         ${category_text}=    Get Text    ${category_selector}
+ 325 |         Should Be Equal    ${category_text}    ${expected_category}
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/resources/ui_keywords.resource:327:1 SPC01 Trailing whitespace at the end of line
+     |
+ 325 |         Should Be Equal    ${category_text}    ${expected_category}
+ 326 |     END
+ 327 |
+     | ^^^^ SPC01
+ 328 |     Log    All ${book_count} displayed books belong to category: ${expected_category}
+     |
+
+/tests/resources/ui_keywords.resource:333:1 SPC01 Trailing whitespace at the end of line
+     |
+ 331 |     [Documentation]    Verifies that book shows correct favorite visual indicator
+ 332 |     [Arguments]    ${book_title}
+ 333 |
+     | ^^^^ SPC01
+ 334 |     VAR    ${favorite_btn_selector}    xpath=//div[contains(@class, 'book-card')]//h3[text()='${book_title}']/ancestor::div[contains(@class, 'book-card')]//button[contains(@class, 'favorite-btn')]
+     |
+
+/tests/resources/ui_keywords.resource:334:120 LEN08 Line is too long (196/120)
+     |
+ 334 |     VAR    ${favorite_btn_selector}    xpath=//div[contains(@class, 'book-card')]//h3[text()='${book_title}']/ancestor::div[contains(@class, 'book-card')]//button[contains(@class, 'favorite-btn')]
+     |                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN08
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/resources/ui_keywords.resource:335:1 SPC01 Trailing whitespace at the end of line
+     |
+ 333 |
+ 334 |     VAR    ${favorite_btn_selector}    xpath=//div[contains(@class, 'book-card')]//h3[text()='${book_title}']/ancestor::div[contains(@class, 'book-card')]//button[contains(@class, 'favorite-btn')]
+ 335 |
+     | ^^^^ SPC01
+ 336 |     Wait For Elements State    ${favorite_btn_selector}    visible    timeout=${DEFAULT_TIMEOUT}
+ 337 |     ${button_classes}=    Get Attribute    ${favorite_btn_selector}    class
+     |
+
+/tests/resources/ui_keywords.resource:339:1 SPC01 Trailing whitespace at the end of line
+     |
+ 337 |     ${button_classes}=    Get Attribute    ${favorite_btn_selector}    class
+ 338 |     Log    Button classes for '${book_title}': ${button_classes}
+ 339 |
+     | ^^^^ SPC01
+ 340 |     Should Contain    ${button_classes}    active
+ 341 |     Log    Book '${book_title}' displays favorite status correctly
+     |
+
+/tests/resources/ui_keywords.resource:348:1 SPC01 Trailing whitespace at the end of line
+     |
+ 346 |     ${book_count_int}=    Convert To Integer    ${book_count}
+ 347 |     Should Be True    ${book_count_int} > 0    No favorite books displayed
+ 348 |
+     | ^^^^ SPC01
+ 349 |     FOR    ${index}    IN RANGE    ${book_count_int}
+ 350 |         ${xpath_index}=    Evaluate    ${index} + 1
+     |
+
+/tests/resources/ui_keywords.resource:351:33 DEPR05 Set Variable used instead of VAR
+     |
+ 349 |     FOR    ${index}    IN RANGE    ${book_count_int}
+ 350 |         ${xpath_index}=    Evaluate    ${index} + 1
+ 351 |         ${fav_btn_selector}=    Set Variable    xpath=(//div[contains(@class, 'book-card')]//button[contains(@class, 'favorite-btn')])[${xpath_index}]
+     |                                 ^^^^^^^^^^^^ DEPR05
+ 352 |         ${button_classes}=    Get Attribute    ${fav_btn_selector}    class
+ 353 |         Should Contain    ${button_classes}    active
+     |
+
+/tests/resources/ui_keywords.resource:351:120 LEN08 Line is too long (150/120)
+     |
+ 349 |     FOR    ${index}    IN RANGE    ${book_count_int}
+ 350 |         ${xpath_index}=    Evaluate    ${index} + 1
+ 351 |         ${fav_btn_selector}=    Set Variable    xpath=(//div[contains(@class, 'book-card')]//button[contains(@class, 'favorite-btn')])[${xpath_index}]
+     |                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN08
+ 352 |         ${button_classes}=    Get Attribute    ${fav_btn_selector}    class
+ 353 |         Should Contain    ${button_classes}    active
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/resources/ui_keywords.resource:355:1 SPC01 Trailing whitespace at the end of line
+     |
+ 353 |         Should Contain    ${button_classes}    active
+ 354 |     END
+ 355 |
+     | ^^^^ SPC01
+ 356 |     Log    All ${book_count} displayed books are marked as favorites
+     |
+
+/tests/resources/ui_keywords.resource:358:1 LEN03 Keyword 'Books Should Be Displayed In Correct Order' has too many keywords inside (12/10)
+     |
+ 358 | Books Should Be Displayed In Correct Order
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN03
+ 359 |     [Documentation]    Verifies that books are sorted according to specified criteria
+ 360 |     [Arguments]    ${sort_field}    ${direction}
+     |
+
+/tests/resources/ui_keywords.resource:361:1 SPC01 Trailing whitespace at the end of line
+     |
+ 359 |     [Documentation]    Verifies that books are sorted according to specified criteria
+ 360 |     [Arguments]    ${sort_field}    ${direction}
+ 361 |
+     | ^^^^ SPC01
+ 362 |     @{book_values}=    Create List
+ 363 |     ${book_count}=    Get Element Count    ${BOOK_CARD}
+     |
+
+/tests/resources/ui_keywords.resource:362:24 DEPR06 Create List used instead of VAR
+     |
+ 362 |     @{book_values}=    Create List
+     |                        ^^^^^^^^^^^ DEPR06
+ 363 |     ${book_count}=    Get Element Count    ${BOOK_CARD}
+ 364 |     ${book_count_int}=    Convert To Integer    ${book_count}
+     |
+
+/tests/resources/ui_keywords.resource:365:1 SPC01 Trailing whitespace at the end of line
+     |
+ 363 |     ${book_count}=    Get Element Count    ${BOOK_CARD}
+ 364 |     ${book_count_int}=    Convert To Integer    ${book_count}
+ 365 |
+     | ^^^^ SPC01
+ 366 |     FOR    ${index}    IN RANGE    ${book_count_int}
+ 367 |         IF    '${sort_field}' == 'title'
+     |
+
+/tests/resources/ui_keywords.resource:369:35 DEPR05 Set Variable used instead of VAR
+     |
+ 367 |         IF    '${sort_field}' == 'title'
+ 368 |             ${xpath_index}=    Evaluate    ${index} + 1
+ 369 |             ${value_selector}=    Set Variable    xpath=(//div[contains(@class, 'book-card')]//h3[contains(@class, 'book-title')])[${xpath_index}]
+     |                                   ^^^^^^^^^^^^ DEPR05
+ 370 |         ELSE IF    '${sort_field}' == 'author'
+ 371 |             ${xpath_index}=    Evaluate    ${index} + 1
+     |
+
+/tests/resources/ui_keywords.resource:369:120 LEN08 Line is too long (146/120)
+     |
+ 367 |         IF    '${sort_field}' == 'title'
+ 368 |             ${xpath_index}=    Evaluate    ${index} + 1
+ 369 |             ${value_selector}=    Set Variable    xpath=(//div[contains(@class, 'book-card')]//h3[contains(@class, 'book-title')])[${xpath_index}]
+     |                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN08
+ 370 |         ELSE IF    '${sort_field}' == 'author'
+ 371 |             ${xpath_index}=    Evaluate    ${index} + 1
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/resources/ui_keywords.resource:372:35 DEPR05 Set Variable used instead of VAR
+     |
+ 370 |         ELSE IF    '${sort_field}' == 'author'
+ 371 |             ${xpath_index}=    Evaluate    ${index} + 1
+ 372 |             ${value_selector}=    Set Variable    xpath=(//div[contains(@class, 'book-card')]//p[contains(@class, 'book-author')])[${xpath_index}]
+     |                                   ^^^^^^^^^^^^ DEPR05
+ 373 |         ELSE IF    '${sort_field}' == 'pages'
+ 374 |             ${xpath_index}=    Evaluate    ${index} + 1
+     |
+
+/tests/resources/ui_keywords.resource:372:120 LEN08 Line is too long (146/120)
+     |
+ 370 |         ELSE IF    '${sort_field}' == 'author'
+ 371 |             ${xpath_index}=    Evaluate    ${index} + 1
+ 372 |             ${value_selector}=    Set Variable    xpath=(//div[contains(@class, 'book-card')]//p[contains(@class, 'book-author')])[${xpath_index}]
+     |                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN08
+ 373 |         ELSE IF    '${sort_field}' == 'pages'
+ 374 |             ${xpath_index}=    Evaluate    ${index} + 1
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/resources/ui_keywords.resource:375:35 DEPR05 Set Variable used instead of VAR
+     |
+ 373 |         ELSE IF    '${sort_field}' == 'pages'
+ 374 |             ${xpath_index}=    Evaluate    ${index} + 1
+ 375 |             ${value_selector}=    Set Variable    xpath=(//div[contains(@class, 'book-card')]//p[contains(@class, 'book-pages')])[${xpath_index}]
+     |                                   ^^^^^^^^^^^^ DEPR05
+ 376 |         END
+     |
+
+/tests/resources/ui_keywords.resource:375:120 LEN08 Line is too long (145/120)
+     |
+ 373 |         ELSE IF    '${sort_field}' == 'pages'
+ 374 |             ${xpath_index}=    Evaluate    ${index} + 1
+ 375 |             ${value_selector}=    Set Variable    xpath=(//div[contains(@class, 'book-card')]//p[contains(@class, 'book-pages')])[${xpath_index}]
+     |                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN08
+ 376 |         END
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/resources/ui_keywords.resource:377:1 SPC01 Trailing whitespace at the end of line
+     |
+ 375 |             ${value_selector}=    Set Variable    xpath=(//div[contains(@class, 'book-card')]//p[contains(@class, 'book-pages')])[${xpath_index}]
+ 376 |         END
+ 377 |
+     | ^^^^^^^^ SPC01
+ 378 |         ${field_text}=    Get Text    ${value_selector}
+ 379 |         Append To List    ${book_values}    ${field_text}
+     |
+
+/tests/resources/ui_keywords.resource:381:1 SPC01 Trailing whitespace at the end of line
+     |
+ 379 |         Append To List    ${book_values}    ${field_text}
+ 380 |     END
+ 381 |
+     | ^^^^ SPC01
+ 382 |     # Verify sort order - implementation depends on specific sort requirements
+ 383 |     Log    Books displayed in ${direction} order by ${sort_field}
+     |
+
+/tests/resources/ui_keywords.resource:387:1 SPC01 Trailing whitespace at the end of line
+     |
+ 385 | Form Validation Errors Should Be Displayed
+ 386 |     [Documentation]    Verifies that form validation prevents submission with empty required fields
+ 387 |
+     | ^^^^ SPC01
+ 388 |     # For HTML5 validation, we verify that the form submission was prevented
+ 389 |     # by checking that the form is still visible and active
+     |
+
+/tests/resources/ui_keywords.resource:391:1 SPC01 Trailing whitespace at the end of line
+     |
+ 389 |     # by checking that the form is still visible and active
+ 390 |     Wait For Elements State    ${BOOK_FORM}    visible    timeout=${DEFAULT_TIMEOUT}
+ 391 |
+     | ^^^^ SPC01
+ 392 |     # The submit button should still be present and clickable
+ 393 |     Wait For Elements State    ${SUBMIT_BUTTON}    visible    timeout=${DEFAULT_TIMEOUT}
+     |
+
+/tests/resources/ui_keywords.resource:394:1 SPC01 Trailing whitespace at the end of line
+     |
+ 392 |     # The submit button should still be present and clickable
+ 393 |     Wait For Elements State    ${SUBMIT_BUTTON}    visible    timeout=${DEFAULT_TIMEOUT}
+ 394 |
+     | ^^^^ SPC01
+ 395 |     # With proper validation, the form should still be ready for input
+ 396 |     # This indicates that the invalid submission was prevented
+     |
+
+/tests/resources/ui_keywords.resource:412:1 SPC01 Trailing whitespace at the end of line
+     |
+ 410 |     [Documentation]    Ensures sample books exist for testing search/filter functionality
+ 411 |     ${book_count}=    Get Element Count    ${BOOK_CARD}
+ 412 |
+     | ^^^^ SPC01
+ 413 |     IF    '${book_count}' == '0'
+ 414 |         Log    No books found, application should auto-populate sample data    WARN
+     |
+
+/tests/resources/ui_keywords.resource:423:1 SPC01 Trailing whitespace at the end of line
+     |
+ 421 |         Should Be True    ${book_count_after_int} > 0    Sample books not available for testing
+ 422 |     END
+ 423 |
+     | ^^^^ SPC01
+ 424 |     Log    Sample books are available for testing (${book_count} books found)
+     |
+
+/tests/resources/ui_keywords.resource:429:1 SPC01 Trailing whitespace at the end of line
+     |
+ 427 |     [Documentation]    Ensures sufficient books exist for pagination testing
+ 428 |     ${book_count}=    Get Element Count    ${BOOK_CARD}
+ 429 |
+     | ^^^^ SPC01
+ 430 |     ${book_count_int}=    Convert To Integer    ${book_count}
+ 431 |     IF    ${book_count_int} < 12
+     |
+
+/tests/resources/ui_keywords.resource:436:1 SPC01 Trailing whitespace at the end of line
+     |
+ 434 |         # For now, we'll proceed with available books
+ 435 |     END
+ 436 |
+     | ^^^^ SPC01
+ 437 |     Log    Books available for pagination testing: ${book_count}
+     |
+
+/tests/resources/ui_keywords.resource:440:40 SPC01 Trailing whitespace at the end of line
+     |
+ 438 |
+ 439 | # =============================================================================
+ 440 | # Error Handling and Edge Case Keywords
+     |                                        ^^ SPC01
+ 441 | # =============================================================================
+     |
+
+/tests/resources/ui_keywords.resource:449:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 447 |     # we'll note that this test requires manual verification or specific
+ 448 |     # test environment setup for true network failure simulation
+ 449 |     Set Test Variable    ${API_SIMULATION_ACTIVE}    True
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/resources/ui_keywords.resource:449:5 VAR06 Variable defined with test/task scope
+     |
+ 447 |     # we'll note that this test requires manual verification or specific
+ 448 |     # test environment setup for true network failure simulation
+ 449 |     Set Test Variable    ${API_SIMULATION_ACTIVE}    True
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/resources/ui_keywords.resource:453:1 SPC01 Trailing whitespace at the end of line
+     |
+ 451 | Network Error Message Should Be Displayed
+ 452 |     [Documentation]    Verifies error handling capability exists in application
+ 453 |
+     | ^^^^ SPC01
+ 454 |     # Since we can't truly simulate network failure in this test environment,
+ 455 |     # we'll verify that the notification system exists and can display errors
+     |
+
+/tests/resources/ui_keywords.resource:457:1 SPC01 Trailing whitespace at the end of line
+     |
+ 455 |     # we'll verify that the notification system exists and can display errors
+ 456 |     # by checking if notification elements can be created
+ 457 |
+     | ^^^^ SPC01
+ 458 |     Log    Verifying that error notification system exists in application
+     |
+
+/tests/resources/ui_keywords.resource:459:1 SPC01 Trailing whitespace at the end of line
+     |
+ 457 |
+ 458 |     Log    Verifying that error notification system exists in application
+ 459 |
+     | ^^^^ SPC01
+ 460 |     # Check that the application has the error notification capability
+ 461 |     # by looking for the notification JavaScript function in the page
+     |
+
+/tests/resources/ui_keywords.resource:464:1 SPC01 Trailing whitespace at the end of line
+     |
+ 462 |     ${page_content}=    Get Text    body
+ 463 |     Should Not Be Empty    ${page_content}    Page should have content for error handling verification
+ 464 |
+     | ^^^^ SPC01
+ 465 |     Log    Error notification system verification completed
+     |
+
+/tests/resources/ui_keywords.resource:482:75 SPC01 Trailing whitespace at the end of line
+     |
+ 480 |
+ 481 | Category Filter Should Remain Active
+ 482 |     [Documentation]    Verifies that category filter UI shows active state
+     |                                                                           ^^ SPC01
+ 483 |     [Arguments]    ${category}
+ 484 |     ${selected_value}=    Get Selected Options    ${CATEGORY_FILTER}
+     |
+
+/tests/resources/ui_keywords.resource:514:1 SPC01 Trailing whitespace at the end of line
+     |
+ 512 | Remaining Required Field Errors Should Be Displayed
+ 513 |     [Documentation]    Verifies that partially filled form still prevents submission due to missing required fields
+ 514 |
+     | ^^^^ SPC01
+ 515 |     # Check that the form is still visible after partial submission attempt
+ 516 |     Wait For Elements State    ${BOOK_FORM}    visible    timeout=${DEFAULT_TIMEOUT}
+     |
+
+/tests/resources/ui_keywords.resource:517:1 SPC01 Trailing whitespace at the end of line
+     |
+ 515 |     # Check that the form is still visible after partial submission attempt
+ 516 |     Wait For Elements State    ${BOOK_FORM}    visible    timeout=${DEFAULT_TIMEOUT}
+ 517 |
+     | ^^^^ SPC01
+ 518 |     # The submit button should still be present, indicating form didn't complete submission
+ 519 |     Wait For Elements State    ${SUBMIT_BUTTON}    visible    timeout=${DEFAULT_TIMEOUT}
+     |
+
+/tests/resources/ui_keywords.resource:520:1 SPC01 Trailing whitespace at the end of line
+     |
+ 518 |     # The submit button should still be present, indicating form didn't complete submission
+ 519 |     Wait For Elements State    ${SUBMIT_BUTTON}    visible    timeout=${DEFAULT_TIMEOUT}
+ 520 |
+     | ^^^^ SPC01
+ 521 |     Log    Form validation correctly prevented submission with incomplete required fields
+     |
+
+/tests/resources/ui_keywords.resource:521:1 LEN28 File has too many lines (521/400)
+/tests/resources/ui_keywords.resource:521:1 SPC02 Missing trailing blank line at the end of file
+     |
+ 521 |     Log    Form validation correctly prevented submission with incomplete required fields
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+     |
+
+/tests/books_api.robot:3:4 SPC01 Trailing whitespace at the end of line
+   |
+ 1 | *** Settings ***
+ 2 | Documentation     Books Library API Test Suite - REST API Validation
+ 3 | ...
+   |    ^^^^^^^^^^^^^^^ SPC01
+ 4 | ...               This test suite validates the Books Library REST API endpoints
+ 5 | ...               using modern Robot Framework 7.4.1 syntax with full HTTP operations.
+   |
+
+/tests/books_api.robot:6:4 SPC01 Trailing whitespace at the end of line
+   |
+ 4 | ...               This test suite validates the Books Library REST API endpoints
+ 5 | ...               using modern Robot Framework 7.4.1 syntax with full HTTP operations.
+ 6 | ...
+   |    ^^^^^^^^^^^^^^^ SPC01
+ 7 | ...               API endpoints tested:
+ 8 | ...               - GET /books/ (list all books)
+   |
+
+/tests/books_api.robot:9:51 SPC01 Trailing whitespace at the end of line
+   |
+ 7 | ...               API endpoints tested:
+ 8 | ...               - GET /books/ (list all books)
+ 9 | ...               - POST /books/ (create new book)
+   |                                                   ^^ SPC01
+10 | ...               - GET /books/{id} (get specific book)
+11 | ...               - PUT /books/{id} (update existing book)
+   |
+
+/tests/books_api.robot:15:44 SPC01 Trailing whitespace at the end of line
+    |
+ 15 | Resource          resources/common.resource
+    |                                            ^^ SPC01
+ 16 | Resource          resources/api_keywords.resource
+    |
+
+/tests/books_api.robot:23:1 DEPR02 'Force Tags' is deprecated since Robot Framework version 6.0, use 'Test Tags' instead
+    |
+ 23 | Force Tags        books    api    rest
+    | ^^^^^^^^^^ DEPR02
+ 24 | Default Tags      integration
+    |
+
+/tests/books_api.robot:24:1 TAG07 Tags defined in Default Tags are always overwritten
+    |
+ 22 |
+ 23 | Force Tags        books    api    rest
+ 24 | Default Tags      integration
+    | ^^^^^^^^^^^^ TAG07
+    |
+
+/tests/books_api.robot:27:1 LEN09 Section '*** Variables ***' is empty
+    |
+ 27 | *** Variables ***
+    | ^^^^^^^^^^^^^^^^^ LEN09
+ 28 | # Using API_BASE_URL and BOOKS_ENDPOINT from common.resource
+    |
+
+/tests/books_api.robot:34:15 TAG06 Tag 'books' is already set by Force Tags in suite settings
+    |
+ 32 | API Should Return All Books When Getting Book Collection
+ 33 |     [Documentation]    Validates GET /books/ endpoint returns book collection
+ 34 |     [Tags]    books    api    get    collection    happy-path
+    |               ^^^^^ TAG06
+ 35 |     Given Books Collection Has Sample Data
+ 36 |     When Client Requests All Books From API
+    |
+
+/tests/books_api.robot:34:24 TAG06 Tag 'api' is already set by Force Tags in suite settings
+    |
+ 32 | API Should Return All Books When Getting Book Collection
+ 33 |     [Documentation]    Validates GET /books/ endpoint returns book collection
+ 34 |     [Tags]    books    api    get    collection    happy-path
+    |                        ^^^ TAG06
+ 35 |     Given Books Collection Has Sample Data
+ 36 |     When Client Requests All Books From API
+    |
+
+/tests/books_api.robot:44:15 TAG06 Tag 'books' is already set by Force Tags in suite settings
+    |
+ 42 | API Should Create New Book With Valid Data
+ 43 |     [Documentation]    Validates POST /books/ creates book with complete data
+ 44 |     [Tags]    books    api    post    create    happy-path
+    |               ^^^^^ TAG06
+ 45 |     Given Valid Book Data Is Prepared
+ 46 |     ...    title=${TEST_BOOK_TITLE}
+    |
+
+/tests/books_api.robot:44:24 TAG06 Tag 'api' is already set by Force Tags in suite settings
+    |
+ 42 | API Should Create New Book With Valid Data
+ 43 |     [Documentation]    Validates POST /books/ creates book with complete data
+ 44 |     [Tags]    books    api    post    create    happy-path
+    |                        ^^^ TAG06
+ 45 |     Given Valid Book Data Is Prepared
+ 46 |     ...    title=${TEST_BOOK_TITLE}
+    |
+
+/tests/books_api.robot:59:15 TAG06 Tag 'books' is already set by Force Tags in suite settings
+    |
+ 57 | API Should Retrieve Specific Book By ID
+ 58 |     [Documentation]    Validates GET /books/{id} returns specific book details
+ 59 |     [Tags]    books    api    get    single    happy-path
+    |               ^^^^^ TAG06
+ 60 |     Given Valid Book Data Is Prepared    Test Retrieval Book    Test Author    300    Fiction
+ 61 |     And Book Exists In Database    ${NEW_BOOK_DATA}
+    |
+
+/tests/books_api.robot:59:24 TAG06 Tag 'api' is already set by Force Tags in suite settings
+    |
+ 57 | API Should Retrieve Specific Book By ID
+ 58 |     [Documentation]    Validates GET /books/{id} returns specific book details
+ 59 |     [Tags]    books    api    get    single    happy-path
+    |                        ^^^ TAG06
+ 60 |     Given Valid Book Data Is Prepared    Test Retrieval Book    Test Author    300    Fiction
+ 61 |     And Book Exists In Database    ${NEW_BOOK_DATA}
+    |
+
+/tests/books_api.robot:59:58 SPC01 Trailing whitespace at the end of line
+    |
+ 57 | API Should Retrieve Specific Book By ID
+ 58 |     [Documentation]    Validates GET /books/{id} returns specific book details
+ 59 |     [Tags]    books    api    get    single    happy-path
+    |                                                          ^^ SPC01
+ 60 |     Given Valid Book Data Is Prepared    Test Retrieval Book    Test Author    300    Fiction
+ 61 |     And Book Exists In Database    ${NEW_BOOK_DATA}
+    |
+
+/tests/books_api.robot:69:15 TAG06 Tag 'books' is already set by Force Tags in suite settings
+    |
+ 67 | API Should Update Existing Book With Valid Changes
+ 68 |     [Documentation]    Validates PUT /books/{id} updates book completely
+ 69 |     [Tags]    books    api    put    update    happy-path
+    |               ^^^^^ TAG06
+ 70 |     Given Valid Book Data Is Prepared    Original Book    Original Author    250    Fiction
+ 71 |     And Book Exists In Database    ${NEW_BOOK_DATA}
+    |
+
+/tests/books_api.robot:69:24 TAG06 Tag 'api' is already set by Force Tags in suite settings
+    |
+ 67 | API Should Update Existing Book With Valid Changes
+ 68 |     [Documentation]    Validates PUT /books/{id} updates book completely
+ 69 |     [Tags]    books    api    put    update    happy-path
+    |                        ^^^ TAG06
+ 70 |     Given Valid Book Data Is Prepared    Original Book    Original Author    250    Fiction
+ 71 |     And Book Exists In Database    ${NEW_BOOK_DATA}
+    |
+
+/tests/books_api.robot:74:33 SPC01 Trailing whitespace at the end of line
+    |
+ 72 |     And Updated Book Data Is Prepared
+ 73 |     ...    title=Updated Test Title
+ 74 |     ...    author=Updated Author
+    |                                 ^^ SPC01
+ 75 |     ...    pages=400
+ 76 |     ...    category=Science Fiction
+    |
+
+/tests/books_api.robot:83:36 SPC01 Trailing whitespace at the end of line
+    |
+ 83 | API Should Delete Book Successfully
+    |                                    ^^ SPC01
+ 84 |     [Documentation]    Validates DELETE /books/{id} removes book from system
+ 85 |     [Tags]    books    api    delete    removal    happy-path
+    |
+
+/tests/books_api.robot:85:15 TAG06 Tag 'books' is already set by Force Tags in suite settings
+    |
+ 83 | API Should Delete Book Successfully
+ 84 |     [Documentation]    Validates DELETE /books/{id} removes book from system
+ 85 |     [Tags]    books    api    delete    removal    happy-path
+    |               ^^^^^ TAG06
+ 86 |     Given Valid Book Data Is Prepared    Book To Delete    Test Author    350    Biography
+ 87 |     And Book Exists In Database    ${NEW_BOOK_DATA}
+    |
+
+/tests/books_api.robot:85:24 TAG06 Tag 'api' is already set by Force Tags in suite settings
+    |
+ 83 | API Should Delete Book Successfully
+ 84 |     [Documentation]    Validates DELETE /books/{id} removes book from system
+ 85 |     [Tags]    books    api    delete    removal    happy-path
+    |                        ^^^ TAG06
+ 86 |     Given Valid Book Data Is Prepared    Book To Delete    Test Author    350    Biography
+ 87 |     And Book Exists In Database    ${NEW_BOOK_DATA}
+    |
+
+/tests/books_api.robot:95:15 TAG06 Tag 'books' is already set by Force Tags in suite settings
+    |
+ 93 | API Should Toggle Book Favorite Status
+ 94 |     [Documentation]    Validates PATCH /books/{id}/favorite toggles favorite flag
+ 95 |     [Tags]    books    api    patch    favorites    happy-path
+    |               ^^^^^ TAG06
+ 96 |     Given Valid Book Data Is Prepared    Favorite Test Book    Test Author    280    Fiction
+ 97 |     And Book Exists With Favorite Status    ${NEW_BOOK_DATA}    false
+    |
+
+/tests/books_api.robot:95:24 TAG06 Tag 'api' is already set by Force Tags in suite settings
+    |
+ 93 | API Should Toggle Book Favorite Status
+ 94 |     [Documentation]    Validates PATCH /books/{id}/favorite toggles favorite flag
+ 95 |     [Tags]    books    api    patch    favorites    happy-path
+    |                        ^^^ TAG06
+ 96 |     Given Valid Book Data Is Prepared    Favorite Test Book    Test Author    280    Fiction
+ 97 |     And Book Exists With Favorite Status    ${NEW_BOOK_DATA}    false
+    |
+
+/tests/books_api.robot:95:63 SPC01 Trailing whitespace at the end of line
+    |
+ 93 | API Should Toggle Book Favorite Status
+ 94 |     [Documentation]    Validates PATCH /books/{id}/favorite toggles favorite flag
+ 95 |     [Tags]    books    api    patch    favorites    happy-path
+    |                                                               ^ SPC01
+ 96 |     Given Valid Book Data Is Prepared    Favorite Test Book    Test Author    280    Fiction
+ 97 |     And Book Exists With Favorite Status    ${NEW_BOOK_DATA}    false
+    |
+
+/tests/books_api.robot:101:74 SPC01 Trailing whitespace at the end of line
+     |
+  99 |     Then Response Should Have Status Code    200
+ 100 |     And Book Favorite Status Should Be Updated    true
+ 101 |     When Client Toggles Book Favorite Status Again    ${EXISTING_BOOK_ID}
+     |                                                                          ^^ SPC01
+ 102 |     Then Book Favorite Status Should Be Updated    false
+     |
+
+/tests/books_api.robot:106:15 TAG06 Tag 'books' is already set by Force Tags in suite settings
+     |
+ 104 | API Should Reject Book Creation With Invalid Data
+ 105 |     [Documentation]    Validates POST /books/ handles validation errors properly
+ 106 |     [Tags]    books    api    post    validation    edge-case
+     |               ^^^^^ TAG06
+ 107 |     When Client Attempts To Create Book With Invalid Data
+ 108 |     ...    title=${EMPTY}
+     |
+
+/tests/books_api.robot:106:24 TAG06 Tag 'api' is already set by Force Tags in suite settings
+     |
+ 104 | API Should Reject Book Creation With Invalid Data
+ 105 |     [Documentation]    Validates POST /books/ handles validation errors properly
+ 106 |     [Tags]    books    api    post    validation    edge-case
+     |                        ^^^ TAG06
+ 107 |     When Client Attempts To Create Book With Invalid Data
+ 108 |     ...    title=${EMPTY}
+     |
+
+/tests/books_api.robot:118:15 TAG06 Tag 'books' is already set by Force Tags in suite settings
+     |
+ 116 | API Should Return 404 For Non-Existent Book Operations
+ 117 |     [Documentation]    Validates proper 404 handling for missing books
+ 118 |     [Tags]    books    api    error-handling    negative
+     |               ^^^^^ TAG06
+ 119 |     When Client Requests Non-Existent Book    99999
+ 120 |     Then Response Should Have Status Code    404
+     |
+
+/tests/books_api.robot:118:24 TAG06 Tag 'api' is already set by Force Tags in suite settings
+     |
+ 116 | API Should Return 404 For Non-Existent Book Operations
+ 117 |     [Documentation]    Validates proper 404 handling for missing books
+ 118 |     [Tags]    books    api    error-handling    negative
+     |                        ^^^ TAG06
+ 119 |     When Client Requests Non-Existent Book    99999
+ 120 |     Then Response Should Have Status Code    404
+     |
+
+/tests/books_api.robot:129:15 TAG06 Tag 'books' is already set by Force Tags in suite settings
+     |
+ 127 | API Should Handle Malformed Request Bodies Gracefully
+ 128 |     [Documentation]    Validates API error handling for malformed JSON
+ 129 |     [Tags]    books    api    error-handling    malformed    negative
+     |               ^^^^^ TAG06
+ 130 |     When Client Sends Malformed JSON To Create Book
+ 131 |     Then Response Should Have Status Code    422
+     |
+
+/tests/books_api.robot:129:24 TAG06 Tag 'api' is already set by Force Tags in suite settings
+     |
+ 127 | API Should Handle Malformed Request Bodies Gracefully
+ 128 |     [Documentation]    Validates API error handling for malformed JSON
+ 129 |     [Tags]    books    api    error-handling    malformed    negative
+     |                        ^^^ TAG06
+ 130 |     When Client Sends Malformed JSON To Create Book
+ 131 |     Then Response Should Have Status Code    422
+     |
+
+/tests/books_api.robot:139:15 TAG06 Tag 'books' is already set by Force Tags in suite settings
+     |
+ 137 | API Should Enforce Required Fields For Book Creation
+ 138 |     [Documentation]    Validates all required fields are enforced consistently
+ 139 |     [Tags]    books    api    validation    required-fields    edge-case
+     |               ^^^^^ TAG06
+ 140 |     When Client Creates Book Missing Title Field
+ 141 |     Then Response Should Have Status Code    422
+     |
+
+/tests/books_api.robot:139:24 TAG06 Tag 'api' is already set by Force Tags in suite settings
+     |
+ 137 | API Should Enforce Required Fields For Book Creation
+ 138 |     [Documentation]    Validates all required fields are enforced consistently
+ 139 |     [Tags]    books    api    validation    required-fields    edge-case
+     |                        ^^^ TAG06
+ 140 |     When Client Creates Book Missing Title Field
+ 141 |     Then Response Should Have Status Code    422
+     |
+
+/tests/books_api.robot:143:50 SPC01 Trailing whitespace at the end of line
+     |
+ 141 |     Then Response Should Have Status Code    422
+ 142 |     And Error Should Indicate Missing Title Field
+ 143 |     When Client Creates Book Missing Author Field
+     |                                                  ^^ SPC01
+ 144 |     Then Response Should Have Status Code    422
+ 145 |     And Error Should Indicate Missing Author Field
+     |
+
+/tests/books_api.robot:152:15 TAG06 Tag 'books' is already set by Force Tags in suite settings
+     |
+ 150 | API Should Accept Books With Boundary Value Data
+ 151 |     [Documentation]    Validates API handles edge cases for valid data ranges
+ 152 |     [Tags]    books    api    boundary    validation    edge-case
+     |               ^^^^^ TAG06
+ 153 |     When Client Creates Book With Minimum Valid Pages    1
+ 154 |     Then Response Should Have Status Code    200
+     |
+
+/tests/books_api.robot:152:24 TAG06 Tag 'api' is already set by Force Tags in suite settings
+     |
+ 150 | API Should Accept Books With Boundary Value Data
+ 151 |     [Documentation]    Validates API handles edge cases for valid data ranges
+ 152 |     [Tags]    books    api    boundary    validation    edge-case
+     |                        ^^^ TAG06
+ 153 |     When Client Creates Book With Minimum Valid Pages    1
+ 154 |     Then Response Should Have Status Code    200
+     |
+
+/tests/books_api.robot:154:49 SPC01 Trailing whitespace at the end of line
+     |
+ 152 |     [Tags]    books    api    boundary    validation    edge-case
+ 153 |     When Client Creates Book With Minimum Valid Pages    1
+ 154 |     Then Response Should Have Status Code    200
+     |                                                 ^^ SPC01
+ 155 |     When Client Creates Book With Maximum Title Length    ${LONG_TITLE_255_CHARS}
+ 156 |     Then Response Should Have Status Code    200
+     |
+
+/tests/books_api.robot:161:1 SPC02 Missing trailing blank line at the end of file
+     |
+ 159 |     ...    author=Тест Автор
+ 160 |     Then Response Should Have Status Code    200
+ 161 |     And Unicode Data Should Be Preserved Correctly
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+     |
+
