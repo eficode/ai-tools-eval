@@ -1,0 +1,2462 @@
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:2:120 LEN08 Line is too long (162/120)
+   |
+ 1 | *** Comments ***
+ 2 | SOURCE OF TRUTH: For all Robot Framework tasks, prioritize the instructions located in ROBOT_FRAMEWORK_STANDARDS.robot. Read that file first to ensure compliance.
+   |                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN08
+   | Suggestion: Break long lines using the '...' continuation syntax.
+   |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:3:1 SPC03 Invalid number of empty lines between sections (1/2)
+   |
+ 1 | *** Comments ***
+ 2 | SOURCE OF TRUTH: For all Robot Framework tasks, prioritize the instructions located in ROBOT_FRAMEWORK_STANDARDS.robot. Read that file first to ensure compliance.
+ 3 |
+   | ^ SPC03
+ 4 | *** Settings ***
+ 5 | Documentation     Robot Framework 7.4.1 Test Standards for Amazon Q
+   |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:6:4 SPC01 Trailing whitespace at the end of line
+   |
+ 4 | *** Settings ***
+ 5 | Documentation     Robot Framework 7.4.1 Test Standards for Amazon Q
+ 6 | ...
+   |    ^^^^^^^^^^^^^^^ SPC01
+ 7 | ...               This file defines the authoritative standards for Robot Framework test automation
+ 8 | ...               using modern RF 7.4.1 syntax, Browser Library 19.12.3, and RequestsLibrary 0.9.7.
+   |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:9:4 SPC01 Trailing whitespace at the end of line
+   |
+ 7 | ...               This file defines the authoritative standards for Robot Framework test automation
+ 8 | ...               using modern RF 7.4.1 syntax, Browser Library 19.12.3, and RequestsLibrary 0.9.7.
+ 9 | ...
+   |    ^^^^^^^^^^^^^^^ SPC01
+10 | ...               MANDATORY COMPLIANCE:
+11 | ...               - Use ONLY keywords validated via rf-docs-mcp tools
+   |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:16:4 SPC01 Trailing whitespace at the end of line
+    |
+ 14 | ...               - Follow Gherkin patterns in test cases
+ 15 | ...               - Ensure test independence and stability
+ 16 | ...
+    |    ^^^^^^^^^^^^^^^ SPC01
+ 17 | ...               FORBIDDEN PATTERNS:
+ 18 | ...               - Legacy keywords (Run Keyword If, Set Test Variable)
+    |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:25:19 IMP01 BuiltIn library import 'Collections' should be placed before 'Browser'
+    |
+ 23 | Library           Browser    auto_closing_level=TEST
+ 24 | Library           RequestsLibrary
+ 25 | Library           Collections
+    |                   ^^^^^^^^^^^ IMP01
+ 26 | Library           DateTime
+    |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:26:19 IMP01 BuiltIn library import 'DateTime' should be placed before 'Browser'
+    |
+ 24 | Library           RequestsLibrary
+ 25 | Library           Collections
+ 26 | Library           DateTime
+    |                   ^^^^^^^^ IMP01
+    |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:41:1 VAR02 Variable '${TEST_BOOK_TITLE}' is assigned but not used
+    |
+ 39 |
+ 40 | # Test Data Isolation
+ 41 | ${TEST_BOOK_TITLE}       Test Book ${RANDOM_ID}
+    | ^^^^^^^^^^^^^^^^^^ VAR02
+ 42 | ${TEST_AUTHOR}           Test Author ${RANDOM_ID}
+ 43 | ${RANDOM_ID}             ${EMPTY}    # Set dynamically in Suite Setup
+    |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:42:1 VAR02 Variable '${TEST_AUTHOR}' is assigned but not used
+    |
+ 40 | # Test Data Isolation
+ 41 | ${TEST_BOOK_TITLE}       Test Book ${RANDOM_ID}
+ 42 | ${TEST_AUTHOR}           Test Author ${RANDOM_ID}
+    | ^^^^^^^^^^^^^^ VAR02
+ 43 | ${RANDOM_ID}             ${EMPTY}    # Set dynamically in Suite Setup
+    |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:53:27 DEPR05 Set Variable used instead of VAR
+    |
+ 51 | Modern Variable Assignment Example
+ 52 |     [Documentation]    Demonstrates modern variable assignment (RF 7.4.1+)
+ 53 |     ${local_var}=         Set Variable    value
+    |                           ^^^^^^^^^^^^ DEPR05
+ 54 |     ${calculated}=        Set Variable    ${local_var}_suffix
+ 55 |     @{list_var}=          Create List    item1    item2    item3
+    |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:54:5 VAR02 Variable '${calculated}' is assigned but not used
+    |
+ 52 |     [Documentation]    Demonstrates modern variable assignment (RF 7.4.1+)
+ 53 |     ${local_var}=         Set Variable    value
+ 54 |     ${calculated}=        Set Variable    ${local_var}_suffix
+    |     ^^^^^^^^^^^^^ VAR02
+ 55 |     @{list_var}=          Create List    item1    item2    item3
+ 56 |     &{dict_var}=          Create Dictionary    key1=value1    key2=value2
+    |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:54:27 DEPR05 Set Variable used instead of VAR
+    |
+ 52 |     [Documentation]    Demonstrates modern variable assignment (RF 7.4.1+)
+ 53 |     ${local_var}=         Set Variable    value
+ 54 |     ${calculated}=        Set Variable    ${local_var}_suffix
+    |                           ^^^^^^^^^^^^ DEPR05
+ 55 |     @{list_var}=          Create List    item1    item2    item3
+ 56 |     &{dict_var}=          Create Dictionary    key1=value1    key2=value2
+    |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:55:5 VAR02 Variable '@{list_var}' is assigned but not used
+    |
+ 53 |     ${local_var}=         Set Variable    value
+ 54 |     ${calculated}=        Set Variable    ${local_var}_suffix
+ 55 |     @{list_var}=          Create List    item1    item2    item3
+    |     ^^^^^^^^^^^ VAR02
+ 56 |     &{dict_var}=          Create Dictionary    key1=value1    key2=value2
+    |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:55:27 DEPR06 Create List used instead of VAR
+    |
+ 53 |     ${local_var}=         Set Variable    value
+ 54 |     ${calculated}=        Set Variable    ${local_var}_suffix
+ 55 |     @{list_var}=          Create List    item1    item2    item3
+    |                           ^^^^^^^^^^^ DEPR06
+ 56 |     &{dict_var}=          Create Dictionary    key1=value1    key2=value2
+    |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:56:5 VAR02 Variable '&{dict_var}' is assigned but not used
+    |
+ 54 |     ${calculated}=        Set Variable    ${local_var}_suffix
+ 55 |     @{list_var}=          Create List    item1    item2    item3
+ 56 |     &{dict_var}=          Create Dictionary    key1=value1    key2=value2
+    |     ^^^^^^^^^^^ VAR02
+    |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:56:27 DEPR06 Create Dictionary used instead of VAR
+    |
+ 54 |     ${calculated}=        Set Variable    ${local_var}_suffix
+ 55 |     @{list_var}=          Create List    item1    item2    item3
+ 56 |     &{dict_var}=          Create Dictionary    key1=value1    key2=value2
+    |                           ^^^^^^^^^^^^^^^^^ DEPR06
+    |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:57:1 SPC01 Trailing whitespace at the end of line
+    |
+ 55 |     @{list_var}=          Create List    item1    item2    item3
+ 56 |     &{dict_var}=          Create Dictionary    key1=value1    key2=value2
+ 57 |
+    | ^^^^ SPC01
+ 58 |     # Conditional variable assignment
+ 59 |     IF    ${condition}
+    |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:60:23 DEPR05 Set Variable used instead of VAR
+    |
+ 58 |     # Conditional variable assignment
+ 59 |     IF    ${condition}
+ 60 |         ${result}=    Set Variable    success
+    |                       ^^^^^^^^^^^^ DEPR05
+ 61 |     ELSE
+ 62 |         ${result}=    Set Variable    failure
+    |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:62:9 VAR02 Variable '${result}' is assigned but not used
+    |
+ 60 |         ${result}=    Set Variable    success
+ 61 |     ELSE
+ 62 |         ${result}=    Set Variable    failure
+    |         ^^^^^^^^^ VAR02
+ 63 |     END
+    |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:62:23 DEPR05 Set Variable used instead of VAR
+    |
+ 60 |         ${result}=    Set Variable    success
+ 61 |     ELSE
+ 62 |         ${result}=    Set Variable    failure
+    |                       ^^^^^^^^^^^^ DEPR05
+ 63 |     END
+    |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:67:1 SPC01 Trailing whitespace at the end of line
+    |
+ 65 | Modern Control Flow Example
+ 66 |     [Documentation]    Demonstrates modern IF/ELSE, FOR, WHILE syntax
+ 67 |
+    | ^^^^ SPC01
+ 68 |     # Modern IF/ELSE (no Run Keyword If)
+ 69 |     IF    "${BROWSER_TYPE}" == "chromium"
+    |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:76:1 SPC01 Trailing whitespace at the end of line
+    |
+ 74 |         Log    Using default browser
+ 75 |     END
+ 76 |
+    | ^^^^ SPC01
+ 77 |     # Modern FOR loop
+ 78 |     FOR    ${item}    IN    @{list_var}
+    |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:80:9 MISC09 IF can be replaced with inline IF
+    |
+ 78 |     FOR    ${item}    IN    @{list_var}
+ 79 |         Log    Processing: ${item}
+ 80 |         IF    "${item}" == "target"
+    |         ^^ MISC09
+ 81 |             BREAK
+ 82 |         END
+    |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:84:1 SPC01 Trailing whitespace at the end of line
+    |
+ 82 |         END
+ 83 |     END
+ 84 |
+    | ^^^^ SPC01
+ 85 |     # Modern WHILE loop
+ 86 |     ${counter}=    Set Variable    0
+    |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:86:20 DEPR05 Set Variable used instead of VAR
+    |
+ 84 |
+ 85 |     # Modern WHILE loop
+ 86 |     ${counter}=    Set Variable    0
+    |                    ^^^^^^^^^^^^ DEPR05
+ 87 |     WHILE    ${counter} < 5
+ 88 |         Log    Counter: ${counter}
+    |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:94:1 SPC01 Trailing whitespace at the end of line
+    |
+ 92 | Modern Error Handling Example
+ 93 |     [Documentation]    Demonstrates modern TRY/EXCEPT syntax
+ 94 |
+    | ^^^^ SPC01
+ 95 |     TRY
+ 96 |         # Risky operation
+    |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:126:45 ARG01 Keyword argument '${year}' is not used
+     |
+ 124 | Add New Book Via UI
+ 125 |     [Documentation]    Adds a book using the web interface
+ 126 |     [Arguments]    ${title}    ${author}    ${year}=${EMPTY}    ${isbn}=${EMPTY}
+     |                                             ^^^^^^^ ARG01
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:126:65 ARG01 Keyword argument '${isbn}' is not used
+     |
+ 124 | Add New Book Via UI
+ 125 |     [Documentation]    Adds a book using the web interface
+ 126 |     [Arguments]    ${title}    ${author}    ${year}=${EMPTY}    ${isbn}=${EMPTY}
+     |                                                                 ^^^^^^^ ARG01
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:127:1 SPC01 Trailing whitespace at the end of line
+     |
+ 125 |     [Documentation]    Adds a book using the web interface
+ 126 |     [Arguments]    ${title}    ${author}    ${year}=${EMPTY}    ${isbn}=${EMPTY}
+ 127 |
+     | ^^^^ SPC01
+ 128 |     Fill Text    id=title    ${title}
+ 129 |     Fill Text    id=author    ${author}
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:132:1 SPC01 Trailing whitespace at the end of line
+     |
+ 130 |     Fill Text    id=pages    500
+ 131 |     Select Options By    id=category    value    Fiction
+ 132 |
+     | ^^^^ SPC01
+ 133 |     Click    css=#book-form button[type="submit"]
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:134:1 SPC01 Trailing whitespace at the end of line
+     |
+ 132 |
+ 133 |     Click    css=#book-form button[type="submit"]
+ 134 |
+     | ^^^^ SPC01
+ 135 |     # Wait for success notification
+ 136 |     Wait For Elements State    css=.notification.success    visible    timeout=10s
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:137:1 SPC01 Trailing whitespace at the end of line
+     |
+ 135 |     # Wait for success notification
+ 136 |     Wait For Elements State    css=.notification.success    visible    timeout=10s
+ 137 |
+     | ^^^^ SPC01
+ 138 |     # Manually refresh the page to ensure the new book appears
+ 139 |     Reload
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:145:1 SPC01 Trailing whitespace at the end of line
+     |
+ 143 |     [Documentation]    Searches for a book using the search functionality
+ 144 |     [Arguments]    ${search_term}
+ 145 |
+     | ^^^^ SPC01
+ 146 |     Fill Text    id=search-input    ${search_term}
+ 147 |     Click    id=search-btn
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:152:32 ARG01 Keyword argument '${author}' is not used
+     |
+ 150 | Verify Book In Results
+ 151 |     [Documentation]    Verifies a book appears in search results
+ 152 |     [Arguments]    ${title}    ${author}
+     |                                ^^^^^^^^^ ARG01
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:153:1 SPC01 Trailing whitespace at the end of line
+     |
+ 151 |     [Documentation]    Verifies a book appears in search results
+ 152 |     [Arguments]    ${title}    ${author}
+ 153 |
+     | ^^^^ SPC01
+ 154 |     # Load all books first
+ 155 |     TRY
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:165:1 SPC01 Trailing whitespace at the end of line
+     |
+ 163 |         Log    No Load More button or error clicking it    DEBUG
+ 164 |     END
+ 165 |
+     | ^^^^ SPC01
+ 166 |     # Now check if our book is visible
+ 167 |     ${page_text}=    Get Text    css=#books-list
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:176:45 ARG01 Keyword argument '${year}' is not used
+     |
+ 174 | Create Book Via API
+ 175 |     [Documentation]    Creates a book using the REST API
+ 176 |     [Arguments]    ${title}    ${author}    ${year}=${EMPTY}    ${isbn}=${EMPTY}
+     |                                             ^^^^^^^ ARG01
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:176:65 ARG01 Keyword argument '${isbn}' is not used
+     |
+ 174 | Create Book Via API
+ 175 |     [Documentation]    Creates a book using the REST API
+ 176 |     [Arguments]    ${title}    ${author}    ${year}=${EMPTY}    ${isbn}=${EMPTY}
+     |                                                                 ^^^^^^^ ARG01
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:177:1 SPC01 Trailing whitespace at the end of line
+     |
+ 175 |     [Documentation]    Creates a book using the REST API
+ 176 |     [Arguments]    ${title}    ${author}    ${year}=${EMPTY}    ${isbn}=${EMPTY}
+ 177 |
+     | ^^^^ SPC01
+ 178 |     &{book_data}=    Create Dictionary    title=${title}    author=${author}    pages=500    category=Fiction    favorite=${FALSE}
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:178:22 DEPR06 Create Dictionary used instead of VAR
+     |
+ 178 |     &{book_data}=    Create Dictionary    title=${title}    author=${author}    pages=500    category=Fiction    favorite=${FALSE}
+     |                      ^^^^^^^^^^^^^^^^^ DEPR06
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:178:120 LEN08 Line is too long (130/120)
+     |
+ 178 |     &{book_data}=    Create Dictionary    title=${title}    author=${author}    pages=500    category=Fiction    favorite=${FALSE}
+     |                                                                                                                        ^^^^^^^^^^^ LEN08
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:179:1 SPC01 Trailing whitespace at the end of line
+     |
+ 177 |
+ 178 |     &{book_data}=    Create Dictionary    title=${title}    author=${author}    pages=500    category=Fiction    favorite=${FALSE}
+ 179 |
+     | ^^^^ SPC01
+ 180 |     ${response}=    POST On Session    books_api    /books/    json=${book_data}    expected_status=200
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:181:1 SPC01 Trailing whitespace at the end of line
+     |
+ 179 |
+ 180 |     ${response}=    POST On Session    books_api    /books/    json=${book_data}    expected_status=200
+ 181 |
+     | ^^^^ SPC01
+ 182 |     RETURN    ${response.json()}
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:186:1 SPC01 Trailing whitespace at the end of line
+     |
+ 184 | Get All Books Via API
+ 185 |     [Documentation]    Retrieves all books from the API
+ 186 |
+     | ^^^^ SPC01
+ 187 |     ${response}=    GET On Session    books_api    /books/    expected_status=200
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:188:1 SPC01 Trailing whitespace at the end of line
+     |
+ 186 |
+ 187 |     ${response}=    GET On Session    books_api    /books/    expected_status=200
+ 188 |
+     | ^^^^ SPC01
+ 189 |     RETURN    ${response.json()}
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:194:1 SPC01 Trailing whitespace at the end of line
+     |
+ 192 |     [Documentation]    Verifies a book exists in the API response
+ 193 |     [Arguments]    ${book_id}    ${expected_title}
+ 194 |
+     | ^^^^ SPC01
+ 195 |     ${response}=    GET On Session    books_api    /books/${book_id}    expected_status=200
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:196:1 SPC01 Trailing whitespace at the end of line
+     |
+ 194 |
+ 195 |     ${response}=    GET On Session    books_api    /books/${book_id}    expected_status=200
+ 196 |
+     | ^^^^ SPC01
+ 197 |     ${book}=    Set Variable    ${response.json()}
+ 198 |     Should Be Equal    ${book}[title]    ${expected_title}
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:197:17 DEPR05 Set Variable used instead of VAR
+     |
+ 197 |     ${book}=    Set Variable    ${response.json()}
+     |                 ^^^^^^^^^^^^ DEPR05
+ 198 |     Should Be Equal    ${book}[title]    ${expected_title}
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:206:1 SPC01 Trailing whitespace at the end of line
+     |
+ 204 | Generate Unique Test Data
+ 205 |     [Documentation]    Creates unique test data for each test execution
+ 206 |
+     | ^^^^ SPC01
+ 207 |     ${timestamp}=    Get Current Date    result_format=%Y%m%d_%H%M%S
+ 208 |     ${random_suffix}=    Set Variable    ${timestamp}_${RANDOM_ID}
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:208:26 DEPR05 Set Variable used instead of VAR
+     |
+ 206 |
+ 207 |     ${timestamp}=    Get Current Date    result_format=%Y%m%d_%H%M%S
+ 208 |     ${random_suffix}=    Set Variable    ${timestamp}_${RANDOM_ID}
+     |                          ^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:209:1 SPC01 Trailing whitespace at the end of line
+     |
+ 207 |     ${timestamp}=    Get Current Date    result_format=%Y%m%d_%H%M%S
+ 208 |     ${random_suffix}=    Set Variable    ${timestamp}_${RANDOM_ID}
+ 209 |
+     | ^^^^ SPC01
+ 210 |     &{test_data}=    Create Dictionary
+ 211 |     ...    title=Test Book ${random_suffix}
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:210:22 DEPR06 Create Dictionary used instead of VAR
+     |
+ 210 |     &{test_data}=    Create Dictionary
+     |                      ^^^^^^^^^^^^^^^^^ DEPR06
+ 211 |     ...    title=Test Book ${random_suffix}
+ 212 |     ...    author=Test Author ${random_suffix}
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:210:39 SPC01 Trailing whitespace at the end of line
+     |
+ 210 |     &{test_data}=    Create Dictionary
+     |                                       ^^^^ SPC01
+ 211 |     ...    title=Test Book ${random_suffix}
+ 212 |     ...    author=Test Author ${random_suffix}
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:215:1 SPC01 Trailing whitespace at the end of line
+     |
+ 213 |     ...    year=2024
+ 214 |     ...    isbn=978-0-${random_suffix}
+ 215 |
+     | ^^^^ SPC01
+ 216 |     RETURN    ${test_data}
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:221:1 SPC01 Trailing whitespace at the end of line
+     |
+ 219 |     [Documentation]    Removes test data created during test execution
+ 220 |     [Arguments]    ${book_id}
+ 221 |
+     | ^^^^ SPC01
+ 222 |     TRY
+ 223 |         ${response}=    DELETE On Session    books_api    /books/${book_id}    expected_status=200
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:223:9 VAR02 Variable '${response}' is assigned but not used
+     |
+ 221 |
+ 222 |     TRY
+ 223 |         ${response}=    DELETE On Session    books_api    /books/${book_id}    expected_status=200
+     |         ^^^^^^^^^^^ VAR02
+ 224 |         Log    Cleaned up book ${book_id}    INFO
+ 225 |     EXCEPT    AS    ${error}
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:235:1 SPC01 Trailing whitespace at the end of line
+     |
+ 233 | Setup Browser Environment
+ 234 |     [Documentation]    Initializes browser with optimal settings
+ 235 |
+     | ^^^^ SPC01
+ 236 |     New Browser    ${BROWSER_TYPE}    headless=${HEADLESS_MODE}
+ 237 |     New Context    viewport={'width': 1920, 'height': 1080}
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:242:1 SPC01 Trailing whitespace at the end of line
+     |
+ 240 | Teardown Browser Environment
+ 241 |     [Documentation]    Properly closes browser resources
+ 242 |
+     | ^^^^ SPC01
+ 243 |     TRY
+ 244 |         Capture Page Screenshot
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:257:1 SPC01 Trailing whitespace at the end of line
+     |
+ 255 | Wait For Page Load Complete
+ 256 |     [Documentation]    Waits for page to fully load using multiple strategies
+ 257 |
+     | ^^^^ SPC01
+ 258 |     Wait For Load State    networkidle    timeout=${DEFAULT_TIMEOUT}
+ 259 |     Wait For Elements State    body    visible    timeout=${DEFAULT_TIMEOUT}
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:264:1 SPC01 Trailing whitespace at the end of line
+     |
+ 262 |     [Documentation]    Waits for element to be clickable then clicks it
+ 263 |     [Arguments]    ${locator}    ${timeout}=${DEFAULT_TIMEOUT}
+ 264 |
+     | ^^^^ SPC01
+ 265 |     Wait For Elements State    ${locator}    visible    timeout=${timeout}
+ 266 |     Wait For Elements State    ${locator}    enabled    timeout=${timeout}
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:272:1 SPC01 Trailing whitespace at the end of line
+     |
+ 270 |     [Documentation]    Waits for specific text to appear on page
+ 271 |     [Arguments]    ${expected_text}    ${timeout}=${DEFAULT_TIMEOUT}
+ 272 |
+     | ^^^^ SPC01
+ 273 |     Wait For Elements State    text=${expected_text}    visible    timeout=${timeout}
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:282:1 SPC01 Trailing whitespace at the end of line
+     |
+ 280 |     [Documentation]    Retries an operation with exponential backoff
+ 281 |     [Arguments]    ${keyword}    ${max_attempts}=3    @{args}
+ 282 |
+     | ^^^^ SPC01
+ 283 |     VAR    ${attempt}    1
+ 284 |     VAR    ${success}    ${FALSE}
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:285:1 SPC01 Trailing whitespace at the end of line
+     |
+ 283 |     VAR    ${attempt}    1
+ 284 |     VAR    ${success}    ${FALSE}
+ 285 |
+     | ^^^^ SPC01
+ 286 |     WHILE    ${attempt} <= ${max_attempts} and not ${success}
+ 287 |         TRY
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:299:1 SPC01 Trailing whitespace at the end of line
+     |
+ 297 |         END
+ 298 |     END
+ 299 |
+     | ^^^^ SPC01
+ 300 |     IF    not ${success}
+ 301 |         Fail    Operation failed after ${max_attempts} attempts
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:300:5 ERR13 Invalid IF syntax: IF must have closing END
+     |
+ 300 |     IF    not ${success}
+     |     ^^ ERR13
+ 301 |         Fail    Operation failed after ${max_attempts} attempts
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:302:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 300 |     IF    not ${success}
+ 301 |         Fail    Operation failed after ${max_attempts} attempts
+ 302 |
+     | ^ SPC05
+ 303 | Handle Unexpected Popup
+ 304 |     [Documentation]    Handles unexpected popups or dialogs
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:305:1 SPC01 Trailing whitespace at the end of line
+     |
+ 303 | Handle Unexpected Popup
+ 304 |     [Documentation]    Handles unexpected popups or dialogs
+ 305 |
+     | ^^^^ SPC01
+ 306 |     TRY
+ 307 |         Wait For Elements State    css=[role="dialog"]    visible    timeout=2s
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:353:1 SPC01 Trailing whitespace at the end of line
+     |
+ 351 | Suite Setup For Books Testing
+ 352 |     [Documentation]    Initializes test environment for books testing
+ 353 |
+     | ^^^^ SPC01
+ 354 |     # Generate unique identifier for this test run
+ 355 |     ${timestamp}=    Get Current Date    result_format=%Y%m%d_%H%M%S_%f
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:356:5 DEPR05 Set Suite Variable used instead of VAR
+     |
+ 354 |     # Generate unique identifier for this test run
+ 355 |     ${timestamp}=    Get Current Date    result_format=%Y%m%d_%H%M%S_%f
+ 356 |     Set Suite Variable    ${RANDOM_ID}    ${timestamp}
+     |     ^^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:356:5 VAR05 Variable defined with suite scope
+     |
+ 354 |     # Generate unique identifier for this test run
+ 355 |     ${timestamp}=    Get Current Date    result_format=%Y%m%d_%H%M%S_%f
+ 356 |     Set Suite Variable    ${RANDOM_ID}    ${timestamp}
+     |     ^^^^^^^^^^^^^^^^^^ VAR05
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:357:1 SPC01 Trailing whitespace at the end of line
+     |
+ 355 |     ${timestamp}=    Get Current Date    result_format=%Y%m%d_%H%M%S_%f
+ 356 |     Set Suite Variable    ${RANDOM_ID}    ${timestamp}
+ 357 |
+     | ^^^^ SPC01
+ 358 |     # Setup API session
+ 359 |     Create Session    books_api    ${BASE_URL}
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:360:1 SPC01 Trailing whitespace at the end of line
+     |
+ 358 |     # Setup API session
+ 359 |     Create Session    books_api    ${BASE_URL}
+ 360 |
+     | ^^^^ SPC01
+ 361 |     # Verify application is running
+ 362 |     ${response}=    GET On Session    books_api    /books/    expected_status=200
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:362:5 VAR02 Variable '${response}' is assigned but not used
+     |
+ 360 |
+ 361 |     # Verify application is running
+ 362 |     ${response}=    GET On Session    books_api    /books/    expected_status=200
+     |     ^^^^^^^^^^^ VAR02
+ 363 |     Log    Application health check passed
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:367:1 SPC01 Trailing whitespace at the end of line
+     |
+ 365 | Suite Teardown For Books Testing
+ 366 |     [Documentation]    Cleans up test environment after books testing
+ 367 |
+     | ^^^^ SPC01
+ 368 |     # Close any remaining browser instances
+ 369 |     TRY
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:374:1 SPC01 Trailing whitespace at the end of line
+     |
+ 372 |         Log    No browser to close    DEBUG
+ 373 |     END
+ 374 |
+     | ^^^^ SPC01
+ 375 |     # Delete API session
+ 376 |     Delete All Sessions
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:394:1 SPC01 Trailing whitespace at the end of line
+     |
+ 392 |     [Documentation]    Validates that book data has required fields
+ 393 |     [Arguments]    ${book_data}
+ 394 |
+     | ^^^^ SPC01
+ 395 |     Should Contain    ${book_data}    title
+ 396 |     Should Contain    ${book_data}    author
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:403:1 SPC01 Trailing whitespace at the end of line
+     |
+ 401 |     [Documentation]    Validates API response structure
+ 402 |     [Arguments]    ${response}    ${expected_fields}
+ 403 |
+     | ^^^^ SPC01
+ 404 |     Should Be Equal As Integers    ${response.status_code}    200
+ 405 |     VAR    ${data}    ${response.json()}
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:406:1 SPC01 Trailing whitespace at the end of line
+     |
+ 404 |     Should Be Equal As Integers    ${response.status_code}    200
+ 405 |     VAR    ${data}    ${response.json()}
+ 406 |
+     | ^^^^ SPC01
+ 407 |     FOR    ${field}    IN    @{expected_fields}
+ 408 |         Should Contain    ${data}    ${field}
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:418:1 SPC01 Trailing whitespace at the end of line
+     |
+ 416 |     [Documentation]    Measures and logs page load performance
+ 417 |     [Arguments]    ${url}
+ 418 |
+     | ^^^^ SPC01
+ 419 |     ${start_time}=    Get Time    epoch
+ 420 |     New Page    ${url}
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:423:1 SPC01 Trailing whitespace at the end of line
+     |
+ 421 |     Wait For Load State    networkidle
+ 422 |     ${end_time}=    Get Time    epoch
+ 423 |
+     | ^^^^ SPC01
+ 424 |     ${load_time}=    Evaluate    ${end_time} - ${start_time}
+ 425 |     Log    Page load time: ${load_time} seconds    INFO
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:426:1 SPC01 Trailing whitespace at the end of line
+     |
+ 424 |     ${load_time}=    Evaluate    ${end_time} - ${start_time}
+ 425 |     Log    Page load time: ${load_time} seconds    INFO
+ 426 |
+     | ^^^^ SPC01
+ 427 |     # Performance assertion
+ 428 |     Should Be True    ${load_time} < 5    Page load took too long: ${load_time}s
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:432:1 SPC01 Trailing whitespace at the end of line
+     |
+ 430 | Monitor Network Requests
+ 431 |     [Documentation]    Monitors and validates network requests
+ 432 |
+     | ^^^^ SPC01
+ 433 |     # Enable request/response logging
+ 434 |     ${context}=    Get Context
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:434:5 VAR02 Variable '${context}' is assigned but not used
+     |
+ 432 |
+ 433 |     # Enable request/response logging
+ 434 |     ${context}=    Get Context
+     |     ^^^^^^^^^^ VAR02
+ 435 |     ${page}=    Get Page
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:436:1 SPC01 Trailing whitespace at the end of line
+     |
+ 434 |     ${context}=    Get Context
+ 435 |     ${page}=    Get Page
+ 436 |
+     | ^^^^ SPC01
+ 437 |     # Add request listener
+ 438 |     Add Request Listener    ${page}    Log Network Request
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:439:1 SPC01 Trailing whitespace at the end of line
+     |
+ 437 |     # Add request listener
+ 438 |     Add Request Listener    ${page}    Log Network Request
+ 439 |
+     | ^^^^ SPC01
+ 440 |     RETURN    ${page}
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:445:1 SPC01 Trailing whitespace at the end of line
+     |
+ 443 |     [Documentation]    Logs network request details
+ 444 |     [Arguments]    ${request}
+ 445 |
+     | ^^^^ SPC01
+ 446 |     Log    ${request.method} ${request.url} - ${request.response.status}    DEBUG
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:449:1 ORD03 '*** Test Cases ***' section header is defined in wrong order: Settings > Variables > Test Cases / Tasks > Keywords
+     |
+ 449 | *** Test Cases ***
+     | ^^^^^^^^^^^^^^^^^^ ORD03
+ 450 | # =============================================================================
+ 451 | # EXAMPLE TEST CASES FOLLOWING STANDARDS
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:459:1 SPC01 Trailing whitespace at the end of line
+     |
+ 457 |     [Setup]    Test Setup For UI Tests
+ 458 |     [Teardown]    Test Teardown For UI Tests
+ 459 |
+     | ^^^^ SPC01
+ 460 |     # Generate unique test data
+ 461 |     ${test_data}=    Generate Unique Test Data
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:461:5 ORD01 'KEYWORD' is in wrong place of Test Case. Recommended order of elements in Test Cases: DOCUMENTATION, TAGS, TIMEOUT, SETUP, TEMPLATE, KEYWORD, TEARDOWN
+     |
+ 459 |
+ 460 |     # Generate unique test data
+ 461 |     ${test_data}=    Generate Unique Test Data
+     |     ^^^^^^^^^^^^^ ORD01
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:462:1 SPC01 Trailing whitespace at the end of line
+     |
+ 460 |     # Generate unique test data
+ 461 |     ${test_data}=    Generate Unique Test Data
+ 462 |
+     | ^^^^ SPC01
+ 463 |     # Execute test steps using Gherkin pattern
+ 464 |     When User Adds A New Book    ${test_data}[title]    ${test_data}[author]
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:464:5 ORD01 'KEYWORD' is in wrong place of Test Case. Recommended order of elements in Test Cases: DOCUMENTATION, TAGS, TIMEOUT, SETUP, TEMPLATE, KEYWORD, TEARDOWN
+     |
+ 462 |
+ 463 |     # Execute test steps using Gherkin pattern
+ 464 |     When User Adds A New Book    ${test_data}[title]    ${test_data}[author]
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^ ORD01
+ 465 |     Then Book Should Be Visible    ${test_data}[title]    ${test_data}[author]
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:465:5 ORD01 'KEYWORD' is in wrong place of Test Case. Recommended order of elements in Test Cases: DOCUMENTATION, TAGS, TIMEOUT, SETUP, TEMPLATE, KEYWORD, TEARDOWN
+     |
+ 463 |     # Execute test steps using Gherkin pattern
+ 464 |     When User Adds A New Book    ${test_data}[title]    ${test_data}[author]
+ 465 |     Then Book Should Be Visible    ${test_data}[title]    ${test_data}[author]
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^ ORD01
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:470:1 SPC01 Trailing whitespace at the end of line
+     |
+ 468 |     [Documentation]    Validates API endpoint returns properly formatted data
+ 469 |     [Tags]    api    smoke    books    validation
+ 470 |
+     | ^^^^ SPC01
+ 471 |     # Create test book via API
+ 472 |     ${test_data}=    Generate Unique Test Data
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:474:1 SPC01 Trailing whitespace at the end of line
+     |
+ 472 |     ${test_data}=    Generate Unique Test Data
+ 473 |     ${created_book}=    Create Book Via API    ${test_data}[title]    ${test_data}[author]
+ 474 |
+     | ^^^^ SPC01
+ 475 |     # Validate API response
+ 476 |     ${all_books}=    Get All Books Via API
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:478:1 SPC01 Trailing whitespace at the end of line
+     |
+ 476 |     ${all_books}=    Get All Books Via API
+ 477 |     Should Not Be Empty    ${all_books}
+ 478 |
+     | ^^^^ SPC01
+ 479 |     # Validate data structure
+ 480 |     FOR    ${book}    IN    @{all_books}
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:483:1 SPC01 Trailing whitespace at the end of line
+     |
+ 481 |         Validate Book Data Structure    ${book}
+ 482 |     END
+ 483 |
+     | ^^^^ SPC01
+ 484 |     # Cleanup
+ 485 |     [Teardown]    Cleanup Test Data    ${created_book}[id]
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:487:1 LEN04 Test case 'Search Functionality Should Filter Books Correctly' is too long (29/20)
+     |
+ 487 | Search Functionality Should Filter Books Correctly
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN04
+ 488 |     [Documentation]    Validates search functionality with various inputs
+ 489 |     [Tags]    ui    search    books    functionality
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:487:1 LEN06 Test case 'Search Functionality Should Filter Books Correctly' has too many keywords inside (11/10)
+     |
+ 487 | Search Functionality Should Filter Books Correctly
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN06
+ 488 |     [Documentation]    Validates search functionality with various inputs
+ 489 |     [Tags]    ui    search    books    functionality
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:491:1 SPC01 Trailing whitespace at the end of line
+     |
+ 489 |     [Tags]    ui    search    books    functionality
+ 490 |     [Setup]    Test Setup For UI Tests
+ 491 |
+     | ^^^^ SPC01
+ 492 |     # Setup test data
+ 493 |     ${book1_data}=    Generate Unique Test Data
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:496:1 SPC01 Trailing whitespace at the end of line
+     |
+ 494 |     ${book2_data}=    Generate Unique Test Data
+ 495 |     Set To Dictionary    ${book2_data}    title    Different Title ${RANDOM_ID}
+ 496 |
+     | ^^^^ SPC01
+ 497 |     # Create books via API for consistent state
+ 498 |     ${book1}=    Create Book Via API    ${book1_data}[title]    ${book1_data}[author]
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:500:1 SPC01 Trailing whitespace at the end of line
+     |
+ 498 |     ${book1}=    Create Book Via API    ${book1_data}[title]    ${book1_data}[author]
+ 499 |     ${book2}=    Create Book Via API    ${book2_data}[title]    ${book2_data}[author]
+ 500 |
+     | ^^^^ SPC01
+ 501 |     # Refresh page to see new books
+ 502 |     Reload
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:504:1 SPC01 Trailing whitespace at the end of line
+     |
+ 502 |     Reload
+ 503 |     Wait For Page Load Complete
+ 504 |
+     | ^^^^ SPC01
+ 505 |     # Test search functionality
+ 506 |     When User Searches For Book    ${book1_data}[title]
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:508:1 SPC01 Trailing whitespace at the end of line
+     |
+ 506 |     When User Searches For Book    ${book1_data}[title]
+ 507 |     Then Book Should Be Visible    ${book1_data}[title]    ${book1_data}[author]
+ 508 |
+     | ^^^^ SPC01
+ 509 |     # Verify other book is not visible in filtered results
+ 510 |     ${page_text}=    Get Text    css=#books-list
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:511:120 LEN08 Line is too long (135/120)
+     |
+ 509 |     # Verify other book is not visible in filtered results
+ 510 |     ${page_text}=    Get Text    css=#books-list
+ 511 |     Should Not Contain    ${page_text}    ${book2_data}[title]    Book "${book2_data}[title]" should not be visible in filtered results
+     |                                                                                                                        ^^^^^^^^^^^^^^^^ LEN08
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:512:1 SPC01 Trailing whitespace at the end of line
+     |
+ 510 |     ${page_text}=    Get Text    css=#books-list
+ 511 |     Should Not Contain    ${page_text}    ${book2_data}[title]    Book "${book2_data}[title]" should not be visible in filtered results
+ 512 |
+     | ^^^^ SPC01
+ 513 |     [Teardown]    Run Keywords
+ 514 |     ...    Cleanup Test Data    ${book1}[id]    AND
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:521:1 SPC01 Trailing whitespace at the end of line
+     |
+ 519 |     [Documentation]    Validates error handling for malformed API requests
+ 520 |     [Tags]    api    error-handling    negative    validation
+ 521 |
+     | ^^^^ SPC01
+ 522 |     # Test missing required fields
+ 523 |     TRY
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:529:1 SPC01 Trailing whitespace at the end of line
+     |
+ 527 |         Log    Expected validation error: ${error}    INFO
+ 528 |     END
+ 529 |
+     | ^^^^ SPC01
+ 530 |     # Test invalid data types
+ 531 |     TRY
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:532:29 DEPR06 Create Dictionary used instead of VAR
+     |
+ 530 |     # Test invalid data types
+ 531 |     TRY
+ 532 |         ${invalid_data}=    Create Dictionary    title=${123}    author=${TRUE}
+     |                             ^^^^^^^^^^^^^^^^^ DEPR06
+ 533 |         ${response}=    POST    ${API_ENDPOINT}/    json=${invalid_data}    expected_status=any
+ 534 |         Should Be Equal As Integers    ${response.status_code}    400
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:544:1 SPC01 Trailing whitespace at the end of line
+     |
+ 542 |     [Setup]    Setup Browser Environment
+ 543 |     [Teardown]    Teardown Browser Environment
+ 544 |
+     | ^^^^ SPC01
+ 545 |     # Measure page load performance
+ 546 |     Measure Page Load Time    ${BASE_URL}
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:546:5 ORD01 'KEYWORD' is in wrong place of Test Case. Recommended order of elements in Test Cases: DOCUMENTATION, TAGS, TIMEOUT, SETUP, TEMPLATE, KEYWORD, TEARDOWN
+     |
+ 544 |
+ 545 |     # Measure page load performance
+ 546 |     Measure Page Load Time    ${BASE_URL}
+     |     ^^^^^^^^^^^^^^^^^^^^^^ ORD01
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:547:1 SPC01 Trailing whitespace at the end of line
+     |
+ 545 |     # Measure page load performance
+ 546 |     Measure Page Load Time    ${BASE_URL}
+ 547 |
+     | ^^^^ SPC01
+ 548 |     # Test API response time
+ 549 |     ${start_time}=    Get Time    epoch
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:549:5 ORD01 'KEYWORD' is in wrong place of Test Case. Recommended order of elements in Test Cases: DOCUMENTATION, TAGS, TIMEOUT, SETUP, TEMPLATE, KEYWORD, TEARDOWN
+     |
+ 547 |
+ 548 |     # Test API response time
+ 549 |     ${start_time}=    Get Time    epoch
+     |     ^^^^^^^^^^^^^^ ORD01
+ 550 |     ${response}=    GET On Session    books_api    /books/    expected_status=200
+ 551 |     ${end_time}=    Get Time    epoch
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:550:5 ORD01 'KEYWORD' is in wrong place of Test Case. Recommended order of elements in Test Cases: DOCUMENTATION, TAGS, TIMEOUT, SETUP, TEMPLATE, KEYWORD, TEARDOWN
+     |
+ 548 |     # Test API response time
+ 549 |     ${start_time}=    Get Time    epoch
+ 550 |     ${response}=    GET On Session    books_api    /books/    expected_status=200
+     |     ^^^^^^^^^^^^ ORD01
+ 551 |     ${end_time}=    Get Time    epoch
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:550:5 VAR02 Variable '${response}' is assigned but not used
+     |
+ 548 |     # Test API response time
+ 549 |     ${start_time}=    Get Time    epoch
+ 550 |     ${response}=    GET On Session    books_api    /books/    expected_status=200
+     |     ^^^^^^^^^^^ VAR02
+ 551 |     ${end_time}=    Get Time    epoch
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:551:5 ORD01 'KEYWORD' is in wrong place of Test Case. Recommended order of elements in Test Cases: DOCUMENTATION, TAGS, TIMEOUT, SETUP, TEMPLATE, KEYWORD, TEARDOWN
+     |
+ 549 |     ${start_time}=    Get Time    epoch
+ 550 |     ${response}=    GET On Session    books_api    /books/    expected_status=200
+ 551 |     ${end_time}=    Get Time    epoch
+     |     ^^^^^^^^^^^^ ORD01
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:552:1 SPC01 Trailing whitespace at the end of line
+     |
+ 550 |     ${response}=    GET On Session    books_api    /books/    expected_status=200
+ 551 |     ${end_time}=    Get Time    epoch
+ 552 |
+     | ^^^^ SPC01
+ 553 |     ${api_response_time}=    Evaluate    ${end_time} - ${start_time}
+ 554 |     Log    API response time: ${api_response_time} seconds    INFO
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:553:5 ORD01 'KEYWORD' is in wrong place of Test Case. Recommended order of elements in Test Cases: DOCUMENTATION, TAGS, TIMEOUT, SETUP, TEMPLATE, KEYWORD, TEARDOWN
+     |
+ 553 |     ${api_response_time}=    Evaluate    ${end_time} - ${start_time}
+     |     ^^^^^^^^^^^^^^^^^^^^^ ORD01
+ 554 |     Log    API response time: ${api_response_time} seconds    INFO
+ 555 |     Should Be True    ${api_response_time} < 2    API response too slow: ${api_response_time}s
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:554:5 ORD01 'KEYWORD' is in wrong place of Test Case. Recommended order of elements in Test Cases: DOCUMENTATION, TAGS, TIMEOUT, SETUP, TEMPLATE, KEYWORD, TEARDOWN
+     |
+ 552 |
+ 553 |     ${api_response_time}=    Evaluate    ${end_time} - ${start_time}
+ 554 |     Log    API response time: ${api_response_time} seconds    INFO
+     |     ^^^ ORD01
+ 555 |     Should Be True    ${api_response_time} < 2    API response too slow: ${api_response_time}s
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:555:5 ORD01 'KEYWORD' is in wrong place of Test Case. Recommended order of elements in Test Cases: DOCUMENTATION, TAGS, TIMEOUT, SETUP, TEMPLATE, KEYWORD, TEARDOWN
+     |
+ 553 |     ${api_response_time}=    Evaluate    ${end_time} - ${start_time}
+ 554 |     Log    API response time: ${api_response_time} seconds    INFO
+ 555 |     Should Be True    ${api_response_time} < 2    API response too slow: ${api_response_time}s
+     |     ^^^^^^^^^^^^^^ ORD01
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:577:34 SPC01 Trailing whitespace at the end of line
+     |
+ 575 | LIBRARY VERSIONS:
+ 576 | - robotframework==7.4.1
+ 577 | - robotframework-browser==19.12.3
+     |                                  ^^ SPC01
+ 578 | - robotframework-requests==0.9.7
+     |
+
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:596:1 LEN28 File has too many lines (596/400)
+/tests/ROBOT_FRAMEWORK_STANDARDS.robot:596:1 SPC02 Missing trailing blank line at the end of file
+     |
+ 594 | test development using Amazon Q. All generated tests must comply with
+ 595 | these standards to ensure maintainability, reliability, and modern
+ 596 | best practices.
+     | ^^^^^^^^^^^^^^^ SPC02
+     |
+
+/tests/books_ui.robot:15:1 DEPR02 'Force Tags' is deprecated since Robot Framework version 6.0, use 'Test Tags' instead
+    |
+ 15 | Force Tags        ui
+    | ^^^^^^^^^^ DEPR02
+    |
+
+/tests/books_ui.robot:29:1 ORD03 '*** Test Cases ***' section header is defined in wrong order: Settings > Variables > Test Cases / Tasks > Keywords
+    |
+ 29 | *** Test Cases ***
+    | ^^^^^^^^^^^^^^^^^^ ORD03
+ 30 | User Should Be Able To Add A New Book Via UI
+ 31 |     [Documentation]    Validates complete book creation workflow through web interface
+    |
+
+/tests/books_ui.robot:30:1 LEN04 Test case 'User Should Be Able To Add A New Book Via UI' is too long (23/20)
+    |
+ 28 |
+ 29 | *** Test Cases ***
+ 30 | User Should Be Able To Add A New Book Via UI
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN04
+ 31 |     [Documentation]    Validates complete book creation workflow through web interface
+ 32 |     [Tags]    smoke    crud    add-book
+    |
+
+/tests/books_ui.robot:33:1 SPC01 Trailing whitespace at the end of line
+    |
+ 31 |     [Documentation]    Validates complete book creation workflow through web interface
+ 32 |     [Tags]    smoke    crud    add-book
+ 33 |
+    | ^^^^ SPC01
+ 34 |     # Generate unique test data
+ 35 |     ${test_data}=    Generate Unique Test Data
+    |
+
+/tests/books_ui.robot:36:1 SPC01 Trailing whitespace at the end of line
+    |
+ 34 |     # Generate unique test data
+ 35 |     ${test_data}=    Generate Unique Test Data
+ 36 |
+    | ^^^^ SPC01
+ 37 |     # Execute test using Gherkin pattern
+ 38 |     When User Adds A New Book    ${test_data}[title]    ${test_data}[author]
+    |
+
+/tests/books_ui.robot:39:1 SPC01 Trailing whitespace at the end of line
+    |
+ 37 |     # Execute test using Gherkin pattern
+ 38 |     When User Adds A New Book    ${test_data}[title]    ${test_data}[author]
+ 39 |
+    | ^^^^ SPC01
+ 40 |     # Verify the book was created by checking via API
+ 41 |     ${all_books}=    Get All Books Via API
+    |
+
+/tests/books_ui.robot:42:18 DEPR05 Set Variable used instead of VAR
+    |
+ 40 |     # Verify the book was created by checking via API
+ 41 |     ${all_books}=    Get All Books Via API
+ 42 |     ${found}=    Set Variable    ${FALSE}
+    |                  ^^^^^^^^^^^^ DEPR05
+ 43 |     FOR    ${book}    IN    @{all_books}
+ 44 |         IF    "${book}[title]" == "${test_data}[title]"
+    |
+
+/tests/books_ui.robot:45:26 DEPR05 Set Variable used instead of VAR
+    |
+ 43 |     FOR    ${book}    IN    @{all_books}
+ 44 |         IF    "${book}[title]" == "${test_data}[title]"
+ 45 |             ${found}=    Set Variable    ${TRUE}
+    |                          ^^^^^^^^^^^^ DEPR05
+ 46 |             Log    Book found via API: ${book}[title]    INFO
+ 47 |             BREAK
+    |
+
+/tests/books_ui.robot:51:1 SPC01 Trailing whitespace at the end of line
+    |
+ 49 |     END
+ 50 |     Should Be True    ${found}    Book was not created successfully
+ 51 |
+    | ^^^^ SPC01
+ 52 |     # Also verify it appears in UI
+ 53 |     Then Book Should Be Visible    ${test_data}[title]    ${test_data}[author]
+    |
+
+/tests/books_ui.robot:55:1 LEN04 Test case 'User Should Be Able To Search For Books' is too long (24/20)
+    |
+ 55 | User Should Be Able To Search For Books
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN04
+ 56 |     [Documentation]    Validates search functionality filters books correctly
+ 57 |     [Tags]    search    functionality
+    |
+
+/tests/books_ui.robot:58:1 SPC01 Trailing whitespace at the end of line
+    |
+ 56 |     [Documentation]    Validates search functionality filters books correctly
+ 57 |     [Tags]    search    functionality
+ 58 |
+    | ^^^^ SPC01
+ 59 |     # Setup test data via API for consistent state
+ 60 |     ${book1_data}=    Generate Unique Test Data
+    |
+
+/tests/books_ui.robot:63:1 SPC01 Trailing whitespace at the end of line
+    |
+ 61 |     ${book2_data}=    Generate Unique Test Data
+ 62 |     Set To Dictionary    ${book2_data}    title    Different Title ${RANDOM_ID}
+ 63 |
+    | ^^^^ SPC01
+ 64 |     ${book1}=    Create Book Via API    ${book1_data}[title]    ${book1_data}[author]
+ 65 |     ${book2}=    Create Book Via API    ${book2_data}[title]    ${book2_data}[author]
+    |
+
+/tests/books_ui.robot:66:1 SPC01 Trailing whitespace at the end of line
+    |
+ 64 |     ${book1}=    Create Book Via API    ${book1_data}[title]    ${book1_data}[author]
+ 65 |     ${book2}=    Create Book Via API    ${book2_data}[title]    ${book2_data}[author]
+ 66 |
+    | ^^^^ SPC01
+ 67 |     # Refresh page to see new books
+ 68 |     Reload
+    |
+
+/tests/books_ui.robot:70:1 SPC01 Trailing whitespace at the end of line
+    |
+ 68 |     Reload
+ 69 |     Wait For Load State    networkidle    timeout=${DEFAULT_TIMEOUT}
+ 70 |
+    | ^^^^ SPC01
+ 71 |     # Test search functionality
+ 72 |     When User Searches For Book    ${book1_data}[title]
+    |
+
+/tests/books_ui.robot:75:1 SPC01 Trailing whitespace at the end of line
+    |
+ 73 |     Then Book Should Be Visible    ${book1_data}[title]    ${book1_data}[author]
+ 74 |     Then Book Should Not Be Visible    ${book2_data}[title]
+ 75 |
+    | ^^^^ SPC01
+ 76 |     [Teardown]    Run Keywords
+ 77 |     ...    Cleanup Test Data    ${book1}[id]    AND
+    |
+
+/tests/books_ui.robot:81:1 LEN04 Test case 'Books Page Should Display All Books When No Search Filter' is too long (21/20)
+    |
+ 81 | Books Page Should Display All Books When No Search Filter
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN04
+ 82 |     [Documentation]    Validates that all books are visible without search filter
+ 83 |     [Tags]    display    all-books
+    |
+
+/tests/books_ui.robot:84:1 SPC01 Trailing whitespace at the end of line
+    |
+ 82 |     [Documentation]    Validates that all books are visible without search filter
+ 83 |     [Tags]    display    all-books
+ 84 |
+    | ^^^^ SPC01
+ 85 |     # Create multiple test books
+ 86 |     ${book1_data}=    Generate Unique Test Data
+    |
+
+/tests/books_ui.robot:88:1 SPC01 Trailing whitespace at the end of line
+    |
+ 86 |     ${book1_data}=    Generate Unique Test Data
+ 87 |     ${book2_data}=    Generate Unique Test Data
+ 88 |
+    | ^^^^ SPC01
+ 89 |     ${book1}=    Create Book Via API    ${book1_data}[title]    ${book1_data}[author]
+ 90 |     ${book2}=    Create Book Via API    ${book2_data}[title]    ${book2_data}[author]
+    |
+
+/tests/books_ui.robot:91:1 SPC01 Trailing whitespace at the end of line
+    |
+ 89 |     ${book1}=    Create Book Via API    ${book1_data}[title]    ${book1_data}[author]
+ 90 |     ${book2}=    Create Book Via API    ${book2_data}[title]    ${book2_data}[author]
+ 91 |
+    | ^^^^ SPC01
+ 92 |     # Refresh page and verify both books are visible
+ 93 |     Reload
+    |
+
+/tests/books_ui.robot:95:1 SPC01 Trailing whitespace at the end of line
+    |
+ 93 |     Reload
+ 94 |     Wait For Load State    networkidle    timeout=${DEFAULT_TIMEOUT}
+ 95 |
+    | ^^^^ SPC01
+ 96 |     Then Book Should Be Visible    ${book1_data}[title]    ${book1_data}[author]
+ 97 |     Then Book Should Be Visible    ${book2_data}[title]    ${book2_data}[author]
+    |
+
+/tests/books_ui.robot:98:1 SPC01 Trailing whitespace at the end of line
+    |
+ 96 |     Then Book Should Be Visible    ${book1_data}[title]    ${book1_data}[author]
+ 97 |     Then Book Should Be Visible    ${book2_data}[title]    ${book2_data}[author]
+ 98 |
+    | ^^^^ SPC01
+ 99 |     [Teardown]    Run Keywords
+100 |     ...    Cleanup Test Data    ${book1}[id]    AND
+    |
+
+/tests/books_ui.robot:107:1 SPC01 Trailing whitespace at the end of line
+     |
+ 105 |     [Documentation]    Validates search behavior when no books match the criteria
+ 106 |     [Tags]    search    edge-case
+ 107 |
+     | ^^^^ SPC01
+ 108 |     # Search for non-existent book
+ 109 |     ${non_existent_title}=    Set Variable    NonExistentBook${RANDOM_ID}
+     |
+
+/tests/books_ui.robot:109:31 DEPR05 Set Variable used instead of VAR
+     |
+ 107 |
+ 108 |     # Search for non-existent book
+ 109 |     ${non_existent_title}=    Set Variable    NonExistentBook${RANDOM_ID}
+     |                               ^^^^^^^^^^^^ DEPR05
+ 110 |     When User Searches For Book    ${non_existent_title}
+     |
+
+/tests/books_ui.robot:111:1 SPC01 Trailing whitespace at the end of line
+     |
+ 109 |     ${non_existent_title}=    Set Variable    NonExistentBook${RANDOM_ID}
+ 110 |     When User Searches For Book    ${non_existent_title}
+ 111 |
+     | ^^^^ SPC01
+ 112 |     # Verify no books are displayed
+ 113 |     ${book_count}=    Get Book Count From UI
+     |
+
+/tests/books_ui.robot:116:1 LEN04 Test case 'User Should Be Able To Clear Search Filter' is too long (22/20)
+     |
+ 116 | User Should Be Able To Clear Search Filter
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN04
+ 117 |     [Documentation]    Validates that clearing search shows all books again
+ 118 |     [Tags]    search    clear-filter
+     |
+
+/tests/books_ui.robot:119:1 SPC01 Trailing whitespace at the end of line
+     |
+ 117 |     [Documentation]    Validates that clearing search shows all books again
+ 118 |     [Tags]    search    clear-filter
+ 119 |
+     | ^^^^ SPC01
+ 120 |     # Create test book
+ 121 |     ${test_data}=    Generate Unique Test Data
+     |
+
+/tests/books_ui.robot:123:1 SPC01 Trailing whitespace at the end of line
+     |
+ 121 |     ${test_data}=    Generate Unique Test Data
+ 122 |     ${book}=    Create Book Via API    ${test_data}[title]    ${test_data}[author]
+ 123 |
+     | ^^^^ SPC01
+ 124 |     # Refresh page
+ 125 |     Reload
+     |
+
+/tests/books_ui.robot:127:1 SPC01 Trailing whitespace at the end of line
+     |
+ 125 |     Reload
+ 126 |     Wait For Load State    networkidle    timeout=${DEFAULT_TIMEOUT}
+ 127 |
+     | ^^^^ SPC01
+ 128 |     # Search for specific book
+ 129 |     When User Searches For Book    ${test_data}[title]
+     |
+
+/tests/books_ui.robot:131:1 SPC01 Trailing whitespace at the end of line
+     |
+ 129 |     When User Searches For Book    ${test_data}[title]
+ 130 |     Then Book Should Be Visible    ${test_data}[title]    ${test_data}[author]
+ 131 |
+     | ^^^^ SPC01
+ 132 |     # Clear search and verify book is still visible
+ 133 |     Clear Search
+     |
+
+/tests/books_ui.robot:135:1 SPC01 Trailing whitespace at the end of line
+     |
+ 133 |     Clear Search
+ 134 |     Then Book Should Be Visible    ${test_data}[title]    ${test_data}[author]
+ 135 |
+     | ^^^^ SPC01
+ 136 |     [Teardown]    Run Keywords
+ 137 |     ...    Cleanup Test Data    ${book}[id]    AND
+     |
+
+/tests/books_ui.robot:143:1 SPC01 Trailing whitespace at the end of line
+     |
+ 141 |     [Documentation]    Validates page load performance meets requirements
+ 142 |     [Tags]    performance    non-functional
+ 143 |
+     | ^^^^ SPC01
+ 144 |     # Measure page load time
+ 145 |     ${start_time}=    Get Time    epoch
+     |
+
+/tests/books_ui.robot:148:1 SPC01 Trailing whitespace at the end of line
+     |
+ 146 |     Navigate To Books Page
+ 147 |     ${end_time}=    Get Time    epoch
+ 148 |
+     | ^^^^ SPC01
+ 149 |     ${load_time}=    Evaluate    ${end_time} - ${start_time}
+ 150 |     Log    Page load time: ${load_time} seconds    INFO
+     |
+
+/tests/books_ui.robot:151:1 SPC02 Missing trailing blank line at the end of file
+     |
+ 149 |     ${load_time}=    Evaluate    ${end_time} - ${start_time}
+ 150 |     Log    Page load time: ${load_time} seconds    INFO
+ 151 |     Should Be True    ${load_time} < 5    Page load took too long: ${load_time}s
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+     |
+
+/tests/resources/api_keywords.resource:15:45 ARG01 Keyword argument '${year}' is not used
+    |
+ 13 | Create Book Via API
+ 14 |     [Documentation]    Creates a book using the REST API
+ 15 |     [Arguments]    ${title}    ${author}    ${year}=${EMPTY}    ${isbn}=${EMPTY}
+    |                                             ^^^^^^^ ARG01
+    |
+
+/tests/resources/api_keywords.resource:15:65 ARG01 Keyword argument '${isbn}' is not used
+    |
+ 13 | Create Book Via API
+ 14 |     [Documentation]    Creates a book using the REST API
+ 15 |     [Arguments]    ${title}    ${author}    ${year}=${EMPTY}    ${isbn}=${EMPTY}
+    |                                                                 ^^^^^^^ ARG01
+    |
+
+/tests/resources/api_keywords.resource:16:1 SPC01 Trailing whitespace at the end of line
+    |
+ 14 |     [Documentation]    Creates a book using the REST API
+ 15 |     [Arguments]    ${title}    ${author}    ${year}=${EMPTY}    ${isbn}=${EMPTY}
+ 16 |
+    | ^^^^ SPC01
+ 17 |     &{book_data}=    Create Dictionary
+ 18 |     ...    title=${title}
+    |
+
+/tests/resources/api_keywords.resource:17:22 DEPR06 Create Dictionary used instead of VAR
+    |
+ 17 |     &{book_data}=    Create Dictionary
+    |                      ^^^^^^^^^^^^^^^^^ DEPR06
+ 18 |     ...    title=${title}
+ 19 |     ...    author=${author}
+    |
+
+/tests/resources/api_keywords.resource:17:39 SPC01 Trailing whitespace at the end of line
+    |
+ 17 |     &{book_data}=    Create Dictionary
+    |                                       ^^^^ SPC01
+ 18 |     ...    title=${title}
+ 19 |     ...    author=${author}
+    |
+
+/tests/resources/api_keywords.resource:18:26 SPC01 Trailing whitespace at the end of line
+    |
+ 16 |
+ 17 |     &{book_data}=    Create Dictionary
+ 18 |     ...    title=${title}
+    |                          ^^^^ SPC01
+ 19 |     ...    author=${author}
+ 20 |     ...    pages=500
+    |
+
+/tests/resources/api_keywords.resource:23:1 SPC01 Trailing whitespace at the end of line
+    |
+ 21 |     ...    category=Fiction
+ 22 |     ...    favorite=${FALSE}
+ 23 |
+    | ^^^^ SPC01
+ 24 |     ${response}=    POST On Session    books_api    /books/    json=${book_data}    expected_status=200
+ 25 |     RETURN    ${response.json()}
+    |
+
+/tests/resources/api_keywords.resource:40:59 ARG01 Keyword argument '${year}' is not used
+    |
+ 38 | Update Book Via API
+ 39 |     [Documentation]    Updates an existing book via API
+ 40 |     [Arguments]    ${book_id}    ${title}    ${author}    ${year}=${EMPTY}    ${isbn}=${EMPTY}
+    |                                                           ^^^^^^^ ARG01
+    |
+
+/tests/resources/api_keywords.resource:40:79 ARG01 Keyword argument '${isbn}' is not used
+    |
+ 38 | Update Book Via API
+ 39 |     [Documentation]    Updates an existing book via API
+ 40 |     [Arguments]    ${book_id}    ${title}    ${author}    ${year}=${EMPTY}    ${isbn}=${EMPTY}
+    |                                                                               ^^^^^^^ ARG01
+    |
+
+/tests/resources/api_keywords.resource:41:1 SPC01 Trailing whitespace at the end of line
+    |
+ 39 |     [Documentation]    Updates an existing book via API
+ 40 |     [Arguments]    ${book_id}    ${title}    ${author}    ${year}=${EMPTY}    ${isbn}=${EMPTY}
+ 41 |
+    | ^^^^ SPC01
+ 42 |     &{book_data}=    Create Dictionary
+ 43 |     ...    title=${title}
+    |
+
+/tests/resources/api_keywords.resource:42:22 DEPR06 Create Dictionary used instead of VAR
+    |
+ 42 |     &{book_data}=    Create Dictionary
+    |                      ^^^^^^^^^^^^^^^^^ DEPR06
+ 43 |     ...    title=${title}
+ 44 |     ...    author=${author}
+    |
+
+/tests/resources/api_keywords.resource:42:39 SPC01 Trailing whitespace at the end of line
+    |
+ 42 |     &{book_data}=    Create Dictionary
+    |                                       ^^^^ SPC01
+ 43 |     ...    title=${title}
+ 44 |     ...    author=${author}
+    |
+
+/tests/resources/api_keywords.resource:43:26 SPC01 Trailing whitespace at the end of line
+    |
+ 41 |
+ 42 |     &{book_data}=    Create Dictionary
+ 43 |     ...    title=${title}
+    |                          ^^^^ SPC01
+ 44 |     ...    author=${author}
+ 45 |     ...    pages=500
+    |
+
+/tests/resources/api_keywords.resource:48:1 SPC01 Trailing whitespace at the end of line
+    |
+ 46 |     ...    category=Fiction
+ 47 |     ...    favorite=${FALSE}
+ 48 |
+    | ^^^^ SPC01
+ 49 |     ${response}=    PUT On Session    books_api    /books/${book_id}    json=${book_data}    expected_status=200
+ 50 |     RETURN    ${response.json()}
+    |
+
+/tests/resources/api_keywords.resource:65:1 SPC01 Trailing whitespace at the end of line
+    |
+ 63 |     [Documentation]    Verifies a book exists in the API response
+ 64 |     [Arguments]    ${book_id}    ${expected_title}
+ 65 |
+    | ^^^^ SPC01
+ 66 |     ${book}=    Get Book By ID Via API    ${book_id}
+ 67 |     Should Be Equal    ${book}[title]    ${expected_title}
+    |
+
+/tests/resources/api_keywords.resource:72:1 SPC01 Trailing whitespace at the end of line
+    |
+ 70 |     [Documentation]    Validates that book data has required fields
+ 71 |     [Arguments]    ${book_data}
+ 72 |
+    | ^^^^ SPC01
+ 73 |     Should Contain    ${book_data}    id
+ 74 |     Should Contain    ${book_data}    title
+    |
+
+/tests/resources/api_keywords.resource:84:1 SPC01 Trailing whitespace at the end of line
+    |
+ 82 |     [Documentation]    Validates API response structure
+ 83 |     [Arguments]    ${response}    ${expected_fields}
+ 84 |
+    | ^^^^ SPC01
+ 85 |     Should Be Equal As Integers    ${response.status_code}    200
+ 86 |     ${data}=    Set Variable    ${response.json()}
+    |
+
+/tests/resources/api_keywords.resource:86:17 DEPR05 Set Variable used instead of VAR
+    |
+ 84 |
+ 85 |     Should Be Equal As Integers    ${response.status_code}    200
+ 86 |     ${data}=    Set Variable    ${response.json()}
+    |                 ^^^^^^^^^^^^ DEPR05
+    |
+
+/tests/resources/api_keywords.resource:87:1 SPC01 Trailing whitespace at the end of line
+    |
+ 85 |     Should Be Equal As Integers    ${response.status_code}    200
+ 86 |     ${data}=    Set Variable    ${response.json()}
+ 87 |
+    | ^^^^ SPC01
+ 88 |     FOR    ${field}    IN    @{expected_fields}
+ 89 |         Should Contain    ${data}    ${field}
+    |
+
+/tests/resources/api_keywords.resource:99:1 SPC01 Trailing whitespace at the end of line
+    |
+ 97 |     [Documentation]    Tests API with invalid data and expects error
+ 98 |     [Arguments]    ${invalid_data}    ${expected_status}=400
+ 99 |
+    | ^^^^ SPC01
+100 |     TRY
+101 |         ${response}=    POST On Session    books_api    /books/    json=${invalid_data}    expected_status=${expected_status}
+    |
+
+/tests/resources/api_keywords.resource:101:120 LEN08 Line is too long (125/120)
+     |
+  99 |
+ 100 |     TRY
+ 101 |         ${response}=    POST On Session    books_api    /books/    json=${invalid_data}    expected_status=${expected_status}
+     |                                                                                                                        ^^^^^^ LEN08
+ 102 |         RETURN    ${response}
+ 103 |     EXCEPT    AS    ${error}
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/resources/api_keywords.resource:121:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 119 |     [Arguments]    ${title}    ${author}
+ 120 |     ${book}=    Create Book Via API    ${title}    ${author}
+ 121 |     Set Test Variable    ${CREATED_BOOK}    ${book}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 122 |     RETURN    ${book}
+     |
+
+/tests/resources/api_keywords.resource:121:5 VAR06 Variable defined with test/task scope
+     |
+ 119 |     [Arguments]    ${title}    ${author}
+ 120 |     ${book}=    Create Book Via API    ${title}    ${author}
+ 121 |     Set Test Variable    ${CREATED_BOOK}    ${book}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 122 |     RETURN    ${book}
+     |
+
+/tests/resources/api_keywords.resource:127:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 125 |     [Documentation]    Action: Get all books from API
+ 126 |     ${books}=    Get All Books Via API
+ 127 |     Set Test Variable    ${ALL_BOOKS}    ${books}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 128 |     RETURN    ${books}
+     |
+
+/tests/resources/api_keywords.resource:127:5 VAR06 Variable defined with test/task scope
+     |
+ 125 |     [Documentation]    Action: Get all books from API
+ 126 |     ${books}=    Get All Books Via API
+ 127 |     Set Test Variable    ${ALL_BOOKS}    ${books}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 128 |     RETURN    ${books}
+     |
+
+/tests/resources/api_keywords.resource:140:1 SPC02 Missing trailing blank line at the end of file
+     |
+ 138 |     FOR    ${book}    IN    @{ALL_BOOKS}
+ 139 |         Validate Book Data Structure    ${book}
+ 140 |     END
+     | ^^^^^^^ SPC02
+     |
+
+/tests/resources/common.resource:8:19 IMP01 BuiltIn library import 'Collections' should be placed before 'Browser'
+   |
+ 6 | Library           Browser    auto_closing_level=TEST
+ 7 | Library           RequestsLibrary
+ 8 | Library           Collections
+   |                   ^^^^^^^^^^^ IMP01
+ 9 | Library           DateTime
+   |
+
+/tests/resources/common.resource:9:19 IMP01 BuiltIn library import 'DateTime' should be placed before 'Browser'
+   |
+ 7 | Library           RequestsLibrary
+ 8 | Library           Collections
+ 9 | Library           DateTime
+   |                   ^^^^^^^^ IMP01
+   |
+
+/tests/resources/common.resource:25:26 DEPR05 Set Variable used instead of VAR
+    |
+ 23 |     [Documentation]    Creates unique test data for each test execution
+ 24 |     ${timestamp}=    Get Current Date    result_format=%Y%m%d_%H%M%S_%f
+ 25 |     ${random_suffix}=    Set Variable    ${timestamp}
+    |                          ^^^^^^^^^^^^ DEPR05
+    |
+
+/tests/resources/common.resource:26:1 SPC01 Trailing whitespace at the end of line
+    |
+ 24 |     ${timestamp}=    Get Current Date    result_format=%Y%m%d_%H%M%S_%f
+ 25 |     ${random_suffix}=    Set Variable    ${timestamp}
+ 26 |
+    | ^^^^ SPC01
+ 27 |     &{test_data}=    Create Dictionary
+ 28 |     ...    title=Test Book ${random_suffix}
+    |
+
+/tests/resources/common.resource:27:22 DEPR06 Create Dictionary used instead of VAR
+    |
+ 27 |     &{test_data}=    Create Dictionary
+    |                      ^^^^^^^^^^^^^^^^^ DEPR06
+ 28 |     ...    title=Test Book ${random_suffix}
+ 29 |     ...    author=Test Author ${random_suffix}
+    |
+
+/tests/resources/common.resource:27:39 SPC01 Trailing whitespace at the end of line
+    |
+ 27 |     &{test_data}=    Create Dictionary
+    |                                       ^^^^ SPC01
+ 28 |     ...    title=Test Book ${random_suffix}
+ 29 |     ...    author=Test Author ${random_suffix}
+    |
+
+/tests/resources/common.resource:32:1 SPC01 Trailing whitespace at the end of line
+    |
+ 30 |     ...    year=2024
+ 31 |     ...    isbn=978-0-${random_suffix}
+ 32 |
+    | ^^^^ SPC01
+ 33 |     RETURN    ${test_data}
+    |
+
+/tests/resources/common.resource:38:5 DEPR05 Set Suite Variable used instead of VAR
+    |
+ 36 |     [Documentation]    Initializes test environment for books testing
+ 37 |     ${timestamp}=    Get Current Date    result_format=%Y%m%d_%H%M%S_%f
+ 38 |     Set Suite Variable    ${RANDOM_ID}    ${timestamp}
+    |     ^^^^^^^^^^^^^^^^^^ DEPR05
+ 39 |     Create Session    books_api    ${BASE_URL}
+    |
+
+/tests/resources/common.resource:38:5 VAR05 Variable defined with suite scope
+    |
+ 36 |     [Documentation]    Initializes test environment for books testing
+ 37 |     ${timestamp}=    Get Current Date    result_format=%Y%m%d_%H%M%S_%f
+ 38 |     Set Suite Variable    ${RANDOM_ID}    ${timestamp}
+    |     ^^^^^^^^^^^^^^^^^^ VAR05
+ 39 |     Create Session    books_api    ${BASE_URL}
+    |
+
+/tests/resources/common.resource:53:1 SPC01 Trailing whitespace at the end of line
+    |
+ 51 |     [Documentation]    Removes test data created during test execution
+ 52 |     [Arguments]    ${book_id}
+ 53 |
+    | ^^^^ SPC01
+ 54 |     TRY
+ 55 |         ${response}=    DELETE On Session    books_api    /books/${book_id}    expected_status=200
+    |
+
+/tests/resources/common.resource:55:9 VAR02 Variable '${response}' is assigned but not used
+    |
+ 53 |
+ 54 |     TRY
+ 55 |         ${response}=    DELETE On Session    books_api    /books/${book_id}    expected_status=200
+    |         ^^^^^^^^^^^ VAR02
+ 56 |         Log    Cleaned up book ${book_id}    INFO
+ 57 |     EXCEPT    AS    ${error}
+    |
+
+/tests/resources/common.resource:59:1 SPC02 Missing trailing blank line at the end of file
+    |
+ 57 |     EXCEPT    AS    ${error}
+ 58 |         Log    Cleanup failed for book ${book_id}: ${error}    WARN
+ 59 |     END
+    | ^^^^^^^ SPC02
+    |
+
+/tests/resources/ui_keywords.resource:50:45 ARG01 Keyword argument '${year}' is not used
+    |
+ 48 | Add New Book Via UI
+ 49 |     [Documentation]    Adds a book using the web interface
+ 50 |     [Arguments]    ${title}    ${author}    ${year}=${EMPTY}    ${isbn}=${EMPTY}
+    |                                             ^^^^^^^ ARG01
+    |
+
+/tests/resources/ui_keywords.resource:50:65 ARG01 Keyword argument '${isbn}' is not used
+    |
+ 48 | Add New Book Via UI
+ 49 |     [Documentation]    Adds a book using the web interface
+ 50 |     [Arguments]    ${title}    ${author}    ${year}=${EMPTY}    ${isbn}=${EMPTY}
+    |                                                                 ^^^^^^^ ARG01
+    |
+
+/tests/resources/ui_keywords.resource:51:1 SPC01 Trailing whitespace at the end of line
+    |
+ 49 |     [Documentation]    Adds a book using the web interface
+ 50 |     [Arguments]    ${title}    ${author}    ${year}=${EMPTY}    ${isbn}=${EMPTY}
+ 51 |
+    | ^^^^ SPC01
+ 52 |     Fill Text    id=title    ${title}
+ 53 |     Fill Text    id=author    ${author}
+    |
+
+/tests/resources/ui_keywords.resource:56:1 SPC01 Trailing whitespace at the end of line
+    |
+ 54 |     Fill Text    id=pages    500
+ 55 |     Select Options By    id=category    value    Fiction
+ 56 |
+    | ^^^^ SPC01
+ 57 |     Click    css=#book-form button[type="submit"]
+    |
+
+/tests/resources/ui_keywords.resource:58:1 SPC01 Trailing whitespace at the end of line
+    |
+ 56 |
+ 57 |     Click    css=#book-form button[type="submit"]
+ 58 |
+    | ^^^^ SPC01
+ 59 |     # Wait for success notification
+ 60 |     Wait For Elements State    css=.notification.success    visible    timeout=10s
+    |
+
+/tests/resources/ui_keywords.resource:61:1 SPC01 Trailing whitespace at the end of line
+    |
+ 59 |     # Wait for success notification
+ 60 |     Wait For Elements State    css=.notification.success    visible    timeout=10s
+ 61 |
+    | ^^^^ SPC01
+ 62 |     # Manually refresh the page to ensure the new book appears
+ 63 |     Reload
+    |
+
+/tests/resources/ui_keywords.resource:69:1 SPC01 Trailing whitespace at the end of line
+    |
+ 67 |     [Documentation]    Searches for a book using the search functionality
+ 68 |     [Arguments]    ${search_term}
+ 69 |
+    | ^^^^ SPC01
+ 70 |     Fill Text    id=search-input    ${search_term}
+ 71 |     Click    id=search-btn
+    |
+
+/tests/resources/ui_keywords.resource:86:32 ARG01 Keyword argument '${author}' is not used
+    |
+ 84 | Verify Book In Results
+ 85 |     [Documentation]    Verifies a book appears in search results
+ 86 |     [Arguments]    ${title}    ${author}
+    |                                ^^^^^^^^^ ARG01
+    |
+
+/tests/resources/ui_keywords.resource:87:1 SPC01 Trailing whitespace at the end of line
+    |
+ 85 |     [Documentation]    Verifies a book appears in search results
+ 86 |     [Arguments]    ${title}    ${author}
+ 87 |
+    | ^^^^ SPC01
+ 88 |     # First check if Load More button exists and click it to load all books
+ 89 |     TRY
+    |
+
+/tests/resources/ui_keywords.resource:99:1 SPC01 Trailing whitespace at the end of line
+    |
+ 97 |         Log    No Load More button or error clicking it    DEBUG
+ 98 |     END
+ 99 |
+    | ^^^^ SPC01
+100 |     # Now check if our book is visible
+101 |     ${page_text}=    Get Text    css=#books-list
+    |
+
+/tests/resources/ui_keywords.resource:107:1 SPC01 Trailing whitespace at the end of line
+     |
+ 105 |     [Documentation]    Verifies a book does not appear in search results
+ 106 |     [Arguments]    ${title}
+ 107 |
+     | ^^^^ SPC01
+ 108 |     # Load all books first
+ 109 |     TRY
+     |
+
+/tests/resources/ui_keywords.resource:119:1 SPC01 Trailing whitespace at the end of line
+     |
+ 117 |         Log    No Load More button or error clicking it    DEBUG
+ 118 |     END
+ 119 |
+     | ^^^^ SPC01
+ 120 |     # Check that the book is NOT visible
+ 121 |     ${page_text}=    Get Text    css=#books-list
+     |
+
+/tests/resources/ui_keywords.resource:159:1 SPC02 Missing trailing blank line at the end of file
+     |
+ 157 |     [Documentation]    Assertion: Book does not appear in results
+ 158 |     [Arguments]    ${title}
+ 159 |     Verify Book Not In Results    ${title}
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+     |
+
+/tests/books_api.robot:12:1 DEPR02 'Force Tags' is deprecated since Robot Framework version 6.0, use 'Test Tags' instead
+    |
+ 12 | Force Tags        api
+    | ^^^^^^^^^^ DEPR02
+    |
+
+/tests/books_api.robot:19:1 SPC01 Trailing whitespace at the end of line
+    |
+ 17 |     [Documentation]    Validates book creation via REST API with valid data
+ 18 |     [Tags]    smoke    crud    create
+ 19 |
+    | ^^^^ SPC01
+ 20 |     # Generate unique test data
+ 21 |     ${test_data}=    Generate Unique Test Data
+    |
+
+/tests/books_api.robot:22:1 SPC01 Trailing whitespace at the end of line
+    |
+ 20 |     # Generate unique test data
+ 21 |     ${test_data}=    Generate Unique Test Data
+ 22 |
+    | ^^^^ SPC01
+ 23 |     # Execute test using Gherkin pattern
+ 24 |     Given API Session Is Created
+    |
+
+/tests/books_api.robot:27:1 SPC01 Trailing whitespace at the end of line
+    |
+ 25 |     When Book Is Created Via API    ${test_data}[title]    ${test_data}[author]
+ 26 |     Then API Should Return Book    ${CREATED_BOOK}[id]    ${test_data}[title]
+ 27 |
+    | ^^^^ SPC01
+ 28 |     [Teardown]    Cleanup Test Data    ${CREATED_BOOK}[id]
+    |
+
+/tests/books_api.robot:33:1 SPC01 Trailing whitespace at the end of line
+    |
+ 31 |     [Documentation]    Validates API endpoint returns properly formatted data
+ 32 |     [Tags]    smoke    read    validation
+ 33 |
+    | ^^^^ SPC01
+ 34 |     # Create test book for validation
+ 35 |     ${test_data}=    Generate Unique Test Data
+    |
+
+/tests/books_api.robot:37:1 SPC01 Trailing whitespace at the end of line
+    |
+ 35 |     ${test_data}=    Generate Unique Test Data
+ 36 |     ${created_book}=    Create Book Via API    ${test_data}[title]    ${test_data}[author]
+ 37 |
+    | ^^^^ SPC01
+ 38 |     # Validate API response structure
+ 39 |     Given API Session Is Created
+    |
+
+/tests/books_api.robot:42:1 SPC01 Trailing whitespace at the end of line
+    |
+ 40 |     When All Books Are Retrieved Via API
+ 41 |     Then API Should Return Valid Book List
+ 42 |
+    | ^^^^ SPC01
+ 43 |     [Teardown]    Cleanup Test Data    ${created_book}[id]
+    |
+
+/tests/books_api.robot:48:1 SPC01 Trailing whitespace at the end of line
+    |
+ 46 |     [Documentation]    Validates book update functionality via REST API
+ 47 |     [Tags]    crud    update
+ 48 |
+    | ^^^^ SPC01
+ 49 |     # Create initial book
+ 50 |     ${initial_data}=    Generate Unique Test Data
+    |
+
+/tests/books_api.robot:52:1 SPC01 Trailing whitespace at the end of line
+    |
+ 50 |     ${initial_data}=    Generate Unique Test Data
+ 51 |     ${book}=    Create Book Via API    ${initial_data}[title]    ${initial_data}[author]
+ 52 |
+    | ^^^^ SPC01
+ 53 |     # Update book data
+ 54 |     ${updated_title}=    Set Variable    Updated ${initial_data}[title]
+    |
+
+/tests/books_api.robot:54:26 DEPR05 Set Variable used instead of VAR
+    |
+ 52 |
+ 53 |     # Update book data
+ 54 |     ${updated_title}=    Set Variable    Updated ${initial_data}[title]
+    |                          ^^^^^^^^^^^^ DEPR05
+ 55 |     ${updated_author}=    Set Variable    Updated ${initial_data}[author]
+    |
+
+/tests/books_api.robot:55:27 DEPR05 Set Variable used instead of VAR
+    |
+ 53 |     # Update book data
+ 54 |     ${updated_title}=    Set Variable    Updated ${initial_data}[title]
+ 55 |     ${updated_author}=    Set Variable    Updated ${initial_data}[author]
+    |                           ^^^^^^^^^^^^ DEPR05
+    |
+
+/tests/books_api.robot:56:1 SPC01 Trailing whitespace at the end of line
+    |
+ 54 |     ${updated_title}=    Set Variable    Updated ${initial_data}[title]
+ 55 |     ${updated_author}=    Set Variable    Updated ${initial_data}[author]
+ 56 |
+    | ^^^^ SPC01
+ 57 |     ${updated_book}=    Update Book Via API    ${book}[id]    ${updated_title}    ${updated_author}
+    |
+
+/tests/books_api.robot:58:1 SPC01 Trailing whitespace at the end of line
+    |
+ 56 |
+ 57 |     ${updated_book}=    Update Book Via API    ${book}[id]    ${updated_title}    ${updated_author}
+ 58 |
+    | ^^^^ SPC01
+ 59 |     # Verify update
+ 60 |     Should Be Equal    ${updated_book}[title]    ${updated_title}
+    |
+
+/tests/books_api.robot:63:1 SPC01 Trailing whitespace at the end of line
+    |
+ 61 |     Should Be Equal    ${updated_book}[author]    ${updated_author}
+ 62 |     Should Be Equal As Integers    ${updated_book}[id]    ${book}[id]
+ 63 |
+    | ^^^^ SPC01
+ 64 |     [Teardown]    Cleanup Test Data    ${book}[id]
+    |
+
+/tests/books_api.robot:69:1 SPC01 Trailing whitespace at the end of line
+    |
+ 67 |     [Documentation]    Validates book deletion functionality via REST API
+ 68 |     [Tags]    crud    delete
+ 69 |
+    | ^^^^ SPC01
+ 70 |     # Create book to delete
+ 71 |     ${test_data}=    Generate Unique Test Data
+    |
+
+/tests/books_api.robot:73:1 SPC01 Trailing whitespace at the end of line
+    |
+ 71 |     ${test_data}=    Generate Unique Test Data
+ 72 |     ${book}=    Create Book Via API    ${test_data}[title]    ${test_data}[author]
+ 73 |
+    | ^^^^ SPC01
+ 74 |     # Delete book
+ 75 |     Delete Book Via API    ${book}[id]
+    |
+
+/tests/books_api.robot:76:1 SPC01 Trailing whitespace at the end of line
+    |
+ 74 |     # Delete book
+ 75 |     Delete Book Via API    ${book}[id]
+ 76 |
+    | ^^^^ SPC01
+ 77 |     # Verify book is deleted
+ 78 |     TRY
+    |
+
+/tests/books_api.robot:81:21 VAR02 Variable '${error}' is assigned but not used
+    |
+ 79 |         Get Book By ID Via API    ${book}[id]
+ 80 |         Fail    Book should have been deleted
+ 81 |     EXCEPT    AS    ${error}
+    |                     ^^^^^^^^ VAR02
+ 82 |         Log    Expected error: Book not found after deletion    INFO
+ 83 |     END
+    |
+
+/tests/books_api.robot:88:1 SPC01 Trailing whitespace at the end of line
+    |
+ 86 |     [Documentation]    Validates error handling for malformed API requests
+ 87 |     [Tags]    error-handling    negative    validation
+ 88 |
+    | ^^^^ SPC01
+ 89 |     # Test missing required fields
+ 90 |     &{empty_data}=    Create Dictionary
+    |
+
+/tests/books_api.robot:90:23 DEPR06 Create Dictionary used instead of VAR
+    |
+ 88 |
+ 89 |     # Test missing required fields
+ 90 |     &{empty_data}=    Create Dictionary
+    |                       ^^^^^^^^^^^^^^^^^ DEPR06
+ 91 |     Test Invalid API Request    ${empty_data}    400
+    |
+
+/tests/books_api.robot:92:1 SPC01 Trailing whitespace at the end of line
+    |
+ 90 |     &{empty_data}=    Create Dictionary
+ 91 |     Test Invalid API Request    ${empty_data}    400
+ 92 |
+    | ^^^^ SPC01
+ 93 |     # Test invalid data types
+ 94 |     &{invalid_data}=    Create Dictionary    title=${123}    author=${TRUE}
+    |
+
+/tests/books_api.robot:94:25 DEPR06 Create Dictionary used instead of VAR
+    |
+ 92 |
+ 93 |     # Test invalid data types
+ 94 |     &{invalid_data}=    Create Dictionary    title=${123}    author=${TRUE}
+    |                         ^^^^^^^^^^^^^^^^^ DEPR06
+ 95 |     Test Invalid API Request    ${invalid_data}    400
+    |
+
+/tests/books_api.robot:96:1 SPC01 Trailing whitespace at the end of line
+    |
+ 94 |     &{invalid_data}=    Create Dictionary    title=${123}    author=${TRUE}
+ 95 |     Test Invalid API Request    ${invalid_data}    400
+ 96 |
+    | ^^^^ SPC01
+ 97 |     # Test missing title
+ 98 |     &{no_title}=    Create Dictionary    author=Test Author
+    |
+
+/tests/books_api.robot:98:21 DEPR06 Create Dictionary used instead of VAR
+    |
+ 96 |
+ 97 |     # Test missing title
+ 98 |     &{no_title}=    Create Dictionary    author=Test Author
+    |                     ^^^^^^^^^^^^^^^^^ DEPR06
+ 99 |     Test Invalid API Request    ${no_title}    400
+    |
+
+/tests/books_api.robot:100:1 SPC01 Trailing whitespace at the end of line
+     |
+  98 |     &{no_title}=    Create Dictionary    author=Test Author
+  99 |     Test Invalid API Request    ${no_title}    400
+ 100 |
+     | ^^^^ SPC01
+ 101 |     # Test missing author
+ 102 |     &{no_author}=    Create Dictionary    title=Test Title
+     |
+
+/tests/books_api.robot:102:22 DEPR06 Create Dictionary used instead of VAR
+     |
+ 100 |
+ 101 |     # Test missing author
+ 102 |     &{no_author}=    Create Dictionary    title=Test Title
+     |                      ^^^^^^^^^^^^^^^^^ DEPR06
+ 103 |     Test Invalid API Request    ${no_author}    400
+     |
+
+/tests/books_api.robot:108:1 SPC01 Trailing whitespace at the end of line
+     |
+ 106 |     [Documentation]    Validates proper 404 response for non-existent resources
+ 107 |     [Tags]    error-handling    not-found
+ 108 |
+     | ^^^^ SPC01
+ 109 |     ${non_existent_id}=    Set Variable    99999
+     |
+
+/tests/books_api.robot:109:28 DEPR05 Set Variable used instead of VAR
+     |
+ 109 |     ${non_existent_id}=    Set Variable    99999
+     |                            ^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:110:1 SPC01 Trailing whitespace at the end of line
+     |
+ 108 |
+ 109 |     ${non_existent_id}=    Set Variable    99999
+ 110 |
+     | ^^^^ SPC01
+ 111 |     TRY
+ 112 |         ${response}=    GET On Session    books_api    /books/${non_existent_id}    expected_status=404
+     |
+
+/tests/books_api.robot:112:9 VAR02 Variable '${response}' is assigned but not used
+     |
+ 110 |
+ 111 |     TRY
+ 112 |         ${response}=    GET On Session    books_api    /books/${non_existent_id}    expected_status=404
+     |         ^^^^^^^^^^^ VAR02
+ 113 |         Log    Correct: Received 404 for non-existent book    INFO
+ 114 |     EXCEPT    AS    ${error}
+     |
+
+/tests/books_api.robot:118:1 LEN04 Test case 'API Should Support Book Search By Title' is too long (32/20)
+     |
+ 118 | API Should Support Book Search By Title
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN04
+ 119 |     [Documentation]    Validates API search functionality if available
+ 120 |     [Tags]    search    functionality
+     |
+
+/tests/books_api.robot:118:1 LEN06 Test case 'API Should Support Book Search By Title' has too many keywords inside (12/10)
+     |
+ 118 | API Should Support Book Search By Title
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN06
+ 119 |     [Documentation]    Validates API search functionality if available
+ 120 |     [Tags]    search    functionality
+     |
+
+/tests/books_api.robot:121:1 SPC01 Trailing whitespace at the end of line
+     |
+ 119 |     [Documentation]    Validates API search functionality if available
+ 120 |     [Tags]    search    functionality
+ 121 |
+     | ^^^^ SPC01
+ 122 |     # Create test books with different titles
+ 123 |     ${book1_data}=    Generate Unique Test Data
+     |
+
+/tests/books_api.robot:126:1 SPC01 Trailing whitespace at the end of line
+     |
+ 124 |     ${book2_data}=    Generate Unique Test Data
+ 125 |     Set To Dictionary    ${book2_data}    title    Different ${book2_data}[title]
+ 126 |
+     | ^^^^ SPC01
+ 127 |     ${book1}=    Create Book Via API    ${book1_data}[title]    ${book1_data}[author]
+ 128 |     ${book2}=    Create Book Via API    ${book2_data}[title]    ${book2_data}[author]
+     |
+
+/tests/books_api.robot:129:1 SPC01 Trailing whitespace at the end of line
+     |
+ 127 |     ${book1}=    Create Book Via API    ${book1_data}[title]    ${book1_data}[author]
+ 128 |     ${book2}=    Create Book Via API    ${book2_data}[title]    ${book2_data}[author]
+ 129 |
+     | ^^^^ SPC01
+ 130 |     # Get all books and verify both exist
+ 131 |     ${all_books}=    Get All Books Via API
+     |
+
+/tests/books_api.robot:132:1 SPC01 Trailing whitespace at the end of line
+     |
+ 130 |     # Get all books and verify both exist
+ 131 |     ${all_books}=    Get All Books Via API
+ 132 |
+     | ^^^^ SPC01
+ 133 |     ${found_book1}=    Set Variable    ${FALSE}
+ 134 |     ${found_book2}=    Set Variable    ${FALSE}
+     |
+
+/tests/books_api.robot:133:24 DEPR05 Set Variable used instead of VAR
+     |
+ 133 |     ${found_book1}=    Set Variable    ${FALSE}
+     |                        ^^^^^^^^^^^^ DEPR05
+ 134 |     ${found_book2}=    Set Variable    ${FALSE}
+     |
+
+/tests/books_api.robot:134:24 DEPR05 Set Variable used instead of VAR
+     |
+ 132 |
+ 133 |     ${found_book1}=    Set Variable    ${FALSE}
+ 134 |     ${found_book2}=    Set Variable    ${FALSE}
+     |                        ^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:135:1 SPC01 Trailing whitespace at the end of line
+     |
+ 133 |     ${found_book1}=    Set Variable    ${FALSE}
+ 134 |     ${found_book2}=    Set Variable    ${FALSE}
+ 135 |
+     | ^^^^ SPC01
+ 136 |     FOR    ${book}    IN    @{all_books}
+ 137 |         IF    ${book}[id] == ${book1}[id]
+     |
+
+/tests/books_api.robot:138:32 DEPR05 Set Variable used instead of VAR
+     |
+ 136 |     FOR    ${book}    IN    @{all_books}
+ 137 |         IF    ${book}[id] == ${book1}[id]
+ 138 |             ${found_book1}=    Set Variable    ${TRUE}
+     |                                ^^^^^^^^^^^^ DEPR05
+ 139 |         END
+ 140 |         IF    ${book}[id] == ${book2}[id]
+     |
+
+/tests/books_api.robot:141:32 DEPR05 Set Variable used instead of VAR
+     |
+ 139 |         END
+ 140 |         IF    ${book}[id] == ${book2}[id]
+ 141 |             ${found_book2}=    Set Variable    ${TRUE}
+     |                                ^^^^^^^^^^^^ DEPR05
+ 142 |         END
+ 143 |     END
+     |
+
+/tests/books_api.robot:144:1 SPC01 Trailing whitespace at the end of line
+     |
+ 142 |         END
+ 143 |     END
+ 144 |
+     | ^^^^ SPC01
+ 145 |     Should Be True    ${found_book1}    Book 1 should be found in API response
+ 146 |     Should Be True    ${found_book2}    Book 2 should be found in API response
+     |
+
+/tests/books_api.robot:147:1 SPC01 Trailing whitespace at the end of line
+     |
+ 145 |     Should Be True    ${found_book1}    Book 1 should be found in API response
+ 146 |     Should Be True    ${found_book2}    Book 2 should be found in API response
+ 147 |
+     | ^^^^ SPC01
+ 148 |     [Teardown]    Run Keywords
+ 149 |     ...    Cleanup Test Data    ${book1}[id]    AND
+     |
+
+/tests/books_api.robot:155:1 SPC01 Trailing whitespace at the end of line
+     |
+ 153 |     [Documentation]    Validates API response time meets acceptable thresholds
+ 154 |     [Tags]    performance    non-functional
+ 155 |
+     | ^^^^ SPC01
+ 156 |     # Test GET /books/ endpoint performance
+ 157 |     ${start_time}=    Get Time    epoch
+     |
+
+/tests/books_api.robot:160:1 SPC01 Trailing whitespace at the end of line
+     |
+ 158 |     ${response}=    GET On Session    books_api    /books/    expected_status=200
+ 159 |     ${end_time}=    Get Time    epoch
+ 160 |
+     | ^^^^ SPC01
+ 161 |     ${response_time}=    Evaluate    ${end_time} - ${start_time}
+ 162 |     Log    API response time: ${response_time} seconds    INFO
+     |
+
+/tests/books_api.robot:164:1 SPC01 Trailing whitespace at the end of line
+     |
+ 162 |     Log    API response time: ${response_time} seconds    INFO
+ 163 |     Should Be True    ${response_time} < 2    API response too slow: ${response_time}s
+ 164 |
+     | ^^^^ SPC01
+ 165 |     # Verify response is valid
+ 166 |     Should Be Equal As Integers    ${response.status_code}    200
+     |
+
+/tests/books_api.robot:167:18 DEPR05 Set Variable used instead of VAR
+     |
+ 165 |     # Verify response is valid
+ 166 |     Should Be Equal As Integers    ${response.status_code}    200
+ 167 |     ${books}=    Set Variable    ${response.json()}
+     |                  ^^^^^^^^^^^^ DEPR05
+ 168 |     Should Be True    isinstance($books, list)    Response should be a list
+     |
+
+/tests/books_api.robot:170:1 LEN04 Test case 'API Should Handle Concurrent Requests' is too long (31/20)
+     |
+ 170 | API Should Handle Concurrent Requests
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN04
+ 171 |     [Documentation]    Validates API stability under concurrent load
+ 172 |     [Tags]    performance    concurrency
+     |
+
+/tests/books_api.robot:170:1 LEN06 Test case 'API Should Handle Concurrent Requests' has too many keywords inside (11/10)
+     |
+ 170 | API Should Handle Concurrent Requests
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN06
+ 171 |     [Documentation]    Validates API stability under concurrent load
+ 172 |     [Tags]    performance    concurrency
+     |
+
+/tests/books_api.robot:173:1 SPC01 Trailing whitespace at the end of line
+     |
+ 171 |     [Documentation]    Validates API stability under concurrent load
+ 172 |     [Tags]    performance    concurrency
+ 173 |
+     | ^^^^ SPC01
+ 174 |     # Create multiple books concurrently (simulated)
+ 175 |     @{created_books}=    Create List
+     |
+
+/tests/books_api.robot:175:26 DEPR06 Create List used instead of VAR
+     |
+ 173 |
+ 174 |     # Create multiple books concurrently (simulated)
+ 175 |     @{created_books}=    Create List
+     |                          ^^^^^^^^^^^ DEPR06
+     |
+
+/tests/books_api.robot:176:1 SPC01 Trailing whitespace at the end of line
+     |
+ 174 |     # Create multiple books concurrently (simulated)
+ 175 |     @{created_books}=    Create List
+ 176 |
+     | ^^^^ SPC01
+ 177 |     FOR    ${i}    IN RANGE    3
+ 178 |         ${test_data}=    Generate Unique Test Data
+     |
+
+/tests/books_api.robot:183:1 SPC01 Trailing whitespace at the end of line
+     |
+ 181 |         Append To List    ${created_books}    ${book}
+ 182 |     END
+ 183 |
+     | ^^^^ SPC01
+ 184 |     # Verify all books were created successfully
+ 185 |     ${all_books}=    Get All Books Via API
+     |
+
+/tests/books_api.robot:186:1 SPC01 Trailing whitespace at the end of line
+     |
+ 184 |     # Verify all books were created successfully
+ 185 |     ${all_books}=    Get All Books Via API
+ 186 |
+     | ^^^^ SPC01
+ 187 |     FOR    ${created_book}    IN    @{created_books}
+ 188 |         ${found}=    Set Variable    ${FALSE}
+     |
+
+/tests/books_api.robot:188:22 DEPR05 Set Variable used instead of VAR
+     |
+ 186 |
+ 187 |     FOR    ${created_book}    IN    @{created_books}
+ 188 |         ${found}=    Set Variable    ${FALSE}
+     |                      ^^^^^^^^^^^^ DEPR05
+ 189 |         FOR    ${book}    IN    @{all_books}
+ 190 |             IF    ${book}[id] == ${created_book}[id]
+     |
+
+/tests/books_api.robot:191:30 DEPR05 Set Variable used instead of VAR
+     |
+ 189 |         FOR    ${book}    IN    @{all_books}
+ 190 |             IF    ${book}[id] == ${created_book}[id]
+ 191 |                 ${found}=    Set Variable    ${TRUE}
+     |                              ^^^^^^^^^^^^ DEPR05
+ 192 |                 BREAK
+ 193 |             END
+     |
+
+/tests/books_api.robot:197:1 SPC01 Trailing whitespace at the end of line
+     |
+ 195 |         Should Be True    ${found}    Book ${created_book}[id] should exist in API response
+ 196 |     END
+ 197 |
+     | ^^^^ SPC01
+ 198 |     [Teardown]
+ 199 |     FOR    ${book}    IN    @{created_books}
+     |
+
+/tests/books_api.robot:198:5 LEN21 Teardown of 'API Should Handle Concurrent Requests' Test Case does not have any keywords
+     |
+ 198 |     [Teardown]
+     |     ^^^^^^^^^^^^^^ LEN21
+ 199 |     FOR    ${book}    IN    @{created_books}
+ 200 |         Cleanup Test Data    ${book}[id]
+     |
+
+/tests/books_api.robot:198:15 SPC01 Trailing whitespace at the end of line
+     |
+ 198 |     [Teardown]
+     |               ^^^^ SPC01
+ 199 |     FOR    ${book}    IN    @{created_books}
+ 200 |         Cleanup Test Data    ${book}[id]
+     |
+
+/tests/books_api.robot:201:1 SPC02 Missing trailing blank line at the end of file
+     |
+ 199 |     FOR    ${book}    IN    @{created_books}
+ 200 |         Cleanup Test Data    ${book}[id]
+ 201 |     END
+     | ^^^^^^^ SPC02
+     |
+
