@@ -164,6 +164,10 @@ cython_debug/
 data/books.db
 *.db
 
+# AI tool chat history
+chat/*
+!chat/.gitkeep
+
 # Robot Framework / Robocop
 .robocop_cache/
 robot_results/browser/*

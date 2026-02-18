@@ -10,8 +10,8 @@ set -e
 
 # Get the directory where the script is located
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
-RESULTS_DIR="${PROJECT_DIR}/robot_results"
+# Define RESULTS_DIR relative to the script location
+RESULTS_DIR="${SCRIPT_DIR}/robot_results"
 
 # Generate datestamp for all report filenames
 DATESTAMP=$(date +"%Y%m%d")

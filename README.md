@@ -19,21 +19,21 @@ cd ai-tools-eval
 
 All branches are for test case generation. Create a branch identifying the round, AI tool, and model.
 
-**Pattern:** `<Round>/<Tool>/<Model>`
+**Pattern:** `<round>/<tool>/<model>`
 
 Examples:
 
 ```bash
-git checkout -b round1/claude-code/sonnet-4
-git checkout -b round2/github-copilot/sonnet-45
+git checkout -b r1/claudecode/sonnet4
+git checkout -b r2/copilot/sonnet45
 ```
 
 Commit and push as usual (don't merge to main):
 
 ```bash
 git add -A
-git commit -m "test: add books API and UI test suite"
-git push -u origin round1/claude-code/sonnet-4
+git commit -m "Round 1 Claude Code test generation files"
+git push -u origin round1/claudecode/sonnet4
 ```
 
 ## Start the Environment
