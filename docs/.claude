@@ -1,0 +1,127 @@
+# Books Library
+
+A full-stack web application for managing personal book collections, built with FastAPI and vanilla JavaScript.
+
+## Project Overview
+
+This is a complete book management system that allows users to:
+- Add, edit, and delete books from their collection
+- Mark books as favorites
+- Search and filter books by category, author, or title
+- Sort books by various criteria
+- View books in a responsive grid layout
+
+## Architecture
+
+**Backend (FastAPI)**:
+- RESTful API with full CRUD operations
+- SQLAlchemy ORM with SQLite database (configurable)
+- Pydantic models for request/response validation
+- Automatic API documentation via OpenAPI/Swagger
+
+**Frontend (Vanilla JS)**:
+- Single-page application with dynamic content loading
+- Responsive design with CSS Grid/Flexbox
+- Real-time search and filtering
+- Modal-based editing interface
+- Font Awesome icons
+
+## Project Structure
+
+```
+/app/src/
+├── main.py              # FastAPI application entry point
+├── models.py            # SQLAlchemy database models
+├── dtos.py             # Pydantic schemas for API validation
+├── database.py         # Database configuration and session management
+├── routers/
+│   ├── __init__.py
+│   └── books.py        # Book API endpoints (/books)
+└── static/
+    ├── index.html      # Main web interface
+    ├── styles.css      # CSS styles and responsive design
+    └── script.js       # Frontend JavaScript application
+```
+
+## Database Schema
+
+### Book Model
+- `id`: Primary key (auto-increment)
+- `title`: Book title (indexed)
+- `author`: Author name (indexed)
+- `pages`: Number of pages
+- `category`: Book category (default: "Fiction", indexed)
+- `favorite`: Favorite status (default: false, indexed)
+
+## API Endpoints
+
+All endpoints are prefixed with `/books`:
+
+- `GET /books/` - List all books
+- `POST /books/` - Create a new book
+- `GET /books/{book_id}` - Get specific book
+- `PUT /books/{book_id}` - Update book
+- `DELETE /books/{book_id}` - Delete book
+- `PATCH /books/{book_id}/favorite` - Toggle favorite status
+
+## Features
+
+**Book Management**:
+- Add books with title, author, pages, category
+- Edit existing book details
+- Delete books with confirmation
+- Mark books as favorites
+
+**Search & Filter**:
+- Real-time text search (title/author)
+- Filter by category (20+ categories available)
+- Filter by favorite status
+- Sort by title, author, pages, or category
+- Toggle sort direction (ascending/descending)
+
+**User Interface**:
+- Responsive design (mobile-friendly)
+- Grid layout for book display
+- Modal dialogs for editing
+- Loading states and error handling
+- Book count and pagination support
+
+## Categories Available
+Fiction, Non-Fiction, Fantasy, Science Fiction, Mystery, Thriller, Horror, Romance, Historical Fiction, Biography, Self-Help, Business, Science, History, Poetry, Children's Books, Young Adult, Travel, Cookbooks, Philosophy
+
+## Configuration
+
+**Database**: Set `DATABASE_URL` environment variable to use different database (default: SQLite at `./test.db`)
+
+**Static Files**: Served from `/static/` directory
+
+## Known Issues
+
+- Path reference in main.py:20 uses hardcoded "fastapi_demo/static" instead of relative path
+- Should be updated to use current directory structure
+
+## Development Notes
+
+- Uses SQLAlchemy for ORM with automatic table creation
+- Pydantic models ensure type safety and validation
+- Frontend uses vanilla JavaScript (no frameworks)
+- CSS uses modern features (Grid, Flexbox, CSS Variables)
+- Font Awesome CDN for icons
+
+## Running the Application
+
+1. Install dependencies: `pip install fastapi uvicorn sqlalchemy pydantic`
+2. Run server: `uvicorn main:app --reload`
+3. Access at `http://localhost:8000`
+4. API docs at `http://localhost:8000/docs`
+
+## Future Enhancements
+
+Potential improvements could include:
+- User authentication and multiple collections
+- Book cover image uploads
+- Reading progress tracking
+- Book recommendations
+- Export/import functionality
+- Advanced search with tags
+- Reading statistics and analytics

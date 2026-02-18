@@ -1,0 +1,2430 @@
+/tests/debug_form_submission.robot:1:1 DOC03 Missing documentation in suite
+/tests/debug_form_submission.robot:4:1 SPC03 Invalid number of empty lines between sections (1/2)
+   |
+ 2 | Library          Browser
+ 3 | Resource         resources/common.resource
+ 4 |
+   | ^ SPC03
+ 5 | *** Variables ***
+ 6 | ${BOOK_FORM}          id=book-form
+   |
+
+/tests/debug_form_submission.robot:6:1 VAR02 Variable '${BOOK_FORM}' is assigned but not used
+   |
+ 4 |
+ 5 | *** Variables ***
+ 6 | ${BOOK_FORM}          id=book-form
+   | ^^^^^^^^^^^^ VAR02
+ 7 | ${TITLE_INPUT}        id=title
+ 8 | ${AUTHOR_INPUT}       id=author
+   |
+
+/tests/debug_form_submission.robot:13:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 11 | ${SUBMIT_BUTTON}      css=#book-form [type="submit"]
+ 12 | ${BOOKS_GRID}         id=books-list
+ 13 |
+    | ^ SPC03
+ 14 | *** Test Cases ***
+ 15 | Debug Form Submission Process
+    |
+
+/tests/debug_form_submission.robot:15:1 LEN04 Test case 'Debug Form Submission Process' is too long (36/20)
+    |
+ 13 |
+ 14 | *** Test Cases ***
+ 15 | Debug Form Submission Process
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN04
+ 16 |     [Documentation]    Debug the form submission process step by step
+    |
+
+/tests/debug_form_submission.robot:15:1 LEN06 Test case 'Debug Form Submission Process' has too many keywords inside (20/10)
+    |
+ 13 |
+ 14 | *** Test Cases ***
+ 15 | Debug Form Submission Process
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN06
+ 16 |     [Documentation]    Debug the form submission process step by step
+    |
+
+/tests/debug_form_submission.robot:51:1 SPC02 Missing trailing blank line at the end of file
+    |
+ 49 |     ${page_contains_book}    Run Keyword And Return Status
+ 50 |     ...    Get Text    ${BOOKS_GRID}    contains    ${test_book_data}[title]
+ 51 |     Log    Page contains new book: ${page_contains_book}
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+    |
+
+/tests/step_by_step_debug.robot:1:1 DOC03 Missing documentation in suite
+/tests/step_by_step_debug.robot:4:1 SPC03 Invalid number of empty lines between sections (1/2)
+   |
+ 2 | Library          RequestsLibrary
+ 3 | Resource         resources/common.resource
+ 4 |
+   | ^ SPC03
+ 5 | *** Variables ***
+ 6 | ${API_BASE_URL}       http://books-database-service:8000
+   |
+
+/tests/step_by_step_debug.robot:8:1 SPC03 Invalid number of empty lines between sections (1/2)
+   |
+ 6 | ${API_BASE_URL}       http://books-database-service:8000
+ 7 | ${API_SESSION}        debug_api
+ 8 |
+   | ^ SPC03
+ 9 | *** Test Cases ***
+10 | Step 1 - API Session
+   |
+
+/tests/step_by_step_debug.robot:13:5 VAR02 Variable '${response}' is assigned but not used
+    |
+ 11 |     [Documentation]    Test API session establishment
+ 12 |     Create Session    ${API_SESSION}    ${API_BASE_URL}    verify=${True}
+ 13 |     ${response}    GET On Session    ${API_SESSION}    /books/    expected_status=200
+    |     ^^^^^^^^^^^ VAR02
+ 14 |     Log    Step 1 passed
+    |
+
+/tests/step_by_step_debug.robot:27:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 25 |     &{book_data}    Generate Unique Book Data    Step Test Book
+ 26 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=200
+ 27 |     Set Test Variable    ${creation_response}    ${response}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 28 |     Set Test Variable    ${input_book_data}    &{book_data}
+ 29 |     Log    Step 3 passed
+    |
+
+/tests/step_by_step_debug.robot:27:5 VAR06 Variable defined with test/task scope
+    |
+ 25 |     &{book_data}    Generate Unique Book Data    Step Test Book
+ 26 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=200
+ 27 |     Set Test Variable    ${creation_response}    ${response}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+ 28 |     Set Test Variable    ${input_book_data}    &{book_data}
+ 29 |     Log    Step 3 passed
+    |
+
+/tests/step_by_step_debug.robot:27:26 VAR07 Non local variable is not uppercase
+    |
+ 25 |     &{book_data}    Generate Unique Book Data    Step Test Book
+ 26 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=200
+ 27 |     Set Test Variable    ${creation_response}    ${response}
+    |                          ^^^^^^^^^^^^^^^^^^^^ VAR07
+ 28 |     Set Test Variable    ${input_book_data}    &{book_data}
+ 29 |     Log    Step 3 passed
+    |
+
+/tests/step_by_step_debug.robot:28:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 26 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=200
+ 27 |     Set Test Variable    ${creation_response}    ${response}
+ 28 |     Set Test Variable    ${input_book_data}    &{book_data}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 29 |     Log    Step 3 passed
+    |
+
+/tests/step_by_step_debug.robot:28:5 VAR06 Variable defined with test/task scope
+    |
+ 26 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=200
+ 27 |     Set Test Variable    ${creation_response}    ${response}
+ 28 |     Set Test Variable    ${input_book_data}    &{book_data}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+ 29 |     Log    Step 3 passed
+    |
+
+/tests/step_by_step_debug.robot:28:26 VAR07 Non local variable is not uppercase
+    |
+ 26 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=200
+ 27 |     Set Test Variable    ${creation_response}    ${response}
+ 28 |     Set Test Variable    ${input_book_data}    &{book_data}
+    |                          ^^^^^^^^^^^^^^^^^^ VAR07
+ 29 |     Log    Step 3 passed
+    |
+
+/tests/step_by_step_debug.robot:33:24 DEPR05 Set Variable used instead of VAR
+    |
+ 31 | Step 4 - Extract Created Book
+ 32 |     [Documentation]    Test extracting created book data
+ 33 |     ${created_book}    Set Variable    ${creation_response.json()}
+    |                        ^^^^^^^^^^^^ DEPR05
+ 34 |     Log    Created book: ${created_book}
+ 35 |     Log    Step 4 passed
+    |
+
+/tests/step_by_step_debug.robot:42:24 DEPR05 Set Variable used instead of VAR
+    |
+ 40 |     &{book_data}    Generate Unique Book Data    Step Test Book
+ 41 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=200
+ 42 |     ${created_book}    Set Variable    ${response.json()}
+    |                        ^^^^^^^^^^^^ DEPR05
+ 43 |     Should Be Valid Book ID    ${created_book}[id]
+ 44 |     Log    Step 5 passed
+    |
+
+/tests/step_by_step_debug.robot:51:24 DEPR05 Set Variable used instead of VAR
+    |
+ 49 |     &{book_data}    Generate Unique Book Data    Step Test Book
+ 50 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=200
+ 51 |     ${created_book}    Set Variable    ${response.json()}
+    |                        ^^^^^^^^^^^^ DEPR05
+ 52 |     Should Match Book Data    ${created_book}    ${book_data}    ignore_fields=${{['id']}}
+ 53 |     Log    Step 6 passed
+    |
+
+/tests/step_by_step_debug.robot:53:1 SPC02 Missing trailing blank line at the end of file
+    |
+ 51 |     ${created_book}    Set Variable    ${response.json()}
+ 52 |     Should Match Book Data    ${created_book}    ${book_data}    ignore_fields=${{['id']}}
+ 53 |     Log    Step 6 passed
+    | ^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+    |
+
+/tests/debug_simple.robot:1:1 DOC03 Missing documentation in suite
+/tests/debug_simple.robot:3:1 SPC03 Invalid number of empty lines between sections (1/2)
+   |
+ 1 | *** Settings ***
+ 2 | Library          Browser
+ 3 |
+   | ^ SPC03
+ 4 | *** Test Cases ***
+ 5 | Super Simple Test
+   |
+
+/tests/debug_simple.robot:10:1 SPC02 Missing trailing blank line at the end of file
+    |
+  8 |     New Page    http://books-database-service:8000
+  9 |     Wait For Load State    networkidle    timeout=10s
+ 10 |     Wait For Elements State    selector=#book-form    state=visible
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+    |
+
+/tests/minimal_create_test.robot:1:1 DOC03 Missing documentation in suite
+/tests/minimal_create_test.robot:3:18 IMP01 BuiltIn library import 'Collections' should be placed before 'RequestsLibrary'
+   |
+ 1 | *** Settings ***
+ 2 | Library          RequestsLibrary
+ 3 | Library          Collections
+   |                  ^^^^^^^^^^^ IMP01
+ 4 | Library          String
+ 5 | Library          DateTime
+   |
+
+/tests/minimal_create_test.robot:4:18 IMP01 BuiltIn library import 'String' should be placed before 'RequestsLibrary'
+   |
+ 2 | Library          RequestsLibrary
+ 3 | Library          Collections
+ 4 | Library          String
+   |                  ^^^^^^ IMP01
+ 5 | Library          DateTime
+   |
+
+/tests/minimal_create_test.robot:5:18 IMP01 BuiltIn library import 'DateTime' should be placed before 'RequestsLibrary'
+   |
+ 3 | Library          Collections
+ 4 | Library          String
+ 5 | Library          DateTime
+   |                  ^^^^^^^^ IMP01
+   |
+
+/tests/minimal_create_test.robot:5:18 IMP02 BuiltIn library import 'DateTime' should be placed before 'String'
+   |
+ 3 | Library          Collections
+ 4 | Library          String
+ 5 | Library          DateTime
+   |                  ^^^^^^^^ IMP02
+   |
+
+/tests/minimal_create_test.robot:13:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 11 | Test Setup       Setup Individual API Test
+ 12 | Test Teardown    Cleanup Individual API Test
+ 13 |
+    | ^ SPC03
+ 14 | *** Variables ***
+ 15 | ${API_SESSION}        books_api
+    |
+
+/tests/minimal_create_test.robot:17:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 15 | ${API_SESSION}        books_api
+ 16 | ${CREATED_BOOK_ID}    ${EMPTY}
+ 17 |
+    | ^ SPC03
+ 18 | *** Test Cases ***
+ 19 | Minimal Create Test
+    |
+
+/tests/minimal_create_test.robot:19:1 LEN04 Test case 'Minimal Create Test' is too long (29/20)
+    |
+ 17 |
+ 18 | *** Test Cases ***
+ 19 | Minimal Create Test
+    | ^^^^^^^^^^^^^^^^^^^ LEN04
+ 20 |     [Documentation]    Minimal version of book creation test
+ 21 |     [Tags]    crud    create    positive
+    |
+
+/tests/minimal_create_test.robot:19:1 LEN06 Test case 'Minimal Create Test' has too many keywords inside (12/10)
+    |
+ 17 |
+ 18 | *** Test Cases ***
+ 19 | Minimal Create Test
+    | ^^^^^^^^^^^^^^^^^^^ LEN06
+ 20 |     [Documentation]    Minimal version of book creation test
+ 21 |     [Tags]    crud    create    positive
+    |
+
+/tests/minimal_create_test.robot:33:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 31 |     # Step 3: Create Book
+ 32 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=200
+ 33 |     Set Test Variable    ${creation_response}    ${response}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 34 |     Set Test Variable    ${input_book_data}    &{book_data}
+    |
+
+/tests/minimal_create_test.robot:33:5 VAR06 Variable defined with test/task scope
+    |
+ 31 |     # Step 3: Create Book
+ 32 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=200
+ 33 |     Set Test Variable    ${creation_response}    ${response}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+ 34 |     Set Test Variable    ${input_book_data}    &{book_data}
+    |
+
+/tests/minimal_create_test.robot:33:26 VAR07 Non local variable is not uppercase
+    |
+ 31 |     # Step 3: Create Book
+ 32 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=200
+ 33 |     Set Test Variable    ${creation_response}    ${response}
+    |                          ^^^^^^^^^^^^^^^^^^^^ VAR07
+ 34 |     Set Test Variable    ${input_book_data}    &{book_data}
+    |
+
+/tests/minimal_create_test.robot:34:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 32 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=200
+ 33 |     Set Test Variable    ${creation_response}    ${response}
+ 34 |     Set Test Variable    ${input_book_data}    &{book_data}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+    |
+
+/tests/minimal_create_test.robot:34:5 VAR06 Variable defined with test/task scope
+    |
+ 32 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=200
+ 33 |     Set Test Variable    ${creation_response}    ${response}
+ 34 |     Set Test Variable    ${input_book_data}    &{book_data}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+    |
+
+/tests/minimal_create_test.robot:34:26 VAR07 Non local variable is not uppercase
+    |
+ 32 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=200
+ 33 |     Set Test Variable    ${creation_response}    ${response}
+ 34 |     Set Test Variable    ${input_book_data}    &{book_data}
+    |                          ^^^^^^^^^^^^^^^^^^ VAR07
+    |
+
+/tests/minimal_create_test.robot:37:24 DEPR05 Set Variable used instead of VAR
+    |
+ 35 |
+ 36 |     # Store created book ID for cleanup
+ 37 |     ${created_book}    Set Variable    ${response.json()}
+    |                        ^^^^^^^^^^^^ DEPR05
+ 38 |     Set Suite Variable    ${CREATED_BOOK_ID}    ${created_book}[id]
+    |
+
+/tests/minimal_create_test.robot:38:5 DEPR05 Set Suite Variable used instead of VAR
+    |
+ 36 |     # Store created book ID for cleanup
+ 37 |     ${created_book}    Set Variable    ${response.json()}
+ 38 |     Set Suite Variable    ${CREATED_BOOK_ID}    ${created_book}[id]
+    |     ^^^^^^^^^^^^^^^^^^ DEPR05
+    |
+
+/tests/minimal_create_test.robot:38:5 VAR05 Variable defined with suite scope
+    |
+ 36 |     # Store created book ID for cleanup
+ 37 |     ${created_book}    Set Variable    ${response.json()}
+ 38 |     Set Suite Variable    ${CREATED_BOOK_ID}    ${created_book}[id]
+    |     ^^^^^^^^^^^^^^^^^^ VAR05
+    |
+
+/tests/minimal_create_test.robot:42:24 DEPR05 Set Variable used instead of VAR
+    |
+ 40 |     # Step 4: Verify Creation
+ 41 |     Should Be Equal As Numbers    ${creation_response.status_code}    200
+ 42 |     ${created_book}    Set Variable    ${creation_response.json()}
+    |                        ^^^^^^^^^^^^ DEPR05
+ 43 |     Should Be True    ${created_book}[id] > 0
+ 44 |     # Should Be Valid Book ID    ${created_book}[id]
+    |
+
+/tests/minimal_create_test.robot:49:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 47 |     # ${created_book}    Set Variable    ${creation_response.json()}
+ 48 |     # Should Match Book Data    ${created_book}    ${input_book_data}    ignore_fields=${{['id']}}
+ 49 |
+    | ^ SPC03
+ 50 | *** Keywords ***
+ 51 | # Suite Level Keywords
+    |
+
+/tests/minimal_create_test.robot:64:1 SPC05 Invalid number of empty lines between keywords (0/1)
+    |
+ 64 | # Test Level Keywords
+    | ^ SPC05
+ 65 | Setup Individual API Test
+ 66 |     [Documentation]    Setup for individual API test case
+    |
+
+/tests/minimal_create_test.robot:80:50 VAR05 Variable defined with suite scope
+    |
+ 78 |             Log    Could not clean up test book ID: ${CREATED_BOOK_ID}    WARN
+ 79 |         END
+ 80 |         VAR    ${CREATED_BOOK_ID}    ${EMPTY}    scope=SUITE
+    |                                                  ^^^^^^^^^^^ VAR05
+ 81 |     END
+    |
+
+/tests/minimal_create_test.robot:84:1 SPC02 Missing trailing blank line at the end of file
+    |
+ 82 |
+ 83 |     VAR    ${test_end_time}    Get Current Date
+ 84 |     Log    API test completed: ${TEST_NAME} at ${test_end_time}
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+    |
+
+/tests/books_ui.robot:14:18 IMP01 BuiltIn library import 'Collections' should be placed before 'Browser'
+    |
+ 12 | Library          Browser
+ 13 | Library          RequestsLibrary
+ 14 | Library          Collections
+    |                  ^^^^^^^^^^^ IMP01
+ 15 | Library          String
+    |
+
+/tests/books_ui.robot:15:18 IMP01 BuiltIn library import 'String' should be placed before 'Browser'
+    |
+ 13 | Library          RequestsLibrary
+ 14 | Library          Collections
+ 15 | Library          String
+    |                  ^^^^^^ IMP01
+    |
+
+/tests/books_ui.robot:24:1 DEPR02 'Force Tags' is deprecated since Robot Framework version 6.0, use 'Test Tags' instead
+    |
+ 24 | Force Tags       ui    books    browser
+    | ^^^^^^^^^^ DEPR02
+    |
+
+/tests/books_ui.robot:25:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 23 |
+ 24 | Force Tags       ui    books    browser
+ 25 |
+    | ^ SPC03
+ 26 | *** Variables ***
+ 27 | ${BROWSER_TYPE}       chromium
+    |
+
+/tests/books_ui.robot:31:1 VAR02 Variable '${BOOK_FORM}' is assigned but not used
+    |
+ 29 |
+ 30 | # UI Selectors
+ 31 | ${BOOK_FORM}          id=book-form
+    | ^^^^^^^^^^^^ VAR02
+ 32 | ${TITLE_INPUT}        id=title
+ 33 | ${AUTHOR_INPUT}       id=author
+    |
+
+/tests/books_ui.robot:44:1 VAR02 Variable '${EDIT_FORM}' is assigned but not used
+    |
+ 42 | # Modal Selectors
+ 43 | ${EDIT_MODAL}         id=edit-modal
+ 44 | ${EDIT_FORM}          id=edit-form
+    | ^^^^^^^^^^^^ VAR02
+ 45 | ${EDIT_TITLE}         id=edit-title
+ 46 | ${EDIT_AUTHOR}        id=edit-author
+    |
+
+/tests/books_ui.robot:49:1 VAR02 Variable '${MODAL_CLOSE}' is assigned but not used
+    |
+ 47 | ${EDIT_PAGES}         id=edit-pages
+ 48 | ${EDIT_CATEGORY}      id=edit-category
+ 49 | ${MODAL_CLOSE}        css=.close
+    | ^^^^^^^^^^^^^^ VAR02
+ 50 | ${SAVE_BUTTON}        css=#edit-form [type="submit"]
+    |
+
+/tests/books_ui.robot:51:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 49 | ${MODAL_CLOSE}        css=.close
+ 50 | ${SAVE_BUTTON}        css=#edit-form [type="submit"]
+ 51 |
+    | ^ SPC03
+ 52 | *** Test Cases ***
+ 53 | User Can Access Books Library Homepage
+    |
+
+/tests/books_ui.robot:140:1 SPC03 Invalid number of empty lines between sections (1/2)
+     |
+ 138 |     Then Form Should Show Validation Errors
+ 139 |     And Book Should Not Be Created
+ 140 |
+     | ^ SPC03
+ 141 | *** Keywords ***
+ 142 | # Suite Level Keywords
+     |
+
+/tests/books_ui.robot:158:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 158 | # Test Level Keywords
+     | ^ SPC05
+ 159 | Setup Individual UI Test
+ 160 |     [Documentation]    Setup for individual UI test case
+     |
+
+/tests/books_ui.robot:176:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 176 | # Given Keywords (Preconditions)
+     | ^ SPC05
+ 177 | Given User Opens Books Library Application
+ 178 |     [Documentation]    Navigate to the Books Library application homepage
+     |
+
+/tests/books_ui.robot:191:48 COM02 Missing blank space after comment character
+     |
+ 189 |     # This relies on existing data or previous test execution
+ 190 |     Wait For Elements State    selector=${BOOKS_GRID}    state=visible    timeout=${TIMEOUT}
+ 191 |     VAR    ${book_elements}    Get Elements    #books-list .book-card
+     |                                                ^ COM02
+ 192 |     VAR    ${book_count}    Get Length    ${book_elements}
+     |
+
+/tests/books_ui.robot:202:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 202 | # When Keywords (Actions)
+     | ^ SPC05
+ 203 | When User Fills Book Form With Valid Data
+ 204 |     [Documentation]    Fill the book form with valid test data
+     |
+
+/tests/books_ui.robot:212:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 212 |     Set Test Variable    ${form_input_data}    &{test_book_data}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_ui.robot:212:5 VAR06 Variable defined with test/task scope
+     |
+ 212 |     Set Test Variable    ${form_input_data}    &{test_book_data}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_ui.robot:212:26 VAR07 Non local variable is not uppercase
+     |
+ 212 |     Set Test Variable    ${form_input_data}    &{test_book_data}
+     |                          ^^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_ui.robot:240:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 240 |     Set Test Variable    ${modal_update_data}    &{update_data}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_ui.robot:240:5 VAR06 Variable defined with test/task scope
+     |
+ 240 |     Set Test Variable    ${modal_update_data}    &{update_data}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_ui.robot:240:26 VAR07 Non local variable is not uppercase
+     |
+ 240 |     Set Test Variable    ${modal_update_data}    &{update_data}
+     |                          ^^^^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_ui.robot:255:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 253 |     ${initial_books}    Get Elements    css=#books-list .book-card
+ 254 |     ${initial_count}    Get Length    ${initial_books}
+ 255 |     Set Test Variable    ${books_count_before_delete}    ${initial_count}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_ui.robot:255:5 VAR06 Variable defined with test/task scope
+     |
+ 253 |     ${initial_books}    Get Elements    css=#books-list .book-card
+ 254 |     ${initial_count}    Get Length    ${initial_books}
+ 255 |     Set Test Variable    ${books_count_before_delete}    ${initial_count}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_ui.robot:255:26 VAR07 Non local variable is not uppercase
+     |
+ 253 |     ${initial_books}    Get Elements    css=#books-list .book-card
+ 254 |     ${initial_count}    Get Length    ${initial_books}
+ 255 |     Set Test Variable    ${books_count_before_delete}    ${initial_count}
+     |                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_ui.robot:282:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 280 |     # Get the title of the first book for searching
+ 281 |     ${first_book_title}    Get Text    css=#books-list .book-card:first-child .book-title
+ 282 |     Set Test Variable    ${search_term}    ${first_book_title}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_ui.robot:282:5 VAR06 Variable defined with test/task scope
+     |
+ 280 |     # Get the title of the first book for searching
+ 281 |     ${first_book_title}    Get Text    css=#books-list .book-card:first-child .book-title
+ 282 |     Set Test Variable    ${search_term}    ${first_book_title}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_ui.robot:282:26 VAR07 Non local variable is not uppercase
+     |
+ 280 |     # Get the title of the first book for searching
+ 281 |     ${first_book_title}    Get Text    css=#books-list .book-card:first-child .book-title
+ 282 |     Set Test Variable    ${search_term}    ${first_book_title}
+     |                          ^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_ui.robot:292:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 290 |     VAR    ${filter_category}    Fiction
+ 291 |     Select Options By    ${CATEGORY_FILTER}    value    ${filter_category}
+ 292 |     Set Test Variable    ${selected_category}    ${filter_category}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 293 |     Wait For Load State    networkidle    timeout=${TIMEOUT}
+     |
+
+/tests/books_ui.robot:292:5 VAR06 Variable defined with test/task scope
+     |
+ 290 |     VAR    ${filter_category}    Fiction
+ 291 |     Select Options By    ${CATEGORY_FILTER}    value    ${filter_category}
+ 292 |     Set Test Variable    ${selected_category}    ${filter_category}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 293 |     Wait For Load State    networkidle    timeout=${TIMEOUT}
+     |
+
+/tests/books_ui.robot:292:26 VAR07 Non local variable is not uppercase
+     |
+ 290 |     VAR    ${filter_category}    Fiction
+ 291 |     Select Options By    ${CATEGORY_FILTER}    value    ${filter_category}
+ 292 |     Set Test Variable    ${selected_category}    ${filter_category}
+     |                          ^^^^^^^^^^^^^^^^^^^^ VAR07
+ 293 |     Wait For Load State    networkidle    timeout=${TIMEOUT}
+     |
+
+/tests/books_ui.robot:298:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 296 |     [Documentation]    Change the sort criteria for books
+ 297 |     Select Options By    id=sort-by    value    author
+ 298 |     Set Test Variable    ${sort_criteria}    author
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 299 |     Wait For Load State    networkidle    timeout=${TIMEOUT}
+     |
+
+/tests/books_ui.robot:298:5 VAR06 Variable defined with test/task scope
+     |
+ 296 |     [Documentation]    Change the sort criteria for books
+ 297 |     Select Options By    id=sort-by    value    author
+ 298 |     Set Test Variable    ${sort_criteria}    author
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 299 |     Wait For Load State    networkidle    timeout=${TIMEOUT}
+     |
+
+/tests/books_ui.robot:298:26 VAR07 Non local variable is not uppercase
+     |
+ 296 |     [Documentation]    Change the sort criteria for books
+ 297 |     Select Options By    id=sort-by    value    author
+ 298 |     Set Test Variable    ${sort_criteria}    author
+     |                          ^^^^^^^^^^^^^^^^ VAR07
+ 299 |     Wait For Load State    networkidle    timeout=${TIMEOUT}
+     |
+
+/tests/books_ui.robot:310:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 310 | # Then Keywords (Assertions)
+     | ^ SPC05
+ 311 | Then Books Library Page Should Load
+ 312 |     [Documentation]    Verify the Books Library page loads correctly
+     |
+
+/tests/books_ui.robot:332:22 DEPR05 Set Variable used instead of VAR
+     |
+ 330 |     Create Session    verify_api    http://books-database-service:8000    verify=${False}
+ 331 |     ${response}    GET On Session    verify_api    /books/    expected_status=200
+ 332 |     ${books_list}    Set Variable    ${response.json()}
+     |                      ^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_ui.robot:346:1 LEN03 Keyword 'Then Book Details Should Match Form Input' has too many keywords inside (15/10)
+     |
+ 346 | Then Book Details Should Match Form Input
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN03
+ 347 |     [Documentation]    Verify book details match the form input data (via API due to UI bug)
+ 348 |     VAR    ${book_title}    ${form_input_data}[title]
+     |
+
+/tests/books_ui.robot:356:22 DEPR05 Set Variable used instead of VAR
+     |
+ 354 |     Create Session    verify_details_api    http://books-database-service:8000    verify=${False}
+ 355 |     ${response}    GET On Session    verify_details_api    /books/    expected_status=200
+ 356 |     ${books_list}    Set Variable    ${response.json()}
+     |                      ^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_ui.robot:413:21 DEPR05 Set Variable used instead of VAR
+     |
+ 411 |     Create Session    delete_verify_api    http://books-database-service:8000    verify=${False}
+ 412 |     ${response}    GET On Session    delete_verify_api    /books/    expected_status=200
+ 413 |     ${api_books}    Set Variable    ${response.json()}
+     |                     ^^^^^^^^^^^^ DEPR05
+ 414 |     ${api_count}    Get Length    ${api_books}
+     |
+
+/tests/books_ui.robot:440:120 LEN08 Line is too long (134/120)
+     |
+ 438 | Then Book Should Show Favorite Status
+ 439 |     [Documentation]    Verify book shows favorite status indicator
+ 440 |     Wait For Elements State    selector=#books-list .book-card:first-child .favorite-btn.active    state=visible    timeout=${TIMEOUT}
+     |                                                                                                                        ^^^^^^^^^^^^^^^ LEN08
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/books_ui.robot:512:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 512 | # Additional keywords for "And" usage (Robot Framework strips Gherkin prefixes)
+     | ^ SPC05
+ 513 | Page Should Display Main Components
+ 514 |     [Documentation]    Verify main page components are visible
+     |
+
+/tests/books_ui.robot:524:1 LEN03 Keyword 'Book Details Should Match Form Input' has too many keywords inside (15/10)
+     |
+ 524 | Book Details Should Match Form Input
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN03
+ 525 |     [Documentation]    Verify book details match the form input data (via API due to UI bug)
+ 526 |     VAR    ${book_title}    ${form_input_data}[title]
+     |
+
+/tests/books_ui.robot:534:22 DEPR05 Set Variable used instead of VAR
+     |
+ 532 |     Create Session    verify_details_api2    http://books-database-service:8000    verify=${False}
+ 533 |     ${response}    GET On Session    verify_details_api2    /books/    expected_status=200
+ 534 |     ${books_list}    Set Variable    ${response.json()}
+     |                      ^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_ui.robot:555:48 COM02 Missing blank space after comment character
+     |
+ 553 |     # This relies on existing data or previous test execution
+ 554 |     Wait For Elements State    selector=${BOOKS_GRID}    state=visible    timeout=${TIMEOUT}
+ 555 |     VAR    ${book_elements}    Get Elements    #books-list .book-card
+     |                                                ^ COM02
+ 556 |     VAR    ${book_count}    Get Length    ${book_elements}
+     |
+
+/tests/books_ui.robot:592:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 592 |     Set Test Variable    ${modal_update_data}    &{update_data}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_ui.robot:592:5 VAR06 Variable defined with test/task scope
+     |
+ 592 |     Set Test Variable    ${modal_update_data}    &{update_data}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_ui.robot:592:26 VAR07 Non local variable is not uppercase
+     |
+ 592 |     Set Test Variable    ${modal_update_data}    &{update_data}
+     |                          ^^^^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_ui.robot:624:120 LEN08 Line is too long (134/120)
+     |
+ 622 | Book Should Show Favorite Status
+ 623 |     [Documentation]    Verify book shows favorite status indicator
+ 624 |     Wait For Elements State    selector=#books-list .book-card:first-child .favorite-btn.active    state=visible    timeout=${TIMEOUT}
+     |                                                                                                                        ^^^^^^^^^^^^^^^ LEN08
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/books_ui.robot:694:1 LEN28 File has too many lines (694/400)
+/tests/books_ui.robot:694:1 SPC02 Missing trailing blank line at the end of file
+     |
+ 692 |     # Form should not submit, so no new books should appear
+ 693 |     # Just verify form validation is working
+ 694 |     Log    Form validation prevented invalid submission - no new book created
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+     |
+
+/tests/api_keywords.robot:1:1 MISC06 No tests in 'api_keywords.robot' file, consider renaming to 'api_keywords.resource'
+/tests/api_keywords.robot:7:18 IMP01 BuiltIn library import 'Collections' should be placed before 'RequestsLibrary'
+   |
+ 5 |
+ 6 | Library          RequestsLibrary
+ 7 | Library          Collections
+   |                  ^^^^^^^^^^^ IMP01
+ 8 | Library          String
+ 9 | Library          DateTime
+   |
+
+/tests/api_keywords.robot:8:18 IMP01 BuiltIn library import 'String' should be placed before 'RequestsLibrary'
+   |
+ 6 | Library          RequestsLibrary
+ 7 | Library          Collections
+ 8 | Library          String
+   |                  ^^^^^^ IMP01
+ 9 | Library          DateTime
+10 | Library          JSONLibrary
+   |
+
+/tests/api_keywords.robot:9:18 IMP01 BuiltIn library import 'DateTime' should be placed before 'RequestsLibrary'
+   |
+ 7 | Library          Collections
+ 8 | Library          String
+ 9 | Library          DateTime
+   |                  ^^^^^^^^ IMP01
+10 | Library          JSONLibrary
+   |
+
+/tests/api_keywords.robot:9:18 IMP02 BuiltIn library import 'DateTime' should be placed before 'String'
+   |
+ 7 | Library          Collections
+ 8 | Library          String
+ 9 | Library          DateTime
+   |                  ^^^^^^^^ IMP02
+10 | Library          JSONLibrary
+   |
+
+/tests/api_keywords.robot:13:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 11 |
+ 12 | Resource         resources/common.resource
+ 13 |
+    | ^ SPC03
+ 14 | *** Keywords ***
+ 15 | # Session Management Keywords
+    |
+
+/tests/api_keywords.robot:20:19 DEPR06 Create Dictionary used instead of VAR
+    |
+ 20 |     &{headers}    Create Dictionary
+    |                   ^^^^^^^^^^^^^^^^^ DEPR06
+ 21 |     ...    Content-Type=application/json
+ 22 |     ...    Accept=application/json
+    |
+
+/tests/api_keywords.robot:25:26 DEPR06 Create Dictionary used instead of VAR
+    |
+ 25 |     &{session_config}    Create Dictionary
+    |                          ^^^^^^^^^^^^^^^^^ DEPR06
+ 26 |     ...    timeout=${timeout}
+ 27 |     ...    max_retries=${retry}
+    |
+
+/tests/api_keywords.robot:46:1 SPC05 Invalid number of empty lines between keywords (0/1)
+    |
+ 46 | # CRUD Operation Keywords
+    | ^ SPC05
+ 47 | Create Book Via API
+ 48 |     [Documentation]    Create a book through API with comprehensive validation
+    |
+
+/tests/api_keywords.robot:53:120 LEN08 Line is too long (130/120)
+    |
+ 53 |     VAR    ${response}    POST On Session    ${session_name}    /books/    json=${book_data}    expected_status=${expected_status}
+    |                                                                                                                        ^^^^^^^^^^^ LEN08
+ 54 |     VAR    ${created_book}    Set Variable    ${response.json()}
+    | Suggestion: Break long lines using the '...' continuation syntax.
+    |
+
+/tests/api_keywords.robot:106:120 LEN08 Line is too long (141/120)
+     |
+ 106 |     VAR    ${response}    PUT On Session    ${session_name}    /books/${book_id}    json=${update_data}    expected_status=${expected_status}
+     |                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^ LEN08
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/api_keywords.robot:124:120 LEN08 Line is too long (121/120)
+     |
+ 124 |     VAR    ${response}    DELETE On Session    ${session_name}    /books/${book_id}    expected_status=${expected_status}
+     |                                                                                                                        ^^ LEN08
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/api_keywords.robot:142:25 DEPR06 Create Dictionary used instead of VAR
+     |
+ 142 |     &{favorite_data}    Create Dictionary    favorite=${favorite_status}
+     |                         ^^^^^^^^^^^^^^^^^ DEPR06
+ 143 |     VAR    ${response}    PATCH On Session    ${session_name}    /books/${book_id}/favorite    json=&{favorite_data}    expected_status=${expected_status}
+     |
+
+/tests/api_keywords.robot:143:120 LEN08 Line is too long (154/120)
+     |
+ 141 |
+ 142 |     &{favorite_data}    Create Dictionary    favorite=${favorite_status}
+ 143 |     VAR    ${response}    PATCH On Session    ${session_name}    /books/${book_id}/favorite    json=&{favorite_data}    expected_status=${expected_status}
+     |                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN08
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/api_keywords.robot:155:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 155 | # Validation and Verification Keywords
+     | ^ SPC05
+ 156 | Verify Book Exists In API
+ 157 |     [Documentation]    Verify that a book exists in the system via API
+     |
+
+/tests/api_keywords.robot:200:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 200 | # Data Management Keywords
+     | ^ SPC05
+ 201 | Create Test Books Dataset
+ 202 |     [Documentation]    Create a dataset of test books for comprehensive testing
+     |
+
+/tests/api_keywords.robot:201:1 LEN03 Keyword 'Create Test Books Dataset' has too many keywords inside (12/10)
+     |
+ 199 |
+ 200 | # Data Management Keywords
+ 201 | Create Test Books Dataset
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^ LEN03
+ 202 |     [Documentation]    Create a dataset of test books for comprehensive testing
+ 203 |     [Arguments]    ${book_count}=5    ${session_name}=books_api
+     |
+
+/tests/api_keywords.robot:205:25 DEPR06 Create List used instead of VAR
+     |
+ 205 |     @{created_books}    Create List
+     |                         ^^^^^^^^^^^ DEPR06
+ 206 |     @{created_book_ids}    Create List
+     |
+
+/tests/api_keywords.robot:206:28 DEPR06 Create List used instead of VAR
+     |
+ 204 |
+ 205 |     @{created_books}    Create List
+ 206 |     @{created_book_ids}    Create List
+     |                            ^^^^^^^^^^^ DEPR06
+     |
+
+/tests/api_keywords.robot:247:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 247 | # API Performance and Monitoring Keywords
+     | ^ SPC05
+ 248 | Measure API Response Time
+ 249 |     [Documentation]    Measure and validate API response time
+     |
+
+/tests/api_keywords.robot:248:1 LEN03 Keyword 'Measure API Response Time' has too many keywords inside (11/10)
+     |
+ 246 |
+ 247 | # API Performance and Monitoring Keywords
+ 248 | Measure API Response Time
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^ LEN03
+ 249 |     [Documentation]    Measure and validate API response time
+ 250 |     [Arguments]    ${endpoint}    ${method}=GET    ${session_name}=books_api    ${max_response_time}=5s
+     |
+
+/tests/api_keywords.robot:258:16 VAR02 Variable '${response}' is assigned but not used
+     |
+ 256 |     ELSE IF    "${method}" == "POST"
+ 257 |         &{test_data}    Generate Unique Book Data
+ 258 |         VAR    ${response}    POST On Session    ${session_name}    ${endpoint}    json=&{test_data}    expected_status=200
+     |                ^^^^^^^^^^^ VAR02
+ 259 |     ELSE
+ 260 |         Fail    Unsupported HTTP method for performance testing: ${method}
+     |
+
+/tests/api_keywords.robot:258:120 LEN08 Line is too long (123/120)
+     |
+ 256 |     ELSE IF    "${method}" == "POST"
+ 257 |         &{test_data}    Generate Unique Book Data
+ 258 |         VAR    ${response}    POST On Session    ${session_name}    ${endpoint}    json=&{test_data}    expected_status=200
+     |                                                                                                                        ^^^^ LEN08
+ 259 |     ELSE
+ 260 |         Fail    Unsupported HTTP method for performance testing: ${method}
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/api_keywords.robot:289:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 289 | # Batch Operations Keywords
+     | ^ SPC05
+ 290 | Create Multiple Books Via API
+ 291 |     [Documentation]    Create multiple books efficiently through API
+     |
+
+/tests/api_keywords.robot:294:25 DEPR06 Create List used instead of VAR
+     |
+ 294 |     @{created_books}    Create List
+     |                         ^^^^^^^^^^^ DEPR06
+     |
+
+/tests/api_keywords.robot:308:25 DEPR06 Create List used instead of VAR
+     |
+ 308 |     @{updated_books}    Create List
+     |                         ^^^^^^^^^^^ DEPR06
+     |
+
+/tests/api_keywords.robot:316:1 SPC02 Missing trailing blank line at the end of file
+     |
+ 314 |
+ 315 |     Log    Successfully updated ${len($updated_books)} books via API
+ 316 |     RETURN    ${updated_books}
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+     |
+
+/tests/debug_form_simple.robot:1:1 DOC03 Missing documentation in suite
+/tests/debug_form_simple.robot:4:1 SPC03 Invalid number of empty lines between sections (1/2)
+   |
+ 2 | Library          Browser
+ 3 | Resource         resources/common.resource
+ 4 |
+   | ^ SPC03
+ 5 | *** Variables ***
+ 6 | ${BOOK_FORM}          id=book-form
+   |
+
+/tests/debug_form_simple.robot:6:1 VAR02 Variable '${BOOK_FORM}' is assigned but not used
+   |
+ 4 |
+ 5 | *** Variables ***
+ 6 | ${BOOK_FORM}          id=book-form
+   | ^^^^^^^^^^^^ VAR02
+ 7 | ${TITLE_INPUT}        id=title
+ 8 | ${AUTHOR_INPUT}       id=author
+   |
+
+/tests/debug_form_simple.robot:12:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 10 | ${CATEGORY_SELECT}    id=category
+ 11 | ${SUBMIT_BUTTON}      css=#book-form [type="submit"]
+ 12 |
+    | ^ SPC03
+ 13 | *** Test Cases ***
+ 14 | Debug Simple Form Submission
+    |
+
+/tests/debug_form_simple.robot:14:1 LEN04 Test case 'Debug Simple Form Submission' is too long (42/20)
+    |
+ 12 |
+ 13 | *** Test Cases ***
+ 14 | Debug Simple Form Submission
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN04
+ 15 |     [Documentation]    Debug form submission with hardcoded simple values
+    |
+
+/tests/debug_form_simple.robot:14:1 LEN06 Test case 'Debug Simple Form Submission' has too many keywords inside (24/10)
+    |
+ 12 |
+ 13 | *** Test Cases ***
+ 14 | Debug Simple Form Submission
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN06
+ 15 |     [Documentation]    Debug form submission with hardcoded simple values
+    |
+
+/tests/debug_form_simple.robot:56:1 SPC02 Missing trailing blank line at the end of file
+    |
+ 54 |     ${contains_book}    Run Keyword And Return Status
+ 55 |     ...    Should Contain    ${page_source}    Simple Test Book
+ 56 |     Log    Page contains our test book: ${contains_book}
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+    |
+
+/tests/debug_network.robot:1:1 DOC03 Missing documentation in suite
+/tests/debug_network.robot:4:1 SPC03 Invalid number of empty lines between sections (1/2)
+   |
+ 2 | Library          Browser
+ 3 | Resource         resources/common.resource
+ 4 |
+   | ^ SPC03
+ 5 | *** Variables ***
+ 6 | ${BOOK_FORM}          id=book-form
+   |
+
+/tests/debug_network.robot:6:1 VAR02 Variable '${BOOK_FORM}' is assigned but not used
+   |
+ 4 |
+ 5 | *** Variables ***
+ 6 | ${BOOK_FORM}          id=book-form
+   | ^^^^^^^^^^^^ VAR02
+ 7 | ${TITLE_INPUT}        id=title
+ 8 | ${AUTHOR_INPUT}       id=author
+   |
+
+/tests/debug_network.robot:12:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 10 | ${CATEGORY_SELECT}    id=category
+ 11 | ${SUBMIT_BUTTON}      css=#book-form [type="submit"]
+ 12 |
+    | ^ SPC03
+ 13 | *** Test Cases ***
+ 14 | Debug Network and Console Issues
+    |
+
+/tests/debug_network.robot:14:1 LEN04 Test case 'Debug Network and Console Issues' is too long (42/20)
+    |
+ 12 |
+ 13 | *** Test Cases ***
+ 14 | Debug Network and Console Issues
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN04
+ 15 |     [Documentation]    Debug network requests and console errors during form submission
+    |
+
+/tests/debug_network.robot:14:1 LEN06 Test case 'Debug Network and Console Issues' has too many keywords inside (25/10)
+    |
+ 12 |
+ 13 | *** Test Cases ***
+ 14 | Debug Network and Console Issues
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN06
+ 15 |     [Documentation]    Debug network requests and console errors during form submission
+    |
+
+/tests/debug_network.robot:56:1 SPC02 Missing trailing blank line at the end of file
+    |
+ 54 |     # Check current URL
+ 55 |     ${current_url}    Get Url
+ 56 |     Log    Current URL after submission: ${current_url}
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+    |
+
+/tests/resources/common.resource:8:18 IMP01 BuiltIn library import 'Collections' should be placed before 'Browser'
+   |
+ 6 | Library          Browser
+ 7 | Library          RequestsLibrary
+ 8 | Library          Collections
+   |                  ^^^^^^^^^^^ IMP01
+ 9 | Library          String
+10 | Library          DateTime
+   |
+
+/tests/resources/common.resource:9:18 IMP01 BuiltIn library import 'String' should be placed before 'Browser'
+   |
+ 7 | Library          RequestsLibrary
+ 8 | Library          Collections
+ 9 | Library          String
+   |                  ^^^^^^ IMP01
+10 | Library          DateTime
+11 | Library          OperatingSystem
+   |
+
+/tests/resources/common.resource:10:18 IMP01 BuiltIn library import 'DateTime' should be placed before 'Browser'
+    |
+  8 | Library          Collections
+  9 | Library          String
+ 10 | Library          DateTime
+    |                  ^^^^^^^^ IMP01
+ 11 | Library          OperatingSystem
+    |
+
+/tests/resources/common.resource:10:18 IMP02 BuiltIn library import 'DateTime' should be placed before 'String'
+    |
+  8 | Library          Collections
+  9 | Library          String
+ 10 | Library          DateTime
+    |                  ^^^^^^^^ IMP02
+ 11 | Library          OperatingSystem
+    |
+
+/tests/resources/common.resource:11:18 IMP01 BuiltIn library import 'OperatingSystem' should be placed before 'Browser'
+    |
+  9 | Library          String
+ 10 | Library          DateTime
+ 11 | Library          OperatingSystem
+    |                  ^^^^^^^^^^^^^^^ IMP01
+    |
+
+/tests/resources/common.resource:12:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 10 | Library          DateTime
+ 11 | Library          OperatingSystem
+ 12 |
+    | ^ SPC03
+ 13 | *** Variables ***
+ 14 | # Application URLs
+    |
+
+/tests/resources/common.resource:26:120 LEN08 Line is too long (130/120)
+    |
+ 24 |
+ 25 | # Test Data
+ 26 | &{VALID_BOOK_DATA}    title=Test Automation Guide    author=Robot Framework    pages=350    category=Business    favorite=${False}
+    |                                                                                                                        ^^^^^^^^^^^ LEN08
+ 27 | &{UPDATE_BOOK_DATA}   title=Advanced Test Automation    author=Robot Framework Pro    pages=${450}    category=Science    favorite=${True}
+    | Suggestion: Break long lines using the '...' continuation syntax.
+    |
+
+/tests/resources/common.resource:27:120 LEN08 Line is too long (138/120)
+    |
+ 25 | # Test Data
+ 26 | &{VALID_BOOK_DATA}    title=Test Automation Guide    author=Robot Framework    pages=350    category=Business    favorite=${False}
+ 27 | &{UPDATE_BOOK_DATA}   title=Advanced Test Automation    author=Robot Framework Pro    pages=${450}    category=Science    favorite=${True}
+    |                                                                                                                        ^^^^^^^^^^^^^^^^^^^ LEN08
+    | Suggestion: Break long lines using the '...' continuation syntax.
+    |
+
+/tests/resources/common.resource:32:120 LEN08 Line is too long (282/120)
+    |
+ 30 |
+ 31 | # Book Categories
+ 32 | @{BOOK_CATEGORIES}    Fiction    Non-Fiction    Fantasy    Science Fiction    Mystery    Thriller    Horror    Romance    Historical Fiction    Biography    Self-Help    Business    Science    History    Poetry    Children's Books    Young Adult    Travel    Cookbooks    Philosophy
+    |                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN08
+    | Suggestion: Break long lines using the '...' continuation syntax.
+    |
+
+/tests/resources/common.resource:33:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 31 | # Book Categories
+ 32 | @{BOOK_CATEGORIES}    Fiction    Non-Fiction    Fantasy    Science Fiction    Mystery    Thriller    Horror    Romance    Historical Fiction    Biography    Self-Help    Business    Science    History    Poetry    Children's Books    Young Adult    Travel    Cookbooks    Philosophy
+ 33 |
+    | ^ SPC03
+ 34 | *** Keywords ***
+ 35 | # Common Setup and Teardown
+    |
+
+/tests/resources/common.resource:53:1 SPC05 Invalid number of empty lines between keywords (0/1)
+    |
+ 53 | # Error Handling and Debugging
+    | ^ SPC05
+ 54 | Execute With Error Handling
+ 55 |     [Documentation]    Execute keyword with comprehensive error handling and debugging
+    |
+
+/tests/resources/common.resource:69:20 VAR11 Argument '${test_name}' overwrites reserved variable '${TEST_NAME}'
+    |
+ 67 | Capture Evidence
+ 68 |     [Documentation]    Capture screenshot and logs for debugging
+ 69 |     [Arguments]    ${test_name}
+    |                    ^^^^^^^^^^^^ VAR11
+    |
+
+/tests/resources/common.resource:102:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 102 | # Data Generation and Validation
+     | ^ SPC05
+ 103 | Generate Unique Book Data
+ 104 |     [Documentation]    Generate unique book data for testing
+     |
+
+/tests/resources/common.resource:110:21 DEPR06 Create Dictionary used instead of VAR
+     |
+ 110 |     &{book_data}    Create Dictionary
+     |                     ^^^^^^^^^^^^^^^^^ DEPR06
+ 111 |     ...    title=${unique_title}
+ 112 |     ...    author=Test Author ${timestamp}
+     |
+
+/tests/resources/common.resource:138:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 138 | # Comparison and Assertion Helpers
+     | ^ SPC05
+ 139 | Should Match Book Data
+ 140 |     [Documentation]    Compare actual book data with expected book data
+     |
+
+/tests/resources/common.resource:147:120 LEN08 Line is too long (131/120)
+     |
+ 145 |         IF    ${should_check}
+ 146 |             Should Be Equal    ${actual_book}[${field}]    ${expected_book}[${field}]
+ 147 |             ...    msg=Book field '${field}' does not match. Expected: ${expected_book}[${field}], Actual: ${actual_book}[${field}]
+     |                                                                                                                        ^^^^^^^^^^^^ LEN08
+ 148 |         END
+ 149 |     END
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/resources/common.resource:156:1 SPC02 Missing trailing blank line at the end of file
+     |
+ 154 |
+ 155 |     Should Be True    isinstance(${book_id}, int)    msg=Book ID must be an integer
+ 156 |     Should Be True    ${book_id} > 0    msg=Book ID must be positive
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+     |
+
+/tests/ui_keywords.robot:1:1 MISC06 No tests in 'ui_keywords.robot' file, consider renaming to 'ui_keywords.resource'
+/tests/ui_keywords.robot:7:18 IMP01 BuiltIn library import 'Collections' should be placed before 'Browser'
+   |
+ 5 |
+ 6 | Library          Browser
+ 7 | Library          Collections
+   |                  ^^^^^^^^^^^ IMP01
+ 8 | Library          String
+   |
+
+/tests/ui_keywords.robot:8:18 IMP01 BuiltIn library import 'String' should be placed before 'Browser'
+   |
+ 6 | Library          Browser
+ 7 | Library          Collections
+ 8 | Library          String
+   |                  ^^^^^^ IMP01
+   |
+
+/tests/ui_keywords.robot:11:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+  9 |
+ 10 | Resource         resources/common.resource
+ 11 |
+    | ^ SPC03
+ 12 | *** Variables ***
+ 13 | # Extended UI Selectors for Books Library
+    |
+
+/tests/ui_keywords.robot:64:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 62 | ${MODAL_CLOSE}           css=.close
+ 63 | ${SAVE_BUTTON}           css=${EDIT_FORM} [type="submit"]
+ 64 |
+    | ^ SPC03
+ 65 | *** Keywords ***
+ 66 | # Browser and Page Management Keywords
+    |
+
+/tests/ui_keywords.robot:82:5 MISC09 IF can be replaced with inline IF
+    |
+ 82 |     IF    ${wait_for_load}
+    |     ^^ MISC09
+ 83 |         Wait For Books Library Page Load
+ 84 |     END
+    |
+
+/tests/ui_keywords.robot:105:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 105 | # Form Interaction Keywords
+     | ^ SPC05
+ 106 | Fill Book Form
+ 107 |     [Documentation]    Fill the book creation form with provided data
+     |
+
+/tests/ui_keywords.robot:112:5 MISC09 IF can be replaced with inline IF
+     |
+ 112 |     IF    ${clear_first}
+     |     ^^ MISC09
+ 113 |         Clear Book Form
+ 114 |     END
+     |
+
+/tests/ui_keywords.robot:162:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 162 | # Books Grid Interaction Keywords
+     | ^ SPC05
+ 163 | Get Books Count From Grid
+ 164 |     [Documentation]    Get the current number of books displayed in the grid
+     |
+
+/tests/ui_keywords.robot:189:62 VAR10 Variable '${BOOK_TITLE}' has inconsistent naming. First used as '${book_title}'
+     |
+ 187 |
+ 188 |     FOR    ${card}    IN    @{book_cards}
+ 189 |         VAR    ${title_element}    Get Element    ${card} >> ${BOOK_TITLE}
+     |                                                              ^^^^^^^^^^^^^ VAR10
+ 190 |         VAR    ${card_title}    Get Text    ${title_element}
+ 191 |         IF    "${card_title}" == "${book_title}"
+     |
+
+/tests/ui_keywords.robot:191:9 MISC09 IF can be replaced with inline IF
+     |
+ 189 |         VAR    ${title_element}    Get Element    ${card} >> ${BOOK_TITLE}
+ 190 |         VAR    ${card_title}    Get Text    ${title_element}
+ 191 |         IF    "${card_title}" == "${book_title}"
+     |         ^^ MISC09
+ 192 |             RETURN    ${card}
+ 193 |         END
+     |
+
+/tests/ui_keywords.robot:212:24 DEPR06 Create Dictionary used instead of VAR
+     |
+ 212 |     &{book_details}    Create Dictionary
+     |                        ^^^^^^^^^^^^^^^^^ DEPR06
+ 213 |     ...    title=${title}
+ 214 |     ...    author=${author}
+     |
+
+/tests/ui_keywords.robot:250:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 250 | # Book Actions Keywords
+     | ^ SPC05
+ 251 | Click Edit Button On Book
+ 252 |     [Documentation]    Click edit button on a specific book
+     |
+
+/tests/ui_keywords.robot:268:1 LEN03 Keyword 'Click Delete Button On Book' has too many keywords inside (11/10)
+     |
+ 268 | Click Delete Button On Book
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN03
+ 269 |     [Documentation]    Click delete button on a specific book
+ 270 |     [Arguments]    ${book_identifier}    ${identifier_type}=index    ${confirm_deletion}=${True}
+     |
+
+/tests/ui_keywords.robot:337:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 337 | # Modal Interaction Keywords
+     | ^ SPC05
+ 338 | Fill Edit Modal
+ 339 |     [Documentation]    Fill the edit modal with book data
+     |
+
+/tests/ui_keywords.robot:386:21 DEPR06 Create Dictionary used instead of VAR
+     |
+ 386 |     &{book_data}    Create Dictionary
+     |                     ^^^^^^^^^^^^^^^^^ DEPR06
+ 387 |     ...    title=${title}
+ 388 |     ...    author=${author}
+     |
+
+/tests/ui_keywords.robot:394:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 394 | # Search and Filter Keywords
+     | ^ SPC05
+ 395 | Search For Books
+ 396 |     [Documentation]    Search for books using the search functionality
+     |
+
+/tests/ui_keywords.robot:462:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 462 | # Results and Validation Keywords
+     | ^ SPC05
+ 463 | Get Search Results Count
+ 464 |     [Documentation]    Get the number of books currently displayed after search/filter
+     |
+
+/tests/ui_keywords.robot:518:1 LEN01 Keyword 'Verify Sort Order' is too long (41/40)
+     |
+ 518 | Verify Sort Order
+     | ^^^^^^^^^^^^^^^^^ LEN01
+ 519 |     [Documentation]    Verify books are sorted correctly by specified field
+ 520 |     [Arguments]    ${sort_field}    ${ascending}=${True}
+     | Suggestion: Split the keyword into smaller, focused keywords.
+     |
+
+/tests/ui_keywords.robot:523:24 DEPR06 Create List used instead of VAR
+     |
+ 521 |
+ 522 |     VAR    ${visible_books}    Get Elements    css=${BOOKS_GRID} ${BOOK_CARD}:visible
+ 523 |     @{field_values}    Create List
+     |                        ^^^^^^^^^^^ DEPR06
+     |
+
+/tests/ui_keywords.robot:552:5 MISC09 IF can be replaced with inline IF
+     |
+ 552 |     IF    not ${ascending}
+     |     ^^ MISC09
+ 553 |         Reverse List    ${sorted_values}
+ 554 |     END
+     |
+
+/tests/ui_keywords.robot:559:1 LEN28 File has too many lines (559/400)
+/tests/ui_keywords.robot:559:1 SPC02 Missing trailing blank line at the end of file
+     |
+ 559 |     Log    Verified sort order for ${sort_field}, ascending: ${ascending}
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+     |
+
+/tests/debug_api_during_ui.robot:1:1 DOC03 Missing documentation in suite
+/tests/debug_api_during_ui.robot:5:1 SPC03 Invalid number of empty lines between sections (1/2)
+   |
+ 3 | Library          RequestsLibrary
+ 4 | Resource         resources/common.resource
+ 5 |
+   | ^ SPC03
+ 6 | *** Test Cases ***
+ 7 | Debug API During UI Test
+   |
+
+/tests/debug_api_during_ui.robot:7:1 LEN04 Test case 'Debug API During UI Test' is too long (31/20)
+   |
+ 5 |
+ 6 | *** Test Cases ***
+ 7 | Debug API During UI Test
+   | ^^^^^^^^^^^^^^^^^^^^^^^^ LEN04
+ 8 |     [Documentation]    Test if API works while UI browser is running
+   |
+
+/tests/debug_api_during_ui.robot:7:1 LEN06 Test case 'Debug API During UI Test' has too many keywords inside (16/10)
+   |
+ 5 |
+ 6 | *** Test Cases ***
+ 7 | Debug API During UI Test
+   | ^^^^^^^^^^^^^^^^^^^^^^^^ LEN06
+ 8 |     [Documentation]    Test if API works while UI browser is running
+   |
+
+/tests/debug_api_during_ui.robot:38:1 SPC02 Missing trailing blank line at the end of file
+    |
+ 36 |     ...    Should Contain    ${page_content}    ${test_book_data}[title]
+ 37 |     Log    Page contains new book after API creation: ${contains_book}
+ 38 |     Log    Book title we're looking for: ${test_book_data}[title]
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+    |
+
+/tests/debug_minimal.robot:1:1 DOC03 Missing documentation in suite
+/tests/debug_minimal.robot:4:1 SPC03 Invalid number of empty lines between sections (1/2)
+   |
+ 2 | Library          Browser
+ 3 | Resource         resources/common.resource
+ 4 |
+   | ^ SPC03
+ 5 | *** Variables ***
+ 6 | ${BOOK_FORM}     #book-form
+   |
+
+/tests/debug_minimal.robot:6:1 VAR01 Empty variable value
+   |
+ 4 |
+ 5 | *** Variables ***
+ 6 | ${BOOK_FORM}     #book-form
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^ VAR01
+   |
+
+/tests/debug_minimal.robot:6:18 COM02 Missing blank space after comment character
+   |
+ 4 |
+ 5 | *** Variables ***
+ 6 | ${BOOK_FORM}     #book-form
+   |                  ^ COM02
+   |
+
+/tests/debug_minimal.robot:7:1 SPC03 Invalid number of empty lines between sections (1/2)
+   |
+ 5 | *** Variables ***
+ 6 | ${BOOK_FORM}     #book-form
+ 7 |
+   | ^ SPC03
+ 8 | *** Test Cases ***
+ 9 | Debug Minimal Test
+   |
+
+/tests/debug_minimal.robot:17:1 SPC02 Missing trailing blank line at the end of file
+    |
+ 15 |     New Page    http://books-database-service:8000
+ 16 |     Wait For Load State    networkidle    timeout=10s
+ 17 |     Wait For Elements State    selector=#book-form    state=visible    timeout=10s
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+    |
+
+/tests/debug_selectors.robot:1:1 DOC03 Missing documentation in suite
+/tests/debug_selectors.robot:4:1 SPC03 Invalid number of empty lines between sections (1/2)
+   |
+ 2 | Library          Browser
+ 3 | Resource         resources/common.resource
+ 4 |
+   | ^ SPC03
+ 5 | *** Variables ***
+ 6 | ${BOOK_FORM}     #book-form
+   |
+
+/tests/debug_selectors.robot:6:1 VAR01 Empty variable value
+   |
+ 4 |
+ 5 | *** Variables ***
+ 6 | ${BOOK_FORM}     #book-form
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^ VAR01
+ 7 | ${TIMEOUT}       10s
+   |
+
+/tests/debug_selectors.robot:6:18 COM02 Missing blank space after comment character
+   |
+ 4 |
+ 5 | *** Variables ***
+ 6 | ${BOOK_FORM}     #book-form
+   |                  ^ COM02
+ 7 | ${TIMEOUT}       10s
+   |
+
+/tests/debug_selectors.robot:8:1 SPC03 Invalid number of empty lines between sections (1/2)
+   |
+ 6 | ${BOOK_FORM}     #book-form
+ 7 | ${TIMEOUT}       10s
+ 8 |
+   | ^ SPC03
+ 9 | *** Test Cases ***
+10 | Debug Selector Test
+   |
+
+/tests/debug_selectors.robot:17:1 SPC02 Missing trailing blank line at the end of file
+    |
+ 15 |     New Page    http://books-database-service:8000
+ 16 |     Wait For Load State    networkidle    timeout=${TIMEOUT}
+ 17 |     Wait For Elements State    ${BOOK_FORM}    visible    timeout=${TIMEOUT}
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+    |
+
+/tests/list_keywords.robot:1:1 DOC03 Missing documentation in suite
+/tests/list_keywords.robot:3:1 SPC03 Invalid number of empty lines between sections (1/2)
+   |
+ 1 | *** Settings ***
+ 2 | Library          Browser
+ 3 |
+   | ^ SPC03
+ 4 | *** Test Cases ***
+ 5 | List Browser Keywords
+   |
+
+/tests/list_keywords.robot:7:5 VAR02 Variable '${keywords}' is assigned but not used
+   |
+ 5 | List Browser Keywords
+ 6 |     [Documentation]    List available Browser keywords
+ 7 |     ${keywords}    Get Library Instance    Browser
+   |     ^^^^^^^^^^^ VAR02
+ 8 |     Log    Available Browser keywords listed in test execution log
+   |
+
+/tests/list_keywords.robot:8:1 SPC02 Missing trailing blank line at the end of file
+   |
+ 6 |     [Documentation]    List available Browser keywords
+ 7 |     ${keywords}    Get Library Instance    Browser
+ 8 |     Log    Available Browser keywords listed in test execution log
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+   |
+
+/tests/debug_api.robot:1:1 DOC03 Missing documentation in suite
+/tests/debug_api.robot:4:1 SPC03 Invalid number of empty lines between sections (1/2)
+   |
+ 2 | Library          RequestsLibrary
+ 3 | Resource         resources/common.resource
+ 4 |
+   | ^ SPC03
+ 5 | *** Variables ***
+ 6 | ${API_BASE_URL}       http://books-database-service:8000
+   |
+
+/tests/debug_api.robot:8:1 SPC03 Invalid number of empty lines between sections (1/2)
+   |
+ 6 | ${API_BASE_URL}       http://books-database-service:8000
+ 7 | ${API_SESSION}        debug_api
+ 8 |
+   | ^ SPC03
+ 9 | *** Test Cases ***
+10 | Debug API Session
+   |
+
+/tests/debug_api.robot:19:21 DEPR06 Create Dictionary used instead of VAR
+    |
+ 17 |     [Documentation]    Debug book creation
+ 18 |     Create Session    ${API_SESSION}    ${API_BASE_URL}    verify=${True}
+ 19 |     &{book_data}    Create Dictionary    title=Debug Book    author=Debug Author    pages=100    category=Fiction    favorite=${False}
+    |                     ^^^^^^^^^^^^^^^^^ DEPR06
+ 20 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=any
+ 21 |     Log    POST Response status: ${response.status_code}
+    |
+
+/tests/debug_api.robot:19:120 LEN08 Line is too long (134/120)
+    |
+ 17 |     [Documentation]    Debug book creation
+ 18 |     Create Session    ${API_SESSION}    ${API_BASE_URL}    verify=${True}
+ 19 |     &{book_data}    Create Dictionary    title=Debug Book    author=Debug Author    pages=100    category=Fiction    favorite=${False}
+    |                                                                                                                        ^^^^^^^^^^^^^^^ LEN08
+ 20 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=any
+ 21 |     Log    POST Response status: ${response.status_code}
+    | Suggestion: Break long lines using the '...' continuation syntax.
+    |
+
+/tests/debug_api.robot:28:21 DEPR06 Create Dictionary used instead of VAR
+    |
+ 26 |     [Documentation]    Debug book validation
+ 27 |     Create Session    ${API_SESSION}    ${API_BASE_URL}    verify=${True}
+ 28 |     &{book_data}    Create Dictionary    title=Debug Book 2    author=Debug Author 2    pages=${200}    category=Fiction    favorite=${False}
+    |                     ^^^^^^^^^^^^^^^^^ DEPR06
+ 29 |     Set To Dictionary    ${book_data}    pages    ${200}    # Ensure integer type
+ 30 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=200
+    |
+
+/tests/debug_api.robot:28:120 LEN08 Line is too long (141/120)
+    |
+ 26 |     [Documentation]    Debug book validation
+ 27 |     Create Session    ${API_SESSION}    ${API_BASE_URL}    verify=${True}
+ 28 |     &{book_data}    Create Dictionary    title=Debug Book 2    author=Debug Author 2    pages=${200}    category=Fiction    favorite=${False}
+    |                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^ LEN08
+ 29 |     Set To Dictionary    ${book_data}    pages    ${200}    # Ensure integer type
+ 30 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=200
+    | Suggestion: Break long lines using the '...' continuation syntax.
+    |
+
+/tests/debug_api.robot:31:24 DEPR05 Set Variable used instead of VAR
+    |
+ 29 |     Set To Dictionary    ${book_data}    pages    ${200}    # Ensure integer type
+ 30 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=200
+ 31 |     ${created_book}    Set Variable    ${response.json()}
+    |                        ^^^^^^^^^^^^ DEPR05
+ 32 |     Log    Created book: ${created_book}
+ 33 |     Should Be Valid Book ID    ${created_book}[id]
+    |
+
+/tests/debug_api.robot:34:1 SPC02 Missing trailing blank line at the end of file
+    |
+ 32 |     Log    Created book: ${created_book}
+ 33 |     Should Be Valid Book ID    ${created_book}[id]
+ 34 |     Should Match Book Data    ${created_book}    ${book_data}    ignore_fields=${{['id']}}
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+    |
+
+/tests/books_api.robot:12:18 IMP01 BuiltIn library import 'Collections' should be placed before 'RequestsLibrary'
+    |
+ 10 |
+ 11 | Library          RequestsLibrary
+ 12 | Library          Collections
+    |                  ^^^^^^^^^^^ IMP01
+ 13 | Library          String
+ 14 | Library          DateTime
+    |
+
+/tests/books_api.robot:13:18 IMP01 BuiltIn library import 'String' should be placed before 'RequestsLibrary'
+    |
+ 11 | Library          RequestsLibrary
+ 12 | Library          Collections
+ 13 | Library          String
+    |                  ^^^^^^ IMP01
+ 14 | Library          DateTime
+    |
+
+/tests/books_api.robot:14:18 IMP01 BuiltIn library import 'DateTime' should be placed before 'RequestsLibrary'
+    |
+ 12 | Library          Collections
+ 13 | Library          String
+ 14 | Library          DateTime
+    |                  ^^^^^^^^ IMP01
+    |
+
+/tests/books_api.robot:14:18 IMP02 BuiltIn library import 'DateTime' should be placed before 'String'
+    |
+ 12 | Library          Collections
+ 13 | Library          String
+ 14 | Library          DateTime
+    |                  ^^^^^^^^ IMP02
+    |
+
+/tests/books_api.robot:23:1 DEPR02 'Force Tags' is deprecated since Robot Framework version 6.0, use 'Test Tags' instead
+    |
+ 23 | Force Tags       api    books    regression
+    | ^^^^^^^^^^ DEPR02
+    |
+
+/tests/books_api.robot:24:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 22 |
+ 23 | Force Tags       api    books    regression
+ 24 |
+    | ^ SPC03
+ 25 | *** Variables ***
+ 26 | ${API_SESSION}        books_api
+    |
+
+/tests/books_api.robot:28:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 26 | ${API_SESSION}        books_api
+ 27 | ${CREATED_BOOK_ID}    ${EMPTY}
+ 28 |
+    | ^ SPC03
+ 29 | *** Test Cases ***
+ 30 | User Can Retrieve All Books From API
+    |
+
+/tests/books_api.robot:93:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 91 |     Then Validation Error Should Be Returned
+ 92 |     And Error Should Indicate Missing Fields
+ 93 |
+    | ^ SPC03
+ 94 | *** Keywords ***
+ 95 | # Suite Level Keywords
+    |
+
+/tests/books_api.robot:108:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 108 | # Test Level Keywords
+     | ^ SPC05
+ 109 | Setup Individual API Test
+ 110 |     [Documentation]    Setup for individual API test case
+     |
+
+/tests/books_api.robot:124:50 VAR05 Variable defined with suite scope
+     |
+ 122 |             Log    Could not clean up test book ID: ${CREATED_BOOK_ID}    WARN
+ 123 |         END
+ 124 |         VAR    ${CREATED_BOOK_ID}    ${EMPTY}    scope=SUITE
+     |                                                  ^^^^^^^^^^^ VAR05
+ 125 |     END
+     |
+
+/tests/books_api.robot:130:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 130 | # Given Keywords (Preconditions)
+     | ^ SPC05
+ 131 | Given API Session Is Established
+ 132 |     [Documentation]    Verify that API session is working
+     |
+
+/tests/books_api.robot:139:5 DEPR05 Set Suite Variable used instead of VAR
+     |
+ 137 |     [Documentation]    Ensure a test book exists in the system for testing
+ 138 |     When New Book Is Created With Valid Data
+ 139 |     Set Suite Variable    ${EXISTING_BOOK_ID}    ${CREATED_BOOK_ID}
+     |     ^^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:139:5 VAR05 Variable defined with suite scope
+     |
+ 137 |     [Documentation]    Ensure a test book exists in the system for testing
+ 138 |     When New Book Is Created With Valid Data
+ 139 |     Set Suite Variable    ${EXISTING_BOOK_ID}    ${CREATED_BOOK_ID}
+     |     ^^^^^^^^^^^^^^^^^^ VAR05
+     |
+
+/tests/books_api.robot:141:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 141 | # When Keywords (Actions)
+     | ^ SPC05
+ 142 | When All Books Are Requested
+ 143 |     [Documentation]    Request list of all books from API
+     |
+
+/tests/books_api.robot:145:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 143 |     [Documentation]    Request list of all books from API
+ 144 |     ${response}    GET On Session    ${API_SESSION}    /books/    expected_status=200
+ 145 |     Set Test Variable    ${books_response}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:145:5 VAR06 Variable defined with test/task scope
+     |
+ 143 |     [Documentation]    Request list of all books from API
+ 144 |     ${response}    GET On Session    ${API_SESSION}    /books/    expected_status=200
+ 145 |     Set Test Variable    ${books_response}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:145:26 VAR07 Non local variable is not uppercase
+     |
+ 143 |     [Documentation]    Request list of all books from API
+ 144 |     ${response}    GET On Session    ${API_SESSION}    /books/    expected_status=200
+ 145 |     Set Test Variable    ${books_response}    ${response}
+     |                          ^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_api.robot:151:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 149 |     &{book_data}    Generate Unique Book Data    API Test Book
+ 150 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=200
+ 151 |     Set Test Variable    ${creation_response}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 152 |     Set Test Variable    ${input_book_data}    &{book_data}
+     |
+
+/tests/books_api.robot:151:5 VAR06 Variable defined with test/task scope
+     |
+ 149 |     &{book_data}    Generate Unique Book Data    API Test Book
+ 150 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=200
+ 151 |     Set Test Variable    ${creation_response}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 152 |     Set Test Variable    ${input_book_data}    &{book_data}
+     |
+
+/tests/books_api.robot:151:26 VAR07 Non local variable is not uppercase
+     |
+ 149 |     &{book_data}    Generate Unique Book Data    API Test Book
+ 150 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=200
+ 151 |     Set Test Variable    ${creation_response}    ${response}
+     |                          ^^^^^^^^^^^^^^^^^^^^ VAR07
+ 152 |     Set Test Variable    ${input_book_data}    &{book_data}
+     |
+
+/tests/books_api.robot:152:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 150 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=200
+ 151 |     Set Test Variable    ${creation_response}    ${response}
+ 152 |     Set Test Variable    ${input_book_data}    &{book_data}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:152:5 VAR06 Variable defined with test/task scope
+     |
+ 150 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=200
+ 151 |     Set Test Variable    ${creation_response}    ${response}
+ 152 |     Set Test Variable    ${input_book_data}    &{book_data}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:152:26 VAR07 Non local variable is not uppercase
+     |
+ 150 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{book_data}    expected_status=200
+ 151 |     Set Test Variable    ${creation_response}    ${response}
+ 152 |     Set Test Variable    ${input_book_data}    &{book_data}
+     |                          ^^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_api.robot:155:24 DEPR05 Set Variable used instead of VAR
+     |
+ 153 |
+ 154 |     # Store created book ID for cleanup
+ 155 |     ${created_book}    Set Variable    ${response.json()}
+     |                        ^^^^^^^^^^^^ DEPR05
+ 156 |     Set Suite Variable    ${CREATED_BOOK_ID}    ${created_book}[id]
+     |
+
+/tests/books_api.robot:156:5 DEPR05 Set Suite Variable used instead of VAR
+     |
+ 154 |     # Store created book ID for cleanup
+ 155 |     ${created_book}    Set Variable    ${response.json()}
+ 156 |     Set Suite Variable    ${CREATED_BOOK_ID}    ${created_book}[id]
+     |     ^^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:156:5 VAR05 Variable defined with suite scope
+     |
+ 154 |     # Store created book ID for cleanup
+ 155 |     ${created_book}    Set Variable    ${response.json()}
+ 156 |     Set Suite Variable    ${CREATED_BOOK_ID}    ${created_book}[id]
+     |     ^^^^^^^^^^^^^^^^^^ VAR05
+     |
+
+/tests/books_api.robot:161:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 159 |     [Documentation]    Retrieve a specific book using its ID
+ 160 |     ${response}    GET On Session    ${API_SESSION}    /books/${EXISTING_BOOK_ID}    expected_status=200
+ 161 |     Set Test Variable    ${book_response}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:161:5 VAR06 Variable defined with test/task scope
+     |
+ 159 |     [Documentation]    Retrieve a specific book using its ID
+ 160 |     ${response}    GET On Session    ${API_SESSION}    /books/${EXISTING_BOOK_ID}    expected_status=200
+ 161 |     Set Test Variable    ${book_response}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:161:26 VAR07 Non local variable is not uppercase
+     |
+ 159 |     [Documentation]    Retrieve a specific book using its ID
+ 160 |     ${response}    GET On Session    ${API_SESSION}    /books/${EXISTING_BOOK_ID}    expected_status=200
+ 161 |     Set Test Variable    ${book_response}    ${response}
+     |                          ^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_api.robot:166:120 LEN08 Line is too long (127/120)
+     |
+ 164 |     [Documentation]    Update book data with valid modifications
+ 165 |     &{update_data}    Copy Dictionary    ${UPDATE_BOOK_DATA}
+ 166 |     ${response}    PUT On Session    ${API_SESSION}    /books/${EXISTING_BOOK_ID}    json=&{update_data}    expected_status=200
+     |                                                                                                                        ^^^^^^^^ LEN08
+ 167 |     Set Test Variable    ${update_response}    ${response}
+ 168 |     Set Test Variable    ${update_input_data}    &{update_data}
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/books_api.robot:167:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 165 |     &{update_data}    Copy Dictionary    ${UPDATE_BOOK_DATA}
+ 166 |     ${response}    PUT On Session    ${API_SESSION}    /books/${EXISTING_BOOK_ID}    json=&{update_data}    expected_status=200
+ 167 |     Set Test Variable    ${update_response}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 168 |     Set Test Variable    ${update_input_data}    &{update_data}
+     |
+
+/tests/books_api.robot:167:5 VAR06 Variable defined with test/task scope
+     |
+ 165 |     &{update_data}    Copy Dictionary    ${UPDATE_BOOK_DATA}
+ 166 |     ${response}    PUT On Session    ${API_SESSION}    /books/${EXISTING_BOOK_ID}    json=&{update_data}    expected_status=200
+ 167 |     Set Test Variable    ${update_response}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 168 |     Set Test Variable    ${update_input_data}    &{update_data}
+     |
+
+/tests/books_api.robot:167:26 VAR07 Non local variable is not uppercase
+     |
+ 165 |     &{update_data}    Copy Dictionary    ${UPDATE_BOOK_DATA}
+ 166 |     ${response}    PUT On Session    ${API_SESSION}    /books/${EXISTING_BOOK_ID}    json=&{update_data}    expected_status=200
+ 167 |     Set Test Variable    ${update_response}    ${response}
+     |                          ^^^^^^^^^^^^^^^^^^ VAR07
+ 168 |     Set Test Variable    ${update_input_data}    &{update_data}
+     |
+
+/tests/books_api.robot:168:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 166 |     ${response}    PUT On Session    ${API_SESSION}    /books/${EXISTING_BOOK_ID}    json=&{update_data}    expected_status=200
+ 167 |     Set Test Variable    ${update_response}    ${response}
+ 168 |     Set Test Variable    ${update_input_data}    &{update_data}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:168:5 VAR06 Variable defined with test/task scope
+     |
+ 166 |     ${response}    PUT On Session    ${API_SESSION}    /books/${EXISTING_BOOK_ID}    json=&{update_data}    expected_status=200
+ 167 |     Set Test Variable    ${update_response}    ${response}
+ 168 |     Set Test Variable    ${update_input_data}    &{update_data}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:168:26 VAR07 Non local variable is not uppercase
+     |
+ 166 |     ${response}    PUT On Session    ${API_SESSION}    /books/${EXISTING_BOOK_ID}    json=&{update_data}    expected_status=200
+ 167 |     Set Test Variable    ${update_response}    ${response}
+ 168 |     Set Test Variable    ${update_input_data}    &{update_data}
+     |                          ^^^^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_api.robot:172:25 DEPR06 Create Dictionary used instead of VAR
+     |
+ 170 | When Book Favorite Status Is Toggled
+ 171 |     [Documentation]    Toggle the favorite status of a book
+ 172 |     &{favorite_data}    Create Dictionary    favorite=${True}
+     |                         ^^^^^^^^^^^^^^^^^ DEPR06
+ 173 |     ${response}    PATCH On Session    ${API_SESSION}    /books/${EXISTING_BOOK_ID}/favorite    json=&{favorite_data}    expected_status=200
+ 174 |     Set Test Variable    ${favorite_response}    ${response}
+     |
+
+/tests/books_api.robot:173:120 LEN08 Line is too long (140/120)
+     |
+ 171 |     [Documentation]    Toggle the favorite status of a book
+ 172 |     &{favorite_data}    Create Dictionary    favorite=${True}
+ 173 |     ${response}    PATCH On Session    ${API_SESSION}    /books/${EXISTING_BOOK_ID}/favorite    json=&{favorite_data}    expected_status=200
+     |                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^ LEN08
+ 174 |     Set Test Variable    ${favorite_response}    ${response}
+ 175 |     Set Test Variable    ${expected_favorite_status}    ${True}
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/books_api.robot:174:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 172 |     &{favorite_data}    Create Dictionary    favorite=${True}
+ 173 |     ${response}    PATCH On Session    ${API_SESSION}    /books/${EXISTING_BOOK_ID}/favorite    json=&{favorite_data}    expected_status=200
+ 174 |     Set Test Variable    ${favorite_response}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 175 |     Set Test Variable    ${expected_favorite_status}    ${True}
+     |
+
+/tests/books_api.robot:174:5 VAR06 Variable defined with test/task scope
+     |
+ 172 |     &{favorite_data}    Create Dictionary    favorite=${True}
+ 173 |     ${response}    PATCH On Session    ${API_SESSION}    /books/${EXISTING_BOOK_ID}/favorite    json=&{favorite_data}    expected_status=200
+ 174 |     Set Test Variable    ${favorite_response}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 175 |     Set Test Variable    ${expected_favorite_status}    ${True}
+     |
+
+/tests/books_api.robot:174:26 VAR07 Non local variable is not uppercase
+     |
+ 172 |     &{favorite_data}    Create Dictionary    favorite=${True}
+ 173 |     ${response}    PATCH On Session    ${API_SESSION}    /books/${EXISTING_BOOK_ID}/favorite    json=&{favorite_data}    expected_status=200
+ 174 |     Set Test Variable    ${favorite_response}    ${response}
+     |                          ^^^^^^^^^^^^^^^^^^^^ VAR07
+ 175 |     Set Test Variable    ${expected_favorite_status}    ${True}
+     |
+
+/tests/books_api.robot:175:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 173 |     ${response}    PATCH On Session    ${API_SESSION}    /books/${EXISTING_BOOK_ID}/favorite    json=&{favorite_data}    expected_status=200
+ 174 |     Set Test Variable    ${favorite_response}    ${response}
+ 175 |     Set Test Variable    ${expected_favorite_status}    ${True}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:175:5 VAR06 Variable defined with test/task scope
+     |
+ 173 |     ${response}    PATCH On Session    ${API_SESSION}    /books/${EXISTING_BOOK_ID}/favorite    json=&{favorite_data}    expected_status=200
+ 174 |     Set Test Variable    ${favorite_response}    ${response}
+ 175 |     Set Test Variable    ${expected_favorite_status}    ${True}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:175:26 VAR07 Non local variable is not uppercase
+     |
+ 173 |     ${response}    PATCH On Session    ${API_SESSION}    /books/${EXISTING_BOOK_ID}/favorite    json=&{favorite_data}    expected_status=200
+ 174 |     Set Test Variable    ${favorite_response}    ${response}
+ 175 |     Set Test Variable    ${expected_favorite_status}    ${True}
+     |                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_api.robot:180:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 178 |     [Documentation]    Delete a book from the system
+ 179 |     ${response}    DELETE On Session    ${API_SESSION}    /books/${EXISTING_BOOK_ID}    expected_status=200
+ 180 |     Set Test Variable    ${deletion_response}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:180:5 VAR06 Variable defined with test/task scope
+     |
+ 178 |     [Documentation]    Delete a book from the system
+ 179 |     ${response}    DELETE On Session    ${API_SESSION}    /books/${EXISTING_BOOK_ID}    expected_status=200
+ 180 |     Set Test Variable    ${deletion_response}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:180:26 VAR07 Non local variable is not uppercase
+     |
+ 178 |     [Documentation]    Delete a book from the system
+ 179 |     ${response}    DELETE On Session    ${API_SESSION}    /books/${EXISTING_BOOK_ID}    expected_status=200
+ 180 |     Set Test Variable    ${deletion_response}    ${response}
+     |                          ^^^^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_api.robot:186:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 184 |     VAR    ${non_existent_id}    ${99999}
+ 185 |     ${response}    GET On Session    ${API_SESSION}    /books/${non_existent_id}    expected_status=404
+ 186 |     Set Test Variable    ${error_response}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:186:5 VAR06 Variable defined with test/task scope
+     |
+ 184 |     VAR    ${non_existent_id}    ${99999}
+ 185 |     ${response}    GET On Session    ${API_SESSION}    /books/${non_existent_id}    expected_status=404
+ 186 |     Set Test Variable    ${error_response}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:186:26 VAR07 Non local variable is not uppercase
+     |
+ 184 |     VAR    ${non_existent_id}    ${99999}
+ 185 |     ${response}    GET On Session    ${API_SESSION}    /books/${non_existent_id}    expected_status=404
+ 186 |     Set Test Variable    ${error_response}    ${response}
+     |                          ^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_api.robot:190:27 DEPR06 Create Dictionary used instead of VAR
+     |
+ 188 | When Book Is Created With Missing Required Fields
+ 189 |     [Documentation]    Attempt to create book with incomplete data
+ 190 |     &{incomplete_data}    Create Dictionary    title=Incomplete Book
+     |                           ^^^^^^^^^^^^^^^^^ DEPR06
+ 191 |     # Missing: author, pages (required fields)
+ 192 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{incomplete_data}    expected_status=422
+     |
+
+/tests/books_api.robot:193:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 191 |     # Missing: author, pages (required fields)
+ 192 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{incomplete_data}    expected_status=422
+ 193 |     Set Test Variable    ${validation_response}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:193:5 VAR06 Variable defined with test/task scope
+     |
+ 191 |     # Missing: author, pages (required fields)
+ 192 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{incomplete_data}    expected_status=422
+ 193 |     Set Test Variable    ${validation_response}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:193:26 VAR07 Non local variable is not uppercase
+     |
+ 191 |     # Missing: author, pages (required fields)
+ 192 |     ${response}    POST On Session    ${API_SESSION}    /books/    json=&{incomplete_data}    expected_status=422
+ 193 |     Set Test Variable    ${validation_response}    ${response}
+     |                          ^^^^^^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_api.robot:195:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 195 | # Then Keywords (Assertions)
+     | ^ SPC05
+ 196 | Then Books List Should Be Returned
+ 197 |     [Documentation]    Verify that books list is returned properly
+     |
+
+/tests/books_api.robot:199:22 DEPR05 Set Variable used instead of VAR
+     |
+ 197 |     [Documentation]    Verify that books list is returned properly
+ 198 |     Should Be Equal As Numbers    ${books_response.status_code}    200
+ 199 |     ${books_data}    Set Variable    ${books_response.json()}
+     |                      ^^^^^^^^^^^^ DEPR05
+ 200 |     Should Be True    isinstance($books_data, list)    msg=Response should be a list of books
+     |
+
+/tests/books_api.robot:204:22 DEPR05 Set Variable used instead of VAR
+     |
+ 202 | Then Response Should Have Valid Structure
+ 203 |     [Documentation]    Verify response structure is correct
+ 204 |     ${books_data}    Set Variable    ${books_response.json()}
+     |                      ^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:212:22 DEPR05 Set Variable used instead of VAR
+     |
+ 210 | Response Should Have Valid Structure
+ 211 |     [Documentation]    Verify response structure is correct
+ 212 |     ${books_data}    Set Variable    ${books_response.json()}
+     |                      ^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:221:24 DEPR05 Set Variable used instead of VAR
+     |
+ 219 |     [Documentation]    Verify book creation was successful
+ 220 |     Should Be Equal As Numbers    ${creation_response.status_code}    200
+ 221 |     ${created_book}    Set Variable    ${creation_response.json()}
+     |                        ^^^^^^^^^^^^ DEPR05
+ 222 |     Should Be True    ${created_book}[id] > 0
+ 223 |     Should Be Valid Book ID    ${created_book}[id]
+     |
+
+/tests/books_api.robot:227:24 DEPR05 Set Variable used instead of VAR
+     |
+ 225 | Then Created Book Should Match Input Data
+ 226 |     [Documentation]    Verify created book matches input data
+ 227 |     ${created_book}    Set Variable    ${creation_response.json()}
+     |                        ^^^^^^^^^^^^ DEPR05
+ 228 |     Should Match Book Data    ${created_book}    ${input_book_data}    ignore_fields=${{['id']}}
+     |
+
+/tests/books_api.robot:233:21 DEPR05 Set Variable used instead of VAR
+     |
+ 231 |     [Documentation]    Verify that book data is returned correctly
+ 232 |     Should Be Equal As Numbers    ${book_response.status_code}    200
+ 233 |     ${book_data}    Set Variable    ${book_response.json()}
+     |                     ^^^^^^^^^^^^ DEPR05
+ 234 |     Should Not Be Empty    ${book_data}
+     |
+
+/tests/books_api.robot:238:21 DEPR05 Set Variable used instead of VAR
+     |
+ 236 | Then All Required Fields Should Be Present
+ 237 |     [Documentation]    Verify all required fields are present in response
+ 238 |     ${book_data}    Set Variable    ${book_response.json()}
+     |                     ^^^^^^^^^^^^ DEPR05
+ 239 |     Validate Book Data Structure    ${book_data}
+     |
+
+/tests/books_api.robot:247:24 DEPR05 Set Variable used instead of VAR
+     |
+ 245 | Then Updated Data Should Be Reflected In Response
+ 246 |     [Documentation]    Verify updated data is reflected in the response
+ 247 |     ${updated_book}    Set Variable    ${update_response.json()}
+     |                        ^^^^^^^^^^^^ DEPR05
+ 248 |     Should Match Book Data    ${updated_book}    ${update_input_data}    ignore_fields=${{['id']}}
+     |
+
+/tests/books_api.robot:256:24 DEPR05 Set Variable used instead of VAR
+     |
+ 254 | Then Book Should Reflect New Favorite Status
+ 255 |     [Documentation]    Verify book reflects the new favorite status
+ 256 |     ${updated_book}    Set Variable    ${favorite_response.json()}
+     |                        ^^^^^^^^^^^^ DEPR05
+ 257 |     Should Be Equal    ${updated_book}[favorite]    ${expected_favorite_status}
+     |
+
+/tests/books_api.robot:262:28 DEPR05 Set Variable used instead of VAR
+     |
+ 260 |     [Documentation]    Verify book deletion was successful
+ 261 |     Should Be Equal As Numbers    ${deletion_response.status_code}    200
+ 262 |     ${deletion_message}    Set Variable    ${deletion_response.json()}
+     |                            ^^^^^^^^^^^^ DEPR05
+ 263 |     Dictionary Should Contain Key    ${deletion_message}    message
+     |
+
+/tests/books_api.robot:267:5 VAR02 Variable '${response}' is assigned but not used
+     |
+ 265 | Then Book Should No Longer Exist
+ 266 |     [Documentation]    Verify deleted book no longer exists
+ 267 |     ${response}    GET On Session    ${API_SESSION}    /books/${EXISTING_BOOK_ID}    expected_status=404
+     |     ^^^^^^^^^^^ VAR02
+     |
+
+/tests/books_api.robot:275:22 DEPR05 Set Variable used instead of VAR
+     |
+ 273 | Then Error Message Should Be Descriptive
+ 274 |     [Documentation]    Verify error message is descriptive
+ 275 |     ${error_data}    Set Variable    ${error_response.json()}
+     |                      ^^^^^^^^^^^^ DEPR05
+ 276 |     Dictionary Should Contain Key    ${error_data}    detail
+ 277 |     Should Not Be Empty    ${error_data}[detail]
+     |
+
+/tests/books_api.robot:285:22 DEPR05 Set Variable used instead of VAR
+     |
+ 283 | Then Error Should Indicate Missing Fields
+ 284 |     [Documentation]    Verify error indicates which fields are missing
+ 285 |     ${error_data}    Set Variable    ${validation_response.json()}
+     |                      ^^^^^^^^^^^^ DEPR05
+ 286 |     Dictionary Should Contain Key    ${error_data}    detail
+ 287 |     Should Be True    isinstance(${error_data}[detail], list)    msg=Validation errors should be a list
+     |
+
+/tests/books_api.robot:289:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 289 | # Additional keywords for "And" usage (Robot Framework strips Gherkin prefixes)
+     | ^ SPC05
+ 290 | Created Book Should Match Input Data
+ 291 |     [Documentation]    Verify created book matches input data
+     |
+
+/tests/books_api.robot:292:24 DEPR05 Set Variable used instead of VAR
+     |
+ 290 | Created Book Should Match Input Data
+ 291 |     [Documentation]    Verify created book matches input data
+ 292 |     ${created_book}    Set Variable    ${creation_response.json()}
+     |                        ^^^^^^^^^^^^ DEPR05
+ 293 |     Should Match Book Data    ${created_book}    ${input_book_data}    ignore_fields=${{['id']}}
+     |
+
+/tests/books_api.robot:297:21 DEPR05 Set Variable used instead of VAR
+     |
+ 295 | All Required Fields Should Be Present
+ 296 |     [Documentation]    Verify all required fields are present in response
+ 297 |     ${book_data}    Set Variable    ${book_response.json()}
+     |                     ^^^^^^^^^^^^ DEPR05
+ 298 |     Validate Book Data Structure    ${book_data}
+     |
+
+/tests/books_api.robot:302:24 DEPR05 Set Variable used instead of VAR
+     |
+ 300 | Updated Data Should Be Reflected In Response
+ 301 |     [Documentation]    Verify updated data is reflected in the response
+ 302 |     ${updated_book}    Set Variable    ${update_response.json()}
+     |                        ^^^^^^^^^^^^ DEPR05
+ 303 |     Should Match Book Data    ${updated_book}    ${update_input_data}    ignore_fields=${{['id']}}
+     |
+
+/tests/books_api.robot:307:24 DEPR05 Set Variable used instead of VAR
+     |
+ 305 | Book Should Reflect New Favorite Status
+ 306 |     [Documentation]    Verify book reflects the new favorite status
+ 307 |     ${updated_book}    Set Variable    ${favorite_response.json()}
+     |                        ^^^^^^^^^^^^ DEPR05
+ 308 |     Should Be Equal    ${updated_book}[favorite]    ${expected_favorite_status}
+     |
+
+/tests/books_api.robot:312:5 VAR02 Variable '${response}' is assigned but not used
+     |
+ 310 | Book Should No Longer Exist
+ 311 |     [Documentation]    Verify deleted book no longer exists
+ 312 |     ${response}    GET On Session    ${API_SESSION}    /books/${EXISTING_BOOK_ID}    expected_status=404
+     |     ^^^^^^^^^^^ VAR02
+     |
+
+/tests/books_api.robot:316:22 DEPR05 Set Variable used instead of VAR
+     |
+ 314 | Error Message Should Be Descriptive
+ 315 |     [Documentation]    Verify error message is descriptive
+ 316 |     ${error_data}    Set Variable    ${error_response.json()}
+     |                      ^^^^^^^^^^^^ DEPR05
+ 317 |     Dictionary Should Contain Key    ${error_data}    detail
+ 318 |     Should Not Be Empty    ${error_data}[detail]
+     |
+
+/tests/books_api.robot:322:22 DEPR05 Set Variable used instead of VAR
+     |
+ 320 | Error Should Indicate Missing Fields
+ 321 |     [Documentation]    Verify error indicates which fields are missing
+ 322 |     ${error_data}    Set Variable    ${validation_response.json()}
+     |                      ^^^^^^^^^^^^ DEPR05
+ 323 |     Dictionary Should Contain Key    ${error_data}    detail
+ 324 |     Should Be True    isinstance(${error_data}[detail], list)    msg=Validation errors should be a list
+     |
+
+/tests/books_api.robot:324:1 SPC02 Missing trailing blank line at the end of file
+     |
+ 322 |     ${error_data}    Set Variable    ${validation_response.json()}
+ 323 |     Dictionary Should Contain Key    ${error_data}    detail
+ 324 |     Should Be True    isinstance(${error_data}[detail], list)    msg=Validation errors should be a list
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+     |
+
+/tests/debug_keywords.robot:1:1 DOC03 Missing documentation in suite
+/tests/debug_keywords.robot:4:1 SPC03 Invalid number of empty lines between sections (1/2)
+   |
+ 2 | Library          Browser
+ 3 | Resource         resources/common.resource
+ 4 |
+   | ^ SPC03
+ 5 | *** Variables ***
+ 6 | ${BROWSER_TYPE}       chromium
+   |
+
+/tests/debug_keywords.robot:6:1 VAR02 Variable '${BROWSER_TYPE}' is assigned but not used
+   |
+ 4 |
+ 5 | *** Variables ***
+ 6 | ${BROWSER_TYPE}       chromium
+   | ^^^^^^^^^^^^^^^ VAR02
+ 7 | ${HEADLESS_MODE}      ${True}
+   |
+
+/tests/debug_keywords.robot:7:1 VAR02 Variable '${HEADLESS_MODE}' is assigned but not used
+   |
+ 5 | *** Variables ***
+ 6 | ${BROWSER_TYPE}       chromium
+ 7 | ${HEADLESS_MODE}      ${True}
+   | ^^^^^^^^^^^^^^^^ VAR02
+   |
+
+/tests/debug_keywords.robot:8:1 SPC03 Invalid number of empty lines between sections (1/2)
+   |
+ 6 | ${BROWSER_TYPE}       chromium
+ 7 | ${HEADLESS_MODE}      ${True}
+ 8 |
+   | ^ SPC03
+ 9 | *** Test Cases ***
+10 | Debug Individual Keywords
+   |
+
+/tests/debug_keywords.robot:17:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 15 |     Then Books Library Page Should Load
+ 16 |     And Page Should Display Main Components
+ 17 |
+    | ^ SPC03
+ 18 | *** Keywords ***
+ 19 | Given User Opens Books Library Application
+    |
+
+/tests/debug_keywords.robot:39:1 SPC02 Missing trailing blank line at the end of file
+    |
+ 37 |     Wait For Elements State    selector=id=book-form    state=visible    timeout=${TIMEOUT}
+ 38 |     Wait For Elements State    selector=id=books-list    state=visible    timeout=${TIMEOUT}
+ 39 |     Wait For Elements State    selector=id=search-input    state=visible    timeout=${TIMEOUT}
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+    |
+
+/tests/debug_form_structure.robot:1:1 DOC03 Missing documentation in suite
+/tests/debug_form_structure.robot:4:1 SPC03 Invalid number of empty lines between sections (1/2)
+   |
+ 2 | Library          Browser
+ 3 | Resource         resources/common.resource
+ 4 |
+   | ^ SPC03
+ 5 | *** Test Cases ***
+ 6 | Debug Form Structure
+   |
+
+/tests/debug_form_structure.robot:6:1 LEN04 Test case 'Debug Form Structure' is too long (38/20)
+   |
+ 4 |
+ 5 | *** Test Cases ***
+ 6 | Debug Form Structure
+   | ^^^^^^^^^^^^^^^^^^^^ LEN04
+ 7 |     [Documentation]    Inspect the actual HTML form structure
+   |
+
+/tests/debug_form_structure.robot:6:1 LEN06 Test case 'Debug Form Structure' has too many keywords inside (21/10)
+   |
+ 4 |
+ 5 | *** Test Cases ***
+ 6 | Debug Form Structure
+   | ^^^^^^^^^^^^^^^^^^^^ LEN06
+ 7 |     [Documentation]    Inspect the actual HTML form structure
+   |
+
+/tests/debug_form_structure.robot:44:1 SPC02 Missing trailing blank line at the end of file
+    |
+ 42 |     ${pages_name}    Get Attribute    id=pages    name
+ 43 |     ${category_name}    Get Attribute    id=category    name
+ 44 |     Log    Field names - title: ${title_name}, author: ${author_name}, pages: ${pages_name}, category: ${category_name}
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+    |
+
