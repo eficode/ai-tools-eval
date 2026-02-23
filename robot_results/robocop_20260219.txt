@@ -1,0 +1,824 @@
+/tests/books_ui.robot:23:1 DEPR02 'Force Tags' is deprecated since Robot Framework version 6.0, use 'Test Tags' instead
+    |
+ 23 | Force Tags        ui    books    e2e
+    | ^^^^^^^^^^ DEPR02
+ 24 | Default Tags      regression
+    |
+
+/tests/books_ui.robot:24:1 TAG07 Tags defined in Default Tags are always overwritten
+    |
+ 22 |
+ 23 | Force Tags        ui    books    e2e
+ 24 | Default Tags      regression
+    | ^^^^^^^^^^^^ TAG07
+    |
+
+/tests/books_ui.robot:28:1 VAR02 Variable '${BROWSER_TYPE}' is assigned but not used
+    |
+ 26 |
+ 27 | *** Variables ***
+ 28 | ${BROWSER_TYPE}       chromium
+    | ^^^^^^^^^^^^^^^ VAR02
+ 29 | ${HEADLESS_MODE}      true
+ 30 | ${VIEWPORT_WIDTH}     1920
+    |
+
+/tests/books_ui.robot:29:1 VAR02 Variable '${HEADLESS_MODE}' is assigned but not used
+    |
+ 27 | *** Variables ***
+ 28 | ${BROWSER_TYPE}       chromium
+ 29 | ${HEADLESS_MODE}      true
+    | ^^^^^^^^^^^^^^^^ VAR02
+ 30 | ${VIEWPORT_WIDTH}     1920
+ 31 | ${VIEWPORT_HEIGHT}    1080
+    |
+
+/tests/books_ui.robot:30:1 VAR02 Variable '${VIEWPORT_WIDTH}' is assigned but not used
+    |
+ 28 | ${BROWSER_TYPE}       chromium
+ 29 | ${HEADLESS_MODE}      true
+ 30 | ${VIEWPORT_WIDTH}     1920
+    | ^^^^^^^^^^^^^^^^^ VAR02
+ 31 | ${VIEWPORT_HEIGHT}    1080
+ 32 | ${DEFAULT_TIMEOUT}    30s
+    |
+
+/tests/books_ui.robot:31:1 VAR02 Variable '${VIEWPORT_HEIGHT}' is assigned but not used
+    |
+ 29 | ${HEADLESS_MODE}      true
+ 30 | ${VIEWPORT_WIDTH}     1920
+ 31 | ${VIEWPORT_HEIGHT}    1080
+    | ^^^^^^^^^^^^^^^^^^ VAR02
+ 32 | ${DEFAULT_TIMEOUT}    30s
+    |
+
+/tests/books_ui.robot:280:120 LEN08 Line is too long (121/120)
+     |
+ 278 |     Wait For Elements State    ${BOOKS_GRID_CONTAINER}    visible    timeout=${DEFAULT_TIMEOUT}
+ 279 |     ${book_count}    Get Element Count    ${BOOK_CARD_SELECTOR}
+ 280 |     Should Be Equal As Numbers    ${book_count}    0    msg=Expected no book cards to be visible for empty search results
+     |                                                                                                                        ^^ LEN08
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/books_ui.robot:352:1 SPC02 Missing trailing blank line at the end of file
+     |
+ 350 | And Multiple Pages Of Books Are Available
+ 351 |     [Documentation]    Alias for pagination prerequisite validation
+ 352 |     Given Multiple Pages Of Books Are Available
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+     |
+
+/tests/resources/api_keywords.resource:16:19 IMP01 BuiltIn library import 'Collections' should be placed before 'RequestsLibrary'
+    |
+ 14 |
+ 15 | Library           RequestsLibrary
+ 16 | Library           Collections
+    |                   ^^^^^^^^^^^ IMP01
+ 17 | Library           String
+ 18 | Library           BuiltIn
+    |
+
+/tests/resources/api_keywords.resource:17:19 IMP01 BuiltIn library import 'String' should be placed before 'RequestsLibrary'
+    |
+ 15 | Library           RequestsLibrary
+ 16 | Library           Collections
+ 17 | Library           String
+    |                   ^^^^^^ IMP01
+ 18 | Library           BuiltIn
+ 19 | Library           DateTime
+    |
+
+/tests/resources/api_keywords.resource:18:19 IMP01 BuiltIn library import 'BuiltIn' should be placed before 'RequestsLibrary'
+    |
+ 16 | Library           Collections
+ 17 | Library           String
+ 18 | Library           BuiltIn
+    |                   ^^^^^^^ IMP01
+ 19 | Library           DateTime
+    |
+
+/tests/resources/api_keywords.resource:18:19 IMP02 BuiltIn library import 'BuiltIn' should be placed before 'String'
+    |
+ 16 | Library           Collections
+ 17 | Library           String
+ 18 | Library           BuiltIn
+    |                   ^^^^^^^ IMP02
+ 19 | Library           DateTime
+    |
+
+/tests/resources/api_keywords.resource:19:19 IMP01 BuiltIn library import 'DateTime' should be placed before 'RequestsLibrary'
+    |
+ 17 | Library           String
+ 18 | Library           BuiltIn
+ 19 | Library           DateTime
+    |                   ^^^^^^^^ IMP01
+    |
+
+/tests/resources/api_keywords.resource:54:5 ERR01 Robot Framework syntax error: Invalid dictionary variable item 'Create Dictionary'. Items must use 'name=value' syntax or be dictionary variables themselves.
+    |
+ 52 |     [Documentation]    Creates HTTP session for Books Library API
+ 53 |     ...                Configures headers, timeout, and authentication if needed
+ 54 |     VAR    &{headers}    Create Dictionary
+    |     ^^^^^ ERR01
+ 55 |     ...    Content-Type=${CONTENT_TYPE_JSON}
+ 56 |     ...    Accept=${ACCEPT_JSON}
+    |
+
+/tests/resources/api_keywords.resource:96:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 96 |     Set Test Variable    ${LAST_RESPONSE}    ${response}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 97 |     Set Test Variable    ${LAST_RESPONSE_TIME}    ${response_time}
+ 98 |     Log    GET request to ${endpoint} completed in ${response_time}s
+    |
+
+/tests/resources/api_keywords.resource:96:5 VAR06 Variable defined with test/task scope
+    |
+ 96 |     Set Test Variable    ${LAST_RESPONSE}    ${response}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+ 97 |     Set Test Variable    ${LAST_RESPONSE_TIME}    ${response_time}
+ 98 |     Log    GET request to ${endpoint} completed in ${response_time}s
+    |
+
+/tests/resources/api_keywords.resource:97:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 95 |
+ 96 |     Set Test Variable    ${LAST_RESPONSE}    ${response}
+ 97 |     Set Test Variable    ${LAST_RESPONSE_TIME}    ${response_time}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 98 |     Log    GET request to ${endpoint} completed in ${response_time}s
+ 99 |     RETURN    ${response}
+    |
+
+/tests/resources/api_keywords.resource:97:5 VAR06 Variable defined with test/task scope
+    |
+ 95 |
+ 96 |     Set Test Variable    ${LAST_RESPONSE}    ${response}
+ 97 |     Set Test Variable    ${LAST_RESPONSE_TIME}    ${response_time}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+ 98 |     Log    GET request to ${endpoint} completed in ${response_time}s
+ 99 |     RETURN    ${response}
+    |
+
+/tests/resources/api_keywords.resource:115:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 115 |     Set Test Variable    ${LAST_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 116 |     Set Test Variable    ${LAST_RESPONSE_TIME}    ${response_time}
+ 117 |     Log    POST request to ${endpoint} completed in ${response_time}s
+     |
+
+/tests/resources/api_keywords.resource:115:5 VAR06 Variable defined with test/task scope
+     |
+ 115 |     Set Test Variable    ${LAST_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 116 |     Set Test Variable    ${LAST_RESPONSE_TIME}    ${response_time}
+ 117 |     Log    POST request to ${endpoint} completed in ${response_time}s
+     |
+
+/tests/resources/api_keywords.resource:116:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 114 |
+ 115 |     Set Test Variable    ${LAST_RESPONSE}    ${response}
+ 116 |     Set Test Variable    ${LAST_RESPONSE_TIME}    ${response_time}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 117 |     Log    POST request to ${endpoint} completed in ${response_time}s
+ 118 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:116:5 VAR06 Variable defined with test/task scope
+     |
+ 114 |
+ 115 |     Set Test Variable    ${LAST_RESPONSE}    ${response}
+ 116 |     Set Test Variable    ${LAST_RESPONSE_TIME}    ${response_time}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 117 |     Log    POST request to ${endpoint} completed in ${response_time}s
+ 118 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:134:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 134 |     Set Test Variable    ${LAST_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 135 |     Set Test Variable    ${LAST_RESPONSE_TIME}    ${response_time}
+ 136 |     Log    PUT request to ${endpoint} completed in ${response_time}s
+     |
+
+/tests/resources/api_keywords.resource:134:5 VAR06 Variable defined with test/task scope
+     |
+ 134 |     Set Test Variable    ${LAST_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 135 |     Set Test Variable    ${LAST_RESPONSE_TIME}    ${response_time}
+ 136 |     Log    PUT request to ${endpoint} completed in ${response_time}s
+     |
+
+/tests/resources/api_keywords.resource:135:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 133 |
+ 134 |     Set Test Variable    ${LAST_RESPONSE}    ${response}
+ 135 |     Set Test Variable    ${LAST_RESPONSE_TIME}    ${response_time}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 136 |     Log    PUT request to ${endpoint} completed in ${response_time}s
+ 137 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:135:5 VAR06 Variable defined with test/task scope
+     |
+ 133 |
+ 134 |     Set Test Variable    ${LAST_RESPONSE}    ${response}
+ 135 |     Set Test Variable    ${LAST_RESPONSE_TIME}    ${response_time}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 136 |     Log    PUT request to ${endpoint} completed in ${response_time}s
+ 137 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:152:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 152 |     Set Test Variable    ${LAST_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 153 |     Set Test Variable    ${LAST_RESPONSE_TIME}    ${response_time}
+ 154 |     Log    DELETE request to ${endpoint} completed in ${response_time}s
+     |
+
+/tests/resources/api_keywords.resource:152:5 VAR06 Variable defined with test/task scope
+     |
+ 152 |     Set Test Variable    ${LAST_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 153 |     Set Test Variable    ${LAST_RESPONSE_TIME}    ${response_time}
+ 154 |     Log    DELETE request to ${endpoint} completed in ${response_time}s
+     |
+
+/tests/resources/api_keywords.resource:153:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 151 |
+ 152 |     Set Test Variable    ${LAST_RESPONSE}    ${response}
+ 153 |     Set Test Variable    ${LAST_RESPONSE_TIME}    ${response_time}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 154 |     Log    DELETE request to ${endpoint} completed in ${response_time}s
+ 155 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:153:5 VAR06 Variable defined with test/task scope
+     |
+ 151 |
+ 152 |     Set Test Variable    ${LAST_RESPONSE}    ${response}
+ 153 |     Set Test Variable    ${LAST_RESPONSE_TIME}    ${response_time}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 154 |     Log    DELETE request to ${endpoint} completed in ${response_time}s
+ 155 |     RETURN    ${response}
+     |
+
+/tests/resources/api_keywords.resource:164:5 ERR01 Robot Framework syntax error: Invalid dictionary variable item 'Create Dictionary'. Items must use 'name=value' syntax or be dictionary variables themselves.
+     |
+ 162 |     [Documentation]    Retrieves complete list of books from the API
+ 163 |     [Arguments]    ${limit}=${None}    ${offset}=${None}
+ 164 |     VAR    &{params}    Create Dictionary
+     |     ^^^^ ERR01
+ 165 |     IF    ${limit} != ${None}
+ 166 |         Set To Dictionary    ${params}    limit=${limit}
+     |
+
+/tests/resources/api_keywords.resource:199:5 ERR01 Robot Framework syntax error: Invalid dictionary variable item 'Create Dictionary'. Items must use 'name=value' syntax or be dictionary variables themselves.
+     |
+ 197 |     [Documentation]    Searches for books by title keyword via API
+ 198 |     [Arguments]    ${title_keyword}    ${exact_match}=false
+ 199 |     VAR    &{params}    Create Dictionary
+     |     ^^^^ ERR01
+ 200 |     IF    ${exact_match}
+ 201 |         Set To Dictionary    ${params}    title=${title_keyword}
+     |
+
+/tests/resources/api_keywords.resource:215:5 ERR01 Robot Framework syntax error: Invalid dictionary variable item 'Create Dictionary'. Items must use 'name=value' syntax or be dictionary variables themselves.
+     |
+ 213 |     [Documentation]    Searches for books by author name via API
+ 214 |     [Arguments]    ${author_keyword}    ${exact_match}=false
+ 215 |     VAR    &{params}    Create Dictionary
+     |     ^^^^ ERR01
+ 216 |     IF    ${exact_match}
+ 217 |         Set To Dictionary    ${params}    author=${author_keyword}
+     |
+
+/tests/resources/api_keywords.resource:352:12 VAR02 Variable '${response}' is assigned but not used
+     |
+ 350 |     [Arguments]    ${endpoint}    ${max_response_time}=${MAX_RESPONSE_TIME}
+ 351 |     VAR    ${start_time}    Get Time    epoch
+ 352 |     VAR    ${response}    Make GET Request To Books API    ${endpoint}
+     |            ^^^^^^^^^^^ VAR02
+ 353 |     VAR    ${end_time}    Get Time    epoch
+ 354 |     VAR    ${response_time}    Evaluate    ${end_time} - ${start_time}
+     |
+
+/tests/resources/api_keywords.resource:365:12 VAR02 Variable '${i}' is assigned but not used
+     |
+ 363 |     [Arguments]    ${endpoint}    ${request_count}=10    ${max_avg_time}=${MAX_RESPONSE_TIME}
+ 364 |     VAR    @{response_times}    Create List
+ 365 |     FOR    ${i}    IN RANGE    ${request_count}
+     |            ^^^^ VAR02
+ 366 |         VAR    ${response_time}    Measure API Response Time    ${endpoint}    ${MAX_RESPONSE_TIME}
+ 367 |         Append To List    ${response_times}    ${response_time}
+     |
+
+/tests/resources/api_keywords.resource:428:5 MISC09 IF can be replaced with inline IF
+     |
+ 426 |     Log    Method: ${method}    level=DEBUG
+ 427 |     Log    Endpoint: ${endpoint}    level=DEBUG
+ 428 |     IF    ${params}
+     |     ^^ MISC09
+ 429 |         Log    Parameters: ${params}    level=DEBUG
+ 430 |     END
+     |
+
+/tests/resources/api_keywords.resource:431:5 MISC09 IF can be replaced with inline IF
+     |
+ 429 |         Log    Parameters: ${params}    level=DEBUG
+ 430 |     END
+ 431 |     IF    ${data}
+     |     ^^ MISC09
+ 432 |         Log    Data: ${data}    level=DEBUG
+ 433 |     END
+     |
+
+/tests/resources/api_keywords.resource:444:12 VAR02 Variable '@{optional_properties}' is assigned but not used
+     |
+ 442 |     # Basic schema validation - could be extended with jsonschema library
+ 443 |     VAR    @{required_properties}    Create List    id    title    author    pages    category
+ 444 |     VAR    @{optional_properties}    Create List    description    publication_date    genre
+     |            ^^^^^^^^^^^^^^^^^^^^^^ VAR02
+     |
+
+/tests/resources/api_keywords.resource:458:1 LEN28 File has too many lines (458/400)
+/tests/resources/api_keywords.resource:458:1 SPC02 Missing trailing blank line at the end of file
+     |
+ 458 |     Log    Book object schema validation completed successfully
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+     |
+
+/tests/resources/common.resource:16:19 IMP01 BuiltIn library import 'Collections' should be placed before 'Browser'
+    |
+ 14 | Library           Browser
+ 15 | Library           RequestsLibrary
+ 16 | Library           Collections
+    |                   ^^^^^^^^^^^ IMP01
+ 17 | Library           String
+ 18 | Library           DateTime
+    |
+
+/tests/resources/common.resource:17:19 IMP01 BuiltIn library import 'String' should be placed before 'Browser'
+    |
+ 15 | Library           RequestsLibrary
+ 16 | Library           Collections
+ 17 | Library           String
+    |                   ^^^^^^ IMP01
+ 18 | Library           DateTime
+ 19 | Library           BuiltIn
+    |
+
+/tests/resources/common.resource:18:19 IMP01 BuiltIn library import 'DateTime' should be placed before 'Browser'
+    |
+ 16 | Library           Collections
+ 17 | Library           String
+ 18 | Library           DateTime
+    |                   ^^^^^^^^ IMP01
+ 19 | Library           BuiltIn
+    |
+
+/tests/resources/common.resource:18:19 IMP02 BuiltIn library import 'DateTime' should be placed before 'String'
+    |
+ 16 | Library           Collections
+ 17 | Library           String
+ 18 | Library           DateTime
+    |                   ^^^^^^^^ IMP02
+ 19 | Library           BuiltIn
+    |
+
+/tests/resources/common.resource:19:19 IMP01 BuiltIn library import 'BuiltIn' should be placed before 'Browser'
+    |
+ 17 | Library           String
+ 18 | Library           DateTime
+ 19 | Library           BuiltIn
+    |                   ^^^^^^^ IMP01
+    |
+
+/tests/resources/common.resource:19:19 IMP02 BuiltIn library import 'BuiltIn' should be placed before 'DateTime'
+    |
+ 17 | Library           String
+ 18 | Library           DateTime
+ 19 | Library           BuiltIn
+    |                   ^^^^^^^ IMP02
+    |
+
+/tests/resources/common.resource:100:51 VAR06 Variable defined with test/task scope
+     |
+  98 |     New Browser    browser=${BROWSER_TYPE}    headless=${HEADLESS_MODE}
+  99 |     New Context    viewport={'width': ${VIEWPORT_WIDTH}, 'height': ${VIEWPORT_HEIGHT}}
+ 100 |     VAR    ${BROWSER_TIMEOUT}    ${UI_TIMEOUT}    scope=TEST
+     |                                                   ^^^^^^^^^^ VAR06
+ 101 |     Log    Browser environment initialized for UI test
+     |
+
+/tests/resources/common.resource:140:16 VAR02 Variable '${response}' is assigned but not used
+     |
+ 138 |     TRY
+ 139 |         Create Session    app_validation    ${APPLICATION_URL}    timeout=10
+ 140 |         VAR    ${response}    GET On Session    app_validation    /    expected_status=200
+     |                ^^^^^^^^^^^ VAR02
+ 141 |         Delete All Sessions
+ 142 |         Log    Application is running and accessible at ${APPLICATION_URL}
+     |
+
+/tests/resources/common.resource:168:20 DEPR06 Create Dictionary used instead of VAR
+     |
+ 166 |     [Documentation]    Creates HTTP session for Books API testing
+ 167 |     ...                Configures timeout and headers for optimal API interaction
+ 168 |     ${headers}=    Create Dictionary    Content-Type=application/json
+     |                    ^^^^^^^^^^^^^^^^^ DEPR06
+ 169 |     Create Session    books_api    ${API_BASE_URL}    headers=${headers}    timeout=${API_TIMEOUT}
+ 170 |     Log    API session created for Books service
+     |
+
+/tests/resources/common.resource:186:9 VAR02 Variable '${json_data}' is assigned but not used
+     |
+ 184 |     [Arguments]    ${response}
+ 185 |     TRY
+ 186 |         ${json_data}=    Evaluate    $response.json()
+     |         ^^^^^^^^^^^^ VAR02
+ 187 |         Log    JSON response structure is valid
+ 188 |     EXCEPT    *    AS    ${error}
+     |
+
+/tests/resources/common.resource:230:12 VAR02 Variable '${unique_title}' is assigned but not used
+     |
+ 228 |     [Documentation]    Creates book data structure for testing purposes
+ 229 |     [Arguments]    ${title}=Test Book    ${author}=Test Author
+ 230 |     VAR    ${unique_title}    Generate Unique Test Data    ${title}
+     |            ^^^^^^^^^^^^^^^ VAR02
+ 231 |     VAR    ${unique_author}    Generate Unique Test Data    ${author}
+ 232 |     VAR    &{book_data}    Create Dictionary
+     |
+
+/tests/resources/common.resource:231:12 VAR02 Variable '${unique_author}' is assigned but not used
+     |
+ 229 |     [Arguments]    ${title}=Test Book    ${author}=Test Author
+ 230 |     VAR    ${unique_title}    Generate Unique Test Data    ${title}
+ 231 |     VAR    ${unique_author}    Generate Unique Test Data    ${author}
+     |            ^^^^^^^^^^^^^^^^ VAR02
+ 232 |     VAR    &{book_data}    Create Dictionary
+ 233 |     ...    title=${unique_title}
+     |
+
+/tests/resources/common.resource:232:5 ERR01 Robot Framework syntax error: Invalid dictionary variable item 'Create Dictionary'. Items must use 'name=value' syntax or be dictionary variables themselves.
+     |
+ 230 |     VAR    ${unique_title}    Generate Unique Test Data    ${title}
+ 231 |     VAR    ${unique_author}    Generate Unique Test Data    ${author}
+ 232 |     VAR    &{book_data}    Create Dictionary
+     |     ^^^^^^^ ERR01
+ 233 |     ...    title=${unique_title}
+ 234 |     ...    author=${unique_author}
+     |
+
+/tests/resources/common.resource:327:1 SPC02 Missing trailing blank line at the end of file
+     |
+ 325 |             END
+ 326 |         END
+ 327 |     END
+     | ^^^^^^^ SPC02
+     |
+
+/tests/resources/ui_keywords.resource:162:20 ARG01 Keyword argument '${expected_author}' is not used
+     |
+ 160 | Verify All Books Are By Author
+ 161 |     [Documentation]    Validates all visible books are by the specified author
+ 162 |     [Arguments]    ${expected_author}
+     |                    ^^^^^^^^^^^^^^^^^^ ARG01
+ 163 |     # Just verify that the author filter completed successfully
+ 164 |     # and that there are book elements visible with authors
+     |
+
+/tests/resources/ui_keywords.resource:187:5 MISC04 The assignment sign is not consistent within the file. Expected '=' but got '' instead
+     |
+ 185 |
+ 186 |     # Verify all required fields are present and not empty (only fields that actually exist in the modal)
+ 187 |     @{required_fields}    Create List    ${BOOK_DETAILS_TITLE}    ${BOOK_DETAILS_AUTHOR}    ${BOOK_DETAILS_PAGES}    ${BOOK_DETAILS_CATEGORY}
+     |     ^^^^^^^^^^^^^^^^^^ MISC04
+     |
+
+/tests/resources/ui_keywords.resource:187:27 DEPR06 Create List used instead of VAR
+     |
+ 185 |
+ 186 |     # Verify all required fields are present and not empty (only fields that actually exist in the modal)
+ 187 |     @{required_fields}    Create List    ${BOOK_DETAILS_TITLE}    ${BOOK_DETAILS_AUTHOR}    ${BOOK_DETAILS_PAGES}    ${BOOK_DETAILS_CATEGORY}
+     |                           ^^^^^^^^^^^ DEPR06
+     |
+
+/tests/resources/ui_keywords.resource:187:120 LEN08 Line is too long (141/120)
+     |
+ 185 |
+ 186 |     # Verify all required fields are present and not empty (only fields that actually exist in the modal)
+ 187 |     @{required_fields}    Create List    ${BOOK_DETAILS_TITLE}    ${BOOK_DETAILS_AUTHOR}    ${BOOK_DETAILS_PAGES}    ${BOOK_DETAILS_CATEGORY}
+     |                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^ LEN08
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/resources/ui_keywords.resource:191:9 MISC04 The assignment sign is not consistent within the file. Expected '=' but got '' instead
+     |
+ 189 |     FOR    ${field_locator}    IN    @{required_fields}
+ 190 |         Wait For Elements State    ${field_locator}    visible    timeout=${ELEMENT_WAIT_TIMEOUT}
+ 191 |         ${field_text}    Get Text    ${field_locator}
+     |         ^^^^^^^^^^^^^ MISC04
+ 192 |         Should Not Be Empty    ${field_text}    msg=Required field ${field_locator} is empty
+ 193 |     END
+     |
+
+/tests/resources/ui_keywords.resource:280:20 ARG01 Keyword argument '${max_load_time}' is not used
+     |
+ 278 | Verify Page Performance
+ 279 |     [Documentation]    Validates page load performance meets acceptable criteria
+ 280 |     [Arguments]    ${max_load_time}=${MAX_PAGE_LOAD_TIME}
+     |                    ^^^^^^^^^^^^^^^^ ARG01
+ 281 |     # Performance validation is implicit in page load operations
+ 282 |     # This keyword serves as a placeholder for more detailed performance monitoring
+     |
+
+/tests/resources/ui_keywords.resource:363:1 SPC02 Missing trailing blank line at the end of file
+     |
+ 361 |     EXCEPT    *    AS    ${error}
+ 362 |         Log    Console message retrieval failed: ${error}    level=WARN
+ 363 |     END
+     | ^^^^^^^ SPC02
+     |
+
+/tests/books_api.robot:15:19 IMP01 BuiltIn library import 'Collections' should be placed before 'RequestsLibrary'
+    |
+ 13 |
+ 14 | Library           RequestsLibrary
+ 15 | Library           Collections
+    |                   ^^^^^^^^^^^ IMP01
+ 16 | Library           String
+ 17 | Library           BuiltIn
+    |
+
+/tests/books_api.robot:16:19 IMP01 BuiltIn library import 'String' should be placed before 'RequestsLibrary'
+    |
+ 14 | Library           RequestsLibrary
+ 15 | Library           Collections
+ 16 | Library           String
+    |                   ^^^^^^ IMP01
+ 17 | Library           BuiltIn
+ 18 | Resource          resources/common.resource
+    |
+
+/tests/books_api.robot:17:19 IMP01 BuiltIn library import 'BuiltIn' should be placed before 'RequestsLibrary'
+    |
+ 15 | Library           Collections
+ 16 | Library           String
+ 17 | Library           BuiltIn
+    |                   ^^^^^^^ IMP01
+ 18 | Resource          resources/common.resource
+ 19 | Resource          resources/api_keywords.resource
+    |
+
+/tests/books_api.robot:17:19 IMP02 BuiltIn library import 'BuiltIn' should be placed before 'String'
+    |
+ 15 | Library           Collections
+ 16 | Library           String
+ 17 | Library           BuiltIn
+    |                   ^^^^^^^ IMP02
+ 18 | Resource          resources/common.resource
+ 19 | Resource          resources/api_keywords.resource
+    |
+
+/tests/books_api.robot:26:1 DEPR02 'Force Tags' is deprecated since Robot Framework version 6.0, use 'Test Tags' instead
+    |
+ 26 | Force Tags        api    books    integration
+    | ^^^^^^^^^^ DEPR02
+ 27 | Default Tags      regression
+    |
+
+/tests/books_api.robot:27:1 TAG07 Tags defined in Default Tags are always overwritten
+    |
+ 25 |
+ 26 | Force Tags        api    books    integration
+ 27 | Default Tags      regression
+    | ^^^^^^^^^^^^ TAG07
+    |
+
+/tests/books_api.robot:31:1 VAR02 Variable '${API_BASE_URL}' is assigned but not used
+    |
+ 29 |
+ 30 | *** Variables ***
+ 31 | ${API_BASE_URL}       http://books-service:8000
+    | ^^^^^^^^^^^^^^^ VAR02
+ 32 | ${API_TIMEOUT}        30
+ 33 | ${CONTENT_TYPE}       application/json
+    |
+
+/tests/books_api.robot:226:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 224 |     [Documentation]    Makes GET request to retrieve all books
+ 225 |     ${response}=    GET On Session    books_api    /books/    expected_status=200
+ 226 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:226:5 VAR06 Variable defined with test/task scope
+     |
+ 224 |     [Documentation]    Makes GET request to retrieve all books
+ 225 |     ${response}=    GET On Session    books_api    /books/    expected_status=200
+ 226 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:236:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 234 |     [Arguments]    ${book_id}
+ 235 |     ${response}=    GET On Session    books_api    /books/${book_id}    expected_status=any
+ 236 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:236:5 VAR06 Variable defined with test/task scope
+     |
+ 234 |     [Arguments]    ${book_id}
+ 235 |     ${response}=    GET On Session    books_api    /books/${book_id}    expected_status=any
+ 236 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:241:19 DEPR06 Create Dictionary used instead of VAR
+     |
+ 239 |     [Documentation]    Makes GET request with title search parameter
+ 240 |     [Arguments]    ${title_keyword}
+ 241 |     ${params}=    Create Dictionary    search=${title_keyword}
+     |                   ^^^^^^^^^^^^^^^^^ DEPR06
+ 242 |     ${response}=    GET On Session    books_api    /books/    params=${params}    expected_status=200
+ 243 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |
+
+/tests/books_api.robot:243:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 241 |     ${params}=    Create Dictionary    search=${title_keyword}
+ 242 |     ${response}=    GET On Session    books_api    /books/    params=${params}    expected_status=200
+ 243 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:243:5 VAR06 Variable defined with test/task scope
+     |
+ 241 |     ${params}=    Create Dictionary    search=${title_keyword}
+ 242 |     ${response}=    GET On Session    books_api    /books/    params=${params}    expected_status=200
+ 243 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:248:19 DEPR06 Create Dictionary used instead of VAR
+     |
+ 246 |     [Documentation]    Makes GET request with author search parameter
+ 247 |     [Arguments]    ${author_keyword}
+ 248 |     ${params}=    Create Dictionary    author=${author_keyword}
+     |                   ^^^^^^^^^^^^^^^^^ DEPR06
+ 249 |     ${response}=    GET On Session    books_api    /books/    params=${params}    expected_status=200
+ 250 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |
+
+/tests/books_api.robot:250:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 248 |     ${params}=    Create Dictionary    author=${author_keyword}
+ 249 |     ${response}=    GET On Session    books_api    /books/    params=${params}    expected_status=200
+ 250 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:250:5 VAR06 Variable defined with test/task scope
+     |
+ 248 |     ${params}=    Create Dictionary    author=${author_keyword}
+ 249 |     ${response}=    GET On Session    books_api    /books/    params=${params}    expected_status=200
+ 250 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:255:19 DEPR06 Create Dictionary used instead of VAR
+     |
+ 253 |     [Documentation]    Makes GET request with pagination parameters
+ 254 |     [Arguments]    ${limit}    ${offset}
+ 255 |     ${params}=    Create Dictionary    limit=${limit}    offset=${offset}
+     |                   ^^^^^^^^^^^^^^^^^ DEPR06
+ 256 |     ${response}=    GET On Session    books_api    /books/    params=${params}    expected_status=200
+ 257 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |
+
+/tests/books_api.robot:257:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 255 |     ${params}=    Create Dictionary    limit=${limit}    offset=${offset}
+ 256 |     ${response}=    GET On Session    books_api    /books/    params=${params}    expected_status=200
+ 257 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:257:5 VAR06 Variable defined with test/task scope
+     |
+ 255 |     ${params}=    Create Dictionary    limit=${limit}    offset=${offset}
+ 256 |     ${response}=    GET On Session    books_api    /books/    params=${params}    expected_status=200
+ 257 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:261:19 DEPR06 Create Dictionary used instead of VAR
+     |
+ 259 | When User Sends Malformed Request To Books API
+ 260 |     [Documentation]    Sends request with invalid parameters
+ 261 |     ${params}=    Create Dictionary    invalid_param=invalid_value    limit=not_a_number
+     |                   ^^^^^^^^^^^^^^^^^ DEPR06
+ 262 |     ${response}=    GET On Session    books_api    /books/    params=${params}    expected_status=any
+ 263 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |
+
+/tests/books_api.robot:263:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 261 |     ${params}=    Create Dictionary    invalid_param=invalid_value    limit=not_a_number
+ 262 |     ${response}=    GET On Session    books_api    /books/    params=${params}    expected_status=any
+ 263 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:263:5 VAR06 Variable defined with test/task scope
+     |
+ 261 |     ${params}=    Create Dictionary    invalid_param=invalid_value    limit=not_a_number
+ 262 |     ${response}=    GET On Session    books_api    /books/    params=${params}    expected_status=any
+ 263 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:267:5 VAR01 Empty variable value
+     |
+ 265 | When User Makes Multiple API Requests
+ 266 |     [Documentation]    Performs multiple requests to test performance stability
+ 267 |     VAR    @{response_times}
+     |     ^^^ VAR01
+ 268 |     FOR    ${i}    IN RANGE    5
+ 269 |         ${start_time}=    Get Time    epoch
+     |
+
+/tests/books_api.robot:268:12 VAR02 Variable '${i}' is assigned but not used
+     |
+ 266 |     [Documentation]    Performs multiple requests to test performance stability
+ 267 |     VAR    @{response_times}
+ 268 |     FOR    ${i}    IN RANGE    5
+     |            ^^^^ VAR02
+ 269 |         ${start_time}=    Get Time    epoch
+ 270 |         ${response}=    GET On Session    books_api    /books/    expected_status=200
+     |
+
+/tests/books_api.robot:270:9 VAR02 Variable '${response}' is assigned but not used
+     |
+ 268 |     FOR    ${i}    IN RANGE    5
+ 269 |         ${start_time}=    Get Time    epoch
+ 270 |         ${response}=    GET On Session    books_api    /books/    expected_status=200
+     |         ^^^^^^^^^^^ VAR02
+ 271 |         ${end_time}=    Get Time    epoch
+ 272 |         ${duration}=    Evaluate    float("${end_time}") - float("${start_time}")
+     |
+
+/tests/books_api.robot:275:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 273 |         Append To List    ${response_times}    ${duration}
+ 274 |     END
+ 275 |     Set Test Variable    ${RESPONSE_TIMES}    ${response_times}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:275:5 VAR06 Variable defined with test/task scope
+     |
+ 273 |         Append To List    ${response_times}    ${duration}
+ 274 |     END
+ 275 |     Set Test Variable    ${RESPONSE_TIMES}    ${response_times}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:323:1 LEN03 Keyword 'Each Book Should Have Required Fields' has too many keywords inside (11/10)
+     |
+ 323 | Each Book Should Have Required Fields
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN03
+ 324 |     [Documentation]    Validates each book contains mandatory fields
+ 325 |     ...                Skips validation for books with empty titles (test data artifacts)
+     |
+
+/tests/books_api.robot:457:12 VAR02 Variable '${headers}' is assigned but not used
+     |
+ 455 | Pagination Metadata Should Be Present
+ 456 |     [Documentation]    Validates pagination information is included
+ 457 |     VAR    ${headers}    ${API_RESPONSE.headers}
+     |            ^^^^^^^^^^ VAR02
+ 458 |     # This would check for pagination headers like X-Total-Count
+ 459 |     Log    Checking for pagination metadata in response headers
+     |
+
+/tests/books_api.robot:605:1 LEN28 File has too many lines (605/400)
+/tests/books_api.robot:605:1 SPC02 Missing trailing blank line at the end of file
+     |
+ 603 | And No Performance Degradation Should Occur
+ 604 |     [Documentation]    Alias for performance degradation validation
+ 605 |     No Performance Degradation Should Occur
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SPC02
+     |
+

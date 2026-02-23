@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl:*)",
+      "Bash(docker exec:*)",
+      "Bash({\"jsonrpc\": \"2.0\", \"method\": \"initialize\", \"params\": {\"protocolVersion\": \"2024-11-05\", \"capabilities\": {}, \"clientInfo\": {\"name\": \"claude-code\", \"version\": \"1.0\"}}, \"id\": 0})",
+      "Bash({\"jsonrpc\": \"2.0\", \"method\": \"notifications/initialized\", \"params\": {}})",
+      "Bash({\"jsonrpc\": \"2.0\", \"method\": \"tools/call\", \"params\": {\"name\": \"run_test_by_name\", \"arguments\": {\"test_name\": \"User Should Be Able To View Books Library Page Successfully\", \"suite_path\": \"/tests/books_ui.robot\"}}, \"id\": 3})",
+      "Bash(EOF)",
+      "Bash({\"jsonrpc\": \"2.0\", \"method\": \"tools/call\", \"params\": {\"name\": \"run_suite\", \"arguments\": {\"suite_path\": \"/tests\", \"variables\": {}}}, \"id\": 1})",
+      "Bash({\"jsonrpc\": \"2.0\", \"method\": \"tools/call\", \"params\": {\"name\": \"run_test_by_name\", \"arguments\": {\"test_name\": \"API Should Return Individual Book Details Successfully\", \"suite_path\": \"/tests/books_api.robot\"}}, \"id\": 2})",
+      "Bash({\"jsonrpc\": \"2.0\", \"method\": \"tools/call\", \"params\": {\"name\": \"run_test_by_name\", \"arguments\": {\"test_name\": \"API Should Support Books Search By Title\", \"suite_path\": \"/tests/books_api.robot\"}}, \"id\": 4})",
+      "Bash(python3:*)",
+      "Bash(python -m robot --help)"
+    ]
+  }
+}
