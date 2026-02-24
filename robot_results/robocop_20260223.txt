@@ -1,0 +1,973 @@
+/tests/books_ui.robot:3:4 SPC01 Trailing whitespace at the end of line
+   |
+ 1 | *** Settings ***
+ 2 | Documentation     Books UI Test Suite
+ 3 | ...
+   |    ^^^^^^^^^^^^^^^ SPC01
+ 4 | ...               Validates book management through web interface.
+ 5 | ...               Tests cover CRUD operations, search, and filtering.
+   |
+
+/tests/books_ui.robot:16:1 DEPR02 'Force Tags' is deprecated since Robot Framework version 6.0, use 'Test Tags' instead
+    |
+ 16 | Force Tags        ui    books
+    | ^^^^^^^^^^ DEPR02
+    |
+
+/tests/books_ui.robot:17:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 15 |
+ 16 | Force Tags        ui    books
+ 17 |
+    | ^ SPC03
+ 18 | *** Test Cases ***
+ 19 | User Should Be Able To Create Book Via UI
+    |
+
+/tests/books_ui.robot:47:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 45 |     When User Opens Books Page
+ 46 |     Then Books Should Be Displayed
+ 47 |
+    | ^ SPC03
+ 48 | *** Keywords ***
+ 49 | User Creates Book With Valid Data
+    |
+
+/tests/books_ui.robot:51:18 DEPR05 Set Variable used instead of VAR
+    |
+ 49 | User Creates Book With Valid Data
+ 50 |     [Documentation]    Fill and submit book form
+ 51 |     ${title}=    Set Variable    Test Book ${TIMESTAMP} ${UNIQUE_ID}
+    |                  ^^^^^^^^^^^^ DEPR05
+ 52 |     ${author}=    Set Variable    Test Author
+ 53 |     ${pages}=    Set Variable    250
+    |
+
+/tests/books_ui.robot:52:19 DEPR05 Set Variable used instead of VAR
+    |
+ 50 |     [Documentation]    Fill and submit book form
+ 51 |     ${title}=    Set Variable    Test Book ${TIMESTAMP} ${UNIQUE_ID}
+ 52 |     ${author}=    Set Variable    Test Author
+    |                   ^^^^^^^^^^^^ DEPR05
+ 53 |     ${pages}=    Set Variable    250
+ 54 |     ${category}=    Set Variable    Fiction
+    |
+
+/tests/books_ui.robot:53:18 DEPR05 Set Variable used instead of VAR
+    |
+ 51 |     ${title}=    Set Variable    Test Book ${TIMESTAMP} ${UNIQUE_ID}
+ 52 |     ${author}=    Set Variable    Test Author
+ 53 |     ${pages}=    Set Variable    250
+    |                  ^^^^^^^^^^^^ DEPR05
+ 54 |     ${category}=    Set Variable    Fiction
+ 55 |     User Fills Book Form    ${title}    ${author}    ${pages}    ${category}
+    |
+
+/tests/books_ui.robot:54:21 DEPR05 Set Variable used instead of VAR
+    |
+ 52 |     ${author}=    Set Variable    Test Author
+ 53 |     ${pages}=    Set Variable    250
+ 54 |     ${category}=    Set Variable    Fiction
+    |                     ^^^^^^^^^^^^ DEPR05
+ 55 |     User Fills Book Form    ${title}    ${author}    ${pages}    ${category}
+ 56 |     User Submits Book Form
+    |
+
+/tests/books_ui.robot:57:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 55 |     User Fills Book Form    ${title}    ${author}    ${pages}    ${category}
+ 56 |     User Submits Book Form
+ 57 |     Set Test Variable    ${TEST_BOOK_TITLE}    ${title}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+    |
+
+/tests/books_ui.robot:57:5 VAR06 Variable defined with test/task scope
+    |
+ 55 |     User Fills Book Form    ${title}    ${author}    ${pages}    ${category}
+ 56 |     User Submits Book Form
+ 57 |     Set Test Variable    ${TEST_BOOK_TITLE}    ${title}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+    |
+
+/tests/books_ui.robot:62:18 DEPR05 Set Variable used instead of VAR
+    |
+ 60 |     [Documentation]    Verify book was created via API
+ 61 |     ${response}=    Get All Books Via API
+ 62 |     ${books}=    Set Variable    ${response.json()}
+    |                  ^^^^^^^^^^^^ DEPR05
+ 63 |     ${found}=    Evaluate    [b for b in ${books} if '${TEST_BOOK_TITLE}' in b.get('title', '')]
+ 64 |     Should Not Be Empty    ${found}
+    |
+
+/tests/books_ui.robot:68:18 DEPR05 Set Variable used instead of VAR
+    |
+ 66 | Test Book Exists In System
+ 67 |     [Documentation]    Create test book via API
+ 68 |     ${title}=    Set Variable    Search Test ${TIMESTAMP}
+    |                  ^^^^^^^^^^^^ DEPR05
+ 69 |     ${book_id}=    Create Book Via API    ${title}    Test Author    200    Fiction
+ 70 |     Set Test Variable    ${TEST_BOOK_TITLE}    ${title}
+    |
+
+/tests/books_ui.robot:70:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 68 |     ${title}=    Set Variable    Search Test ${TIMESTAMP}
+ 69 |     ${book_id}=    Create Book Via API    ${title}    Test Author    200    Fiction
+ 70 |     Set Test Variable    ${TEST_BOOK_TITLE}    ${title}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 71 |     Set Test Variable    ${BOOK_ID}    ${book_id}
+    |
+
+/tests/books_ui.robot:70:5 VAR06 Variable defined with test/task scope
+    |
+ 68 |     ${title}=    Set Variable    Search Test ${TIMESTAMP}
+ 69 |     ${book_id}=    Create Book Via API    ${title}    Test Author    200    Fiction
+ 70 |     Set Test Variable    ${TEST_BOOK_TITLE}    ${title}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+ 71 |     Set Test Variable    ${BOOK_ID}    ${book_id}
+    |
+
+/tests/books_ui.robot:71:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 69 |     ${book_id}=    Create Book Via API    ${title}    Test Author    200    Fiction
+ 70 |     Set Test Variable    ${TEST_BOOK_TITLE}    ${title}
+ 71 |     Set Test Variable    ${BOOK_ID}    ${book_id}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+    |
+
+/tests/books_ui.robot:71:5 VAR06 Variable defined with test/task scope
+    |
+ 69 |     ${book_id}=    Create Book Via API    ${title}    Test Author    200    Fiction
+ 70 |     Set Test Variable    ${TEST_BOOK_TITLE}    ${title}
+ 71 |     Set Test Variable    ${BOOK_ID}    ${book_id}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+    |
+
+/tests/resources/api_keywords.resource:3:1 SPC03 Invalid number of empty lines between sections (1/2)
+   |
+ 1 | *** Settings ***
+ 2 | Documentation    API interaction keywords for Books application
+ 3 |
+   | ^ SPC03
+ 4 | *** Keywords ***
+ 5 | Create Book Via API
+   |
+
+/tests/resources/api_keywords.resource:7:5 ORD02 'DOCUMENTATION' is in wrong place of Keyword. Recommended order of elements in Keyword: DOCUMENTATION, TAGS, ARGUMENTS, TIMEOUT, SETUP, KEYWORD, TEARDOWN
+   |
+ 5 | Create Book Via API
+ 6 |     [Arguments]    ${title}    ${author}    ${pages}    ${category}
+ 7 |     [Documentation]    Create book via POST /books
+   |     ^^^^^^^^^^^^^^^ ORD02
+ 8 |     &{book_data}=    Create Dictionary    title=${title}    author=${author}    pages=${pages}    category=${category}
+ 9 |     ${response}=    POST On Session    api    /books/    json=${book_data}
+   |
+
+/tests/resources/api_keywords.resource:8:22 DEPR06 Create Dictionary used instead of VAR
+   |
+ 6 |     [Arguments]    ${title}    ${author}    ${pages}    ${category}
+ 7 |     [Documentation]    Create book via POST /books
+ 8 |     &{book_data}=    Create Dictionary    title=${title}    author=${author}    pages=${pages}    category=${category}
+   |                      ^^^^^^^^^^^^^^^^^ DEPR06
+ 9 |     ${response}=    POST On Session    api    /books/    json=${book_data}
+10 |     Status Should Be    200    ${response}
+   |
+
+/tests/resources/api_keywords.resource:11:17 DEPR05 Set Variable used instead of VAR
+    |
+  9 |     ${response}=    POST On Session    api    /books/    json=${book_data}
+ 10 |     Status Should Be    200    ${response}
+ 11 |     ${json}=    Set Variable    ${response.json()}
+    |                 ^^^^^^^^^^^^ DEPR05
+ 12 |     ${book_id}=    Set Variable    ${json}[id]
+ 13 |     Set Test Variable    ${BOOK_ID}    ${book_id}
+    |
+
+/tests/resources/api_keywords.resource:12:20 DEPR05 Set Variable used instead of VAR
+    |
+ 10 |     Status Should Be    200    ${response}
+ 11 |     ${json}=    Set Variable    ${response.json()}
+ 12 |     ${book_id}=    Set Variable    ${json}[id]
+    |                    ^^^^^^^^^^^^ DEPR05
+ 13 |     Set Test Variable    ${BOOK_ID}    ${book_id}
+ 14 |     RETURN    ${book_id}
+    |
+
+/tests/resources/api_keywords.resource:13:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 11 |     ${json}=    Set Variable    ${response.json()}
+ 12 |     ${book_id}=    Set Variable    ${json}[id]
+ 13 |     Set Test Variable    ${BOOK_ID}    ${book_id}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 14 |     RETURN    ${book_id}
+    |
+
+/tests/resources/api_keywords.resource:13:5 VAR06 Variable defined with test/task scope
+    |
+ 11 |     ${json}=    Set Variable    ${response.json()}
+ 12 |     ${book_id}=    Set Variable    ${json}[id]
+ 13 |     Set Test Variable    ${BOOK_ID}    ${book_id}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+ 14 |     RETURN    ${book_id}
+    |
+
+/tests/resources/api_keywords.resource:14:15 VAR10 Variable '${book_id}' has inconsistent naming. First used as '${BOOK_ID}'
+    |
+ 12 |     ${book_id}=    Set Variable    ${json}[id]
+ 13 |     Set Test Variable    ${BOOK_ID}    ${book_id}
+ 14 |     RETURN    ${book_id}
+    |               ^^^^^^^^^^ VAR10
+    |
+
+/tests/resources/api_keywords.resource:24:5 ORD02 'DOCUMENTATION' is in wrong place of Keyword. Recommended order of elements in Keyword: DOCUMENTATION, TAGS, ARGUMENTS, TIMEOUT, SETUP, KEYWORD, TEARDOWN
+    |
+ 22 | Get Book By ID Via API
+ 23 |     [Arguments]    ${book_id}
+ 24 |     [Documentation]    Retrieve specific book via GET /books/{id}
+    |     ^^^^^^^^^^^^^^^ ORD02
+ 25 |     ${response}=    GET On Session    api    /books/${book_id}
+ 26 |     Status Should Be    200    ${response}
+    |
+
+/tests/resources/api_keywords.resource:31:5 ORD02 'DOCUMENTATION' is in wrong place of Keyword. Recommended order of elements in Keyword: DOCUMENTATION, TAGS, ARGUMENTS, TIMEOUT, SETUP, KEYWORD, TEARDOWN
+    |
+ 29 | Update Book Via API
+ 30 |     [Arguments]    ${book_id}    ${title}    ${author}    ${pages}    ${category}
+ 31 |     [Documentation]    Update book via PUT /books/{id}
+    |     ^^^^^^^^^^^^^^^ ORD02
+ 32 |     &{book_data}=    Create Dictionary    title=${title}    author=${author}    pages=${pages}    category=${category}
+ 33 |     ${response}=    PUT On Session    api    /books/${book_id}    json=${book_data}
+    |
+
+/tests/resources/api_keywords.resource:32:22 DEPR06 Create Dictionary used instead of VAR
+    |
+ 30 |     [Arguments]    ${book_id}    ${title}    ${author}    ${pages}    ${category}
+ 31 |     [Documentation]    Update book via PUT /books/{id}
+ 32 |     &{book_data}=    Create Dictionary    title=${title}    author=${author}    pages=${pages}    category=${category}
+    |                      ^^^^^^^^^^^^^^^^^ DEPR06
+ 33 |     ${response}=    PUT On Session    api    /books/${book_id}    json=${book_data}
+ 34 |     Status Should Be    200    ${response}
+    |
+
+/tests/resources/api_keywords.resource:39:5 ORD02 'DOCUMENTATION' is in wrong place of Keyword. Recommended order of elements in Keyword: DOCUMENTATION, TAGS, ARGUMENTS, TIMEOUT, SETUP, KEYWORD, TEARDOWN
+    |
+ 37 | Delete Book Via API
+ 38 |     [Arguments]    ${book_id}
+ 39 |     [Documentation]    Delete book via DELETE /books/{id}
+    |     ^^^^^^^^^^^^^^^ ORD02
+ 40 |     ${response}=    DELETE On Session    api    /books/${book_id}
+ 41 |     Status Should Be    200    ${response}
+    |
+
+/tests/resources/api_keywords.resource:45:5 ORD02 'DOCUMENTATION' is in wrong place of Keyword. Recommended order of elements in Keyword: DOCUMENTATION, TAGS, ARGUMENTS, TIMEOUT, SETUP, KEYWORD, TEARDOWN
+    |
+ 43 | Response Should Contain Books
+ 44 |     [Arguments]    ${response}
+ 45 |     [Documentation]    Validate response contains book list
+    |     ^^^^^^^^^^^^^^^ ORD02
+ 46 |     ${books}=    Set Variable    ${response.json()}
+ 47 |     Should Not Be Empty    ${books}
+    |
+
+/tests/resources/api_keywords.resource:46:18 DEPR05 Set Variable used instead of VAR
+    |
+ 44 |     [Arguments]    ${response}
+ 45 |     [Documentation]    Validate response contains book list
+ 46 |     ${books}=    Set Variable    ${response.json()}
+    |                  ^^^^^^^^^^^^ DEPR05
+ 47 |     Should Not Be Empty    ${books}
+    |
+
+/tests/resources/api_keywords.resource:51:5 ORD02 'DOCUMENTATION' is in wrong place of Keyword. Recommended order of elements in Keyword: DOCUMENTATION, TAGS, ARGUMENTS, TIMEOUT, SETUP, KEYWORD, TEARDOWN
+    |
+ 49 | Book Should Have Valid Structure
+ 50 |     [Arguments]    ${book}
+ 51 |     [Documentation]    Validate book object structure
+    |     ^^^^^^^^^^^^^^^ ORD02
+ 52 |     Dictionary Should Contain Key    ${book}    id
+ 53 |     Dictionary Should Contain Key    ${book}    title
+    |
+
+/tests/resources/common_ui.resource:5:18 IMP01 BuiltIn library import 'String' should be placed before 'Browser'
+   |
+ 3 | Library          Browser    timeout=10s    retry_assertions_for=3s
+ 4 | Library          RequestsLibrary
+ 5 | Library          String
+   |                  ^^^^^^ IMP01
+ 6 | Library          Collections
+ 7 | Library          DateTime
+   |
+
+/tests/resources/common_ui.resource:6:18 IMP01 BuiltIn library import 'Collections' should be placed before 'Browser'
+   |
+ 4 | Library          RequestsLibrary
+ 5 | Library          String
+ 6 | Library          Collections
+   |                  ^^^^^^^^^^^ IMP01
+ 7 | Library          DateTime
+   |
+
+/tests/resources/common_ui.resource:6:18 IMP02 BuiltIn library import 'Collections' should be placed before 'String'
+   |
+ 4 | Library          RequestsLibrary
+ 5 | Library          String
+ 6 | Library          Collections
+   |                  ^^^^^^^^^^^ IMP02
+ 7 | Library          DateTime
+   |
+
+/tests/resources/common_ui.resource:7:18 IMP01 BuiltIn library import 'DateTime' should be placed before 'Browser'
+   |
+ 5 | Library          String
+ 6 | Library          Collections
+ 7 | Library          DateTime
+   |                  ^^^^^^^^ IMP01
+   |
+
+/tests/resources/common_ui.resource:8:1 SPC03 Invalid number of empty lines between sections (1/2)
+   |
+ 6 | Library          Collections
+ 7 | Library          DateTime
+ 8 |
+   | ^ SPC03
+ 9 | *** Variables ***
+10 | ${BASE_URL}           http://books-service:8000
+   |
+
+/tests/resources/common_ui.resource:14:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 12 | ${BROWSER}            chromium
+ 13 | ${HEADLESS}           true
+ 14 |
+    | ^ SPC03
+ 15 | *** Keywords ***
+ 16 | Suite Initialization For UI
+    |
+
+/tests/resources/common_ui.resource:19:5 DEPR05 Set Suite Variable used instead of VAR
+    |
+ 17 |     [Documentation]    Initialize test environment with browser
+ 18 |     ${timestamp}=    Get Current Date    result_format=%Y%m%d_%H%M%S
+ 19 |     Set Suite Variable    ${TIMESTAMP}    ${timestamp}
+    |     ^^^^^^^^^^^^^^^^^^ DEPR05
+ 20 |     Create Session    api    ${API_URL}    verify=true
+ 21 |     New Browser    ${BROWSER}    headless=${HEADLESS}
+    |
+
+/tests/resources/common_ui.resource:19:5 VAR05 Variable defined with suite scope
+    |
+ 17 |     [Documentation]    Initialize test environment with browser
+ 18 |     ${timestamp}=    Get Current Date    result_format=%Y%m%d_%H%M%S
+ 19 |     Set Suite Variable    ${TIMESTAMP}    ${timestamp}
+    |     ^^^^^^^^^^^^^^^^^^ VAR05
+ 20 |     Create Session    api    ${API_URL}    verify=true
+ 21 |     New Browser    ${BROWSER}    headless=${HEADLESS}
+    |
+
+/tests/resources/common_ui.resource:32:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 30 |     [Documentation]    Setup for each test
+ 31 |     ${unique_id}=    Generate Random String    8    [LETTERS][NUMBERS]
+ 32 |     Set Test Variable    ${UNIQUE_ID}    ${unique_id}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 33 |     Set Test Variable    ${BOOK_ID}    ${EMPTY}
+    |
+
+/tests/resources/common_ui.resource:32:5 VAR06 Variable defined with test/task scope
+    |
+ 30 |     [Documentation]    Setup for each test
+ 31 |     ${unique_id}=    Generate Random String    8    [LETTERS][NUMBERS]
+ 32 |     Set Test Variable    ${UNIQUE_ID}    ${unique_id}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+ 33 |     Set Test Variable    ${BOOK_ID}    ${EMPTY}
+    |
+
+/tests/resources/common_ui.resource:33:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 31 |     ${unique_id}=    Generate Random String    8    [LETTERS][NUMBERS]
+ 32 |     Set Test Variable    ${UNIQUE_ID}    ${unique_id}
+ 33 |     Set Test Variable    ${BOOK_ID}    ${EMPTY}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+    |
+
+/tests/resources/common_ui.resource:33:5 VAR06 Variable defined with test/task scope
+    |
+ 31 |     ${unique_id}=    Generate Random String    8    [LETTERS][NUMBERS]
+ 32 |     Set Test Variable    ${UNIQUE_ID}    ${unique_id}
+ 33 |     Set Test Variable    ${BOOK_ID}    ${EMPTY}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+    |
+
+/tests/resources/common.resource:5:18 IMP01 BuiltIn library import 'String' should be placed before 'Browser'
+   |
+ 3 | Library          Browser    timeout=10s    retry_assertions_for=3s
+ 4 | Library          RequestsLibrary
+ 5 | Library          String
+   |                  ^^^^^^ IMP01
+ 6 | Library          Collections
+ 7 | Library          DateTime
+   |
+
+/tests/resources/common.resource:6:18 IMP01 BuiltIn library import 'Collections' should be placed before 'Browser'
+   |
+ 4 | Library          RequestsLibrary
+ 5 | Library          String
+ 6 | Library          Collections
+   |                  ^^^^^^^^^^^ IMP01
+ 7 | Library          DateTime
+   |
+
+/tests/resources/common.resource:6:18 IMP02 BuiltIn library import 'Collections' should be placed before 'String'
+   |
+ 4 | Library          RequestsLibrary
+ 5 | Library          String
+ 6 | Library          Collections
+   |                  ^^^^^^^^^^^ IMP02
+ 7 | Library          DateTime
+   |
+
+/tests/resources/common.resource:7:18 IMP01 BuiltIn library import 'DateTime' should be placed before 'Browser'
+   |
+ 5 | Library          String
+ 6 | Library          Collections
+ 7 | Library          DateTime
+   |                  ^^^^^^^^ IMP01
+   |
+
+/tests/resources/common.resource:8:1 SPC03 Invalid number of empty lines between sections (1/2)
+   |
+ 6 | Library          Collections
+ 7 | Library          DateTime
+ 8 |
+   | ^ SPC03
+ 9 | *** Variables ***
+10 | ${BASE_URL}           http://localhost:8000
+   |
+
+/tests/resources/common.resource:14:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 12 | ${BROWSER}            chromium
+ 13 | ${HEADLESS}           true
+ 14 |
+    | ^ SPC03
+ 15 | *** Keywords ***
+ 16 | Suite Initialization
+    |
+
+/tests/resources/common.resource:19:5 DEPR05 Set Suite Variable used instead of VAR
+    |
+ 17 |     [Documentation]    Initialize test environment
+ 18 |     ${timestamp}=    Get Current Date    result_format=%Y%m%d_%H%M%S
+ 19 |     Set Suite Variable    ${TIMESTAMP}    ${timestamp}
+    |     ^^^^^^^^^^^^^^^^^^ DEPR05
+ 20 |     Create Session    api    ${API_URL}    verify=true
+    |
+
+/tests/resources/common.resource:19:5 VAR05 Variable defined with suite scope
+    |
+ 17 |     [Documentation]    Initialize test environment
+ 18 |     ${timestamp}=    Get Current Date    result_format=%Y%m%d_%H%M%S
+ 19 |     Set Suite Variable    ${TIMESTAMP}    ${timestamp}
+    |     ^^^^^^^^^^^^^^^^^^ VAR05
+ 20 |     Create Session    api    ${API_URL}    verify=true
+    |
+
+/tests/resources/common.resource:29:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 27 |     [Documentation]    Setup for each test
+ 28 |     ${unique_id}=    Generate Random String    8    [LETTERS][NUMBERS]
+ 29 |     Set Test Variable    ${UNIQUE_ID}    ${unique_id}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 30 |     Set Test Variable    ${BOOK_ID}    ${EMPTY}
+    |
+
+/tests/resources/common.resource:29:5 VAR06 Variable defined with test/task scope
+    |
+ 27 |     [Documentation]    Setup for each test
+ 28 |     ${unique_id}=    Generate Random String    8    [LETTERS][NUMBERS]
+ 29 |     Set Test Variable    ${UNIQUE_ID}    ${unique_id}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+ 30 |     Set Test Variable    ${BOOK_ID}    ${EMPTY}
+    |
+
+/tests/resources/common.resource:30:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 28 |     ${unique_id}=    Generate Random String    8    [LETTERS][NUMBERS]
+ 29 |     Set Test Variable    ${UNIQUE_ID}    ${unique_id}
+ 30 |     Set Test Variable    ${BOOK_ID}    ${EMPTY}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+    |
+
+/tests/resources/common.resource:30:5 VAR06 Variable defined with test/task scope
+    |
+ 28 |     ${unique_id}=    Generate Random String    8    [LETTERS][NUMBERS]
+ 29 |     Set Test Variable    ${UNIQUE_ID}    ${unique_id}
+ 30 |     Set Test Variable    ${BOOK_ID}    ${EMPTY}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+    |
+
+/tests/resources/ui_keywords.resource:3:1 SPC03 Invalid number of empty lines between sections (1/2)
+   |
+ 1 | *** Settings ***
+ 2 | Documentation    UI interaction keywords for Books application
+ 3 |
+   | ^ SPC03
+ 4 | *** Variables ***
+ 5 | ${BTN_SUBMIT}         css=#book-form button[type="submit"]
+   |
+
+/tests/resources/ui_keywords.resource:10:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+  8 | ${INPUT_PAGES}        id=pages
+  9 | ${SELECT_CATEGORY}    id=category
+ 10 |
+    | ^ SPC03
+ 11 | *** Keywords ***
+ 12 | User Is On Books Page
+    |
+
+/tests/resources/ui_keywords.resource:20:5 ORD02 'DOCUMENTATION' is in wrong place of Keyword. Recommended order of elements in Keyword: DOCUMENTATION, TAGS, ARGUMENTS, TIMEOUT, SETUP, KEYWORD, TEARDOWN
+    |
+ 18 | User Fills Book Form
+ 19 |     [Arguments]    ${title}    ${author}    ${pages}    ${category}
+ 20 |     [Documentation]    Fill book creation form
+    |     ^^^^^^^^^^^^^^^ ORD02
+ 21 |     Fill Text    ${INPUT_TITLE}    ${title}
+ 22 |     Fill Text    ${INPUT_AUTHOR}    ${author}
+    |
+
+/tests/resources/ui_keywords.resource:35:5 ORD02 'DOCUMENTATION' is in wrong place of Keyword. Recommended order of elements in Keyword: DOCUMENTATION, TAGS, ARGUMENTS, TIMEOUT, SETUP, KEYWORD, TEARDOWN
+    |
+ 33 | Book Should Appear In List
+ 34 |     [Arguments]    ${title}
+ 35 |     [Documentation]    Verify book appears in UI
+    |     ^^^^^^^^^^^^^^^ ORD02
+ 36 |     Sleep    2s
+ 37 |     ${text}=    Get Text    css=.books-grid
+    |
+
+/tests/resources/ui_keywords.resource:42:5 ORD02 'DOCUMENTATION' is in wrong place of Keyword. Recommended order of elements in Keyword: DOCUMENTATION, TAGS, ARGUMENTS, TIMEOUT, SETUP, KEYWORD, TEARDOWN
+    |
+ 40 | User Searches For Book
+ 41 |     [Arguments]    ${search_term}
+ 42 |     [Documentation]    Search for book by title or author
+    |     ^^^^^^^^^^^^^^^ ORD02
+ 43 |     Reload
+ 44 |     Sleep    1s
+    |
+
+/tests/resources/ui_keywords.resource:50:5 ORD02 'DOCUMENTATION' is in wrong place of Keyword. Recommended order of elements in Keyword: DOCUMENTATION, TAGS, ARGUMENTS, TIMEOUT, SETUP, KEYWORD, TEARDOWN
+    |
+ 48 | User Filters By Category
+ 49 |     [Arguments]    ${category}
+ 50 |     [Documentation]    Filter books by category
+    |     ^^^^^^^^^^^^^^^ ORD02
+ 51 |     Select Options By    id=category-filter    value    ${category}
+ 52 |     Wait For Load State    networkidle
+    |
+
+/tests/resources/ui_keywords.resource:56:5 ORD02 'DOCUMENTATION' is in wrong place of Keyword. Recommended order of elements in Keyword: DOCUMENTATION, TAGS, ARGUMENTS, TIMEOUT, SETUP, KEYWORD, TEARDOWN
+    |
+ 54 | Visible Books Count Should Be
+ 55 |     [Arguments]    ${expected_count}
+ 56 |     [Documentation]    Verify number of visible books
+    |     ^^^^^^^^^^^^^^^ ORD02
+ 57 |     ${count}=    Get Element Count    css=.book-card
+ 58 |     Should Be Equal As Integers    ${count}    ${expected_count}
+    |
+
+/tests/books_api.robot:3:4 SPC01 Trailing whitespace at the end of line
+   |
+ 1 | *** Settings ***
+ 2 | Documentation     Books API Test Suite
+ 3 | ...
+   |    ^^^^^^^^^^^^^^^ SPC01
+ 4 | ...               Validates REST API endpoints for book management.
+ 5 | ...               Tests cover CRUD operations and response validation.
+   |
+
+/tests/books_api.robot:15:1 DEPR02 'Force Tags' is deprecated since Robot Framework version 6.0, use 'Test Tags' instead
+    |
+ 15 | Force Tags        api    books
+    | ^^^^^^^^^^ DEPR02
+    |
+
+/tests/books_api.robot:16:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 14 |
+ 15 | Force Tags        api    books
+ 16 |
+    | ^ SPC03
+ 17 | *** Test Cases ***
+ 18 | API Should Return All Books
+    |
+
+/tests/books_api.robot:56:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 54 |     When User Requests Book By ID
+ 55 |     Then API Should Return 404 Status
+ 56 |
+    | ^ SPC03
+ 57 | *** Keywords ***
+ 58 | Books Exist In Database
+    |
+
+/tests/books_api.robot:66:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 64 |     [Documentation]    GET all books
+ 65 |     ${response}=    Get All Books Via API
+ 66 |     Set Test Variable    ${API_RESPONSE}    ${response}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+    |
+
+/tests/books_api.robot:66:5 VAR06 Variable defined with test/task scope
+    |
+ 64 |     [Documentation]    GET all books
+ 65 |     ${response}=    Get All Books Via API
+ 66 |     Set Test Variable    ${API_RESPONSE}    ${response}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+    |
+
+/tests/books_api.robot:74:18 DEPR05 Set Variable used instead of VAR
+    |
+ 72 | Books Should Have Valid Structure
+ 73 |     [Documentation]    Validate book objects
+ 74 |     ${books}=    Set Variable    ${API_RESPONSE.json()}
+    |                  ^^^^^^^^^^^^ DEPR05
+ 75 |     ${first_book}=    Set Variable    ${books}[0]
+ 76 |     Book Should Have Valid Structure    ${first_book}
+    |
+
+/tests/books_api.robot:75:23 DEPR05 Set Variable used instead of VAR
+    |
+ 73 |     [Documentation]    Validate book objects
+ 74 |     ${books}=    Set Variable    ${API_RESPONSE.json()}
+ 75 |     ${first_book}=    Set Variable    ${books}[0]
+    |                       ^^^^^^^^^^^^ DEPR05
+ 76 |     Book Should Have Valid Structure    ${first_book}
+    |
+
+/tests/books_api.robot:80:18 DEPR05 Set Variable used instead of VAR
+    |
+ 78 | Valid Book Data Is Prepared
+ 79 |     [Documentation]    Prepare test data
+ 80 |     ${title}=    Set Variable    API Test Book ${TIMESTAMP}
+    |                  ^^^^^^^^^^^^ DEPR05
+ 81 |     ${author}=    Set Variable    API Test Author
+ 82 |     ${pages}=    Set Variable    300
+    |
+
+/tests/books_api.robot:81:19 DEPR05 Set Variable used instead of VAR
+    |
+ 79 |     [Documentation]    Prepare test data
+ 80 |     ${title}=    Set Variable    API Test Book ${TIMESTAMP}
+ 81 |     ${author}=    Set Variable    API Test Author
+    |                   ^^^^^^^^^^^^ DEPR05
+ 82 |     ${pages}=    Set Variable    300
+ 83 |     ${category}=    Set Variable    Science
+    |
+
+/tests/books_api.robot:82:18 DEPR05 Set Variable used instead of VAR
+    |
+ 80 |     ${title}=    Set Variable    API Test Book ${TIMESTAMP}
+ 81 |     ${author}=    Set Variable    API Test Author
+ 82 |     ${pages}=    Set Variable    300
+    |                  ^^^^^^^^^^^^ DEPR05
+ 83 |     ${category}=    Set Variable    Science
+ 84 |     Set Test Variable    ${TEST_TITLE}    ${title}
+    |
+
+/tests/books_api.robot:83:21 DEPR05 Set Variable used instead of VAR
+    |
+ 81 |     ${author}=    Set Variable    API Test Author
+ 82 |     ${pages}=    Set Variable    300
+ 83 |     ${category}=    Set Variable    Science
+    |                     ^^^^^^^^^^^^ DEPR05
+ 84 |     Set Test Variable    ${TEST_TITLE}    ${title}
+ 85 |     Set Test Variable    ${TEST_AUTHOR}    ${author}
+    |
+
+/tests/books_api.robot:84:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 82 |     ${pages}=    Set Variable    300
+ 83 |     ${category}=    Set Variable    Science
+ 84 |     Set Test Variable    ${TEST_TITLE}    ${title}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 85 |     Set Test Variable    ${TEST_AUTHOR}    ${author}
+ 86 |     Set Test Variable    ${TEST_PAGES}    ${pages}
+    |
+
+/tests/books_api.robot:84:5 VAR06 Variable defined with test/task scope
+    |
+ 82 |     ${pages}=    Set Variable    300
+ 83 |     ${category}=    Set Variable    Science
+ 84 |     Set Test Variable    ${TEST_TITLE}    ${title}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+ 85 |     Set Test Variable    ${TEST_AUTHOR}    ${author}
+ 86 |     Set Test Variable    ${TEST_PAGES}    ${pages}
+    |
+
+/tests/books_api.robot:85:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 83 |     ${category}=    Set Variable    Science
+ 84 |     Set Test Variable    ${TEST_TITLE}    ${title}
+ 85 |     Set Test Variable    ${TEST_AUTHOR}    ${author}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 86 |     Set Test Variable    ${TEST_PAGES}    ${pages}
+ 87 |     Set Test Variable    ${TEST_CATEGORY}    ${category}
+    |
+
+/tests/books_api.robot:85:5 VAR06 Variable defined with test/task scope
+    |
+ 83 |     ${category}=    Set Variable    Science
+ 84 |     Set Test Variable    ${TEST_TITLE}    ${title}
+ 85 |     Set Test Variable    ${TEST_AUTHOR}    ${author}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+ 86 |     Set Test Variable    ${TEST_PAGES}    ${pages}
+ 87 |     Set Test Variable    ${TEST_CATEGORY}    ${category}
+    |
+
+/tests/books_api.robot:86:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 84 |     Set Test Variable    ${TEST_TITLE}    ${title}
+ 85 |     Set Test Variable    ${TEST_AUTHOR}    ${author}
+ 86 |     Set Test Variable    ${TEST_PAGES}    ${pages}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 87 |     Set Test Variable    ${TEST_CATEGORY}    ${category}
+    |
+
+/tests/books_api.robot:86:5 VAR06 Variable defined with test/task scope
+    |
+ 84 |     Set Test Variable    ${TEST_TITLE}    ${title}
+ 85 |     Set Test Variable    ${TEST_AUTHOR}    ${author}
+ 86 |     Set Test Variable    ${TEST_PAGES}    ${pages}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+ 87 |     Set Test Variable    ${TEST_CATEGORY}    ${category}
+    |
+
+/tests/books_api.robot:87:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 85 |     Set Test Variable    ${TEST_AUTHOR}    ${author}
+ 86 |     Set Test Variable    ${TEST_PAGES}    ${pages}
+ 87 |     Set Test Variable    ${TEST_CATEGORY}    ${category}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+    |
+
+/tests/books_api.robot:87:5 VAR06 Variable defined with test/task scope
+    |
+ 85 |     Set Test Variable    ${TEST_AUTHOR}    ${author}
+ 86 |     Set Test Variable    ${TEST_PAGES}    ${pages}
+ 87 |     Set Test Variable    ${TEST_CATEGORY}    ${category}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+    |
+
+/tests/books_api.robot:92:5 DEPR05 Set Test Variable used instead of VAR
+    |
+ 90 |     [Documentation]    POST new book
+ 91 |     ${book_id}=    Create Book Via API    ${TEST_TITLE}    ${TEST_AUTHOR}    ${TEST_PAGES}    ${TEST_CATEGORY}
+ 92 |     Set Test Variable    ${CREATED_BOOK_ID}    ${book_id}
+    |     ^^^^^^^^^^^^^^^^^ DEPR05
+    |
+
+/tests/books_api.robot:92:5 VAR06 Variable defined with test/task scope
+    |
+ 90 |     [Documentation]    POST new book
+ 91 |     ${book_id}=    Create Book Via API    ${TEST_TITLE}    ${TEST_AUTHOR}    ${TEST_PAGES}    ${TEST_CATEGORY}
+ 92 |     Set Test Variable    ${CREATED_BOOK_ID}    ${book_id}
+    |     ^^^^^^^^^^^^^^^^^ VAR06
+    |
+
+/tests/books_api.robot:101:17 DEPR05 Set Variable used instead of VAR
+     |
+  99 |     [Documentation]    Verify book exists
+ 100 |     ${response}=    Get Book By ID Via API    ${CREATED_BOOK_ID}
+ 101 |     ${book}=    Set Variable    ${response.json()}
+     |                 ^^^^^^^^^^^^ DEPR05
+ 102 |     Should Be Equal    ${book}[title]    ${TEST_TITLE}
+     |
+
+/tests/books_api.robot:106:18 DEPR05 Set Variable used instead of VAR
+     |
+ 104 | Book Exists In System
+ 105 |     [Documentation]    Create test book
+ 106 |     ${title}=    Set Variable    Update Test ${TIMESTAMP}
+     |                  ^^^^^^^^^^^^ DEPR05
+ 107 |     ${book_id}=    Create Book Via API    ${title}    Original Author    150    Fiction
+ 108 |     Set Test Variable    ${ORIGINAL_TITLE}    ${title}
+     |
+
+/tests/books_api.robot:108:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 106 |     ${title}=    Set Variable    Update Test ${TIMESTAMP}
+ 107 |     ${book_id}=    Create Book Via API    ${title}    Original Author    150    Fiction
+ 108 |     Set Test Variable    ${ORIGINAL_TITLE}    ${title}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 109 |     Set Test Variable    ${BOOK_ID}    ${book_id}
+     |
+
+/tests/books_api.robot:108:5 VAR06 Variable defined with test/task scope
+     |
+ 106 |     ${title}=    Set Variable    Update Test ${TIMESTAMP}
+ 107 |     ${book_id}=    Create Book Via API    ${title}    Original Author    150    Fiction
+ 108 |     Set Test Variable    ${ORIGINAL_TITLE}    ${title}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 109 |     Set Test Variable    ${BOOK_ID}    ${book_id}
+     |
+
+/tests/books_api.robot:109:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 107 |     ${book_id}=    Create Book Via API    ${title}    Original Author    150    Fiction
+ 108 |     Set Test Variable    ${ORIGINAL_TITLE}    ${title}
+ 109 |     Set Test Variable    ${BOOK_ID}    ${book_id}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:109:5 VAR06 Variable defined with test/task scope
+     |
+ 107 |     ${book_id}=    Create Book Via API    ${title}    Original Author    150    Fiction
+ 108 |     Set Test Variable    ${ORIGINAL_TITLE}    ${title}
+ 109 |     Set Test Variable    ${BOOK_ID}    ${book_id}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:113:22 DEPR05 Set Variable used instead of VAR
+     |
+ 111 | User Updates Book With New Data
+ 112 |     [Documentation]    PUT updated book
+ 113 |     ${new_title}=    Set Variable    Updated ${ORIGINAL_TITLE}
+     |                      ^^^^^^^^^^^^ DEPR05
+ 114 |     ${new_author}=    Set Variable    Updated Author
+ 115 |     ${response}=    Update Book Via API    ${BOOK_ID}    ${new_title}    ${new_author}    200    Non-Fiction
+     |
+
+/tests/books_api.robot:114:23 DEPR05 Set Variable used instead of VAR
+     |
+ 112 |     [Documentation]    PUT updated book
+ 113 |     ${new_title}=    Set Variable    Updated ${ORIGINAL_TITLE}
+ 114 |     ${new_author}=    Set Variable    Updated Author
+     |                       ^^^^^^^^^^^^ DEPR05
+ 115 |     ${response}=    Update Book Via API    ${BOOK_ID}    ${new_title}    ${new_author}    200    Non-Fiction
+ 116 |     Set Test Variable    ${UPDATED_TITLE}    ${new_title}
+     |
+
+/tests/books_api.robot:115:5 VAR02 Variable '${response}' is assigned but not used
+     |
+ 113 |     ${new_title}=    Set Variable    Updated ${ORIGINAL_TITLE}
+ 114 |     ${new_author}=    Set Variable    Updated Author
+ 115 |     ${response}=    Update Book Via API    ${BOOK_ID}    ${new_title}    ${new_author}    200    Non-Fiction
+     |     ^^^^^^^^^^^ VAR02
+ 116 |     Set Test Variable    ${UPDATED_TITLE}    ${new_title}
+     |
+
+/tests/books_api.robot:116:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 114 |     ${new_author}=    Set Variable    Updated Author
+ 115 |     ${response}=    Update Book Via API    ${BOOK_ID}    ${new_title}    ${new_author}    200    Non-Fiction
+ 116 |     Set Test Variable    ${UPDATED_TITLE}    ${new_title}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:116:5 VAR06 Variable defined with test/task scope
+     |
+ 114 |     ${new_author}=    Set Variable    Updated Author
+ 115 |     ${response}=    Update Book Via API    ${BOOK_ID}    ${new_title}    ${new_author}    200    Non-Fiction
+ 116 |     Set Test Variable    ${UPDATED_TITLE}    ${new_title}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:125:17 DEPR05 Set Variable used instead of VAR
+     |
+ 123 |     [Documentation]    Verify updated data
+ 124 |     ${response}=    Get Book By ID Via API    ${BOOK_ID}
+ 125 |     ${book}=    Set Variable    ${response.json()}
+     |                 ^^^^^^^^^^^^ DEPR05
+ 126 |     Should Be Equal    ${book}[title]    ${UPDATED_TITLE}
+     |
+
+/tests/books_api.robot:131:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 129 |     [Documentation]    DELETE book
+ 130 |     Delete Book Via API    ${BOOK_ID}
+ 131 |     Set Test Variable    ${BOOK_ID}    ${EMPTY}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:131:5 VAR06 Variable defined with test/task scope
+     |
+ 129 |     [Documentation]    DELETE book
+ 130 |     Delete Book Via API    ${BOOK_ID}
+ 131 |     Set Test Variable    ${BOOK_ID}    ${EMPTY}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:139:5 VAR02 Variable '${BOOK_ID}' is assigned but not used
+     |
+ 137 | Book Should Not Be Retrievable
+ 138 |     [Documentation]    Verify book is gone
+ 139 |     ${BOOK_ID}=    Set Variable    ${EMPTY}
+     |     ^^^^^^^^^^ VAR02
+     |
+
+/tests/books_api.robot:139:20 DEPR05 Set Variable used instead of VAR
+     |
+ 137 | Book Should Not Be Retrievable
+ 138 |     [Documentation]    Verify book is gone
+ 139 |     ${BOOK_ID}=    Set Variable    ${EMPTY}
+     |                    ^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:143:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 141 | Non-Existent Book ID Is Used
+ 142 |     [Documentation]    Use invalid ID
+ 143 |     Set Test Variable    ${INVALID_ID}    99999
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:143:5 VAR06 Variable defined with test/task scope
+     |
+ 141 | Non-Existent Book ID Is Used
+ 142 |     [Documentation]    Use invalid ID
+ 143 |     Set Test Variable    ${INVALID_ID}    99999
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:149:9 DEPR05 Set Test Variable used instead of VAR
+     |
+ 147 |     TRY
+ 148 |         ${response}=    GET On Session    api    /books/${INVALID_ID}    expected_status=404
+ 149 |         Set Test Variable    ${ERROR_RESPONSE}    ${response}
+     |         ^^^^^^^^^^^^^^^^^ DEPR05
+ 150 |     EXCEPT
+ 151 |         Set Test Variable    ${ERROR_RESPONSE}    ${None}
+     |
+
+/tests/books_api.robot:149:9 VAR06 Variable defined with test/task scope
+     |
+ 147 |     TRY
+ 148 |         ${response}=    GET On Session    api    /books/${INVALID_ID}    expected_status=404
+ 149 |         Set Test Variable    ${ERROR_RESPONSE}    ${response}
+     |         ^^^^^^^^^^^^^^^^^ VAR06
+ 150 |     EXCEPT
+ 151 |         Set Test Variable    ${ERROR_RESPONSE}    ${None}
+     |
+
+/tests/books_api.robot:151:9 DEPR05 Set Test Variable used instead of VAR
+     |
+ 149 |         Set Test Variable    ${ERROR_RESPONSE}    ${response}
+ 150 |     EXCEPT
+ 151 |         Set Test Variable    ${ERROR_RESPONSE}    ${None}
+     |         ^^^^^^^^^^^^^^^^^ DEPR05
+ 152 |     END
+     |
+
+/tests/books_api.robot:151:9 VAR06 Variable defined with test/task scope
+     |
+ 149 |         Set Test Variable    ${ERROR_RESPONSE}    ${response}
+ 150 |     EXCEPT
+ 151 |         Set Test Variable    ${ERROR_RESPONSE}    ${None}
+     |         ^^^^^^^^^^^^^^^^^ VAR06
+ 152 |     END
+     |
+

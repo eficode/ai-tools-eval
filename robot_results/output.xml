@@ -1,0 +1,2218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.10.12 on linux)" generated="2026-02-23T11:58:00.772773" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="/tests">
+<suite id="s1-s1" name="Books Api" source="/tests/books_api.robot">
+<kw name="Suite Initialization" owner="common" type="SETUP">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2026-02-23T11:58:00.857683" level="INFO">${timestamp} = 20260223_115800</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2026-02-23T11:58:00.857543" elapsed="0.000158"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:00.857923" level="INFO">${TIMESTAMP} = 20260223_115800</msg>
+<arg>${TIMESTAMP}</arg>
+<arg>${timestamp}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-02-23T11:58:00.857767" elapsed="0.000177"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:58:00.858086" level="INFO">Creating Session using : alias=api, url=http://books-service:8000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>api</arg>
+<arg>${API_URL}</arg>
+<arg>verify=true</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-02-23T11:58:00.858002" elapsed="0.000159"/>
+</kw>
+<doc>Initialize test environment</doc>
+<status status="PASS" start="2026-02-23T11:58:00.857215" elapsed="0.000980"/>
+</kw>
+<test id="s1-s1-t1" name="API Should Return All Books" line="18">
+<kw name="Test Initialization" owner="common" type="SETUP">
+<kw name="Generate Random String" owner="String">
+<msg time="2026-02-23T11:58:00.858685" level="INFO">${unique_id} = CHTXO5Jv</msg>
+<var>${unique_id}</var>
+<arg>8</arg>
+<arg>[LETTERS][NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-02-23T11:58:00.858564" elapsed="0.000134"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:00.858876" level="INFO">${UNIQUE_ID} = CHTXO5Jv</msg>
+<arg>${UNIQUE_ID}</arg>
+<arg>${unique_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:00.858749" elapsed="0.000146"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:00.859333" level="INFO">${BOOK_ID} = </msg>
+<arg>${BOOK_ID}</arg>
+<arg>${EMPTY}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:00.858941" elapsed="0.000411"/>
+</kw>
+<doc>Setup for each test</doc>
+<status status="PASS" start="2026-02-23T11:58:00.858416" elapsed="0.000967"/>
+</kw>
+<kw name="Given Books Exist In Database">
+<kw name="Get All Books Via API" owner="api_keywords">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:58:00.862878" level="INFO">GET Request : url=http://books-service:8000/books/ 
+ path_url=/books/ 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-02-23T11:58:00.862926" level="INFO">GET Response : url=http://books-service:8000/books/ 
+ status=200, reason=OK 
+ headers={'date': 'Mon, 23 Feb 2026 11:58:00 GMT', 'server': 'uvicorn', 'content-length': '17094', 'content-type': 'application/json'} 
+ body=[{"title":"History of Ocean","author":"Leo Tolstoy","pages":185,"category":"Science Fiction","favorite":true,"id":1},{"title":"The Kingdom Mystery","author":"Neil Gaiman","pages":655,"category":"History","favorite":true,"id":2},{"title":"Tales of Dragon Twilight","author":"Jane Austen","pages":992,"category":"Historical Fiction","favorite":false,"id":3},{"title":"History of Peace Tales","author":"F. Scott Fitzgerald","pages":270,"category":"Science","favorite":false,"id":4},{"title":"Rise of Planet Dusk","author":"Haruki Murakami","pages":814,"category":"Philosophy","favorite":false,"id":5},{"title":"Secrets of Love","author":"Haruki Murakami","pages":757,"category":"Science Fiction","favorite":true,"id":6},{"title":"History of Life Revelation","author":"George R.R. Martin","pages":503,"category":"Non-Fiction","favorite":true,"id":7},{"title":"Villain Destiny","author":"Stephen King","pages":745,"category":"Science Fiction","favorite":false,"id":8},{"title":"Journey to Universe","author":"J.R.R. Tolkien","pages":371,"category":"Science","favorite":false,"id":9},{"title":"The Love","author":"Haruki Murakami","pages":615,"category":"Travel","favorite":false,"id":10},{"title":"Future Saga","author":"Margaret Atwood","pages":582,"category":"Self-Help","favorite":false,"id":11},{"title":"World of Planet","author":"George R.R. Martin","pages":759,"category":"Self-Help","favorite":false,"id":12},{"title":"Journey to Dragon","author":"Margaret Atwood","pages":301,"category":"Business","favorite":false,"id":13},{"title":"A Ocean Quest","author":"Toni Morrison","pages":334,"category":"Travel","favorite":false,"id":14},{"title":"Friend Quest","author":"Neil Gaiman","pages":605,"category":"History","favorite":true,"id":15},{"title":"Mystery of Ocean Destiny","author":"Toni Morrison","pages":827,"category":"Science","favorite":false,"id":16},{"title":"Art of Mind Adventure","author":"George R.R. Martin","pages":907,"category":"Cookbooks","favorite":false,"id":17},{"title":"Tales of Star","author":"Mark Twain","pages":110,"category":"Poetry","favorite":false,"id":18},{"title":"Masters of Mountain","author":"Virginia Woolf","pages":213,"category":"Mystery","favorite":false,"id":19},{"title":"Masters of Enemy Conspiracy","author":"Stephen King","pages":996,"category":"Fiction","favorite":false,"id":20},{"title":"Legend of Society","author":"Virginia Woolf","pages":628,"category":"Science","favorite":true,"id":21},{"title":"Science of Ocean Awakening","author":"Ernest Hemingway","pages":520,"category":"Biography","favorite":false,"id":22},{"title":"Universe Destiny","author":"Haruki Murakami","pages":838,"category":"Poetry","favorite":false,"id":23},{"title":"Legend of Past Quest","author":"Stephen King","pages":758,"category":"Thriller","favorite":false,"id":24},{"title":"Death Night","author":"J.K. Rowling","pages":801,"category":"Self-Help","favorite":false,"id":25},{"title":"Past Day","author":"Dante Alighieri","pages":917,"category":"Science","favorite":false,"id":26},{"title":"War Journey","author":"Haruki Murakami","pages":893,"category":"Self-Help","favorite":false,"id":27},{"title":"The Death","author":"Agatha Christie","pages":292,"category":"Philosophy","favorite":false,"id":28},{"title":"Guide to Forest","author":"Stephen King","pages":421,"category":"Science","favorite":false,"id":29},{"title":"Tales of Friend","author":"Stephen King","pages":491,"category":"Travel","favorite":false,"id":30},{"title":"Tales of Empire","author":"J.R.R. Tolkien","pages":528,"category":"Business","favorite":false,"id":31},{"title":"Guide to Dragon Revelation","author":"Jane Austen","pages":250,"category":"Young Adult","favorite":false,"id":32},{"title":"Chronicles of Heart","author":"Margaret Atwood","pages":193,"category":"History","favorite":false,"id":33},{"title":"Journey to Planet","author":"Margaret Atwood","pages":106,"category":"Historical Fiction","favorite":true,"id":34},{"title":"Science of Kingdom","author":"Leo Tolstoy","pages":353,"category":"Biography","favorite":false,"id":35},{"title":"Path to Family Quest","author":"Neil Gaiman","pages":946,"category":"Travel","favorite":false,"id":36},{"title":"Rise of Future Dawn","author":"Neil Gaiman","pages":303,"category":"Thriller","favorite":false,"id":37},{"title":"Chronicles of Dragon Stories","author":"Leo Tolstoy","pages":552,"category":"Fantasy","favorite":false,"id":38},{"title":"Guide to Past Dawn","author":"Dante Alighieri","pages":447,"category":"Science","favorite":false,"id":39},{"title":"Science of Hero","author":"Toni Morrison","pages":129,"category":"Thriller","favorite":false,"id":40},{"title":"Life Quest","author":"Haruki Murakami","pages":435,"category":"Business","favorite":false,"id":41},{"title":"Return to Kingdom","author":"Ernest Hemingway","pages":589,"category":"Science Fiction","favorite":true,"id":42},{"title":"Society Chronicles","author":"Margaret Atwood","pages":891,"category":"History","favorite":true,"id":43},{"title":"Kingdom Conspiracy","author":"Ernest Hemingway","pages":385,"category":"Business","favorite":false,"id":44},{"title":"Society Conspiracy","author":"Neil Gaiman","pages":593,"category":"Non-Fiction","favorite":false,"id":45},{"title":"Return to Peace","author":"F. Scott Fitzgerald","pages":904,"category":"Business","favorite":false,"id":46},{"title":"Ocean Redemption","author":"Homer","pages":837,"category":"Science Fiction","favorite":false,"id":47},{"title":"Art of Empire","author":"Gabriel García Márquez","pages":575,"category":"Children's Books","favorite":false,"id":48},{"title":"Life of Mountain Conspiracy","author":"George R.R. Martin","pages":834,"category":"Biography","favorite":false,"id":49},{"title":"Future Awakening","author":"Brandon Sanderson","pages":757,"category":"Fiction","favorite":false,"id":50},{"title":"Journey to Universe","author":"Toni Morrison","pages":668,"category":"History","favorite":false,"id":51},{"title":"Journey to War","author":"J.R.R. Tolkien","pages":888,"category":"Mystery","favorite":false,"id":52},{"title":"Masters of Kingdom Redemption","author":"Jane Austen","pages":934,"category":"Children's Books","favorite":false,"id":53},{"title":"Secrets of Society","author":"Dante Alighieri","pages":255,"category":"Thriller","favorite":false,"id":54},{"title":"Tales of Universe","author":"Margaret Atwood","pages":874,"category":"Mystery","favorite":false,"id":55},{"title":"Mystery of Enemy","author":"Margaret Atwood","pages":177,"category":"Young Adult","favorite":false,"id":56},{"title":"Journey to War","author":"Brandon Sanderson","pages":697,"category":"Self-Help","favorite":true,"id":57},{"title":"A Society Tales","author":"Jane Austen","pages":302,"category":"Mystery","favorite":false,"id":58},{"title":"Chronicles of Universe Adventure","author":"Brandon Sanderson","pages":993,"category":"Travel","favorite":false,"id":59},{"title":"Mystery of Kingdom","author":"Haruki Murakami","pages":884,"category":"Historical Fiction","favorite":true,"id":60},{"title":"Rise of Star","author":"Charles Dickens","pages":574,"category":"Biography","favorite":false,"id":61},{"title":"Tales of Friend","author":"Charles Dickens","pages":148,"category":"Children's Books","favorite":false,"id":62},{"title":"Mind Tales","author":"Ernest Hemingway","pages":795,"category":"Self-Help","favorite":false,"id":63},{"title":"Guide to Dragon","author":"F. Scott Fitzgerald","pages":959,"category":"Non-Fiction","favorite":false,"id":64},{"title":"Forest Redemption","author":"Haruki Murakami","pages":504,"category":"Romance","favorite":false,"id":65},{"title":"Legend of Castle","author":"J.R.R. Tolkien","pages":803,"category":"Science Fiction","favorite":false,"id":66},{"title":"Mind Saga","author":"Homer","pages":535,"category":"Horror","favorite":false,"id":67},{"title":"Masters of Heart Revelation","author":"Charles Dickens","pages":355,"category":"History","favorite":false,"id":68},{"title":"Mystery of Universe","author":"Haruki Murakami","pages":371,"category":"Self-Help","favorite":false,"id":69},{"title":"Secrets of Future Destiny","author":"Toni Morrison","pages":107,"category":"Fantasy","favorite":true,"id":70},{"title":"Life Destiny","author":"Haruki Murakami","pages":384,"category":"Cookbooks","favorite":false,"id":71},{"title":"Journey to Friend Revelation","author":"Homer","pages":318,"category":"Children's Books","favorite":false,"id":72},{"title":"Return to Forest Chronicles","author":"Ernest Hemingway","pages":588,"category":"Horror","favorite":false,"id":73},{"title":"Hero Mystery","author":"Ernest Hemingway","pages":354,"category":"Romance","favorite":false,"id":74},{"title":"Masters of Castle","author":"Haruki Murakami","pages":827,"category":"Non-Fiction","favorite":false,"id":75},{"title":"Adventures in Empire","author":"Virginia Woolf","pages":992,"category":"Business","favorite":false,"id":76},{"title":"Star Awakening","author":"Charles Dickens","pages":951,"category":"Business","favorite":true,"id":77},{"title":"Family Awakening","author":"George R.R. Martin","pages":271,"category":"Science Fiction","favorite":false,"id":78},{"title":"Life Destiny","author":"Leo Tolstoy","pages":714,"category":"Fiction","favorite":false,"id":79},{"title":"Guide to Life","author":"Charles Dickens","pages":484,"category":"Philosophy","favorite":false,"id":80},{"title":"Mystery of War","author":"Virginia Woolf","pages":148,"category":"Philosophy","favorite":false,"id":81},{"title":"Life of Family Tales","author":"Jane Austen","pages":554,"category":"Young Adult","favorite":true,"id":82},{"title":"Legend of Past Revelation","author":"Margaret Atwood","pages":363,"category":"Historical Fiction","favorite":false,"id":83},{"title":"Rise of Forest Tales","author":"Charles Dickens","pages":443,"category":"Travel","favorite":false,"id":84},{"title":"Star Journey","author":"Gabriel García Márquez","pages":701,"category":"Non-Fiction","favorite":false,"id":85},{"title":"Legend of Castle Awakening","author":"J.K. Rowling","pages":420,... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg time="2026-02-23T11:58:00.863168" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>api</arg>
+<arg>/books/</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:58:00.859727" elapsed="0.003458"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-02-23T11:58:00.863257" elapsed="0.000120"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2026-02-23T11:58:00.863407" elapsed="0.000040"/>
+</return>
+<msg time="2026-02-23T11:58:00.863507" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<doc>Retrieve all books via GET /books</doc>
+<status status="PASS" start="2026-02-23T11:58:00.859609" elapsed="0.003910"/>
+</kw>
+<kw name="Response Should Contain Books" owner="api_keywords">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:00.864147" level="INFO">${books} = [{'title': 'History of Ocean', 'author': 'Leo Tolstoy', 'pages': 185, 'category': 'Science Fiction', 'favorite': True, 'id': 1}, {'title': 'The Kingdom Mystery', 'author': 'Neil Gaiman', 'pages': 655,...</msg>
+<var>${books}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:00.863720" elapsed="0.000445"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-02-23T11:58:00.864393" level="INFO">Length is 143.</msg>
+<arg>${books}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-02-23T11:58:00.864218" elapsed="0.000200"/>
+</kw>
+<arg>${response}</arg>
+<doc>Validate response contains book list</doc>
+<status status="PASS" start="2026-02-23T11:58:00.863588" elapsed="0.000860"/>
+</kw>
+<doc>Verify books exist</doc>
+<status status="PASS" start="2026-02-23T11:58:00.859488" elapsed="0.004993"/>
+</kw>
+<kw name="When User Requests All Books">
+<kw name="Get All Books Via API" owner="api_keywords">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:58:00.867309" level="INFO">GET Request : url=http://books-service:8000/books/ 
+ path_url=/books/ 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-02-23T11:58:00.867360" level="INFO">GET Response : url=http://books-service:8000/books/ 
+ status=200, reason=OK 
+ headers={'date': 'Mon, 23 Feb 2026 11:58:00 GMT', 'server': 'uvicorn', 'content-length': '17094', 'content-type': 'application/json'} 
+ body=[{"title":"History of Ocean","author":"Leo Tolstoy","pages":185,"category":"Science Fiction","favorite":true,"id":1},{"title":"The Kingdom Mystery","author":"Neil Gaiman","pages":655,"category":"History","favorite":true,"id":2},{"title":"Tales of Dragon Twilight","author":"Jane Austen","pages":992,"category":"Historical Fiction","favorite":false,"id":3},{"title":"History of Peace Tales","author":"F. Scott Fitzgerald","pages":270,"category":"Science","favorite":false,"id":4},{"title":"Rise of Planet Dusk","author":"Haruki Murakami","pages":814,"category":"Philosophy","favorite":false,"id":5},{"title":"Secrets of Love","author":"Haruki Murakami","pages":757,"category":"Science Fiction","favorite":true,"id":6},{"title":"History of Life Revelation","author":"George R.R. Martin","pages":503,"category":"Non-Fiction","favorite":true,"id":7},{"title":"Villain Destiny","author":"Stephen King","pages":745,"category":"Science Fiction","favorite":false,"id":8},{"title":"Journey to Universe","author":"J.R.R. Tolkien","pages":371,"category":"Science","favorite":false,"id":9},{"title":"The Love","author":"Haruki Murakami","pages":615,"category":"Travel","favorite":false,"id":10},{"title":"Future Saga","author":"Margaret Atwood","pages":582,"category":"Self-Help","favorite":false,"id":11},{"title":"World of Planet","author":"George R.R. Martin","pages":759,"category":"Self-Help","favorite":false,"id":12},{"title":"Journey to Dragon","author":"Margaret Atwood","pages":301,"category":"Business","favorite":false,"id":13},{"title":"A Ocean Quest","author":"Toni Morrison","pages":334,"category":"Travel","favorite":false,"id":14},{"title":"Friend Quest","author":"Neil Gaiman","pages":605,"category":"History","favorite":true,"id":15},{"title":"Mystery of Ocean Destiny","author":"Toni Morrison","pages":827,"category":"Science","favorite":false,"id":16},{"title":"Art of Mind Adventure","author":"George R.R. Martin","pages":907,"category":"Cookbooks","favorite":false,"id":17},{"title":"Tales of Star","author":"Mark Twain","pages":110,"category":"Poetry","favorite":false,"id":18},{"title":"Masters of Mountain","author":"Virginia Woolf","pages":213,"category":"Mystery","favorite":false,"id":19},{"title":"Masters of Enemy Conspiracy","author":"Stephen King","pages":996,"category":"Fiction","favorite":false,"id":20},{"title":"Legend of Society","author":"Virginia Woolf","pages":628,"category":"Science","favorite":true,"id":21},{"title":"Science of Ocean Awakening","author":"Ernest Hemingway","pages":520,"category":"Biography","favorite":false,"id":22},{"title":"Universe Destiny","author":"Haruki Murakami","pages":838,"category":"Poetry","favorite":false,"id":23},{"title":"Legend of Past Quest","author":"Stephen King","pages":758,"category":"Thriller","favorite":false,"id":24},{"title":"Death Night","author":"J.K. Rowling","pages":801,"category":"Self-Help","favorite":false,"id":25},{"title":"Past Day","author":"Dante Alighieri","pages":917,"category":"Science","favorite":false,"id":26},{"title":"War Journey","author":"Haruki Murakami","pages":893,"category":"Self-Help","favorite":false,"id":27},{"title":"The Death","author":"Agatha Christie","pages":292,"category":"Philosophy","favorite":false,"id":28},{"title":"Guide to Forest","author":"Stephen King","pages":421,"category":"Science","favorite":false,"id":29},{"title":"Tales of Friend","author":"Stephen King","pages":491,"category":"Travel","favorite":false,"id":30},{"title":"Tales of Empire","author":"J.R.R. Tolkien","pages":528,"category":"Business","favorite":false,"id":31},{"title":"Guide to Dragon Revelation","author":"Jane Austen","pages":250,"category":"Young Adult","favorite":false,"id":32},{"title":"Chronicles of Heart","author":"Margaret Atwood","pages":193,"category":"History","favorite":false,"id":33},{"title":"Journey to Planet","author":"Margaret Atwood","pages":106,"category":"Historical Fiction","favorite":true,"id":34},{"title":"Science of Kingdom","author":"Leo Tolstoy","pages":353,"category":"Biography","favorite":false,"id":35},{"title":"Path to Family Quest","author":"Neil Gaiman","pages":946,"category":"Travel","favorite":false,"id":36},{"title":"Rise of Future Dawn","author":"Neil Gaiman","pages":303,"category":"Thriller","favorite":false,"id":37},{"title":"Chronicles of Dragon Stories","author":"Leo Tolstoy","pages":552,"category":"Fantasy","favorite":false,"id":38},{"title":"Guide to Past Dawn","author":"Dante Alighieri","pages":447,"category":"Science","favorite":false,"id":39},{"title":"Science of Hero","author":"Toni Morrison","pages":129,"category":"Thriller","favorite":false,"id":40},{"title":"Life Quest","author":"Haruki Murakami","pages":435,"category":"Business","favorite":false,"id":41},{"title":"Return to Kingdom","author":"Ernest Hemingway","pages":589,"category":"Science Fiction","favorite":true,"id":42},{"title":"Society Chronicles","author":"Margaret Atwood","pages":891,"category":"History","favorite":true,"id":43},{"title":"Kingdom Conspiracy","author":"Ernest Hemingway","pages":385,"category":"Business","favorite":false,"id":44},{"title":"Society Conspiracy","author":"Neil Gaiman","pages":593,"category":"Non-Fiction","favorite":false,"id":45},{"title":"Return to Peace","author":"F. Scott Fitzgerald","pages":904,"category":"Business","favorite":false,"id":46},{"title":"Ocean Redemption","author":"Homer","pages":837,"category":"Science Fiction","favorite":false,"id":47},{"title":"Art of Empire","author":"Gabriel García Márquez","pages":575,"category":"Children's Books","favorite":false,"id":48},{"title":"Life of Mountain Conspiracy","author":"George R.R. Martin","pages":834,"category":"Biography","favorite":false,"id":49},{"title":"Future Awakening","author":"Brandon Sanderson","pages":757,"category":"Fiction","favorite":false,"id":50},{"title":"Journey to Universe","author":"Toni Morrison","pages":668,"category":"History","favorite":false,"id":51},{"title":"Journey to War","author":"J.R.R. Tolkien","pages":888,"category":"Mystery","favorite":false,"id":52},{"title":"Masters of Kingdom Redemption","author":"Jane Austen","pages":934,"category":"Children's Books","favorite":false,"id":53},{"title":"Secrets of Society","author":"Dante Alighieri","pages":255,"category":"Thriller","favorite":false,"id":54},{"title":"Tales of Universe","author":"Margaret Atwood","pages":874,"category":"Mystery","favorite":false,"id":55},{"title":"Mystery of Enemy","author":"Margaret Atwood","pages":177,"category":"Young Adult","favorite":false,"id":56},{"title":"Journey to War","author":"Brandon Sanderson","pages":697,"category":"Self-Help","favorite":true,"id":57},{"title":"A Society Tales","author":"Jane Austen","pages":302,"category":"Mystery","favorite":false,"id":58},{"title":"Chronicles of Universe Adventure","author":"Brandon Sanderson","pages":993,"category":"Travel","favorite":false,"id":59},{"title":"Mystery of Kingdom","author":"Haruki Murakami","pages":884,"category":"Historical Fiction","favorite":true,"id":60},{"title":"Rise of Star","author":"Charles Dickens","pages":574,"category":"Biography","favorite":false,"id":61},{"title":"Tales of Friend","author":"Charles Dickens","pages":148,"category":"Children's Books","favorite":false,"id":62},{"title":"Mind Tales","author":"Ernest Hemingway","pages":795,"category":"Self-Help","favorite":false,"id":63},{"title":"Guide to Dragon","author":"F. Scott Fitzgerald","pages":959,"category":"Non-Fiction","favorite":false,"id":64},{"title":"Forest Redemption","author":"Haruki Murakami","pages":504,"category":"Romance","favorite":false,"id":65},{"title":"Legend of Castle","author":"J.R.R. Tolkien","pages":803,"category":"Science Fiction","favorite":false,"id":66},{"title":"Mind Saga","author":"Homer","pages":535,"category":"Horror","favorite":false,"id":67},{"title":"Masters of Heart Revelation","author":"Charles Dickens","pages":355,"category":"History","favorite":false,"id":68},{"title":"Mystery of Universe","author":"Haruki Murakami","pages":371,"category":"Self-Help","favorite":false,"id":69},{"title":"Secrets of Future Destiny","author":"Toni Morrison","pages":107,"category":"Fantasy","favorite":true,"id":70},{"title":"Life Destiny","author":"Haruki Murakami","pages":384,"category":"Cookbooks","favorite":false,"id":71},{"title":"Journey to Friend Revelation","author":"Homer","pages":318,"category":"Children's Books","favorite":false,"id":72},{"title":"Return to Forest Chronicles","author":"Ernest Hemingway","pages":588,"category":"Horror","favorite":false,"id":73},{"title":"Hero Mystery","author":"Ernest Hemingway","pages":354,"category":"Romance","favorite":false,"id":74},{"title":"Masters of Castle","author":"Haruki Murakami","pages":827,"category":"Non-Fiction","favorite":false,"id":75},{"title":"Adventures in Empire","author":"Virginia Woolf","pages":992,"category":"Business","favorite":false,"id":76},{"title":"Star Awakening","author":"Charles Dickens","pages":951,"category":"Business","favorite":true,"id":77},{"title":"Family Awakening","author":"George R.R. Martin","pages":271,"category":"Science Fiction","favorite":false,"id":78},{"title":"Life Destiny","author":"Leo Tolstoy","pages":714,"category":"Fiction","favorite":false,"id":79},{"title":"Guide to Life","author":"Charles Dickens","pages":484,"category":"Philosophy","favorite":false,"id":80},{"title":"Mystery of War","author":"Virginia Woolf","pages":148,"category":"Philosophy","favorite":false,"id":81},{"title":"Life of Family Tales","author":"Jane Austen","pages":554,"category":"Young Adult","favorite":true,"id":82},{"title":"Legend of Past Revelation","author":"Margaret Atwood","pages":363,"category":"Historical Fiction","favorite":false,"id":83},{"title":"Rise of Forest Tales","author":"Charles Dickens","pages":443,"category":"Travel","favorite":false,"id":84},{"title":"Star Journey","author":"Gabriel García Márquez","pages":701,"category":"Non-Fiction","favorite":false,"id":85},{"title":"Legend of Castle Awakening","author":"J.K. Rowling","pages":420,... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg time="2026-02-23T11:58:00.867681" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>api</arg>
+<arg>/books/</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:58:00.864797" elapsed="0.002911"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-02-23T11:58:00.867892" elapsed="0.000303"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2026-02-23T11:58:00.868242" elapsed="0.000048"/>
+</return>
+<msg time="2026-02-23T11:58:00.868378" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<doc>Retrieve all books via GET /books</doc>
+<status status="PASS" start="2026-02-23T11:58:00.864697" elapsed="0.003699"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:00.868830" level="INFO">${API_RESPONSE} = &lt;Response [200]&gt;</msg>
+<arg>${API_RESPONSE}</arg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:00.868481" elapsed="0.000371"/>
+</kw>
+<doc>GET all books</doc>
+<status status="PASS" start="2026-02-23T11:58:00.864560" elapsed="0.004323"/>
+</kw>
+<kw name="Then Response Should Contain Book List">
+<kw name="Response Should Contain Books" owner="api_keywords">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:00.869746" level="INFO">${books} = [{'title': 'History of Ocean', 'author': 'Leo Tolstoy', 'pages': 185, 'category': 'Science Fiction', 'favorite': True, 'id': 1}, {'title': 'The Kingdom Mystery', 'author': 'Neil Gaiman', 'pages': 655,...</msg>
+<var>${books}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:00.869228" elapsed="0.000539"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-02-23T11:58:00.870024" level="INFO">Length is 143.</msg>
+<arg>${books}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-02-23T11:58:00.869846" elapsed="0.000200"/>
+</kw>
+<arg>${API_RESPONSE}</arg>
+<doc>Validate response contains book list</doc>
+<status status="PASS" start="2026-02-23T11:58:00.869098" elapsed="0.000980"/>
+</kw>
+<doc>Validate response</doc>
+<status status="PASS" start="2026-02-23T11:58:00.868955" elapsed="0.001149"/>
+</kw>
+<kw name="And Books Should Have Valid Structure">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:00.870669" level="INFO">${books} = [{'title': 'History of Ocean', 'author': 'Leo Tolstoy', 'pages': 185, 'category': 'Science Fiction', 'favorite': True, 'id': 1}, {'title': 'The Kingdom Mystery', 'author': 'Neil Gaiman', 'pages': 655,...</msg>
+<var>${books}</var>
+<arg>${API_RESPONSE.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:00.870302" elapsed="0.000380"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:00.870850" level="INFO">${first_book} = {'title': 'History of Ocean', 'author': 'Leo Tolstoy', 'pages': 185, 'category': 'Science Fiction', 'favorite': True, 'id': 1}</msg>
+<var>${first_book}</var>
+<arg>${books}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:00.870732" elapsed="0.000130"/>
+</kw>
+<kw name="Book Should Have Valid Structure" owner="api_keywords">
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${book}</arg>
+<arg>id</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2026-02-23T11:58:00.871061" elapsed="0.000083"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${book}</arg>
+<arg>title</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2026-02-23T11:58:00.871190" elapsed="0.000065"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${book}</arg>
+<arg>author</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2026-02-23T11:58:00.871309" elapsed="0.000065"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${book}</arg>
+<arg>pages</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2026-02-23T11:58:00.871417" elapsed="0.000066"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${book}</arg>
+<arg>category</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2026-02-23T11:58:00.871526" elapsed="0.000063"/>
+</kw>
+<arg>${first_book}</arg>
+<doc>Validate book object structure</doc>
+<status status="PASS" start="2026-02-23T11:58:00.870929" elapsed="0.000687"/>
+</kw>
+<doc>Validate book objects</doc>
+<status status="PASS" start="2026-02-23T11:58:00.870178" elapsed="0.001461"/>
+</kw>
+<kw name="Test Cleanup" owner="common" type="TEARDOWN">
+<if>
+<branch type="IF" condition="'${BOOK_ID}' != '${EMPTY}'">
+<try>
+<branch type="TRY">
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<arg>api</arg>
+<arg>/books/${BOOK_ID}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="NOT RUN" start="2026-02-23T11:58:00.872203" elapsed="0.000020"/>
+</kw>
+<status status="NOT RUN" start="2026-02-23T11:58:00.872140" elapsed="0.000103"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log" owner="BuiltIn">
+<arg>Cleanup failed for book ${BOOK_ID}</arg>
+<arg>level=WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-02-23T11:58:00.872311" elapsed="0.000017"/>
+</kw>
+<status status="NOT RUN" start="2026-02-23T11:58:00.872266" elapsed="0.000079"/>
+</branch>
+<status status="NOT RUN" start="2026-02-23T11:58:00.872120" elapsed="0.000241"/>
+</try>
+<status status="NOT RUN" start="2026-02-23T11:58:00.871943" elapsed="0.000426"/>
+</branch>
+<status status="PASS" start="2026-02-23T11:58:00.871931" elapsed="0.000451"/>
+</if>
+<doc>Cleanup after each test</doc>
+<status status="PASS" start="2026-02-23T11:58:00.871828" elapsed="0.000573"/>
+</kw>
+<msg time="2026-02-23T11:58:00.874368" level="INFO">Starting Browser process /usr/local/lib/python3.10/dist-packages/Browser/wrapper/index.js using at 127.0.0.1:46593</msg>
+<doc>Verify GET /books endpoint</doc>
+<tag>api</tag>
+<tag>books</tag>
+<tag>read</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2026-02-23T11:58:00.858231" elapsed="0.014191"/>
+</test>
+<test id="s1-s1-t2" name="API Should Create New Book" line="26">
+<kw name="Test Initialization" owner="common" type="SETUP">
+<kw name="Generate Random String" owner="String">
+<msg time="2026-02-23T11:58:01.093999" level="INFO">${unique_id} = vET69Nv3</msg>
+<var>${unique_id}</var>
+<arg>8</arg>
+<arg>[LETTERS][NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.093824" elapsed="0.000198"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.094299" level="INFO">${UNIQUE_ID} = vET69Nv3</msg>
+<arg>${UNIQUE_ID}</arg>
+<arg>${unique_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.094098" elapsed="0.000225"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.094849" level="INFO">${BOOK_ID} = </msg>
+<arg>${BOOK_ID}</arg>
+<arg>${EMPTY}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.094384" elapsed="0.000490"/>
+</kw>
+<doc>Setup for each test</doc>
+<status status="PASS" start="2026-02-23T11:58:01.093604" elapsed="0.001307"/>
+</kw>
+<kw name="Given Valid Book Data Is Prepared">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.095294" level="INFO">${title} = API Test Book 20260223_115800</msg>
+<var>${title}</var>
+<arg>API Test Book ${TIMESTAMP}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.095144" elapsed="0.000295"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.095647" level="INFO">${author} = API Test Author</msg>
+<var>${author}</var>
+<arg>API Test Author</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.095510" elapsed="0.000151"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.095844" level="INFO">${pages} = 300</msg>
+<var>${pages}</var>
+<arg>300</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.095718" elapsed="0.000140"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.096053" level="INFO">${category} = Science</msg>
+<var>${category}</var>
+<arg>Science</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.095913" elapsed="0.000154"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.096511" level="INFO">${TEST_TITLE} = API Test Book 20260223_115800</msg>
+<arg>${TEST_TITLE}</arg>
+<arg>${title}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.096129" elapsed="0.000405"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.096952" level="INFO">${TEST_AUTHOR} = API Test Author</msg>
+<arg>${TEST_AUTHOR}</arg>
+<arg>${author}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.096594" elapsed="0.000399"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.097446" level="INFO">${TEST_PAGES} = 300</msg>
+<arg>${TEST_PAGES}</arg>
+<arg>${pages}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.097054" elapsed="0.000414"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.097871" level="INFO">${TEST_CATEGORY} = Science</msg>
+<arg>${TEST_CATEGORY}</arg>
+<arg>${category}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.097526" elapsed="0.000367"/>
+</kw>
+<doc>Prepare test data</doc>
+<status status="PASS" start="2026-02-23T11:58:01.095012" elapsed="0.002916"/>
+</kw>
+<kw name="When User Creates Book Via API">
+<kw name="Create Book Via API" owner="api_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.098680" level="INFO">&amp;{book_data} = { title=API Test Book 20260223_115800 | author=API Test Author | pages=300 | category=Science }</msg>
+<var>&amp;{book_data}</var>
+<arg>title=${title}</arg>
+<arg>author=${author}</arg>
+<arg>pages=${pages}</arg>
+<arg>category=${category}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.098400" elapsed="0.000296"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:58:01.103256" level="INFO">POST Request : url=http://books-service:8000/books/ 
+ path_url=/books/ 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '110', 'Content-Type': 'application/json'} 
+ body=b'{"title": "API Test Book 20260223_115800", "author": "API Test Author", "pages": "300", "category": "Science"}' 
+ </msg>
+<msg time="2026-02-23T11:58:01.103296" level="INFO">POST Response : url=http://books-service:8000/books/ 
+ status=200, reason=OK 
+ headers={'date': 'Mon, 23 Feb 2026 11:58:01 GMT', 'server': 'uvicorn', 'content-length': '127', 'content-type': 'application/json'} 
+ body={"title":"API Test Book 20260223_115800","author":"API Test Author","pages":300,"category":"Science","favorite":false,"id":144} 
+ </msg>
+<msg time="2026-02-23T11:58:01.103357" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>api</arg>
+<arg>/books/</arg>
+<arg>json=${book_data}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.098760" elapsed="0.004612"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.103459" elapsed="0.000196"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.104069" level="INFO">${json} = {'title': 'API Test Book 20260223_115800', 'author': 'API Test Author', 'pages': 300, 'category': 'Science', 'favorite': False, 'id': 144}</msg>
+<var>${json}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.103722" elapsed="0.000363"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.104300" level="INFO">${book_id} = 144</msg>
+<var>${book_id}</var>
+<arg>${json}[id]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.104148" elapsed="0.000166"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.104526" level="INFO">${BOOK_ID} = 144</msg>
+<arg>${BOOK_ID}</arg>
+<arg>${book_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.104371" elapsed="0.000175"/>
+</kw>
+<return>
+<value>${book_id}</value>
+<status status="PASS" start="2026-02-23T11:58:01.104576" elapsed="0.000041"/>
+</return>
+<msg time="2026-02-23T11:58:01.104682" level="INFO">${book_id} = 144</msg>
+<var>${book_id}</var>
+<arg>${TEST_TITLE}</arg>
+<arg>${TEST_AUTHOR}</arg>
+<arg>${TEST_PAGES}</arg>
+<arg>${TEST_CATEGORY}</arg>
+<doc>Create book via POST /books</doc>
+<status status="PASS" start="2026-02-23T11:58:01.098190" elapsed="0.006505"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.105111" level="INFO">${CREATED_BOOK_ID} = 144</msg>
+<arg>${CREATED_BOOK_ID}</arg>
+<arg>${book_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.104757" elapsed="0.000379"/>
+</kw>
+<doc>POST new book</doc>
+<status status="PASS" start="2026-02-23T11:58:01.098011" elapsed="0.007159"/>
+</kw>
+<kw name="Then Book Should Be Created Successfully">
+<kw name="Should Not Be Equal" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.105662" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${CREATED_BOOK_ID}</arg>
+<arg>${EMPTY}</arg>
+<doc>Fails if the given objects are equal.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.105400" elapsed="0.000434"/>
+</kw>
+<doc>Verify creation</doc>
+<status status="PASS" start="2026-02-23T11:58:01.105249" elapsed="0.000670"/>
+</kw>
+<kw name="And Book Should Be Retrievable">
+<kw name="Get Book By ID Via API" owner="api_keywords">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:58:01.108128" level="INFO">GET Request : url=http://books-service:8000/books/144 
+ path_url=/books/144 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-02-23T11:58:01.108175" level="INFO">GET Response : url=http://books-service:8000/books/144 
+ status=200, reason=OK 
+ headers={'date': 'Mon, 23 Feb 2026 11:58:01 GMT', 'server': 'uvicorn', 'content-length': '127', 'content-type': 'application/json'} 
+ body={"title":"API Test Book 20260223_115800","author":"API Test Author","pages":300,"category":"Science","favorite":false,"id":144} 
+ </msg>
+<msg time="2026-02-23T11:58:01.108317" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>api</arg>
+<arg>/books/${book_id}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.106482" elapsed="0.001851"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.108436" elapsed="0.000131"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2026-02-23T11:58:01.108597" elapsed="0.000034"/>
+</return>
+<msg time="2026-02-23T11:58:01.108699" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${CREATED_BOOK_ID}</arg>
+<doc>Retrieve specific book via GET /books/{id}</doc>
+<status status="PASS" start="2026-02-23T11:58:01.106303" elapsed="0.002409"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.109089" level="INFO">${book} = {'title': 'API Test Book 20260223_115800', 'author': 'API Test Author', 'pages': 300, 'category': 'Science', 'favorite': False, 'id': 144}</msg>
+<var>${book}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.108772" elapsed="0.000332"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${book}[title]</arg>
+<arg>${TEST_TITLE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.109162" elapsed="0.000155"/>
+</kw>
+<doc>Verify book exists</doc>
+<status status="PASS" start="2026-02-23T11:58:01.106068" elapsed="0.003283"/>
+</kw>
+<kw name="Test Cleanup" owner="common" type="TEARDOWN">
+<if>
+<branch type="IF" condition="'${BOOK_ID}' != '${EMPTY}'">
+<try>
+<branch type="TRY">
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:58:01.113452" level="INFO">DELETE Request : url=http://books-service:8000/books/144 
+ path_url=/books/144 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2026-02-23T11:58:01.113494" level="INFO">DELETE Response : url=http://books-service:8000/books/144 
+ status=200, reason=OK 
+ headers={'date': 'Mon, 23 Feb 2026 11:58:01 GMT', 'server': 'uvicorn', 'content-length': '39', 'content-type': 'application/json'} 
+ body={"message":"Book deleted successfully"} 
+ </msg>
+<arg>api</arg>
+<arg>/books/${BOOK_ID}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.109943" elapsed="0.003585"/>
+</kw>
+<status status="PASS" start="2026-02-23T11:58:01.109876" elapsed="0.003691"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log" owner="BuiltIn">
+<arg>Cleanup failed for book ${BOOK_ID}</arg>
+<arg>level=WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-02-23T11:58:01.113696" elapsed="0.000027"/>
+</kw>
+<status status="NOT RUN" start="2026-02-23T11:58:01.113602" elapsed="0.000143"/>
+</branch>
+<status status="PASS" start="2026-02-23T11:58:01.109859" elapsed="0.003906"/>
+</try>
+<status status="PASS" start="2026-02-23T11:58:01.109661" elapsed="0.004114"/>
+</branch>
+<status status="PASS" start="2026-02-23T11:58:01.109649" elapsed="0.004142"/>
+</if>
+<doc>Cleanup after each test</doc>
+<status status="PASS" start="2026-02-23T11:58:01.109512" elapsed="0.004305"/>
+</kw>
+<doc>Verify POST /books endpoint</doc>
+<tag>api</tag>
+<tag>books</tag>
+<tag>create</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2026-02-23T11:58:01.092261" elapsed="0.021584"/>
+</test>
+<test id="s1-s1-t3" name="API Should Update Existing Book" line="34">
+<kw name="Test Initialization" owner="common" type="SETUP">
+<kw name="Generate Random String" owner="String">
+<msg time="2026-02-23T11:58:01.117831" level="INFO">${unique_id} = 6fWmXEsH</msg>
+<var>${unique_id}</var>
+<arg>8</arg>
+<arg>[LETTERS][NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.117701" elapsed="0.000145"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.118106" level="INFO">${UNIQUE_ID} = 6fWmXEsH</msg>
+<arg>${UNIQUE_ID}</arg>
+<arg>${unique_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.117914" elapsed="0.000215"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.118603" level="INFO">${BOOK_ID} = </msg>
+<arg>${BOOK_ID}</arg>
+<arg>${EMPTY}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.118187" elapsed="0.000438"/>
+</kw>
+<doc>Setup for each test</doc>
+<status status="PASS" start="2026-02-23T11:58:01.117532" elapsed="0.001127"/>
+</kw>
+<kw name="Given Book Exists In System">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.118997" level="INFO">${title} = Update Test 20260223_115800</msg>
+<var>${title}</var>
+<arg>Update Test ${TIMESTAMP}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.118858" elapsed="0.000153"/>
+</kw>
+<kw name="Create Book Via API" owner="api_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.119475" level="INFO">&amp;{book_data} = { title=Update Test 20260223_115800 | author=Original Author | pages=150 | category=Fiction }</msg>
+<var>&amp;{book_data}</var>
+<arg>title=${title}</arg>
+<arg>author=${author}</arg>
+<arg>pages=${pages}</arg>
+<arg>category=${category}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.119255" elapsed="0.000233"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:58:01.123630" level="INFO">POST Request : url=http://books-service:8000/books/ 
+ path_url=/books/ 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '108', 'Content-Type': 'application/json'} 
+ body=b'{"title": "Update Test 20260223_115800", "author": "Original Author", "pages": "150", "category": "Fiction"}' 
+ </msg>
+<msg time="2026-02-23T11:58:01.123677" level="INFO">POST Response : url=http://books-service:8000/books/ 
+ status=200, reason=OK 
+ headers={'date': 'Mon, 23 Feb 2026 11:58:01 GMT', 'server': 'uvicorn', 'content-length': '125', 'content-type': 'application/json'} 
+ body={"title":"Update Test 20260223_115800","author":"Original Author","pages":150,"category":"Fiction","favorite":false,"id":144} 
+ </msg>
+<msg time="2026-02-23T11:58:01.123745" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>api</arg>
+<arg>/books/</arg>
+<arg>json=${book_data}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.119544" elapsed="0.004214"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.123855" elapsed="0.000137"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.124349" level="INFO">${json} = {'title': 'Update Test 20260223_115800', 'author': 'Original Author', 'pages': 150, 'category': 'Fiction', 'favorite': False, 'id': 144}</msg>
+<var>${json}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.124047" elapsed="0.000316"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.124716" level="INFO">${book_id} = 144</msg>
+<var>${book_id}</var>
+<arg>${json}[id]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.124544" elapsed="0.000187"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.124949" level="INFO">${BOOK_ID} = 144</msg>
+<arg>${BOOK_ID}</arg>
+<arg>${book_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.124792" elapsed="0.000185"/>
+</kw>
+<return>
+<value>${book_id}</value>
+<status status="PASS" start="2026-02-23T11:58:01.125008" elapsed="0.000039"/>
+</return>
+<msg time="2026-02-23T11:58:01.125114" level="INFO">${book_id} = 144</msg>
+<var>${book_id}</var>
+<arg>${title}</arg>
+<arg>Original Author</arg>
+<arg>150</arg>
+<arg>Fiction</arg>
+<doc>Create book via POST /books</doc>
+<status status="PASS" start="2026-02-23T11:58:01.119095" elapsed="0.006032"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.125505" level="INFO">${ORIGINAL_TITLE} = Update Test 20260223_115800</msg>
+<arg>${ORIGINAL_TITLE}</arg>
+<arg>${title}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.125193" elapsed="0.000334"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.125717" level="INFO">${BOOK_ID} = 144</msg>
+<arg>${BOOK_ID}</arg>
+<arg>${book_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.125582" elapsed="0.000154"/>
+</kw>
+<doc>Create test book</doc>
+<status status="PASS" start="2026-02-23T11:58:01.118738" elapsed="0.007030"/>
+</kw>
+<kw name="When User Updates Book With New Data">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.126122" level="INFO">${new_title} = Updated Update Test 20260223_115800</msg>
+<var>${new_title}</var>
+<arg>Updated ${ORIGINAL_TITLE}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.125987" elapsed="0.000150"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.126316" level="INFO">${new_author} = Updated Author</msg>
+<var>${new_author}</var>
+<arg>Updated Author</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.126188" elapsed="0.000141"/>
+</kw>
+<kw name="Update Book Via API" owner="api_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.126798" level="INFO">&amp;{book_data} = { title=Updated Update Test 20260223_115800 | author=Updated Author | pages=200 | category=Non-Fiction }</msg>
+<var>&amp;{book_data}</var>
+<arg>title=${title}</arg>
+<arg>author=${author}</arg>
+<arg>pages=${pages}</arg>
+<arg>category=${category}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.126582" elapsed="0.000229"/>
+</kw>
+<kw name="PUT On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:58:01.129666" level="INFO">PUT Request : url=http://books-service:8000/books/144 
+ path_url=/books/144 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '119', 'Content-Type': 'application/json'} 
+ body=b'{"title": "Updated Update Test 20260223_115800", "author": "Updated Author", "pages": "200", "category": "Non-Fiction"}' 
+ </msg>
+<msg time="2026-02-23T11:58:01.129699" level="INFO">PUT Response : url=http://books-service:8000/books/144 
+ status=200, reason=OK 
+ headers={'date': 'Mon, 23 Feb 2026 11:58:01 GMT', 'server': 'uvicorn', 'content-length': '136', 'content-type': 'application/json'} 
+ body={"title":"Updated Update Test 20260223_115800","author":"Updated Author","pages":200,"category":"Non-Fiction","favorite":false,"id":144} 
+ </msg>
+<msg time="2026-02-23T11:58:01.129751" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>api</arg>
+<arg>/books/${book_id}</arg>
+<arg>json=${book_data}</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.126879" elapsed="0.002884"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.129834" elapsed="0.000112"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2026-02-23T11:58:01.129988" elapsed="0.000034"/>
+</return>
+<msg time="2026-02-23T11:58:01.130089" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${BOOK_ID}</arg>
+<arg>${new_title}</arg>
+<arg>${new_author}</arg>
+<arg>200</arg>
+<arg>Non-Fiction</arg>
+<doc>Update book via PUT /books/{id}</doc>
+<status status="PASS" start="2026-02-23T11:58:01.126404" elapsed="0.003698"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.130520" level="INFO">${UPDATED_TITLE} = Updated Update Test 20260223_115800</msg>
+<arg>${UPDATED_TITLE}</arg>
+<arg>${new_title}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.130165" elapsed="0.000377"/>
+</kw>
+<doc>PUT updated book</doc>
+<status status="PASS" start="2026-02-23T11:58:01.125852" elapsed="0.004723"/>
+</kw>
+<kw name="Then Book Should Be Updated Successfully">
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.131009" level="INFO">Length is 35.</msg>
+<arg>${UPDATED_TITLE}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.130859" elapsed="0.000172"/>
+</kw>
+<doc>Verify update response</doc>
+<status status="PASS" start="2026-02-23T11:58:01.130646" elapsed="0.000417"/>
+</kw>
+<kw name="And Updated Data Should Be Persisted">
+<kw name="Get Book By ID Via API" owner="api_keywords">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:58:01.132616" level="INFO">GET Request : url=http://books-service:8000/books/144 
+ path_url=/books/144 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-02-23T11:58:01.132647" level="INFO">GET Response : url=http://books-service:8000/books/144 
+ status=200, reason=OK 
+ headers={'date': 'Mon, 23 Feb 2026 11:58:01 GMT', 'server': 'uvicorn', 'content-length': '136', 'content-type': 'application/json'} 
+ body={"title":"Updated Update Test 20260223_115800","author":"Updated Author","pages":200,"category":"Non-Fiction","favorite":false,"id":144} 
+ </msg>
+<msg time="2026-02-23T11:58:01.132696" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>api</arg>
+<arg>/books/${book_id}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.131423" elapsed="0.001284"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.132765" elapsed="0.000089"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2026-02-23T11:58:01.132878" elapsed="0.000027"/>
+</return>
+<msg time="2026-02-23T11:58:01.132958" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${BOOK_ID}</arg>
+<doc>Retrieve specific book via GET /books/{id}</doc>
+<status status="PASS" start="2026-02-23T11:58:01.131280" elapsed="0.001689"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.133462" level="INFO">${book} = {'title': 'Updated Update Test 20260223_115800', 'author': 'Updated Author', 'pages': 200, 'category': 'Non-Fiction', 'favorite': False, 'id': 144}</msg>
+<var>${book}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.133105" elapsed="0.000383"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${book}[title]</arg>
+<arg>${UPDATED_TITLE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.133560" elapsed="0.000182"/>
+</kw>
+<doc>Verify updated data</doc>
+<status status="PASS" start="2026-02-23T11:58:01.131130" elapsed="0.002647"/>
+</kw>
+<kw name="Test Cleanup" owner="common" type="TEARDOWN">
+<if>
+<branch type="IF" condition="'${BOOK_ID}' != '${EMPTY}'">
+<try>
+<branch type="TRY">
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:58:01.137013" level="INFO">DELETE Request : url=http://books-service:8000/books/144 
+ path_url=/books/144 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2026-02-23T11:58:01.137048" level="INFO">DELETE Response : url=http://books-service:8000/books/144 
+ status=200, reason=OK 
+ headers={'date': 'Mon, 23 Feb 2026 11:58:01 GMT', 'server': 'uvicorn', 'content-length': '39', 'content-type': 'application/json'} 
+ body={"message":"Book deleted successfully"} 
+ </msg>
+<arg>api</arg>
+<arg>/books/${BOOK_ID}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.134334" elapsed="0.002744"/>
+</kw>
+<status status="PASS" start="2026-02-23T11:58:01.134261" elapsed="0.002850"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log" owner="BuiltIn">
+<arg>Cleanup failed for book ${BOOK_ID}</arg>
+<arg>level=WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-02-23T11:58:01.137226" elapsed="0.000022"/>
+</kw>
+<status status="NOT RUN" start="2026-02-23T11:58:01.137144" elapsed="0.000123"/>
+</branch>
+<status status="PASS" start="2026-02-23T11:58:01.134244" elapsed="0.003042"/>
+</try>
+<status status="PASS" start="2026-02-23T11:58:01.134047" elapsed="0.003248"/>
+</branch>
+<status status="PASS" start="2026-02-23T11:58:01.134036" elapsed="0.003273"/>
+</if>
+<doc>Cleanup after each test</doc>
+<status status="PASS" start="2026-02-23T11:58:01.133917" elapsed="0.003415"/>
+</kw>
+<doc>Verify PUT /books/{id} endpoint</doc>
+<tag>api</tag>
+<tag>books</tag>
+<tag>update</tag>
+<status status="PASS" start="2026-02-23T11:58:01.116423" elapsed="0.020934"/>
+</test>
+<test id="s1-s1-t4" name="API Should Delete Book" line="42">
+<kw name="Test Initialization" owner="common" type="SETUP">
+<kw name="Generate Random String" owner="String">
+<msg time="2026-02-23T11:58:01.141251" level="INFO">${unique_id} = p9ZzjmBp</msg>
+<var>${unique_id}</var>
+<arg>8</arg>
+<arg>[LETTERS][NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.141145" elapsed="0.000119"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.141471" level="INFO">${UNIQUE_ID} = p9ZzjmBp</msg>
+<arg>${UNIQUE_ID}</arg>
+<arg>${unique_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.141321" elapsed="0.000169"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.141908" level="INFO">${BOOK_ID} = </msg>
+<arg>${BOOK_ID}</arg>
+<arg>${EMPTY}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.141539" elapsed="0.000389"/>
+</kw>
+<doc>Setup for each test</doc>
+<status status="PASS" start="2026-02-23T11:58:01.141008" elapsed="0.000951"/>
+</kw>
+<kw name="Given Book Exists In System">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.142304" level="INFO">${title} = Update Test 20260223_115800</msg>
+<var>${title}</var>
+<arg>Update Test ${TIMESTAMP}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.142178" elapsed="0.000138"/>
+</kw>
+<kw name="Create Book Via API" owner="api_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.142761" level="INFO">&amp;{book_data} = { title=Update Test 20260223_115800 | author=Original Author | pages=150 | category=Fiction }</msg>
+<var>&amp;{book_data}</var>
+<arg>title=${title}</arg>
+<arg>author=${author}</arg>
+<arg>pages=${pages}</arg>
+<arg>category=${category}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.142537" elapsed="0.000237"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:58:01.145538" level="INFO">POST Request : url=http://books-service:8000/books/ 
+ path_url=/books/ 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '108', 'Content-Type': 'application/json'} 
+ body=b'{"title": "Update Test 20260223_115800", "author": "Original Author", "pages": "150", "category": "Fiction"}' 
+ </msg>
+<msg time="2026-02-23T11:58:01.145569" level="INFO">POST Response : url=http://books-service:8000/books/ 
+ status=200, reason=OK 
+ headers={'date': 'Mon, 23 Feb 2026 11:58:01 GMT', 'server': 'uvicorn', 'content-length': '125', 'content-type': 'application/json'} 
+ body={"title":"Update Test 20260223_115800","author":"Original Author","pages":150,"category":"Fiction","favorite":false,"id":144} 
+ </msg>
+<msg time="2026-02-23T11:58:01.145621" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>api</arg>
+<arg>/books/</arg>
+<arg>json=${book_data}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.142824" elapsed="0.002810"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.145698" elapsed="0.000092"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.146108" level="INFO">${json} = {'title': 'Update Test 20260223_115800', 'author': 'Original Author', 'pages': 150, 'category': 'Fiction', 'favorite': False, 'id': 144}</msg>
+<var>${json}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.145839" elapsed="0.000284"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.146304" level="INFO">${book_id} = 144</msg>
+<var>${book_id}</var>
+<arg>${json}[id]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.146179" elapsed="0.000136"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.146493" level="INFO">${BOOK_ID} = 144</msg>
+<arg>${BOOK_ID}</arg>
+<arg>${book_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.146362" elapsed="0.000149"/>
+</kw>
+<return>
+<value>${book_id}</value>
+<status status="PASS" start="2026-02-23T11:58:01.146537" elapsed="0.000034"/>
+</return>
+<msg time="2026-02-23T11:58:01.146633" level="INFO">${book_id} = 144</msg>
+<var>${book_id}</var>
+<arg>${title}</arg>
+<arg>Original Author</arg>
+<arg>150</arg>
+<arg>Fiction</arg>
+<doc>Create book via POST /books</doc>
+<status status="PASS" start="2026-02-23T11:58:01.142399" elapsed="0.004246"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.147305" level="INFO">${ORIGINAL_TITLE} = Update Test 20260223_115800</msg>
+<arg>${ORIGINAL_TITLE}</arg>
+<arg>${title}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.146806" elapsed="0.000529"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.147554" level="INFO">${BOOK_ID} = 144</msg>
+<arg>${BOOK_ID}</arg>
+<arg>${book_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.147403" elapsed="0.000169"/>
+</kw>
+<doc>Create test book</doc>
+<status status="PASS" start="2026-02-23T11:58:01.142057" elapsed="0.005546"/>
+</kw>
+<kw name="When User Deletes Book Via API">
+<kw name="Delete Book Via API" owner="api_keywords">
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:58:01.150501" level="INFO">DELETE Request : url=http://books-service:8000/books/144 
+ path_url=/books/144 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2026-02-23T11:58:01.150530" level="INFO">DELETE Response : url=http://books-service:8000/books/144 
+ status=200, reason=OK 
+ headers={'date': 'Mon, 23 Feb 2026 11:58:01 GMT', 'server': 'uvicorn', 'content-length': '39', 'content-type': 'application/json'} 
+ body={"message":"Book deleted successfully"} 
+ </msg>
+<msg time="2026-02-23T11:58:01.150574" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>api</arg>
+<arg>/books/${book_id}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.147924" elapsed="0.002663"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.150644" elapsed="0.000082"/>
+</kw>
+<arg>${BOOK_ID}</arg>
+<doc>Delete book via DELETE /books/{id}</doc>
+<status status="PASS" start="2026-02-23T11:58:01.147802" elapsed="0.002952"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.151025" level="INFO">${BOOK_ID} = </msg>
+<arg>${BOOK_ID}</arg>
+<arg>${EMPTY}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.150800" elapsed="0.000244"/>
+</kw>
+<doc>DELETE book</doc>
+<status status="PASS" start="2026-02-23T11:58:01.147672" elapsed="0.003401"/>
+</kw>
+<kw name="Then Book Should Be Deleted Successfully">
+<kw name="Pass Execution" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.151370" level="INFO">Execution passed with message:
+Book deleted</msg>
+<arg>Book deleted</arg>
+<doc>Skips rest of the current test, setup, or teardown with PASS status.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.151271" elapsed="0.000126">Book deleted</status>
+</kw>
+<doc>Verify deletion</doc>
+<status status="PASS" start="2026-02-23T11:58:01.151147" elapsed="0.000279">Book deleted</status>
+</kw>
+<kw name="And Book Should Not Be Retrievable">
+<doc>Verify book is gone</doc>
+<status status="NOT RUN" start="2026-02-23T11:58:01.151481" elapsed="0.000020"/>
+</kw>
+<kw name="Test Cleanup" owner="common" type="TEARDOWN">
+<if>
+<branch type="IF" condition="'${BOOK_ID}' != '${EMPTY}'">
+<try>
+<branch type="TRY">
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<arg>api</arg>
+<arg>/books/${BOOK_ID}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="NOT RUN" start="2026-02-23T11:58:01.152025" elapsed="0.000018"/>
+</kw>
+<status status="NOT RUN" start="2026-02-23T11:58:01.151976" elapsed="0.000086"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log" owner="BuiltIn">
+<arg>Cleanup failed for book ${BOOK_ID}</arg>
+<arg>level=WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-02-23T11:58:01.152128" elapsed="0.000019"/>
+</kw>
+<status status="NOT RUN" start="2026-02-23T11:58:01.152082" elapsed="0.000082"/>
+</branch>
+<status status="NOT RUN" start="2026-02-23T11:58:01.151957" elapsed="0.000222"/>
+</try>
+<status status="NOT RUN" start="2026-02-23T11:58:01.151803" elapsed="0.000384"/>
+</branch>
+<status status="PASS" start="2026-02-23T11:58:01.151793" elapsed="0.000407"/>
+</if>
+<doc>Cleanup after each test</doc>
+<status status="PASS" start="2026-02-23T11:58:01.151696" elapsed="0.000524"/>
+</kw>
+<doc>Verify DELETE /books/{id} endpoint</doc>
+<tag>api</tag>
+<tag>books</tag>
+<tag>delete</tag>
+<status status="PASS" start="2026-02-23T11:58:01.139889" elapsed="0.012351">Book deleted</status>
+</test>
+<test id="s1-s1-t5" name="API Should Return 404 For Non-Existent Book" line="50">
+<kw name="Test Initialization" owner="common" type="SETUP">
+<kw name="Generate Random String" owner="String">
+<msg time="2026-02-23T11:58:01.155739" level="INFO">${unique_id} = 6AFMeqrJ</msg>
+<var>${unique_id}</var>
+<arg>8</arg>
+<arg>[LETTERS][NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.155627" elapsed="0.000126"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.155953" level="INFO">${UNIQUE_ID} = 6AFMeqrJ</msg>
+<arg>${UNIQUE_ID}</arg>
+<arg>${unique_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.155812" elapsed="0.000168"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.156434" level="INFO">${BOOK_ID} = </msg>
+<arg>${BOOK_ID}</arg>
+<arg>${EMPTY}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.156034" elapsed="0.000419"/>
+</kw>
+<doc>Setup for each test</doc>
+<status status="PASS" start="2026-02-23T11:58:01.155511" elapsed="0.000972"/>
+</kw>
+<kw name="Given Non-Existent Book ID Is Used">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.156921" level="INFO">${INVALID_ID} = 99999</msg>
+<arg>${INVALID_ID}</arg>
+<arg>99999</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.156647" elapsed="0.000292"/>
+</kw>
+<doc>Use invalid ID</doc>
+<status status="PASS" start="2026-02-23T11:58:01.156544" elapsed="0.000423"/>
+</kw>
+<kw name="When User Requests Book By ID">
+<try>
+<branch type="TRY">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:58:01.158495" level="INFO">GET Request : url=http://books-service:8000/books/99999 
+ path_url=/books/99999 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-02-23T11:58:01.158523" level="INFO">GET Response : url=http://books-service:8000/books/99999 
+ status=404, reason=Not Found 
+ headers={'date': 'Mon, 23 Feb 2026 11:58:01 GMT', 'server': 'uvicorn', 'content-length': '27', 'content-type': 'application/json'} 
+ body={"detail":"Book not found"} 
+ </msg>
+<msg time="2026-02-23T11:58:01.158573" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<var>${response}</var>
+<arg>api</arg>
+<arg>/books/${INVALID_ID}</arg>
+<arg>expected_status=404</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.157203" elapsed="0.001382"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.158923" level="INFO">${ERROR_RESPONSE} = &lt;Response [404]&gt;</msg>
+<arg>${ERROR_RESPONSE}</arg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.158646" elapsed="0.000296"/>
+</kw>
+<status status="PASS" start="2026-02-23T11:58:01.157153" elapsed="0.001873"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${ERROR_RESPONSE}</arg>
+<arg>${None}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2026-02-23T11:58:01.159119" elapsed="0.000023"/>
+</kw>
+<status status="NOT RUN" start="2026-02-23T11:58:01.159052" elapsed="0.000111"/>
+</branch>
+<status status="PASS" start="2026-02-23T11:58:01.157139" elapsed="0.002046"/>
+</try>
+<doc>GET non-existent book</doc>
+<status status="PASS" start="2026-02-23T11:58:01.157052" elapsed="0.002156"/>
+</kw>
+<kw name="Then API Should Return 404 Status">
+<if>
+<branch type="IF" condition="$ERROR_RESPONSE != $None">
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>404</arg>
+<arg>${ERROR_RESPONSE}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.160558" elapsed="0.000123"/>
+</kw>
+<status status="PASS" start="2026-02-23T11:58:01.159419" elapsed="0.001287"/>
+</branch>
+<branch type="ELSE">
+<kw name="Pass Execution" owner="BuiltIn">
+<arg>404 error handled correctly</arg>
+<doc>Skips rest of the current test, setup, or teardown with PASS status.</doc>
+<status status="NOT RUN" start="2026-02-23T11:58:01.160784" elapsed="0.000021"/>
+</kw>
+<status status="NOT RUN" start="2026-02-23T11:58:01.160723" elapsed="0.000101"/>
+</branch>
+<status status="PASS" start="2026-02-23T11:58:01.159410" elapsed="0.001428"/>
+</if>
+<doc>Verify 404 response</doc>
+<status status="PASS" start="2026-02-23T11:58:01.159297" elapsed="0.001560"/>
+</kw>
+<kw name="Test Cleanup" owner="common" type="TEARDOWN">
+<if>
+<branch type="IF" condition="'${BOOK_ID}' != '${EMPTY}'">
+<try>
+<branch type="TRY">
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<arg>api</arg>
+<arg>/books/${BOOK_ID}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="NOT RUN" start="2026-02-23T11:58:01.161359" elapsed="0.000021"/>
+</kw>
+<status status="NOT RUN" start="2026-02-23T11:58:01.161307" elapsed="0.000095"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log" owner="BuiltIn">
+<arg>Cleanup failed for book ${BOOK_ID}</arg>
+<arg>level=WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-02-23T11:58:01.161474" elapsed="0.000018"/>
+</kw>
+<status status="NOT RUN" start="2026-02-23T11:58:01.161424" elapsed="0.000084"/>
+</branch>
+<status status="NOT RUN" start="2026-02-23T11:58:01.161294" elapsed="0.000229"/>
+</try>
+<status status="NOT RUN" start="2026-02-23T11:58:01.161103" elapsed="0.000427"/>
+</branch>
+<status status="PASS" start="2026-02-23T11:58:01.161095" elapsed="0.000447"/>
+</if>
+<doc>Cleanup after each test</doc>
+<status status="PASS" start="2026-02-23T11:58:01.160969" elapsed="0.000592"/>
+</kw>
+<doc>Verify error handling for missing book</doc>
+<tag>api</tag>
+<tag>books</tag>
+<tag>error</tag>
+<status status="PASS" start="2026-02-23T11:58:01.154319" elapsed="0.007261"/>
+</test>
+<kw name="Suite Cleanup" owner="common" type="TEARDOWN">
+<kw name="Delete All Sessions" owner="RequestsLibrary">
+<msg time="2026-02-23T11:58:01.163956" level="INFO">Deleting All Sessions</msg>
+<doc>Removes all the session objects</doc>
+<status status="PASS" start="2026-02-23T11:58:01.163909" elapsed="0.000088"/>
+</kw>
+<doc>Cleanup test environment</doc>
+<status status="PASS" start="2026-02-23T11:58:01.163808" elapsed="0.000219"/>
+</kw>
+<doc>Books API Test Suite
+
+Validates REST API endpoints for book management.
+Tests cover CRUD operations and response validation.</doc>
+<status status="PASS" start="2026-02-23T11:58:00.782597" elapsed="0.381448"/>
+</suite>
+<suite id="s1-s2" name="Books Ui" source="/tests/books_ui.robot">
+<kw name="Suite Initialization For UI" owner="common_ui" type="SETUP">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2026-02-23T11:58:01.170731" level="INFO">${timestamp} = 20260223_115801</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.170619" elapsed="0.000125"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.170940" level="INFO">${TIMESTAMP} = 20260223_115801</msg>
+<arg>${TIMESTAMP}</arg>
+<arg>${timestamp}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.170800" elapsed="0.000158"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:58:01.171104" level="INFO">Creating Session using : alias=api, url=http://books-service:8000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>api</arg>
+<arg>${API_URL}</arg>
+<arg>verify=true</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-02-23T11:58:01.171024" elapsed="0.000151"/>
+</kw>
+<kw name="New Browser" owner="Browser">
+<msg time="2026-02-23T11:58:01.171492" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "/results/browser/traces/temp/a17a77f7-a545-4a77-934f-f3fab6138833"}</msg>
+<msg time="2026-02-23T11:58:01.193701" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"/results/browser/traces/temp/a17a77f7-a545-4a77-934f-f3fab6138833"}</msg>
+<arg>${BROWSER}</arg>
+<arg>headless=${HEADLESS}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.171230" elapsed="0.022602"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-02-23T11:58:01.194952" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  }
+}</msg>
+<msg time="2026-02-23T11:58:01.200294" level="INFO">Successfully created context. </msg>
+<msg time="2026-02-23T11:58:01.200352" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1920, 'height': 1080}}</msg>
+<arg>viewport={'width': 1920, 'height': 1080}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.194009" elapsed="0.006390"/>
+</kw>
+<doc>Initialize test environment with browser</doc>
+<status status="PASS" start="2026-02-23T11:58:01.170517" elapsed="0.029955"/>
+</kw>
+<test id="s1-s2-t1" name="User Should Be Able To Create Book Via UI" line="19">
+<kw name="Test Initialization For UI" owner="common_ui" type="SETUP">
+<kw name="Generate Random String" owner="String">
+<msg time="2026-02-23T11:58:01.202051" level="INFO">${unique_id} = ShZNDZR9</msg>
+<var>${unique_id}</var>
+<arg>8</arg>
+<arg>[LETTERS][NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.201904" elapsed="0.000162"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.202314" level="INFO">${UNIQUE_ID} = ShZNDZR9</msg>
+<arg>${UNIQUE_ID}</arg>
+<arg>${unique_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.202132" elapsed="0.000202"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.202949" level="INFO">${BOOK_ID} = </msg>
+<arg>${BOOK_ID}</arg>
+<arg>${EMPTY}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.202391" elapsed="0.000578"/>
+</kw>
+<doc>Setup for each test</doc>
+<status status="PASS" start="2026-02-23T11:58:01.201726" elapsed="0.001287"/>
+</kw>
+<kw name="Given User Is On Books Page" owner="ui_keywords">
+<kw name="New Page" owner="Browser">
+<msg time="2026-02-23T11:58:01.431806" level="INFO">Successfully initialized new page object and opened url: http://books-service:8000</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.203207" elapsed="0.228748"/>
+</kw>
+<kw name="Wait For Load State" owner="Browser">
+<msg time="2026-02-23T11:58:01.432461" level="INFO">Waiting page load to state to receive networkidle in 10000.0</msg>
+<msg time="2026-02-23T11:58:01.936646" level="INFO">Load state networkidle got in 10000</msg>
+<arg>networkidle</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits that the page reaches the required load state.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.432135" elapsed="0.504809"/>
+</kw>
+<kw name="Get Title" owner="Browser">
+<msg time="2026-02-23T11:58:01.944906" level="INFO">Title: 'Books Library'</msg>
+<arg>==</arg>
+<arg>Books Library</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.937328" elapsed="0.007687"/>
+</kw>
+<doc>Navigate to books page and verify loaded</doc>
+<status status="PASS" start="2026-02-23T11:58:01.203089" elapsed="0.742026"/>
+</kw>
+<kw name="When User Creates Book With Valid Data">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.945941" level="INFO">${title} = Test Book 20260223_115801 ShZNDZR9</msg>
+<var>${title}</var>
+<arg>Test Book ${TIMESTAMP} ${UNIQUE_ID}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.945624" elapsed="0.000345"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.946338" level="INFO">${author} = Test Author</msg>
+<var>${author}</var>
+<arg>Test Author</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.946109" elapsed="0.000253"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.946667" level="INFO">${pages} = 250</msg>
+<var>${pages}</var>
+<arg>250</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.946459" elapsed="0.000233"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:01.947020" level="INFO">${category} = Fiction</msg>
+<var>${category}</var>
+<arg>Fiction</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.946786" elapsed="0.000260"/>
+</kw>
+<kw name="User Fills Book Form" owner="ui_keywords">
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-02-23T11:58:01.947842" level="INFO">Fills the text 'Test Book 20260223_115801 ShZNDZR9' in the given field.</msg>
+<arg>${INPUT_TITLE}</arg>
+<arg>${title}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.947520" elapsed="0.023314"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-02-23T11:58:01.971426" level="INFO">Fills the text 'Test Author' in the given field.</msg>
+<arg>${INPUT_AUTHOR}</arg>
+<arg>${author}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.971048" elapsed="0.005836"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-02-23T11:58:01.977320" level="INFO">Fills the text '250' in the given field.</msg>
+<arg>${INPUT_PAGES}</arg>
+<arg>${pages}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.977025" elapsed="0.005069"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-02-23T11:58:01.982534" level="INFO">Selects the option(s) Fiction by attribute SelectAttribute.value from element id=category.</msg>
+<arg>${SELECT_CATEGORY}</arg>
+<arg>value</arg>
+<arg>${category}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.982222" elapsed="0.018442"/>
+</kw>
+<arg>${title}</arg>
+<arg>${author}</arg>
+<arg>${pages}</arg>
+<arg>${category}</arg>
+<doc>Fill book creation form</doc>
+<status status="PASS" start="2026-02-23T11:58:01.947186" elapsed="0.053575"/>
+</kw>
+<kw name="User Submits Book Form" owner="ui_keywords">
+<kw name="Click" owner="Browser">
+<msg time="2026-02-23T11:58:02.001378" level="INFO">Clicks the element 'css=#book-form button[type="submit"]'.</msg>
+<arg>${BTN_SUBMIT}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-02-23T11:58:02.001141" elapsed="0.039147"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-23T11:58:04.041505" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-23T11:58:02.040462" elapsed="2.001182"/>
+</kw>
+<kw name="Reload" owner="Browser">
+<msg time="2026-02-23T11:58:04.064722" level="INFO">Reloaded page with options: {"waitUntil": "load"}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Reloads current active page.</doc>
+<status status="PASS" start="2026-02-23T11:58:04.041813" elapsed="0.023047"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-23T11:58:06.066909" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-23T11:58:04.065043" elapsed="2.002481"/>
+</kw>
+<doc>Submit book form and wait for response</doc>
+<status status="PASS" start="2026-02-23T11:58:02.000903" elapsed="4.067189"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:06.071145" level="INFO">${TEST_BOOK_TITLE} = Test Book 20260223_115801 ShZNDZR9</msg>
+<arg>${TEST_BOOK_TITLE}</arg>
+<arg>${title}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:06.068809" elapsed="0.002463"/>
+</kw>
+<doc>Fill and submit book form</doc>
+<status status="PASS" start="2026-02-23T11:58:01.945318" elapsed="4.126154"/>
+</kw>
+<kw name="Then Book Should Appear In Books List">
+<kw name="Get All Books Via API" owner="api_keywords">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:58:06.081173" level="INFO">GET Request : url=http://books-service:8000/books/ 
+ path_url=/books/ 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-02-23T11:58:06.081326" level="INFO">GET Response : url=http://books-service:8000/books/ 
+ status=200, reason=OK 
+ headers={'date': 'Mon, 23 Feb 2026 11:58:05 GMT', 'server': 'uvicorn', 'content-length': '17223', 'content-type': 'application/json'} 
+ body=[{"title":"History of Ocean","author":"Leo Tolstoy","pages":185,"category":"Science Fiction","favorite":true,"id":1},{"title":"The Kingdom Mystery","author":"Neil Gaiman","pages":655,"category":"History","favorite":true,"id":2},{"title":"Tales of Dragon Twilight","author":"Jane Austen","pages":992,"category":"Historical Fiction","favorite":false,"id":3},{"title":"History of Peace Tales","author":"F. Scott Fitzgerald","pages":270,"category":"Science","favorite":false,"id":4},{"title":"Rise of Planet Dusk","author":"Haruki Murakami","pages":814,"category":"Philosophy","favorite":false,"id":5},{"title":"Secrets of Love","author":"Haruki Murakami","pages":757,"category":"Science Fiction","favorite":true,"id":6},{"title":"History of Life Revelation","author":"George R.R. Martin","pages":503,"category":"Non-Fiction","favorite":true,"id":7},{"title":"Villain Destiny","author":"Stephen King","pages":745,"category":"Science Fiction","favorite":false,"id":8},{"title":"Journey to Universe","author":"J.R.R. Tolkien","pages":371,"category":"Science","favorite":false,"id":9},{"title":"The Love","author":"Haruki Murakami","pages":615,"category":"Travel","favorite":false,"id":10},{"title":"Future Saga","author":"Margaret Atwood","pages":582,"category":"Self-Help","favorite":false,"id":11},{"title":"World of Planet","author":"George R.R. Martin","pages":759,"category":"Self-Help","favorite":false,"id":12},{"title":"Journey to Dragon","author":"Margaret Atwood","pages":301,"category":"Business","favorite":false,"id":13},{"title":"A Ocean Quest","author":"Toni Morrison","pages":334,"category":"Travel","favorite":false,"id":14},{"title":"Friend Quest","author":"Neil Gaiman","pages":605,"category":"History","favorite":true,"id":15},{"title":"Mystery of Ocean Destiny","author":"Toni Morrison","pages":827,"category":"Science","favorite":false,"id":16},{"title":"Art of Mind Adventure","author":"George R.R. Martin","pages":907,"category":"Cookbooks","favorite":false,"id":17},{"title":"Tales of Star","author":"Mark Twain","pages":110,"category":"Poetry","favorite":false,"id":18},{"title":"Masters of Mountain","author":"Virginia Woolf","pages":213,"category":"Mystery","favorite":false,"id":19},{"title":"Masters of Enemy Conspiracy","author":"Stephen King","pages":996,"category":"Fiction","favorite":false,"id":20},{"title":"Legend of Society","author":"Virginia Woolf","pages":628,"category":"Science","favorite":true,"id":21},{"title":"Science of Ocean Awakening","author":"Ernest Hemingway","pages":520,"category":"Biography","favorite":false,"id":22},{"title":"Universe Destiny","author":"Haruki Murakami","pages":838,"category":"Poetry","favorite":false,"id":23},{"title":"Legend of Past Quest","author":"Stephen King","pages":758,"category":"Thriller","favorite":false,"id":24},{"title":"Death Night","author":"J.K. Rowling","pages":801,"category":"Self-Help","favorite":false,"id":25},{"title":"Past Day","author":"Dante Alighieri","pages":917,"category":"Science","favorite":false,"id":26},{"title":"War Journey","author":"Haruki Murakami","pages":893,"category":"Self-Help","favorite":false,"id":27},{"title":"The Death","author":"Agatha Christie","pages":292,"category":"Philosophy","favorite":false,"id":28},{"title":"Guide to Forest","author":"Stephen King","pages":421,"category":"Science","favorite":false,"id":29},{"title":"Tales of Friend","author":"Stephen King","pages":491,"category":"Travel","favorite":false,"id":30},{"title":"Tales of Empire","author":"J.R.R. Tolkien","pages":528,"category":"Business","favorite":false,"id":31},{"title":"Guide to Dragon Revelation","author":"Jane Austen","pages":250,"category":"Young Adult","favorite":false,"id":32},{"title":"Chronicles of Heart","author":"Margaret Atwood","pages":193,"category":"History","favorite":false,"id":33},{"title":"Journey to Planet","author":"Margaret Atwood","pages":106,"category":"Historical Fiction","favorite":true,"id":34},{"title":"Science of Kingdom","author":"Leo Tolstoy","pages":353,"category":"Biography","favorite":false,"id":35},{"title":"Path to Family Quest","author":"Neil Gaiman","pages":946,"category":"Travel","favorite":false,"id":36},{"title":"Rise of Future Dawn","author":"Neil Gaiman","pages":303,"category":"Thriller","favorite":false,"id":37},{"title":"Chronicles of Dragon Stories","author":"Leo Tolstoy","pages":552,"category":"Fantasy","favorite":false,"id":38},{"title":"Guide to Past Dawn","author":"Dante Alighieri","pages":447,"category":"Science","favorite":false,"id":39},{"title":"Science of Hero","author":"Toni Morrison","pages":129,"category":"Thriller","favorite":false,"id":40},{"title":"Life Quest","author":"Haruki Murakami","pages":435,"category":"Business","favorite":false,"id":41},{"title":"Return to Kingdom","author":"Ernest Hemingway","pages":589,"category":"Science Fiction","favorite":true,"id":42},{"title":"Society Chronicles","author":"Margaret Atwood","pages":891,"category":"History","favorite":true,"id":43},{"title":"Kingdom Conspiracy","author":"Ernest Hemingway","pages":385,"category":"Business","favorite":false,"id":44},{"title":"Society Conspiracy","author":"Neil Gaiman","pages":593,"category":"Non-Fiction","favorite":false,"id":45},{"title":"Return to Peace","author":"F. Scott Fitzgerald","pages":904,"category":"Business","favorite":false,"id":46},{"title":"Ocean Redemption","author":"Homer","pages":837,"category":"Science Fiction","favorite":false,"id":47},{"title":"Art of Empire","author":"Gabriel García Márquez","pages":575,"category":"Children's Books","favorite":false,"id":48},{"title":"Life of Mountain Conspiracy","author":"George R.R. Martin","pages":834,"category":"Biography","favorite":false,"id":49},{"title":"Future Awakening","author":"Brandon Sanderson","pages":757,"category":"Fiction","favorite":false,"id":50},{"title":"Journey to Universe","author":"Toni Morrison","pages":668,"category":"History","favorite":false,"id":51},{"title":"Journey to War","author":"J.R.R. Tolkien","pages":888,"category":"Mystery","favorite":false,"id":52},{"title":"Masters of Kingdom Redemption","author":"Jane Austen","pages":934,"category":"Children's Books","favorite":false,"id":53},{"title":"Secrets of Society","author":"Dante Alighieri","pages":255,"category":"Thriller","favorite":false,"id":54},{"title":"Tales of Universe","author":"Margaret Atwood","pages":874,"category":"Mystery","favorite":false,"id":55},{"title":"Mystery of Enemy","author":"Margaret Atwood","pages":177,"category":"Young Adult","favorite":false,"id":56},{"title":"Journey to War","author":"Brandon Sanderson","pages":697,"category":"Self-Help","favorite":true,"id":57},{"title":"A Society Tales","author":"Jane Austen","pages":302,"category":"Mystery","favorite":false,"id":58},{"title":"Chronicles of Universe Adventure","author":"Brandon Sanderson","pages":993,"category":"Travel","favorite":false,"id":59},{"title":"Mystery of Kingdom","author":"Haruki Murakami","pages":884,"category":"Historical Fiction","favorite":true,"id":60},{"title":"Rise of Star","author":"Charles Dickens","pages":574,"category":"Biography","favorite":false,"id":61},{"title":"Tales of Friend","author":"Charles Dickens","pages":148,"category":"Children's Books","favorite":false,"id":62},{"title":"Mind Tales","author":"Ernest Hemingway","pages":795,"category":"Self-Help","favorite":false,"id":63},{"title":"Guide to Dragon","author":"F. Scott Fitzgerald","pages":959,"category":"Non-Fiction","favorite":false,"id":64},{"title":"Forest Redemption","author":"Haruki Murakami","pages":504,"category":"Romance","favorite":false,"id":65},{"title":"Legend of Castle","author":"J.R.R. Tolkien","pages":803,"category":"Science Fiction","favorite":false,"id":66},{"title":"Mind Saga","author":"Homer","pages":535,"category":"Horror","favorite":false,"id":67},{"title":"Masters of Heart Revelation","author":"Charles Dickens","pages":355,"category":"History","favorite":false,"id":68},{"title":"Mystery of Universe","author":"Haruki Murakami","pages":371,"category":"Self-Help","favorite":false,"id":69},{"title":"Secrets of Future Destiny","author":"Toni Morrison","pages":107,"category":"Fantasy","favorite":true,"id":70},{"title":"Life Destiny","author":"Haruki Murakami","pages":384,"category":"Cookbooks","favorite":false,"id":71},{"title":"Journey to Friend Revelation","author":"Homer","pages":318,"category":"Children's Books","favorite":false,"id":72},{"title":"Return to Forest Chronicles","author":"Ernest Hemingway","pages":588,"category":"Horror","favorite":false,"id":73},{"title":"Hero Mystery","author":"Ernest Hemingway","pages":354,"category":"Romance","favorite":false,"id":74},{"title":"Masters of Castle","author":"Haruki Murakami","pages":827,"category":"Non-Fiction","favorite":false,"id":75},{"title":"Adventures in Empire","author":"Virginia Woolf","pages":992,"category":"Business","favorite":false,"id":76},{"title":"Star Awakening","author":"Charles Dickens","pages":951,"category":"Business","favorite":true,"id":77},{"title":"Family Awakening","author":"George R.R. Martin","pages":271,"category":"Science Fiction","favorite":false,"id":78},{"title":"Life Destiny","author":"Leo Tolstoy","pages":714,"category":"Fiction","favorite":false,"id":79},{"title":"Guide to Life","author":"Charles Dickens","pages":484,"category":"Philosophy","favorite":false,"id":80},{"title":"Mystery of War","author":"Virginia Woolf","pages":148,"category":"Philosophy","favorite":false,"id":81},{"title":"Life of Family Tales","author":"Jane Austen","pages":554,"category":"Young Adult","favorite":true,"id":82},{"title":"Legend of Past Revelation","author":"Margaret Atwood","pages":363,"category":"Historical Fiction","favorite":false,"id":83},{"title":"Rise of Forest Tales","author":"Charles Dickens","pages":443,"category":"Travel","favorite":false,"id":84},{"title":"Star Journey","author":"Gabriel García Márquez","pages":701,"category":"Non-Fiction","favorite":false,"id":85},{"title":"Legend of Castle Awakening","author":"J.K. Rowling","pages":420,... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg time="2026-02-23T11:58:06.082159" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>api</arg>
+<arg>/books/</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:58:06.073127" elapsed="0.009077"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-02-23T11:58:06.082446" elapsed="0.000361"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2026-02-23T11:58:06.082874" elapsed="0.000084"/>
+</return>
+<msg time="2026-02-23T11:58:06.083132" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<doc>Retrieve all books via GET /books</doc>
+<status status="PASS" start="2026-02-23T11:58:06.072649" elapsed="0.010509"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:06.084253" level="INFO">${books} = [{'title': 'History of Ocean', 'author': 'Leo Tolstoy', 'pages': 185, 'category': 'Science Fiction', 'favorite': True, 'id': 1}, {'title': 'The Kingdom Mystery', 'author': 'Neil Gaiman', 'pages': 655,...</msg>
+<var>${books}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:06.083276" elapsed="0.001010"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-02-23T11:58:06.087317" level="INFO">${found} = [{'title': 'Test Book 20260223_115801 ShZNDZR9', 'author': 'Test Author', 'pages': 250, 'category': 'Fiction', 'favorite': False, 'id': 144}]</msg>
+<var>${found}</var>
+<arg>[b for b in ${books} if '${TEST_BOOK_TITLE}' in b.get('title', '')]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-02-23T11:58:06.084408" elapsed="0.002939"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-02-23T11:58:06.087720" level="INFO">Length is 1.</msg>
+<arg>${found}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-02-23T11:58:06.087462" elapsed="0.000300"/>
+</kw>
+<doc>Verify book was created via API</doc>
+<status status="PASS" start="2026-02-23T11:58:06.071934" elapsed="0.015891"/>
+</kw>
+<kw name="Test Cleanup For UI" owner="common_ui" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Take Screenshot</arg>
+<arg>${TEST_NAME}_failure</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-02-23T11:58:06.088430" elapsed="0.000217"/>
+</kw>
+<if>
+<branch type="IF" condition="'${BOOK_ID}' != '${EMPTY}'">
+<try>
+<branch type="TRY">
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<arg>api</arg>
+<arg>/books/${BOOK_ID}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="NOT RUN" start="2026-02-23T11:58:06.089212" elapsed="0.000036"/>
+</kw>
+<status status="NOT RUN" start="2026-02-23T11:58:06.089109" elapsed="0.000176"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log" owner="BuiltIn">
+<arg>Cleanup failed for book ${BOOK_ID}</arg>
+<arg>level=WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-02-23T11:58:06.089421" elapsed="0.000031"/>
+</kw>
+<status status="NOT RUN" start="2026-02-23T11:58:06.089324" elapsed="0.000159"/>
+</branch>
+<status status="NOT RUN" start="2026-02-23T11:58:06.089077" elapsed="0.000437"/>
+</try>
+<status status="NOT RUN" start="2026-02-23T11:58:06.088722" elapsed="0.000808"/>
+</branch>
+<status status="PASS" start="2026-02-23T11:58:06.088703" elapsed="0.000849"/>
+</if>
+<doc>Cleanup after each test</doc>
+<status status="PASS" start="2026-02-23T11:58:06.088137" elapsed="0.001452"/>
+</kw>
+<msg time="2026-02-23T11:58:06.097256" level="INFO">Closing current active page.</msg>
+<msg time="2026-02-23T11:58:06.100641" level="INFO">Successfully closed Page with runBeforeUnload false</msg>
+<doc>Verify book creation through web form</doc>
+<tag>books</tag>
+<tag>create</tag>
+<tag>smoke</tag>
+<tag>ui</tag>
+<status status="PASS" start="2026-02-23T11:58:01.200526" elapsed="4.889102"/>
+</test>
+<test id="s1-s2-t2" name="User Should Be Able To Search For Books" line="26">
+<kw name="Test Initialization For UI" owner="common_ui" type="SETUP">
+<kw name="Generate Random String" owner="String">
+<msg time="2026-02-23T11:58:06.102829" level="INFO">${unique_id} = MD1PFwMo</msg>
+<var>${unique_id}</var>
+<arg>8</arg>
+<arg>[LETTERS][NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-02-23T11:58:06.102636" elapsed="0.000216"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:06.103255" level="INFO">${UNIQUE_ID} = MD1PFwMo</msg>
+<arg>${UNIQUE_ID}</arg>
+<arg>${unique_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:06.102956" elapsed="0.000331"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:06.104079" level="INFO">${BOOK_ID} = </msg>
+<arg>${BOOK_ID}</arg>
+<arg>${EMPTY}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:06.103379" elapsed="0.000732"/>
+</kw>
+<doc>Setup for each test</doc>
+<status status="PASS" start="2026-02-23T11:58:06.102359" elapsed="0.001801"/>
+</kw>
+<kw name="Given User Is On Books Page" owner="ui_keywords">
+<kw name="New Page" owner="Browser">
+<msg time="2026-02-23T11:58:06.147115" level="INFO">Successfully initialized new page object and opened url: http://books-service:8000</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-02-23T11:58:06.104452" elapsed="0.042812"/>
+</kw>
+<kw name="Wait For Load State" owner="Browser">
+<msg time="2026-02-23T11:58:06.147710" level="INFO">Waiting page load to state to receive networkidle in 10000.0</msg>
+<msg time="2026-02-23T11:58:06.655528" level="INFO">Load state networkidle got in 10000</msg>
+<arg>networkidle</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits that the page reaches the required load state.</doc>
+<status status="PASS" start="2026-02-23T11:58:06.147408" elapsed="0.508270"/>
+</kw>
+<kw name="Get Title" owner="Browser">
+<msg time="2026-02-23T11:58:06.660370" level="INFO">Title: 'Books Library'</msg>
+<arg>==</arg>
+<arg>Books Library</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2026-02-23T11:58:06.655869" elapsed="0.004570"/>
+</kw>
+<doc>Navigate to books page and verify loaded</doc>
+<status status="PASS" start="2026-02-23T11:58:06.104276" elapsed="0.556241"/>
+</kw>
+<kw name="And Test Book Exists In System">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:06.661172" level="INFO">${title} = Search Test 20260223_115801</msg>
+<var>${title}</var>
+<arg>Search Test ${TIMESTAMP}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:06.660911" elapsed="0.000283"/>
+</kw>
+<kw name="Create Book Via API" owner="api_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-02-23T11:58:06.661927" level="INFO">&amp;{book_data} = { title=Search Test 20260223_115801 | author=Test Author | pages=200 | category=Fiction }</msg>
+<var>&amp;{book_data}</var>
+<arg>title=${title}</arg>
+<arg>author=${author}</arg>
+<arg>pages=${pages}</arg>
+<arg>category=${category}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-02-23T11:58:06.661582" elapsed="0.000367"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:58:06.669275" level="INFO">POST Request : url=http://books-service:8000/books/ 
+ path_url=/books/ 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '104', 'Content-Type': 'application/json'} 
+ body=b'{"title": "Search Test 20260223_115801", "author": "Test Author", "pages": "200", "category": "Fiction"}' 
+ </msg>
+<msg time="2026-02-23T11:58:06.669482" level="INFO">POST Response : url=http://books-service:8000/books/ 
+ status=200, reason=OK 
+ headers={'date': 'Mon, 23 Feb 2026 11:58:06 GMT', 'server': 'uvicorn', 'content-length': '121', 'content-type': 'application/json'} 
+ body={"title":"Search Test 20260223_115801","author":"Test Author","pages":200,"category":"Fiction","favorite":false,"id":145} 
+ </msg>
+<msg time="2026-02-23T11:58:06.669595" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>api</arg>
+<arg>/books/</arg>
+<arg>json=${book_data}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:58:06.662058" elapsed="0.007559"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-02-23T11:58:06.669740" elapsed="0.000185"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:06.670486" level="INFO">${json} = {'title': 'Search Test 20260223_115801', 'author': 'Test Author', 'pages': 200, 'category': 'Fiction', 'favorite': False, 'id': 145}</msg>
+<var>${json}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:06.670038" elapsed="0.000470"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:06.670784" level="INFO">${book_id} = 145</msg>
+<var>${book_id}</var>
+<arg>${json}[id]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:06.670593" elapsed="0.000209"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:06.671123" level="INFO">${BOOK_ID} = 145</msg>
+<arg>${BOOK_ID}</arg>
+<arg>${book_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:06.670881" elapsed="0.000270"/>
+</kw>
+<return>
+<value>${book_id}</value>
+<status status="PASS" start="2026-02-23T11:58:06.671191" elapsed="0.000052"/>
+</return>
+<msg time="2026-02-23T11:58:06.671326" level="INFO">${book_id} = 145</msg>
+<var>${book_id}</var>
+<arg>${title}</arg>
+<arg>Test Author</arg>
+<arg>200</arg>
+<arg>Fiction</arg>
+<doc>Create book via POST /books</doc>
+<status status="PASS" start="2026-02-23T11:58:06.661330" elapsed="0.010013"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:06.671885" level="INFO">${TEST_BOOK_TITLE} = Search Test 20260223_115801</msg>
+<arg>${TEST_BOOK_TITLE}</arg>
+<arg>${title}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:06.671425" elapsed="0.000491"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:06.672201" level="INFO">${BOOK_ID} = 145</msg>
+<arg>${BOOK_ID}</arg>
+<arg>${book_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:06.672006" elapsed="0.000222"/>
+</kw>
+<doc>Create test book via API</doc>
+<status status="PASS" start="2026-02-23T11:58:06.660668" elapsed="0.011604"/>
+</kw>
+<kw name="When User Searches For Test Book">
+<kw name="User Searches For Book" owner="ui_keywords">
+<kw name="Reload" owner="Browser">
+<msg time="2026-02-23T11:58:06.693919" level="INFO">Reloaded page with options: {"waitUntil": "load"}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Reloads current active page.</doc>
+<status status="PASS" start="2026-02-23T11:58:06.672765" elapsed="0.021290"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-23T11:58:07.696686" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-23T11:58:06.694197" elapsed="1.003097"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-02-23T11:58:07.700324" level="INFO">Fills the text 'Search Test 20260223_115801' in the given field.</msg>
+<arg>id=search-input</arg>
+<arg>${search_term}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-02-23T11:58:07.698213" elapsed="0.033988"/>
+</kw>
+<kw name="Wait For Load State" owner="Browser">
+<msg time="2026-02-23T11:58:07.732793" level="INFO">Waiting page load to state to receive networkidle in 10000.0</msg>
+<msg time="2026-02-23T11:58:07.734511" level="INFO">Load state networkidle got in 10000</msg>
+<arg>networkidle</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits that the page reaches the required load state.</doc>
+<status status="PASS" start="2026-02-23T11:58:07.732411" elapsed="0.002167"/>
+</kw>
+<arg>${TEST_BOOK_TITLE}</arg>
+<doc>Search for book by title or author</doc>
+<status status="PASS" start="2026-02-23T11:58:06.672573" elapsed="1.062076"/>
+</kw>
+<doc>Search for created book</doc>
+<status status="PASS" start="2026-02-23T11:58:06.672371" elapsed="1.062326"/>
+</kw>
+<kw name="Then Only Matching Books Should Be Visible">
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-02-23T11:58:07.738049" level="INFO">${count} = 12</msg>
+<var>${count}</var>
+<arg>css=.book-card</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-02-23T11:58:07.735115" elapsed="0.002958"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${count} &gt; 0</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-02-23T11:58:07.738172" elapsed="0.000232"/>
+</kw>
+<doc>Verify search field works</doc>
+<status status="PASS" start="2026-02-23T11:58:07.734836" elapsed="0.003617"/>
+</kw>
+<kw name="Test Cleanup For UI" owner="common_ui" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Take Screenshot</arg>
+<arg>${TEST_NAME}_failure</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-02-23T11:58:07.738869" elapsed="0.000173"/>
+</kw>
+<if>
+<branch type="IF" condition="'${BOOK_ID}' != '${EMPTY}'">
+<try>
+<branch type="TRY">
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:58:07.746206" level="INFO">DELETE Request : url=http://books-service:8000/books/145 
+ path_url=/books/145 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2026-02-23T11:58:07.746257" level="INFO">DELETE Response : url=http://books-service:8000/books/145 
+ status=200, reason=OK 
+ headers={'date': 'Mon, 23 Feb 2026 11:58:07 GMT', 'server': 'uvicorn', 'content-length': '39', 'content-type': 'application/json'} 
+ body={"message":"Book deleted successfully"} 
+ </msg>
+<arg>api</arg>
+<arg>/books/${BOOK_ID}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:58:07.739510" elapsed="0.006797"/>
+</kw>
+<status status="PASS" start="2026-02-23T11:58:07.739430" elapsed="0.006922"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log" owner="BuiltIn">
+<arg>Cleanup failed for book ${BOOK_ID}</arg>
+<arg>level=WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-02-23T11:58:07.746513" elapsed="0.000036"/>
+</kw>
+<status status="NOT RUN" start="2026-02-23T11:58:07.746396" elapsed="0.000181"/>
+</branch>
+<status status="PASS" start="2026-02-23T11:58:07.739409" elapsed="0.007193"/>
+</try>
+<status status="PASS" start="2026-02-23T11:58:07.739105" elapsed="0.007657"/>
+</branch>
+<status status="PASS" start="2026-02-23T11:58:07.739088" elapsed="0.007710"/>
+</if>
+<doc>Cleanup after each test</doc>
+<status status="PASS" start="2026-02-23T11:58:07.738671" elapsed="0.008163"/>
+</kw>
+<msg time="2026-02-23T11:58:07.751222" level="INFO">Closing current active page.</msg>
+<msg time="2026-02-23T11:58:07.753007" level="INFO">Successfully closed Page with runBeforeUnload false</msg>
+<doc>Verify search functionality</doc>
+<tag>books</tag>
+<tag>search</tag>
+<tag>ui</tag>
+<status status="PASS" start="2026-02-23T11:58:06.100927" elapsed="1.645944"/>
+</test>
+<test id="s1-s2-t3" name="User Should Be Able To Filter Books By Category" line="34">
+<kw name="Test Initialization For UI" owner="common_ui" type="SETUP">
+<kw name="Generate Random String" owner="String">
+<msg time="2026-02-23T11:58:07.754864" level="INFO">${unique_id} = 24Hbp37W</msg>
+<var>${unique_id}</var>
+<arg>8</arg>
+<arg>[LETTERS][NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-02-23T11:58:07.754705" elapsed="0.000177"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:07.755205" level="INFO">${UNIQUE_ID} = 24Hbp37W</msg>
+<arg>${UNIQUE_ID}</arg>
+<arg>${unique_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:07.754962" elapsed="0.000271"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:07.755862" level="INFO">${BOOK_ID} = </msg>
+<arg>${BOOK_ID}</arg>
+<arg>${EMPTY}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:07.755304" elapsed="0.000585"/>
+</kw>
+<doc>Setup for each test</doc>
+<status status="PASS" start="2026-02-23T11:58:07.754489" elapsed="0.001442"/>
+</kw>
+<kw name="Given User Is On Books Page" owner="ui_keywords">
+<kw name="New Page" owner="Browser">
+<msg time="2026-02-23T11:58:07.794593" level="INFO">Successfully initialized new page object and opened url: http://books-service:8000</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-02-23T11:58:07.756207" elapsed="0.038529"/>
+</kw>
+<kw name="Wait For Load State" owner="Browser">
+<msg time="2026-02-23T11:58:07.795186" level="INFO">Waiting page load to state to receive networkidle in 10000.0</msg>
+<msg time="2026-02-23T11:58:08.305617" level="INFO">Load state networkidle got in 10000</msg>
+<arg>networkidle</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits that the page reaches the required load state.</doc>
+<status status="PASS" start="2026-02-23T11:58:07.794878" elapsed="0.511197"/>
+</kw>
+<kw name="Get Title" owner="Browser">
+<msg time="2026-02-23T11:58:08.315163" level="INFO">Title: 'Books Library'</msg>
+<arg>==</arg>
+<arg>Books Library</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2026-02-23T11:58:08.306728" elapsed="0.008564"/>
+</kw>
+<doc>Navigate to books page and verify loaded</doc>
+<status status="PASS" start="2026-02-23T11:58:07.756050" elapsed="0.559373"/>
+</kw>
+<kw name="When User Filters By Fiction Category">
+<kw name="User Filters By Category" owner="ui_keywords">
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-02-23T11:58:08.316866" level="INFO">Selects the option(s) Fiction by attribute SelectAttribute.value from element id=category-filter.</msg>
+<arg>id=category-filter</arg>
+<arg>value</arg>
+<arg>${category}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-02-23T11:58:08.316394" elapsed="0.040127"/>
+</kw>
+<kw name="Wait For Load State" owner="Browser">
+<msg time="2026-02-23T11:58:08.357041" level="INFO">Waiting page load to state to receive networkidle in 10000.0</msg>
+<msg time="2026-02-23T11:58:08.358347" level="INFO">Load state networkidle got in 10000</msg>
+<arg>networkidle</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits that the page reaches the required load state.</doc>
+<status status="PASS" start="2026-02-23T11:58:08.356698" elapsed="0.001708"/>
+</kw>
+<arg>Fiction</arg>
+<doc>Filter books by category</doc>
+<status status="PASS" start="2026-02-23T11:58:08.316075" elapsed="0.042396"/>
+</kw>
+<doc>Apply Fiction category filter</doc>
+<status status="PASS" start="2026-02-23T11:58:08.315643" elapsed="0.042868"/>
+</kw>
+<kw name="Then Only Fiction Books Should Be Visible">
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-02-23T11:58:08.361084" level="INFO">${count} = 12</msg>
+<var>${count}</var>
+<arg>css=.book-card</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-02-23T11:58:08.358822" elapsed="0.002282"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${count} &gt; 0</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-02-23T11:58:08.361191" elapsed="0.000201"/>
+</kw>
+<doc>Verify filtered results</doc>
+<status status="PASS" start="2026-02-23T11:58:08.358623" elapsed="0.002810"/>
+</kw>
+<kw name="Test Cleanup For UI" owner="common_ui" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Take Screenshot</arg>
+<arg>${TEST_NAME}_failure</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-02-23T11:58:08.361770" elapsed="0.000133"/>
+</kw>
+<if>
+<branch type="IF" condition="'${BOOK_ID}' != '${EMPTY}'">
+<try>
+<branch type="TRY">
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<arg>api</arg>
+<arg>/books/${BOOK_ID}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="NOT RUN" start="2026-02-23T11:58:08.362305" elapsed="0.000026"/>
+</kw>
+<status status="NOT RUN" start="2026-02-23T11:58:08.362239" elapsed="0.000116"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log" owner="BuiltIn">
+<arg>Cleanup failed for book ${BOOK_ID}</arg>
+<arg>level=WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-02-23T11:58:08.362441" elapsed="0.000022"/>
+</kw>
+<status status="NOT RUN" start="2026-02-23T11:58:08.362382" elapsed="0.000103"/>
+</branch>
+<status status="NOT RUN" start="2026-02-23T11:58:08.362221" elapsed="0.000284"/>
+</try>
+<status status="NOT RUN" start="2026-02-23T11:58:08.361956" elapsed="0.000558"/>
+</branch>
+<status status="PASS" start="2026-02-23T11:58:08.361940" elapsed="0.000590"/>
+</if>
+<doc>Cleanup after each test</doc>
+<status status="PASS" start="2026-02-23T11:58:08.361612" elapsed="0.000943"/>
+</kw>
+<msg time="2026-02-23T11:58:08.365992" level="INFO">Closing current active page.</msg>
+<msg time="2026-02-23T11:58:08.367621" level="INFO">Successfully closed Page with runBeforeUnload false</msg>
+<doc>Verify category filtering</doc>
+<tag>books</tag>
+<tag>filter</tag>
+<tag>ui</tag>
+<status status="PASS" start="2026-02-23T11:58:07.753255" elapsed="0.609326"/>
+</test>
+<test id="s1-s2-t4" name="User Should See All Books On Page Load" line="41">
+<kw name="Test Initialization For UI" owner="common_ui" type="SETUP">
+<kw name="Generate Random String" owner="String">
+<msg time="2026-02-23T11:58:08.369236" level="INFO">${unique_id} = 6cK2mIay</msg>
+<var>${unique_id}</var>
+<arg>8</arg>
+<arg>[LETTERS][NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-02-23T11:58:08.369094" elapsed="0.000159"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:08.369530" level="INFO">${UNIQUE_ID} = 6cK2mIay</msg>
+<arg>${UNIQUE_ID}</arg>
+<arg>${unique_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:08.369327" elapsed="0.000225"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:08.370333" level="INFO">${BOOK_ID} = </msg>
+<arg>${BOOK_ID}</arg>
+<arg>${EMPTY}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-02-23T11:58:08.369615" elapsed="0.000750"/>
+</kw>
+<doc>Setup for each test</doc>
+<status status="PASS" start="2026-02-23T11:58:08.368913" elapsed="0.001500"/>
+</kw>
+<kw name="Given Books Exist In Database">
+<kw name="Get All Books Via API" owner="api_keywords">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-02-23T11:58:08.373486" level="INFO">GET Request : url=http://books-service:8000/books/ 
+ path_url=/books/ 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-02-23T11:58:08.373525" level="INFO">GET Response : url=http://books-service:8000/books/ 
+ status=200, reason=OK 
+ headers={'date': 'Mon, 23 Feb 2026 11:58:08 GMT', 'server': 'uvicorn', 'content-length': '17223', 'content-type': 'application/json'} 
+ body=[{"title":"History of Ocean","author":"Leo Tolstoy","pages":185,"category":"Science Fiction","favorite":true,"id":1},{"title":"The Kingdom Mystery","author":"Neil Gaiman","pages":655,"category":"History","favorite":true,"id":2},{"title":"Tales of Dragon Twilight","author":"Jane Austen","pages":992,"category":"Historical Fiction","favorite":false,"id":3},{"title":"History of Peace Tales","author":"F. Scott Fitzgerald","pages":270,"category":"Science","favorite":false,"id":4},{"title":"Rise of Planet Dusk","author":"Haruki Murakami","pages":814,"category":"Philosophy","favorite":false,"id":5},{"title":"Secrets of Love","author":"Haruki Murakami","pages":757,"category":"Science Fiction","favorite":true,"id":6},{"title":"History of Life Revelation","author":"George R.R. Martin","pages":503,"category":"Non-Fiction","favorite":true,"id":7},{"title":"Villain Destiny","author":"Stephen King","pages":745,"category":"Science Fiction","favorite":false,"id":8},{"title":"Journey to Universe","author":"J.R.R. Tolkien","pages":371,"category":"Science","favorite":false,"id":9},{"title":"The Love","author":"Haruki Murakami","pages":615,"category":"Travel","favorite":false,"id":10},{"title":"Future Saga","author":"Margaret Atwood","pages":582,"category":"Self-Help","favorite":false,"id":11},{"title":"World of Planet","author":"George R.R. Martin","pages":759,"category":"Self-Help","favorite":false,"id":12},{"title":"Journey to Dragon","author":"Margaret Atwood","pages":301,"category":"Business","favorite":false,"id":13},{"title":"A Ocean Quest","author":"Toni Morrison","pages":334,"category":"Travel","favorite":false,"id":14},{"title":"Friend Quest","author":"Neil Gaiman","pages":605,"category":"History","favorite":true,"id":15},{"title":"Mystery of Ocean Destiny","author":"Toni Morrison","pages":827,"category":"Science","favorite":false,"id":16},{"title":"Art of Mind Adventure","author":"George R.R. Martin","pages":907,"category":"Cookbooks","favorite":false,"id":17},{"title":"Tales of Star","author":"Mark Twain","pages":110,"category":"Poetry","favorite":false,"id":18},{"title":"Masters of Mountain","author":"Virginia Woolf","pages":213,"category":"Mystery","favorite":false,"id":19},{"title":"Masters of Enemy Conspiracy","author":"Stephen King","pages":996,"category":"Fiction","favorite":false,"id":20},{"title":"Legend of Society","author":"Virginia Woolf","pages":628,"category":"Science","favorite":true,"id":21},{"title":"Science of Ocean Awakening","author":"Ernest Hemingway","pages":520,"category":"Biography","favorite":false,"id":22},{"title":"Universe Destiny","author":"Haruki Murakami","pages":838,"category":"Poetry","favorite":false,"id":23},{"title":"Legend of Past Quest","author":"Stephen King","pages":758,"category":"Thriller","favorite":false,"id":24},{"title":"Death Night","author":"J.K. Rowling","pages":801,"category":"Self-Help","favorite":false,"id":25},{"title":"Past Day","author":"Dante Alighieri","pages":917,"category":"Science","favorite":false,"id":26},{"title":"War Journey","author":"Haruki Murakami","pages":893,"category":"Self-Help","favorite":false,"id":27},{"title":"The Death","author":"Agatha Christie","pages":292,"category":"Philosophy","favorite":false,"id":28},{"title":"Guide to Forest","author":"Stephen King","pages":421,"category":"Science","favorite":false,"id":29},{"title":"Tales of Friend","author":"Stephen King","pages":491,"category":"Travel","favorite":false,"id":30},{"title":"Tales of Empire","author":"J.R.R. Tolkien","pages":528,"category":"Business","favorite":false,"id":31},{"title":"Guide to Dragon Revelation","author":"Jane Austen","pages":250,"category":"Young Adult","favorite":false,"id":32},{"title":"Chronicles of Heart","author":"Margaret Atwood","pages":193,"category":"History","favorite":false,"id":33},{"title":"Journey to Planet","author":"Margaret Atwood","pages":106,"category":"Historical Fiction","favorite":true,"id":34},{"title":"Science of Kingdom","author":"Leo Tolstoy","pages":353,"category":"Biography","favorite":false,"id":35},{"title":"Path to Family Quest","author":"Neil Gaiman","pages":946,"category":"Travel","favorite":false,"id":36},{"title":"Rise of Future Dawn","author":"Neil Gaiman","pages":303,"category":"Thriller","favorite":false,"id":37},{"title":"Chronicles of Dragon Stories","author":"Leo Tolstoy","pages":552,"category":"Fantasy","favorite":false,"id":38},{"title":"Guide to Past Dawn","author":"Dante Alighieri","pages":447,"category":"Science","favorite":false,"id":39},{"title":"Science of Hero","author":"Toni Morrison","pages":129,"category":"Thriller","favorite":false,"id":40},{"title":"Life Quest","author":"Haruki Murakami","pages":435,"category":"Business","favorite":false,"id":41},{"title":"Return to Kingdom","author":"Ernest Hemingway","pages":589,"category":"Science Fiction","favorite":true,"id":42},{"title":"Society Chronicles","author":"Margaret Atwood","pages":891,"category":"History","favorite":true,"id":43},{"title":"Kingdom Conspiracy","author":"Ernest Hemingway","pages":385,"category":"Business","favorite":false,"id":44},{"title":"Society Conspiracy","author":"Neil Gaiman","pages":593,"category":"Non-Fiction","favorite":false,"id":45},{"title":"Return to Peace","author":"F. Scott Fitzgerald","pages":904,"category":"Business","favorite":false,"id":46},{"title":"Ocean Redemption","author":"Homer","pages":837,"category":"Science Fiction","favorite":false,"id":47},{"title":"Art of Empire","author":"Gabriel García Márquez","pages":575,"category":"Children's Books","favorite":false,"id":48},{"title":"Life of Mountain Conspiracy","author":"George R.R. Martin","pages":834,"category":"Biography","favorite":false,"id":49},{"title":"Future Awakening","author":"Brandon Sanderson","pages":757,"category":"Fiction","favorite":false,"id":50},{"title":"Journey to Universe","author":"Toni Morrison","pages":668,"category":"History","favorite":false,"id":51},{"title":"Journey to War","author":"J.R.R. Tolkien","pages":888,"category":"Mystery","favorite":false,"id":52},{"title":"Masters of Kingdom Redemption","author":"Jane Austen","pages":934,"category":"Children's Books","favorite":false,"id":53},{"title":"Secrets of Society","author":"Dante Alighieri","pages":255,"category":"Thriller","favorite":false,"id":54},{"title":"Tales of Universe","author":"Margaret Atwood","pages":874,"category":"Mystery","favorite":false,"id":55},{"title":"Mystery of Enemy","author":"Margaret Atwood","pages":177,"category":"Young Adult","favorite":false,"id":56},{"title":"Journey to War","author":"Brandon Sanderson","pages":697,"category":"Self-Help","favorite":true,"id":57},{"title":"A Society Tales","author":"Jane Austen","pages":302,"category":"Mystery","favorite":false,"id":58},{"title":"Chronicles of Universe Adventure","author":"Brandon Sanderson","pages":993,"category":"Travel","favorite":false,"id":59},{"title":"Mystery of Kingdom","author":"Haruki Murakami","pages":884,"category":"Historical Fiction","favorite":true,"id":60},{"title":"Rise of Star","author":"Charles Dickens","pages":574,"category":"Biography","favorite":false,"id":61},{"title":"Tales of Friend","author":"Charles Dickens","pages":148,"category":"Children's Books","favorite":false,"id":62},{"title":"Mind Tales","author":"Ernest Hemingway","pages":795,"category":"Self-Help","favorite":false,"id":63},{"title":"Guide to Dragon","author":"F. Scott Fitzgerald","pages":959,"category":"Non-Fiction","favorite":false,"id":64},{"title":"Forest Redemption","author":"Haruki Murakami","pages":504,"category":"Romance","favorite":false,"id":65},{"title":"Legend of Castle","author":"J.R.R. Tolkien","pages":803,"category":"Science Fiction","favorite":false,"id":66},{"title":"Mind Saga","author":"Homer","pages":535,"category":"Horror","favorite":false,"id":67},{"title":"Masters of Heart Revelation","author":"Charles Dickens","pages":355,"category":"History","favorite":false,"id":68},{"title":"Mystery of Universe","author":"Haruki Murakami","pages":371,"category":"Self-Help","favorite":false,"id":69},{"title":"Secrets of Future Destiny","author":"Toni Morrison","pages":107,"category":"Fantasy","favorite":true,"id":70},{"title":"Life Destiny","author":"Haruki Murakami","pages":384,"category":"Cookbooks","favorite":false,"id":71},{"title":"Journey to Friend Revelation","author":"Homer","pages":318,"category":"Children's Books","favorite":false,"id":72},{"title":"Return to Forest Chronicles","author":"Ernest Hemingway","pages":588,"category":"Horror","favorite":false,"id":73},{"title":"Hero Mystery","author":"Ernest Hemingway","pages":354,"category":"Romance","favorite":false,"id":74},{"title":"Masters of Castle","author":"Haruki Murakami","pages":827,"category":"Non-Fiction","favorite":false,"id":75},{"title":"Adventures in Empire","author":"Virginia Woolf","pages":992,"category":"Business","favorite":false,"id":76},{"title":"Star Awakening","author":"Charles Dickens","pages":951,"category":"Business","favorite":true,"id":77},{"title":"Family Awakening","author":"George R.R. Martin","pages":271,"category":"Science Fiction","favorite":false,"id":78},{"title":"Life Destiny","author":"Leo Tolstoy","pages":714,"category":"Fiction","favorite":false,"id":79},{"title":"Guide to Life","author":"Charles Dickens","pages":484,"category":"Philosophy","favorite":false,"id":80},{"title":"Mystery of War","author":"Virginia Woolf","pages":148,"category":"Philosophy","favorite":false,"id":81},{"title":"Life of Family Tales","author":"Jane Austen","pages":554,"category":"Young Adult","favorite":true,"id":82},{"title":"Legend of Past Revelation","author":"Margaret Atwood","pages":363,"category":"Historical Fiction","favorite":false,"id":83},{"title":"Rise of Forest Tales","author":"Charles Dickens","pages":443,"category":"Travel","favorite":false,"id":84},{"title":"Star Journey","author":"Gabriel García Márquez","pages":701,"category":"Non-Fiction","favorite":false,"id":85},{"title":"Legend of Castle Awakening","author":"J.K. Rowling","pages":420,... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg time="2026-02-23T11:58:08.373830" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>api</arg>
+<arg>/books/</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-02-23T11:58:08.370822" elapsed="0.003030"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2026-02-23T11:58:08.373966" elapsed="0.000157"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2026-02-23T11:58:08.374157" elapsed="0.000047"/>
+</return>
+<msg time="2026-02-23T11:58:08.374281" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<doc>Retrieve all books via GET /books</doc>
+<status status="PASS" start="2026-02-23T11:58:08.370688" elapsed="0.003610"/>
+</kw>
+<kw name="Response Should Contain Books" owner="api_keywords">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-23T11:58:08.375056" level="INFO">${books} = [{'title': 'History of Ocean', 'author': 'Leo Tolstoy', 'pages': 185, 'category': 'Science Fiction', 'favorite': True, 'id': 1}, {'title': 'The Kingdom Mystery', 'author': 'Neil Gaiman', 'pages': 655,...</msg>
+<var>${books}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-23T11:58:08.374544" elapsed="0.000529"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-02-23T11:58:08.375284" level="INFO">Length is 144.</msg>
+<arg>${books}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-02-23T11:58:08.375137" elapsed="0.000171"/>
+</kw>
+<arg>${response}</arg>
+<doc>Validate response contains book list</doc>
+<status status="PASS" start="2026-02-23T11:58:08.374382" elapsed="0.000959"/>
+</kw>
+<doc>Verify books exist via API</doc>
+<status status="PASS" start="2026-02-23T11:58:08.370510" elapsed="0.004861"/>
+</kw>
+<kw name="When User Opens Books Page">
+<kw name="User Is On Books Page" owner="ui_keywords">
+<kw name="New Page" owner="Browser">
+<msg time="2026-02-23T11:58:08.412439" level="INFO">Successfully initialized new page object and opened url: http://books-service:8000</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-02-23T11:58:08.375704" elapsed="0.036857"/>
+</kw>
+<kw name="Wait For Load State" owner="Browser">
+<msg time="2026-02-23T11:58:08.412944" level="INFO">Waiting page load to state to receive networkidle in 10000.0</msg>
+<msg time="2026-02-23T11:58:08.923561" level="INFO">Load state networkidle got in 10000</msg>
+<arg>networkidle</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits that the page reaches the required load state.</doc>
+<status status="PASS" start="2026-02-23T11:58:08.412688" elapsed="0.511495"/>
+</kw>
+<kw name="Get Title" owner="Browser">
+<msg time="2026-02-23T11:58:08.934418" level="INFO">Title: 'Books Library'</msg>
+<arg>==</arg>
+<arg>Books Library</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2026-02-23T11:58:08.924859" elapsed="0.009702"/>
+</kw>
+<doc>Navigate to books page and verify loaded</doc>
+<status status="PASS" start="2026-02-23T11:58:08.375586" elapsed="0.559123"/>
+</kw>
+<doc>Navigate to books page</doc>
+<status status="PASS" start="2026-02-23T11:58:08.375446" elapsed="0.559338"/>
+</kw>
+<kw name="Then Books Should Be Displayed">
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-02-23T11:58:08.953615" level="INFO">${count} = 12</msg>
+<var>${count}</var>
+<arg>css=.book-card</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-02-23T11:58:08.935521" elapsed="0.018142"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${count} &gt; 0</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-02-23T11:58:08.953817" elapsed="0.000358"/>
+</kw>
+<doc>Verify books are visible</doc>
+<status status="PASS" start="2026-02-23T11:58:08.935072" elapsed="0.019171"/>
+</kw>
+<kw name="Test Cleanup For UI" owner="common_ui" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Take Screenshot</arg>
+<arg>${TEST_NAME}_failure</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-02-23T11:58:08.954743" elapsed="0.000186"/>
+</kw>
+<if>
+<branch type="IF" condition="'${BOOK_ID}' != '${EMPTY}'">
+<try>
+<branch type="TRY">
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<arg>api</arg>
+<arg>/books/${BOOK_ID}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="NOT RUN" start="2026-02-23T11:58:08.955468" elapsed="0.000034"/>
+</kw>
+<status status="NOT RUN" start="2026-02-23T11:58:08.955378" elapsed="0.000158"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log" owner="BuiltIn">
+<arg>Cleanup failed for book ${BOOK_ID}</arg>
+<arg>level=WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-02-23T11:58:08.955655" elapsed="0.000030"/>
+</kw>
+<status status="NOT RUN" start="2026-02-23T11:58:08.955573" elapsed="0.000142"/>
+</branch>
+<status status="NOT RUN" start="2026-02-23T11:58:08.955354" elapsed="0.000389"/>
+</try>
+<status status="NOT RUN" start="2026-02-23T11:58:08.955019" elapsed="0.000738"/>
+</branch>
+<status status="PASS" start="2026-02-23T11:58:08.954999" elapsed="0.000779"/>
+</if>
+<doc>Cleanup after each test</doc>
+<status status="PASS" start="2026-02-23T11:58:08.954502" elapsed="0.001311"/>
+</kw>
+<msg time="2026-02-23T11:58:08.960558" level="INFO">Closing current active page.</msg>
+<msg time="2026-02-23T11:58:08.962655" level="INFO">Successfully closed Page with runBeforeUnload false</msg>
+<doc>Verify initial page load displays books</doc>
+<tag>books</tag>
+<tag>smoke</tag>
+<tag>ui</tag>
+<status status="PASS" start="2026-02-23T11:58:08.367839" elapsed="0.588011"/>
+</test>
+<kw name="Suite Cleanup For UI" owner="common_ui" type="TEARDOWN">
+<kw name="Delete All Sessions" owner="RequestsLibrary">
+<msg time="2026-02-23T11:58:08.963487" level="INFO">Deleting All Sessions</msg>
+<doc>Removes all the session objects</doc>
+<status status="PASS" start="2026-02-23T11:58:08.963408" elapsed="0.000134"/>
+</kw>
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-02-23T11:58:08.982452" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-02-23T11:58:08.963618" elapsed="0.018941"/>
+</kw>
+<doc>Cleanup test environment</doc>
+<status status="PASS" start="2026-02-23T11:58:08.963208" elapsed="0.019433"/>
+</kw>
+<doc>Books UI Test Suite
+
+Validates book management through web interface.
+Tests cover CRUD operations, search, and filtering.</doc>
+<status status="PASS" start="2026-02-23T11:58:01.165769" elapsed="7.816900"/>
+</suite>
+<status status="PASS" start="2026-02-23T11:58:00.773514" elapsed="8.211504"/>
+</suite>
+<statistics>
+<total>
+<stat pass="9" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="5" fail="0" skip="0">api</stat>
+<stat pass="9" fail="0" skip="0">books</stat>
+<stat pass="2" fail="0" skip="0">create</stat>
+<stat pass="1" fail="0" skip="0">delete</stat>
+<stat pass="1" fail="0" skip="0">error</stat>
+<stat pass="1" fail="0" skip="0">filter</stat>
+<stat pass="1" fail="0" skip="0">read</stat>
+<stat pass="1" fail="0" skip="0">search</stat>
+<stat pass="4" fail="0" skip="0">smoke</stat>
+<stat pass="4" fail="0" skip="0">ui</stat>
+<stat pass="1" fail="0" skip="0">update</stat>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="9" fail="0" skip="0">Tests</stat>
+<stat name="Books Api" id="s1-s1" pass="5" fail="0" skip="0">Tests.Books Api</stat>
+<stat name="Books Ui" id="s1-s2" pass="4" fail="0" skip="0">Tests.Books Ui</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
