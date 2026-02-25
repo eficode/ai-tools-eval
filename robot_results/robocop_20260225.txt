@@ -1,0 +1,2887 @@
+/tests/books_ui.robot:3:4 SPC01 Trailing whitespace at the end of line
+   |
+ 1 | *** Settings ***
+ 2 | Documentation     Books UI Test Suite
+ 3 | ...
+   |    ^^^^^^^^^^^^^^^ SPC01
+ 4 | ...               This suite tests the Books web application UI functionality including:
+ 5 | ...               - Viewing the books list
+   |
+
+/tests/books_ui.robot:9:4 SPC01 Trailing whitespace at the end of line
+   |
+ 7 | ...               - Verifying book display
+ 8 | ...               - Page navigation and loading
+ 9 | ...
+   |    ^^^^^^^^^^^^^^^ SPC01
+10 | ...               Prerequisites:
+11 | ...               - Books service running at http://books-service:8000
+   |
+
+/tests/books_ui.robot:24:1 DEPR02 'Force Tags' is deprecated since Robot Framework version 6.0, use 'Test Tags' instead
+    |
+ 24 | Force Tags        ui    books
+    | ^^^^^^^^^^ DEPR02
+ 25 | Default Tags      regression
+    |
+
+/tests/books_ui.robot:25:1 TAG07 Tags defined in Default Tags are always overwritten
+    |
+ 23 |
+ 24 | Force Tags        ui    books
+ 25 | Default Tags      regression
+    | ^^^^^^^^^^^^ TAG07
+    |
+
+/tests/books_ui.robot:26:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 24 | Force Tags        ui    books
+ 25 | Default Tags      regression
+ 26 |
+    | ^ SPC03
+ 27 | *** Variables ***
+ 28 | ${SUITE_START_TIME}       ${EMPTY}
+    |
+
+/tests/books_ui.robot:29:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 27 | *** Variables ***
+ 28 | ${SUITE_START_TIME}       ${EMPTY}
+ 29 |
+    | ^ SPC03
+ 30 | *** Test Cases ***
+ 31 | User Should Be Able To View All Books
+    |
+
+/tests/books_ui.robot:33:8 SPC01 Trailing whitespace at the end of line
+    |
+ 31 | User Should Be Able To View All Books
+ 32 |     [Documentation]    Verify that a user can view the complete list of books
+ 33 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 34 |     ...                This test verifies:
+ 35 |     ...                - Books page loads successfully
+    |
+
+/tests/books_ui.robot:39:1 SPC01 Trailing whitespace at the end of line
+    |
+ 37 |     ...                - At least one book is visible
+ 38 |     [Tags]    smoke    view    priority-high
+ 39 |
+    | ^^^^ SPC01
+ 40 |     Given User Opens The Books Application
+ 41 |     When User Navigates To Books Page
+    |
+
+/tests/books_ui.robot:47:8 SPC01 Trailing whitespace at the end of line
+    |
+ 45 | User Should Be Able To Search For Books By Title
+ 46 |     [Documentation]    Verify that a user can search for books using the search feature
+ 47 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 48 |     ...                This test verifies:
+ 49 |     ...                - Search input is functional
+    |
+
+/tests/books_ui.robot:53:1 SPC01 Trailing whitespace at the end of line
+    |
+ 51 |     ...                - Search results contain the search term
+ 52 |     [Tags]    search    priority-high
+ 53 |
+    | ^^^^ SPC01
+ 54 |     Given User Opens The Books Application
+ 55 |     And User Navigates To Books Page
+    |
+
+/tests/books_ui.robot:62:8 SPC01 Trailing whitespace at the end of line
+    |
+ 60 | User Should See Books After Clearing Search
+ 61 |     [Documentation]    Verify that clearing the search shows all books again
+ 62 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 63 |     ...                This test verifies:
+ 64 |     ...                - Search can be cleared
+    |
+
+/tests/books_ui.robot:67:1 SPC01 Trailing whitespace at the end of line
+    |
+ 65 |     ...                - All books are displayed after clearing search
+ 66 |     [Tags]    search    priority-medium
+ 67 |
+    | ^^^^ SPC01
+ 68 |     Given User Opens The Books Application
+ 69 |     And User Navigates To Books Page
+    |
+
+/tests/books_ui.robot:77:8 SPC01 Trailing whitespace at the end of line
+    |
+ 75 | User Should See No Results For Nonexistent Book
+ 76 |     [Documentation]    Verify that searching for a nonexistent book shows no results
+ 77 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 78 |     ...                This test verifies:
+ 79 |     ...                - Search handles nonexistent terms gracefully
+    |
+
+/tests/books_ui.robot:82:1 SPC01 Trailing whitespace at the end of line
+    |
+ 80 |     ...                - No books are displayed for invalid search
+ 81 |     [Tags]    search    negative    priority-low
+ 82 |
+    | ^^^^ SPC01
+ 83 |     Given User Opens The Books Application
+ 84 |     And User Navigates To Books Page
+    |
+
+/tests/books_ui.robot:90:8 SPC01 Trailing whitespace at the end of line
+    |
+ 88 | User Should See Correct Page Title
+ 89 |     [Documentation]    Verify that the page title is correct
+ 90 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 91 |     ...                This test verifies:
+ 92 |     ...                - Page title matches expected value
+    |
+
+/tests/books_ui.robot:95:1 SPC01 Trailing whitespace at the end of line
+    |
+ 93 |     ...                - Page metadata is correct
+ 94 |     [Tags]    smoke    priority-medium
+ 95 |
+    | ^^^^ SPC01
+ 96 |     Given User Opens The Books Application
+ 97 |     When User Navigates To Books Page
+    |
+
+/tests/books_ui.robot:102:8 SPC01 Trailing whitespace at the end of line
+     |
+ 100 | Books Should Load Within Acceptable Time
+ 101 |     [Documentation]    Verify that books load within acceptable time limits
+ 102 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 103 |     ...                This test verifies:
+ 104 |     ...                - Page loads within timeout
+     |
+
+/tests/books_ui.robot:108:1 SPC01 Trailing whitespace at the end of line
+     |
+ 106 |     ...                - No excessive loading delays
+ 107 |     [Tags]    performance    priority-medium
+ 108 |
+     | ^^^^ SPC01
+ 109 |     Given User Opens The Books Application
+ 110 |     When User Navigates To Books Page
+     |
+
+/tests/books_ui.robot:112:1 SPC03 Invalid number of empty lines between sections (1/2)
+     |
+ 110 |     When User Navigates To Books Page
+ 111 |     Then Books Should Load Quickly
+ 112 |
+     | ^ SPC03
+ 113 | *** Keywords ***
+ 114 | Initialize UI Test Suite
+     |
+
+/tests/books_ui.robot:116:8 SPC01 Trailing whitespace at the end of line
+     |
+ 114 | Initialize UI Test Suite
+ 115 |     [Documentation]    Runs once before all UI tests in this suite
+ 116 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 117 |     ...                This keyword:
+ 118 |     ...                - Logs suite start
+     |
+
+/tests/books_ui.robot:121:1 SPC01 Trailing whitespace at the end of line
+     |
+ 119 |     ...                - Records suite start time
+ 120 |     ...                - Verifies service availability
+ 121 |
+     | ^^^^ SPC01
+ 122 |     Log    Starting Books UI Test Suite    level=INFO
+ 123 |     ${start_time}=    Get Time    epoch
+     |
+
+/tests/books_ui.robot:124:52 VAR05 Variable defined with suite scope
+     |
+ 122 |     Log    Starting Books UI Test Suite    level=INFO
+ 123 |     ${start_time}=    Get Time    epoch
+ 124 |     VAR    ${SUITE_START_TIME}    ${start_time}    scope=SUITE
+     |                                                    ^^^^^^^^^^^ VAR05
+ 125 |     Verify Service Is Available
+     |
+
+/tests/books_ui.robot:129:8 SPC01 Trailing whitespace at the end of line
+     |
+ 127 | Cleanup UI Test Suite
+ 128 |     [Documentation]    Runs once after all UI tests in this suite
+ 129 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 130 |     ...                This keyword:
+ 131 |     ...                - Logs suite completion
+     |
+
+/tests/books_ui.robot:133:1 SPC01 Trailing whitespace at the end of line
+     |
+ 131 |     ...                - Logs suite completion
+ 132 |     ...                - Calculates and logs suite duration
+ 133 |
+     | ^^^^ SPC01
+ 134 |     TRY
+ 135 |         ${end_time}=    Get Time    epoch
+     |
+
+/tests/books_ui.robot:144:8 SPC01 Trailing whitespace at the end of line
+     |
+ 142 | Initialize Browser For Test
+ 143 |     [Documentation]    Initializes browser for each test case
+ 144 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 145 |     ...                This keyword:
+ 146 |     ...                - Creates new browser instance
+     |
+
+/tests/books_ui.robot:149:1 SPC01 Trailing whitespace at the end of line
+     |
+ 147 |     ...                - Sets viewport size
+ 148 |     ...                - Records test start time
+ 149 |
+     | ^^^^ SPC01
+ 150 |     New Browser    ${BROWSER}    headless=${HEADLESS}
+ 151 |     New Context    viewport={'width': ${VIEWPORT_WIDTH}, 'height': ${VIEWPORT_HEIGHT}}
+     |
+
+/tests/books_ui.robot:153:51 VAR06 Variable defined with test/task scope
+     |
+ 151 |     New Context    viewport={'width': ${VIEWPORT_WIDTH}, 'height': ${VIEWPORT_HEIGHT}}
+ 152 |     ${start_time}=    Get Time    epoch
+ 153 |     VAR    ${TEST_START_TIME}    ${start_time}    scope=TEST
+     |                                                   ^^^^^^^^^^ VAR06
+ 154 |     Log    Browser initialized for test: ${TEST_NAME}
+     |
+
+/tests/books_ui.robot:158:8 SPC01 Trailing whitespace at the end of line
+     |
+ 156 | Cleanup Browser After Test
+ 157 |     [Documentation]    Cleans up browser after each test case
+ 158 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 159 |     ...                This keyword:
+ 160 |     ...                - Takes screenshot on failure
+     |
+
+/tests/books_ui.robot:163:1 SPC01 Trailing whitespace at the end of line
+     |
+ 161 |     ...                - Closes browser
+ 162 |     ...                - Logs test duration
+ 163 |
+     | ^^^^ SPC01
+ 164 |     Take Screenshot On Failure
+     |
+
+/tests/books_ui.robot:165:1 SPC01 Trailing whitespace at the end of line
+     |
+ 163 |
+ 164 |     Take Screenshot On Failure
+ 165 |
+     | ^^^^ SPC01
+ 166 |     TRY
+ 167 |         Close Browser
+     |
+
+/tests/books_ui.robot:171:1 SPC01 Trailing whitespace at the end of line
+     |
+ 169 |         Log    Browser cleanup failed: ${error}    level=WARN
+ 170 |     END
+ 171 |
+     | ^^^^ SPC01
+ 172 |     Log Test Duration    ${TEST_START_TIME}
+     |
+
+/tests/books_ui.robot:176:8 SPC01 Trailing whitespace at the end of line
+     |
+ 174 | User Opens The Books Application
+ 175 |     [Documentation]    Opens the Books application in browser
+ 176 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 177 |     ...                This is a Gherkin-style Given keyword that:
+ 178 |     ...                - Navigates to the Books page URL
+     |
+
+/tests/books_ui.robot:180:1 SPC01 Trailing whitespace at the end of line
+     |
+ 178 |     ...                - Navigates to the Books page URL
+ 179 |     ...                - Waits for page to load
+ 180 |
+     | ^^^^ SPC01
+ 181 |     Navigate To Books Page
+     |
+
+/tests/books_ui.robot:185:8 SPC01 Trailing whitespace at the end of line
+     |
+ 183 | User Navigates To Books Page
+ 184 |     [Documentation]    Navigates to the Books page and verifies it loaded
+ 185 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 186 |     ...                This is a Gherkin-style When keyword that:
+ 187 |     ...                - Verifies the Books page is displayed
+     |
+
+/tests/books_ui.robot:189:1 SPC01 Trailing whitespace at the end of line
+     |
+ 187 |     ...                - Verifies the Books page is displayed
+ 188 |     ...                - Confirms page title is correct
+ 189 |
+     | ^^^^ SPC01
+ 190 |     Verify Books Page Is Displayed
+     |
+
+/tests/books_ui.robot:194:8 SPC01 Trailing whitespace at the end of line
+     |
+ 192 | All Books Should Be Displayed
+ 193 |     [Documentation]    Verifies that books are visible on the page
+ 194 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 195 |     ...                This is a Gherkin-style Then keyword that:
+ 196 |     ...                - Waits for book cards to be visible
+     |
+
+/tests/books_ui.robot:198:1 SPC01 Trailing whitespace at the end of line
+     |
+ 196 |     ...                - Waits for book cards to be visible
+ 197 |     ...                - Confirms at least one book is displayed
+ 198 |
+     | ^^^^ SPC01
+ 199 |     Verify Books Are Displayed
+     |
+
+/tests/books_ui.robot:203:8 SPC01 Trailing whitespace at the end of line
+     |
+ 201 | Book Count Should Be Greater Than Zero
+ 202 |     [Documentation]    Verifies at least one book is displayed
+ 203 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 204 |     ...                This is a Gherkin-style And keyword that:
+ 205 |     ...                - Gets the count of displayed books
+     |
+
+/tests/books_ui.robot:207:1 SPC01 Trailing whitespace at the end of line
+     |
+ 205 |     ...                - Gets the count of displayed books
+ 206 |     ...                - Asserts count is greater than zero
+ 207 |
+     | ^^^^ SPC01
+ 208 |     ${count}=    Get Book Count
+ 209 |     Should Be True    ${count} > 0    No books displayed on page
+     |
+
+/tests/books_ui.robot:214:8 SPC01 Trailing whitespace at the end of line
+     |
+ 212 | User Searches For Book
+ 213 |     [Documentation]    Performs a book search
+ 214 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 215 |     ...                This is a Gherkin-style When keyword that:
+ 216 |     ...                - Enters search term in search input
+     |
+
+/tests/books_ui.robot:218:8 SPC01 Trailing whitespace at the end of line
+     |
+ 216 |     ...                - Enters search term in search input
+ 217 |     ...                - Waits for search results to load
+ 218 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 219 |     ...                Arguments:
+ 220 |     ...                - search_term: Text to search for
+     |
+
+/tests/books_ui.robot:222:1 SPC01 Trailing whitespace at the end of line
+     |
+ 220 |     ...                - search_term: Text to search for
+ 221 |     [Arguments]    ${search_term}
+ 222 |
+     | ^^^^ SPC01
+ 223 |     Search For Book    ${search_term}
+     |
+
+/tests/books_ui.robot:227:8 SPC01 Trailing whitespace at the end of line
+     |
+ 225 | Search Results Should Be Displayed
+ 226 |     [Documentation]    Verifies that search results are displayed
+ 227 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 228 |     ...                This is a Gherkin-style Then keyword that:
+ 229 |     ...                - Verifies at least one result is shown
+     |
+
+/tests/books_ui.robot:230:1 SPC01 Trailing whitespace at the end of line
+     |
+ 228 |     ...                This is a Gherkin-style Then keyword that:
+ 229 |     ...                - Verifies at least one result is shown
+ 230 |
+     | ^^^^ SPC01
+ 231 |     Verify Books Are Displayed
+     |
+
+/tests/books_ui.robot:235:8 SPC01 Trailing whitespace at the end of line
+     |
+ 233 | Search Results Should Contain
+ 234 |     [Documentation]    Verifies search results contain the expected term
+ 235 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 236 |     ...                This is a Gherkin-style And keyword that:
+ 237 |     ...                - Gets all displayed book titles
+     |
+
+/tests/books_ui.robot:239:8 SPC01 Trailing whitespace at the end of line
+     |
+ 237 |     ...                - Gets all displayed book titles
+ 238 |     ...                - Verifies at least one contains the search term
+ 239 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 240 |     ...                Arguments:
+ 241 |     ...                - expected_term: Term that should appear in results
+     |
+
+/tests/books_ui.robot:243:1 SPC01 Trailing whitespace at the end of line
+     |
+ 241 |     ...                - expected_term: Term that should appear in results
+ 242 |     [Arguments]    ${expected_term}
+ 243 |
+     | ^^^^ SPC01
+ 244 |     @{titles}=    Get All Book Titles
+ 245 |     ${found}=    Evaluate    any('${expected_term}'.lower() in title.lower() for title in ${titles})
+     |
+
+/tests/books_ui.robot:251:8 SPC01 Trailing whitespace at the end of line
+     |
+ 249 | User Clears The Search
+ 250 |     [Documentation]    Clears the search input
+ 251 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 252 |     ...                This is a Gherkin-style When keyword that:
+ 253 |     ...                - Clears the search input field
+     |
+
+/tests/books_ui.robot:255:1 SPC01 Trailing whitespace at the end of line
+     |
+ 253 |     ...                - Clears the search input field
+ 254 |     ...                - Waits for all books to reload
+ 255 |
+     | ^^^^ SPC01
+ 256 |     Clear Search
+     |
+
+/tests/books_ui.robot:260:8 SPC01 Trailing whitespace at the end of line
+     |
+ 258 | No Books Should Be Displayed
+ 259 |     [Documentation]    Verifies that no books are displayed
+ 260 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 261 |     ...                This is a Gherkin-style Then keyword that:
+ 262 |     ...                - Verifies no book cards are visible
+     |
+
+/tests/books_ui.robot:264:1 SPC01 Trailing whitespace at the end of line
+     |
+ 262 |     ...                - Verifies no book cards are visible
+ 263 |     ...                - Confirms empty state is shown
+ 264 |
+     | ^^^^ SPC01
+ 265 |     Verify No Books Displayed
+     |
+
+/tests/books_ui.robot:269:8 SPC01 Trailing whitespace at the end of line
+     |
+ 267 | Page Title Should Be Correct
+ 268 |     [Documentation]    Verifies the page title is correct
+ 269 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 270 |     ...                This is a Gherkin-style Then keyword that:
+ 271 |     ...                - Gets the page title
+     |
+
+/tests/books_ui.robot:273:1 SPC01 Trailing whitespace at the end of line
+     |
+ 271 |     ...                - Gets the page title
+ 272 |     ...                - Verifies it contains "Books"
+ 273 |
+     | ^^^^ SPC01
+ 274 |     ${title}=    Get Title
+ 275 |     Should Contain    ${title}    Books    ignore_case=True
+     |
+
+/tests/books_ui.robot:280:8 SPC01 Trailing whitespace at the end of line
+     |
+ 278 | Books Should Load Quickly
+ 279 |     [Documentation]    Verifies books load within acceptable time
+ 280 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 281 |     ...                This is a Gherkin-style Then keyword that:
+ 282 |     ...                - Waits for books to load
+     |
+
+/tests/books_ui.robot:284:1 SPC01 Trailing whitespace at the end of line
+     |
+ 282 |     ...                - Waits for books to load
+ 283 |     ...                - Verifies loading completed within timeout
+ 284 |
+     | ^^^^ SPC01
+ 285 |     Wait For Books To Load
+ 286 |     Verify Books Are Displayed
+     |
+
+/tests/resources/BooksPageUI.resource:3:4 SPC01 Trailing whitespace at the end of line
+   |
+ 1 | *** Settings ***
+ 2 | Documentation     Books Page Object - UI interactions for the Books web application
+ 3 | ...
+   |    ^^^^^^^^^^^^^^^ SPC01
+ 4 | ...               This resource file encapsulates all UI interactions with the Books page.
+ 5 | ...               It follows the Page Object Model pattern to maintain clean separation
+   |
+
+/tests/resources/BooksPageUI.resource:10:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+  8 | Library           Browser
+  9 | Resource          common.resource
+ 10 |
+    | ^ SPC03
+ 11 | *** Variables ***
+ 12 | # Page URL
+    |
+
+/tests/resources/BooksPageUI.resource:23:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 21 | ${PAGE_TITLE}             css=h1
+ 22 | ${LOADING_INDICATOR}      css=.loading
+ 23 |
+    | ^ SPC03
+ 24 | *** Keywords ***
+ 25 | Navigate To Books Page
+    |
+
+/tests/resources/BooksPageUI.resource:27:8 SPC01 Trailing whitespace at the end of line
+    |
+ 25 | Navigate To Books Page
+ 26 |     [Documentation]    Opens the Books page and waits for it to load completely
+ 27 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 28 |     ...                This keyword:
+ 29 |     ...                - Opens the Books page URL
+    |
+
+/tests/resources/BooksPageUI.resource:32:1 SPC01 Trailing whitespace at the end of line
+    |
+ 30 |     ...                - Waits for the page to be fully loaded (networkidle state)
+ 31 |     ...                - Verifies the page title is correct
+ 32 |
+    | ^^^^ SPC01
+ 33 |     New Page    ${BOOKS_PAGE_URL}
+ 34 |     Wait For Load State    networkidle    timeout=${LONG_TIMEOUT}
+    |
+
+/tests/resources/BooksPageUI.resource:39:8 SPC01 Trailing whitespace at the end of line
+    |
+ 37 | Verify Books Page Is Displayed
+ 38 |     [Documentation]    Confirms that the Books page loaded successfully
+ 39 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 40 |     ...                Verifies:
+ 41 |     ...                - Page title contains "Books"
+    |
+
+/tests/resources/BooksPageUI.resource:43:1 SPC01 Trailing whitespace at the end of line
+    |
+ 41 |     ...                - Page title contains "Books"
+ 42 |     ...                - Main content is visible
+ 43 |
+    | ^^^^ SPC01
+ 44 |     ${title}=    Get Title
+ 45 |     Should Contain    ${title}    Books    ignore_case=True
+    |
+
+/tests/resources/BooksPageUI.resource:51:8 SPC01 Trailing whitespace at the end of line
+    |
+ 49 | Get Book Count
+ 50 |     [Documentation]    Returns the number of book cards displayed on the page
+ 51 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 52 |     ...                Returns:
+ 53 |     ...                - count: Integer number of visible book cards
+    |
+
+/tests/resources/BooksPageUI.resource:54:1 SPC01 Trailing whitespace at the end of line
+    |
+ 52 |     ...                Returns:
+ 53 |     ...                - count: Integer number of visible book cards
+ 54 |
+    | ^^^^ SPC01
+ 55 |     ${count}=    Get Element Count    ${BOOK_CARD_SELECTOR}
+ 56 |     Log    Found ${count} books on the page
+    |
+
+/tests/resources/BooksPageUI.resource:61:8 SPC01 Trailing whitespace at the end of line
+    |
+ 59 | Get All Book Titles
+ 60 |     [Documentation]    Returns a list of all book titles displayed on the page
+ 61 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 62 |     ...                Returns:
+ 63 |     ...                - titles: List of book title strings
+    |
+
+/tests/resources/BooksPageUI.resource:64:1 SPC01 Trailing whitespace at the end of line
+    |
+ 62 |     ...                Returns:
+ 63 |     ...                - titles: List of book title strings
+ 64 |
+    | ^^^^ SPC01
+ 65 |     # Wait for at least one title to be present
+ 66 |     TRY
+    |
+
+/tests/resources/BooksPageUI.resource:72:1 SPC01 Trailing whitespace at the end of line
+    |
+ 70 |         RETURN    @{EMPTY}
+ 71 |     END
+ 72 |
+    | ^^^^ SPC01
+ 73 |     @{title_elements}=    Get Elements    ${BOOK_TITLE_SELECTOR}
+ 74 |     @{titles}=    Create List
+    |
+
+/tests/resources/BooksPageUI.resource:74:19 DEPR06 Create List used instead of VAR
+    |
+ 72 |
+ 73 |     @{title_elements}=    Get Elements    ${BOOK_TITLE_SELECTOR}
+ 74 |     @{titles}=    Create List
+    |                   ^^^^^^^^^^^ DEPR06
+    |
+
+/tests/resources/BooksPageUI.resource:75:1 SPC01 Trailing whitespace at the end of line
+    |
+ 73 |     @{title_elements}=    Get Elements    ${BOOK_TITLE_SELECTOR}
+ 74 |     @{titles}=    Create List
+ 75 |
+    | ^^^^ SPC01
+ 76 |     FOR    ${element}    IN    @{title_elements}
+ 77 |         ${title_text}=    Get Text    ${element}
+    |
+
+/tests/resources/BooksPageUI.resource:80:1 SPC01 Trailing whitespace at the end of line
+    |
+ 78 |         Append To List    ${titles}    ${title_text}
+ 79 |     END
+ 80 |
+    | ^^^^ SPC01
+ 81 |     ${count}=    Get Length    ${titles}
+ 82 |     Log    Retrieved ${count} book titles
+    |
+
+/tests/resources/BooksPageUI.resource:87:8 SPC01 Trailing whitespace at the end of line
+    |
+ 85 | Search For Book
+ 86 |     [Documentation]    Searches for books using the search input field
+ 87 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 88 |     ...                Arguments:
+ 89 |     ...                - search_term: Text to search for
+    |
+
+/tests/resources/BooksPageUI.resource:90:8 SPC01 Trailing whitespace at the end of line
+    |
+ 88 |     ...                Arguments:
+ 89 |     ...                - search_term: Text to search for
+ 90 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 91 |     ...                This keyword:
+ 92 |     ...                - Fills the search input with the search term
+    |
+
+/tests/resources/BooksPageUI.resource:96:1 SPC01 Trailing whitespace at the end of line
+    |
+ 94 |     ...                - Waits for the search results to load
+ 95 |     [Arguments]    ${search_term}
+ 96 |
+    | ^^^^ SPC01
+ 97 |     Wait For Element And Fill Text    ${SEARCH_INPUT}    ${search_term}
+ 98 |     Wait For Element And Click    ${SEARCH_BUTTON}
+    |
+
+/tests/resources/BooksPageUI.resource:104:1 SPC01 Trailing whitespace at the end of line
+     |
+ 102 | Clear Search
+ 103 |     [Documentation]    Clears the search input field and triggers search to show all books
+ 104 |
+     | ^^^^ SPC01
+ 105 |     Wait For Elements State    ${SEARCH_INPUT}    visible    timeout=${DEFAULT_TIMEOUT}
+ 106 |     Clear Text    ${SEARCH_INPUT}
+     |
+
+/tests/resources/BooksPageUI.resource:113:8 SPC01 Trailing whitespace at the end of line
+     |
+ 111 | Click Book Card By Index
+ 112 |     [Documentation]    Clicks on a book card at the specified index
+ 113 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 114 |     ...                Arguments:
+ 115 |     ...                - index: Zero-based index of the book card to click
+     |
+
+/tests/resources/BooksPageUI.resource:117:1 SPC01 Trailing whitespace at the end of line
+     |
+ 115 |     ...                - index: Zero-based index of the book card to click
+ 116 |     [Arguments]    ${index}
+ 117 |
+     | ^^^^ SPC01
+ 118 |     VAR    ${selector}    ${BOOK_CARD_SELECTOR} >> nth=${index}
+ 119 |     Wait For Element And Click    ${selector}
+     |
+
+/tests/resources/BooksPageUI.resource:124:1 SPC01 Trailing whitespace at the end of line
+     |
+ 122 | Click First Book Card
+ 123 |     [Documentation]    Clicks on the first book card in the list
+ 124 |
+     | ^^^^ SPC01
+ 125 |     Click Book Card By Index    0
+     |
+
+/tests/resources/BooksPageUI.resource:129:8 SPC01 Trailing whitespace at the end of line
+     |
+ 127 | Verify Book Card Contains Title
+ 128 |     [Documentation]    Verifies that at least one book card contains the specified title
+ 129 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 130 |     ...                Arguments:
+ 131 |     ...                - expected_title: Title text to search for
+     |
+
+/tests/resources/BooksPageUI.resource:133:1 SPC01 Trailing whitespace at the end of line
+     |
+ 131 |     ...                - expected_title: Title text to search for
+ 132 |     [Arguments]    ${expected_title}
+ 133 |
+     | ^^^^ SPC01
+ 134 |     @{titles}=    Get All Book Titles
+ 135 |     ${found}=    Evaluate    any('${expected_title}'.lower() in title.lower() for title in ${titles})
+     |
+
+/tests/resources/BooksPageUI.resource:140:1 SPC01 Trailing whitespace at the end of line
+     |
+ 138 | Verify No Books Displayed
+ 139 |     [Documentation]    Verifies that no book cards are displayed on the page
+ 140 |
+     | ^^^^ SPC01
+ 141 |     TRY
+ 142 |         Wait For Elements State    ${BOOK_CARD_SELECTOR}    hidden    timeout=${SHORT_TIMEOUT}
+     |
+
+/tests/resources/BooksPageUI.resource:151:1 SPC01 Trailing whitespace at the end of line
+     |
+ 149 | Verify Books Are Displayed
+ 150 |     [Documentation]    Verifies that at least one book card is visible
+ 151 |
+     | ^^^^ SPC01
+ 152 |     ${count}=    Get Book Count
+ 153 |     Should Be True    ${count} > 0    No books are displayed on the page
+     |
+
+/tests/resources/BooksPageUI.resource:157:8 SPC01 Trailing whitespace at the end of line
+     |
+ 155 | Verify Page Title
+ 156 |     [Documentation]    Verifies the page title matches the expected value
+ 157 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 158 |     ...                Arguments:
+ 159 |     ...                - expected_title: Expected page title text
+     |
+
+/tests/resources/BooksPageUI.resource:161:1 SPC01 Trailing whitespace at the end of line
+     |
+ 159 |     ...                - expected_title: Expected page title text
+ 160 |     [Arguments]    ${expected_title}
+ 161 |
+     | ^^^^ SPC01
+ 162 |     ${actual_title}=    Get Title
+ 163 |     Should Be Equal    ${actual_title}    ${expected_title}    ignore_case=True
+     |
+
+/tests/resources/BooksPageUI.resource:168:1 SPC01 Trailing whitespace at the end of line
+     |
+ 166 | Wait For Books To Load
+ 167 |     [Documentation]    Waits for book cards to be visible and page to be stable
+ 168 |
+     | ^^^^ SPC01
+ 169 |     Wait For Load State    networkidle    timeout=${LONG_TIMEOUT}
+ 170 |     TRY
+     |
+
+/tests/resources/common.resource:3:4 SPC01 Trailing whitespace at the end of line
+   |
+ 1 | *** Settings ***
+ 2 | Documentation     Common keywords and variables shared across all test suites
+ 3 | ...
+   |    ^^^^^^^^^^^^^^^ SPC01
+ 4 | ...               This resource file contains:
+ 5 | ...               - Common variables (URLs, timeouts, browser settings)
+   |
+
+/tests/resources/common.resource:12:19 IMP01 BuiltIn library import 'Collections' should be placed before 'Browser'
+    |
+ 10 | Library           Browser
+ 11 | Library           RequestsLibrary
+ 12 | Library           Collections
+    |                   ^^^^^^^^^^^ IMP01
+ 13 | Library           DateTime
+ 14 | Library           String
+    |
+
+/tests/resources/common.resource:13:19 IMP01 BuiltIn library import 'DateTime' should be placed before 'Browser'
+    |
+ 11 | Library           RequestsLibrary
+ 12 | Library           Collections
+ 13 | Library           DateTime
+    |                   ^^^^^^^^ IMP01
+ 14 | Library           String
+    |
+
+/tests/resources/common.resource:14:19 IMP01 BuiltIn library import 'String' should be placed before 'Browser'
+    |
+ 12 | Library           Collections
+ 13 | Library           DateTime
+ 14 | Library           String
+    |                   ^^^^^^ IMP01
+    |
+
+/tests/resources/common.resource:15:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 13 | Library           DateTime
+ 14 | Library           String
+ 15 |
+    | ^ SPC03
+ 16 | *** Variables ***
+ 17 | # Application Configuration
+    |
+
+/tests/resources/common.resource:36:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 34 | ${TEST_BOOK_TITLE}        Test Book
+ 35 | ${TEST_BOOK_AUTHOR}       Test Author
+ 36 |
+    | ^ SPC03
+ 37 | *** Keywords ***
+ 38 | Generate Unique Book Data
+    |
+
+/tests/resources/common.resource:40:8 SPC01 Trailing whitespace at the end of line
+    |
+ 38 | Generate Unique Book Data
+ 39 |     [Documentation]    Generates unique book data for test isolation
+ 40 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 41 |     ...                Returns a dictionary containing:
+ 42 |     ...                - title: Unique book title with timestamp
+    |
+
+/tests/resources/common.resource:47:8 SPC01 Trailing whitespace at the end of line
+    |
+ 45 |     ...                - category: Random category
+ 46 |     ...                - favorite: Boolean favorite status
+ 47 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 48 |     ...                Example:
+ 49 |     ...                | &{book}= | Generate Unique Book Data |
+    |
+
+/tests/resources/common.resource:51:1 SPC01 Trailing whitespace at the end of line
+    |
+ 49 |     ...                | &{book}= | Generate Unique Book Data |
+ 50 |     ...                | Log | ${book}[title] |
+ 51 |
+    | ^^^^ SPC01
+ 52 |     ${timestamp}=    Get Time    epoch
+ 53 |     VAR    @{categories}    Fiction    Non-Fiction    Science    History    Biography    Young Adult
+    |
+
+/tests/resources/common.resource:56:1 SPC01 Trailing whitespace at the end of line
+    |
+ 54 |     ${random_category}=    Evaluate    random.choice(${categories})    modules=random
+ 55 |     ${random_pages}=    Evaluate    random.randint(100, 1000)    modules=random
+ 56 |
+    | ^^^^ SPC01
+ 57 |     VAR    &{book_data}
+ 58 |     ...    title=Test Book ${timestamp}
+    |
+
+/tests/resources/common.resource:63:1 SPC01 Trailing whitespace at the end of line
+    |
+ 61 |     ...    category=${random_category}
+ 62 |     ...    favorite=${False}
+ 63 |
+    | ^^^^ SPC01
+ 64 |     RETURN    &{book_data}
+    |
+
+/tests/resources/common.resource:68:1 SPC01 Trailing whitespace at the end of line
+    |
+ 66 | Generate Unique Timestamp
+ 67 |     [Documentation]    Generates a unique timestamp for test data isolation
+ 68 |
+    | ^^^^ SPC01
+ 69 |     ${timestamp}=    Get Time    epoch
+ 70 |     RETURN    ${timestamp}
+    |
+
+/tests/resources/common.resource:74:8 SPC01 Trailing whitespace at the end of line
+    |
+ 72 | Verify Service Is Available
+ 73 |     [Documentation]    Verifies that the Books service is available and responding
+ 74 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 75 |     ...                This keyword checks the books endpoint to ensure
+ 76 |     ...                the service is ready before running tests.
+    |
+
+/tests/resources/common.resource:77:1 SPC01 Trailing whitespace at the end of line
+    |
+ 75 |     ...                This keyword checks the books endpoint to ensure
+ 76 |     ...                the service is ready before running tests.
+ 77 |
+    | ^^^^ SPC01
+ 78 |     ${response}=    GET    ${BASE_URL}${API_ENDPOINT}    expected_status=200
+ 79 |     Log    Books service is available and healthy
+    |
+
+/tests/resources/common.resource:78:5 VAR02 Variable '${response}' is assigned but not used
+    |
+ 78 |     ${response}=    GET    ${BASE_URL}${API_ENDPOINT}    expected_status=200
+    |     ^^^^^^^^^^^ VAR02
+ 79 |     Log    Books service is available and healthy
+    |
+
+/tests/resources/common.resource:83:8 SPC01 Trailing whitespace at the end of line
+    |
+ 81 | Wait For Element And Click
+ 82 |     [Documentation]    Waits for element to be visible and stable, then clicks it
+ 83 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 84 |     ...                Arguments:
+ 85 |     ...                - selector: Element selector (CSS, XPath, etc.)
+    |
+
+/tests/resources/common.resource:88:1 SPC01 Trailing whitespace at the end of line
+    |
+ 86 |     ...                - timeout: Maximum wait time (default: ${DEFAULT_TIMEOUT})
+ 87 |     [Arguments]    ${selector}    ${timeout}=${DEFAULT_TIMEOUT}
+ 88 |
+    | ^^^^ SPC01
+ 89 |     Wait For Elements State    ${selector}    visible    timeout=${timeout}
+ 90 |     Wait For Elements State    ${selector}    stable     timeout=${SHORT_TIMEOUT}
+    |
+
+/tests/resources/common.resource:96:8 SPC01 Trailing whitespace at the end of line
+    |
+ 94 | Wait For Element And Fill Text
+ 95 |     [Documentation]    Waits for element to be visible, clears it, and fills with text
+ 96 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 97 |     ...                Arguments:
+ 98 |     ...                - selector: Element selector
+    |
+
+/tests/resources/common.resource:102:1 SPC01 Trailing whitespace at the end of line
+     |
+ 100 |     ...                - timeout: Maximum wait time (default: ${DEFAULT_TIMEOUT})
+ 101 |     [Arguments]    ${selector}    ${text}    ${timeout}=${DEFAULT_TIMEOUT}
+ 102 |
+     | ^^^^ SPC01
+ 103 |     Wait For Elements State    ${selector}    visible    timeout=${timeout}
+ 104 |     Clear Text    ${selector}
+     |
+
+/tests/resources/common.resource:110:8 SPC01 Trailing whitespace at the end of line
+     |
+ 108 | Verify Element Contains Text
+ 109 |     [Documentation]    Verifies that an element contains the expected text
+ 110 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 111 |     ...                Arguments:
+ 112 |     ...                - selector: Element selector
+     |
+
+/tests/resources/common.resource:116:1 SPC01 Trailing whitespace at the end of line
+     |
+ 114 |     ...                - timeout: Maximum wait time (default: ${DEFAULT_TIMEOUT})
+ 115 |     [Arguments]    ${selector}    ${expected_text}    ${timeout}=${DEFAULT_TIMEOUT}
+ 116 |
+     | ^^^^ SPC01
+ 117 |     Wait For Elements State    ${selector}    visible    timeout=${timeout}
+ 118 |     ${actual_text}=    Get Text    ${selector}
+     |
+
+/tests/resources/common.resource:124:8 SPC01 Trailing whitespace at the end of line
+     |
+ 122 | Take Screenshot On Failure
+ 123 |     [Documentation]    Takes a full-page screenshot if the test fails
+ 124 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 125 |     ...                This keyword should be called in test teardown to capture
+ 126 |     ...                the state of the application when a test fails.
+     |
+
+/tests/resources/common.resource:127:1 SPC01 Trailing whitespace at the end of line
+     |
+ 125 |     ...                This keyword should be called in test teardown to capture
+ 126 |     ...                the state of the application when a test fails.
+ 127 |
+     | ^^^^ SPC01
+ 128 |     Run Keyword If Test Failed    Take Screenshot    fullPage=True
+     |
+
+/tests/resources/common.resource:132:8 SPC01 Trailing whitespace at the end of line
+     |
+ 130 | Log Test Duration
+ 131 |     [Documentation]    Logs the duration of the test execution
+ 132 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 133 |     ...                Arguments:
+ 134 |     ...                - start_time: Test start time in epoch format
+     |
+
+/tests/resources/common.resource:136:1 SPC01 Trailing whitespace at the end of line
+     |
+ 134 |     ...                - start_time: Test start time in epoch format
+ 135 |     [Arguments]    ${start_time}
+ 136 |
+     | ^^^^ SPC01
+ 137 |     ${end_time}=    Get Time    epoch
+ 138 |     ${duration}=    Evaluate    ${end_time} - ${start_time}
+     |
+
+/tests/resources/BooksAPI.resource:3:4 SPC01 Trailing whitespace at the end of line
+   |
+ 1 | *** Settings ***
+ 2 | Documentation     Books API Resource - REST API interactions for the Books service
+ 3 | ...
+   |    ^^^^^^^^^^^^^^^ SPC01
+ 4 | ...               This resource file encapsulates all API interactions with the Books service.
+ 5 | ...               It provides keywords for CRUD operations and response validation.
+   |
+
+/tests/resources/BooksAPI.resource:8:19 IMP01 BuiltIn library import 'Collections' should be placed before 'RequestsLibrary'
+   |
+ 6 |
+ 7 | Library           RequestsLibrary
+ 8 | Library           Collections
+   |                   ^^^^^^^^^^^ IMP01
+ 9 | Resource          common.resource
+   |
+
+/tests/resources/BooksAPI.resource:10:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+  8 | Library           Collections
+  9 | Resource          common.resource
+ 10 |
+    | ^ SPC03
+ 11 | *** Keywords ***
+ 12 | Create API Session
+    |
+
+/tests/resources/BooksAPI.resource:14:8 SPC01 Trailing whitespace at the end of line
+    |
+ 12 | Create API Session
+ 13 |     [Documentation]    Creates a new HTTP session for the Books API
+ 14 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 15 |     ...                This keyword:
+ 16 |     ...                - Creates a session with alias 'books_api'
+    |
+
+/tests/resources/BooksAPI.resource:19:1 SPC01 Trailing whitespace at the end of line
+    |
+ 17 |     ...                - Sets appropriate headers (Content-Type, Accept)
+ 18 |     ...                - Configures timeout and SSL verification
+ 19 |
+    | ^^^^ SPC01
+ 20 |     VAR    &{headers}
+ 21 |     ...    Content-Type=application/json
+    |
+
+/tests/resources/BooksAPI.resource:23:1 SPC01 Trailing whitespace at the end of line
+    |
+ 21 |     ...    Content-Type=application/json
+ 22 |     ...    Accept=application/json
+ 23 |
+    | ^^^^ SPC01
+ 24 |     Create Session
+ 25 |     ...    alias=books_api
+    |
+
+/tests/resources/BooksAPI.resource:30:1 SPC01 Trailing whitespace at the end of line
+    |
+ 28 |     ...    verify=True
+ 29 |     ...    timeout=${LONG_TIMEOUT}
+ 30 |
+    | ^^^^ SPC01
+ 31 |     Log    API session created for: ${BASE_URL}
+    |
+
+/tests/resources/BooksAPI.resource:35:1 SPC01 Trailing whitespace at the end of line
+    |
+ 33 | Close API Session
+ 34 |     [Documentation]    Closes all API sessions
+ 35 |
+    | ^^^^ SPC01
+ 36 |     Delete All Sessions
+ 37 |     Log    All API sessions closed
+    |
+
+/tests/resources/BooksAPI.resource:41:1 SPC01 Trailing whitespace at the end of line
+    |
+ 39 | Verify API Is Available
+ 40 |     [Documentation]    Verifies that the Books API is available and responding
+ 41 |
+    | ^^^^ SPC01
+ 42 |     ${response}=    GET On Session    books_api    ${API_ENDPOINT}    expected_status=200
+ 43 |     Log    Books API is available and healthy
+    |
+
+/tests/resources/BooksAPI.resource:42:5 VAR02 Variable '${response}' is assigned but not used
+    |
+ 42 |     ${response}=    GET On Session    books_api    ${API_ENDPOINT}    expected_status=200
+    |     ^^^^^^^^^^^ VAR02
+ 43 |     Log    Books API is available and healthy
+    |
+
+/tests/resources/BooksAPI.resource:47:8 SPC01 Trailing whitespace at the end of line
+    |
+ 45 | Create Book Via API
+ 46 |     [Documentation]    Creates a new book via POST request
+ 47 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 48 |     ...                Arguments:
+ 49 |     ...                - book_data: Dictionary containing book information
+    |
+
+/tests/resources/BooksAPI.resource:51:8 SPC01 Trailing whitespace at the end of line
+    |
+ 49 |     ...                - book_data: Dictionary containing book information
+ 50 |     ...                  (title, author, pages, category, favorite)
+ 51 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 52 |     ...                Returns:
+ 53 |     ...                - response: HTTP response object
+    |
+
+/tests/resources/BooksAPI.resource:54:8 SPC01 Trailing whitespace at the end of line
+    |
+ 52 |     ...                Returns:
+ 53 |     ...                - response: HTTP response object
+ 54 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 55 |     ...                Example:
+ 56 |     ...                | &{book}= | Generate Unique Book Data |
+    |
+
+/tests/resources/BooksAPI.resource:59:1 SPC01 Trailing whitespace at the end of line
+    |
+ 57 |     ...                | ${response}= | Create Book Via API | ${book} |
+ 58 |     [Arguments]    &{book_data}
+ 59 |
+    | ^^^^ SPC01
+ 60 |     ${response}=    POST On Session
+ 61 |     ...    alias=books_api
+    |
+
+/tests/resources/BooksAPI.resource:65:1 SPC01 Trailing whitespace at the end of line
+    |
+ 63 |     ...    json=&{book_data}
+ 64 |     ...    expected_status=200
+ 65 |
+    | ^^^^ SPC01
+ 66 |     Request Should Be Successful    ${response}
+ 67 |     Log    Book created successfully: ${book_data}[title]
+    |
+
+/tests/resources/BooksAPI.resource:72:8 SPC01 Trailing whitespace at the end of line
+    |
+ 70 | Get All Books Via API
+ 71 |     [Documentation]    Retrieves all books via GET request
+ 72 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 73 |     ...                Returns:
+ 74 |     ...                - response: HTTP response object containing list of books
+    |
+
+/tests/resources/BooksAPI.resource:75:1 SPC01 Trailing whitespace at the end of line
+    |
+ 73 |     ...                Returns:
+ 74 |     ...                - response: HTTP response object containing list of books
+ 75 |
+    | ^^^^ SPC01
+ 76 |     ${response}=    GET On Session    books_api    ${API_ENDPOINT}
+ 77 |     Status Should Be    200    ${response}
+    |
+
+/tests/resources/BooksAPI.resource:83:8 SPC01 Trailing whitespace at the end of line
+    |
+ 81 | Get Book By ID Via API
+ 82 |     [Documentation]    Retrieves a specific book by ID via GET request
+ 83 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 84 |     ...                Arguments:
+ 85 |     ...                - book_id: ID of the book to retrieve
+    |
+
+/tests/resources/BooksAPI.resource:86:8 SPC01 Trailing whitespace at the end of line
+    |
+ 84 |     ...                Arguments:
+ 85 |     ...                - book_id: ID of the book to retrieve
+ 86 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 87 |     ...                Returns:
+ 88 |     ...                - response: HTTP response object containing book data
+    |
+
+/tests/resources/BooksAPI.resource:90:1 SPC01 Trailing whitespace at the end of line
+    |
+ 88 |     ...                - response: HTTP response object containing book data
+ 89 |     [Arguments]    ${book_id}
+ 90 |
+    | ^^^^ SPC01
+ 91 |     ${response}=    GET On Session    books_api    ${API_ENDPOINT}${book_id}
+ 92 |     Status Should Be    200    ${response}
+    |
+
+/tests/resources/BooksAPI.resource:98:8 SPC01 Trailing whitespace at the end of line
+    |
+ 96 | Update Book Via API
+ 97 |     [Documentation]    Updates an existing book via PUT request
+ 98 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 99 |     ...                Arguments:
+100 |     ...                - book_id: ID of the book to update
+    |
+
+/tests/resources/BooksAPI.resource:102:8 SPC01 Trailing whitespace at the end of line
+     |
+ 100 |     ...                - book_id: ID of the book to update
+ 101 |     ...                - update_data: Dictionary containing fields to update
+ 102 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 103 |     ...                Returns:
+ 104 |     ...                - response: HTTP response object
+     |
+
+/tests/resources/BooksAPI.resource:106:1 SPC01 Trailing whitespace at the end of line
+     |
+ 104 |     ...                - response: HTTP response object
+ 105 |     [Arguments]    ${book_id}    &{update_data}
+ 106 |
+     | ^^^^ SPC01
+ 107 |     ${response}=    PUT On Session
+ 108 |     ...    alias=books_api
+     |
+
+/tests/resources/BooksAPI.resource:112:1 SPC01 Trailing whitespace at the end of line
+     |
+ 110 |     ...    json=&{update_data}
+ 111 |     ...    expected_status=200
+ 112 |
+     | ^^^^ SPC01
+ 113 |     Log    Book updated successfully: ID ${book_id}
+ 114 |     RETURN    ${response}
+     |
+
+/tests/resources/BooksAPI.resource:118:8 SPC01 Trailing whitespace at the end of line
+     |
+ 116 | Delete Book Via API
+ 117 |     [Documentation]    Deletes a book via DELETE request
+ 118 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 119 |     ...                Arguments:
+ 120 |     ...                - book_id: ID of the book to delete
+     |
+
+/tests/resources/BooksAPI.resource:122:1 SPC01 Trailing whitespace at the end of line
+     |
+ 120 |     ...                - book_id: ID of the book to delete
+ 121 |     [Arguments]    ${book_id}
+ 122 |
+     | ^^^^ SPC01
+ 123 |     TRY
+ 124 |         ${response}=    DELETE On Session    books_api    ${API_ENDPOINT}${book_id}    expected_status=200
+     |
+
+/tests/resources/BooksAPI.resource:124:9 VAR02 Variable '${response}' is assigned but not used
+     |
+ 122 |
+ 123 |     TRY
+ 124 |         ${response}=    DELETE On Session    books_api    ${API_ENDPOINT}${book_id}    expected_status=200
+     |         ^^^^^^^^^^^ VAR02
+ 125 |         Log    Book deleted successfully: ID ${book_id}
+ 126 |     EXCEPT    AS    ${error}
+     |
+
+/tests/resources/BooksAPI.resource:132:8 SPC01 Trailing whitespace at the end of line
+     |
+ 130 | Verify Book Exists Via API
+ 131 |     [Documentation]    Verifies that a book with the given ID exists
+ 132 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 133 |     ...                Arguments:
+ 134 |     ...                - book_id: ID of the book to verify
+     |
+
+/tests/resources/BooksAPI.resource:136:1 SPC01 Trailing whitespace at the end of line
+     |
+ 134 |     ...                - book_id: ID of the book to verify
+ 135 |     [Arguments]    ${book_id}
+ 136 |
+     | ^^^^ SPC01
+ 137 |     ${response}=    GET On Session    books_api    ${API_ENDPOINT}${book_id}
+ 138 |     Status Should Be    200    ${response}
+     |
+
+/tests/resources/BooksAPI.resource:143:8 SPC01 Trailing whitespace at the end of line
+     |
+ 141 | Verify Book Does Not Exist Via API
+ 142 |     [Documentation]    Verifies that a book with the given ID does not exist
+ 143 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 144 |     ...                Arguments:
+ 145 |     ...                - book_id: ID of the book to verify
+     |
+
+/tests/resources/BooksAPI.resource:147:1 SPC01 Trailing whitespace at the end of line
+     |
+ 145 |     ...                - book_id: ID of the book to verify
+ 146 |     [Arguments]    ${book_id}
+ 147 |
+     | ^^^^ SPC01
+ 148 |     ${response}=    GET On Session    books_api    ${API_ENDPOINT}${book_id}    expected_status=404
+ 149 |     Status Should Be    404    ${response}
+     |
+
+/tests/resources/BooksAPI.resource:154:8 SPC01 Trailing whitespace at the end of line
+     |
+ 152 | Extract Book ID From Response
+ 153 |     [Documentation]    Extracts the book ID from an API response
+ 154 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 155 |     ...                Arguments:
+ 156 |     ...                - response: HTTP response object
+     |
+
+/tests/resources/BooksAPI.resource:157:8 SPC01 Trailing whitespace at the end of line
+     |
+ 155 |     ...                Arguments:
+ 156 |     ...                - response: HTTP response object
+ 157 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 158 |     ...                Returns:
+ 159 |     ...                - book_id: Extracted book ID
+     |
+
+/tests/resources/BooksAPI.resource:161:1 SPC01 Trailing whitespace at the end of line
+     |
+ 159 |     ...                - book_id: Extracted book ID
+ 160 |     [Arguments]    ${response}
+ 161 |
+     | ^^^^ SPC01
+ 162 |     ${json_data}=    Set Variable    ${response.json()}
+ 163 |     ${book_id}=    Set Variable    ${json_data}[id]
+     |
+
+/tests/resources/BooksAPI.resource:162:22 DEPR05 Set Variable used instead of VAR
+     |
+ 162 |     ${json_data}=    Set Variable    ${response.json()}
+     |                      ^^^^^^^^^^^^ DEPR05
+ 163 |     ${book_id}=    Set Variable    ${json_data}[id]
+ 164 |     Log    Extracted book ID: ${book_id}
+     |
+
+/tests/resources/BooksAPI.resource:163:20 DEPR05 Set Variable used instead of VAR
+     |
+ 161 |
+ 162 |     ${json_data}=    Set Variable    ${response.json()}
+ 163 |     ${book_id}=    Set Variable    ${json_data}[id]
+     |                    ^^^^^^^^^^^^ DEPR05
+ 164 |     Log    Extracted book ID: ${book_id}
+ 165 |     RETURN    ${book_id}
+     |
+
+/tests/resources/BooksAPI.resource:169:8 SPC01 Trailing whitespace at the end of line
+     |
+ 167 | Verify Response Contains Book Data
+ 168 |     [Documentation]    Verifies that the response contains expected book data
+ 169 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 170 |     ...                Arguments:
+ 171 |     ...                - response: HTTP response object
+     |
+
+/tests/resources/BooksAPI.resource:174:1 SPC01 Trailing whitespace at the end of line
+     |
+ 172 |     ...                - expected_data: Dictionary of expected field values
+ 173 |     [Arguments]    ${response}    &{expected_data}
+ 174 |
+     | ^^^^ SPC01
+ 175 |     ${json_data}=    Set Variable    ${response.json()}
+     |
+
+/tests/resources/BooksAPI.resource:175:22 DEPR05 Set Variable used instead of VAR
+     |
+ 175 |     ${json_data}=    Set Variable    ${response.json()}
+     |                      ^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/resources/BooksAPI.resource:176:1 SPC01 Trailing whitespace at the end of line
+     |
+ 174 |
+ 175 |     ${json_data}=    Set Variable    ${response.json()}
+ 176 |
+     | ^^^^ SPC01
+ 177 |     FOR    ${key}    ${expected_value}    IN    &{expected_data}
+ 178 |         Dictionary Should Contain Key    ${json_data}    ${key}
+     |
+
+/tests/resources/BooksAPI.resource:185:8 SPC01 Trailing whitespace at the end of line
+     |
+ 183 | Verify Response Contains Required Fields
+ 184 |     [Documentation]    Verifies that the response contains all required book fields
+ 185 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 186 |     ...                Arguments:
+ 187 |     ...                - response: HTTP response object
+     |
+
+/tests/resources/BooksAPI.resource:189:1 SPC01 Trailing whitespace at the end of line
+     |
+ 187 |     ...                - response: HTTP response object
+ 188 |     [Arguments]    ${response}
+ 189 |
+     | ^^^^ SPC01
+ 190 |     ${json_data}=    Set Variable    ${response.json()}
+ 191 |     @{required_fields}=    Create List    id    title    author    pages    category    favorite
+     |
+
+/tests/resources/BooksAPI.resource:190:22 DEPR05 Set Variable used instead of VAR
+     |
+ 190 |     ${json_data}=    Set Variable    ${response.json()}
+     |                      ^^^^^^^^^^^^ DEPR05
+ 191 |     @{required_fields}=    Create List    id    title    author    pages    category    favorite
+     |
+
+/tests/resources/BooksAPI.resource:191:28 DEPR06 Create List used instead of VAR
+     |
+ 189 |
+ 190 |     ${json_data}=    Set Variable    ${response.json()}
+ 191 |     @{required_fields}=    Create List    id    title    author    pages    category    favorite
+     |                            ^^^^^^^^^^^ DEPR06
+     |
+
+/tests/resources/BooksAPI.resource:192:1 SPC01 Trailing whitespace at the end of line
+     |
+ 190 |     ${json_data}=    Set Variable    ${response.json()}
+ 191 |     @{required_fields}=    Create List    id    title    author    pages    category    favorite
+ 192 |
+     | ^^^^ SPC01
+ 193 |     FOR    ${field}    IN    @{required_fields}
+ 194 |         Dictionary Should Contain Key    ${json_data}    ${field}
+     |
+
+/tests/resources/BooksAPI.resource:200:8 SPC01 Trailing whitespace at the end of line
+     |
+ 198 | Get Book Count From Response
+ 199 |     [Documentation]    Returns the number of books in the API response
+ 200 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 201 |     ...                Arguments:
+ 202 |     ...                - response: HTTP response object containing list of books
+     |
+
+/tests/resources/BooksAPI.resource:203:8 SPC01 Trailing whitespace at the end of line
+     |
+ 201 |     ...                Arguments:
+ 202 |     ...                - response: HTTP response object containing list of books
+ 203 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 204 |     ...                Returns:
+ 205 |     ...                - count: Number of books in the response
+     |
+
+/tests/resources/BooksAPI.resource:207:1 SPC01 Trailing whitespace at the end of line
+     |
+ 205 |     ...                - count: Number of books in the response
+ 206 |     [Arguments]    ${response}
+ 207 |
+     | ^^^^ SPC01
+ 208 |     ${books}=    Set Variable    ${response.json()}
+ 209 |     ${count}=    Get Length    ${books}
+     |
+
+/tests/resources/BooksAPI.resource:208:18 DEPR05 Set Variable used instead of VAR
+     |
+ 208 |     ${books}=    Set Variable    ${response.json()}
+     |                  ^^^^^^^^^^^^ DEPR05
+ 209 |     ${count}=    Get Length    ${books}
+ 210 |     Log    Response contains ${count} books
+     |
+
+/tests/resources/BooksAPI.resource:215:8 SPC01 Trailing whitespace at the end of line
+     |
+ 213 | Find Book By Title In Response
+ 214 |     [Documentation]    Finds a book by title in the API response
+ 215 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 216 |     ...                Arguments:
+ 217 |     ...                - response: HTTP response object containing list of books
+     |
+
+/tests/resources/BooksAPI.resource:219:8 SPC01 Trailing whitespace at the end of line
+     |
+ 217 |     ...                - response: HTTP response object containing list of books
+ 218 |     ...                - title: Title to search for
+ 219 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 220 |     ...                Returns:
+ 221 |     ...                - book: Book dictionary if found, None otherwise
+     |
+
+/tests/resources/BooksAPI.resource:223:1 SPC01 Trailing whitespace at the end of line
+     |
+ 221 |     ...                - book: Book dictionary if found, None otherwise
+ 222 |     [Arguments]    ${response}    ${title}
+ 223 |
+     | ^^^^ SPC01
+ 224 |     ${books}=    Set Variable    ${response.json()}
+ 225 |     ${book}=    Set Variable    ${None}
+     |
+
+/tests/resources/BooksAPI.resource:224:18 DEPR05 Set Variable used instead of VAR
+     |
+ 224 |     ${books}=    Set Variable    ${response.json()}
+     |                  ^^^^^^^^^^^^ DEPR05
+ 225 |     ${book}=    Set Variable    ${None}
+     |
+
+/tests/resources/BooksAPI.resource:225:17 DEPR05 Set Variable used instead of VAR
+     |
+ 223 |
+ 224 |     ${books}=    Set Variable    ${response.json()}
+ 225 |     ${book}=    Set Variable    ${None}
+     |                 ^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/resources/BooksAPI.resource:226:1 SPC01 Trailing whitespace at the end of line
+     |
+ 224 |     ${books}=    Set Variable    ${response.json()}
+ 225 |     ${book}=    Set Variable    ${None}
+ 226 |
+     | ^^^^ SPC01
+ 227 |     FOR    ${current_book}    IN    @{books}
+ 228 |         IF    '${current_book}[title]' == '${title}'
+     |
+
+/tests/resources/BooksAPI.resource:229:25 DEPR05 Set Variable used instead of VAR
+     |
+ 227 |     FOR    ${current_book}    IN    @{books}
+ 228 |         IF    '${current_book}[title]' == '${title}'
+ 229 |             ${book}=    Set Variable    ${current_book}
+     |                         ^^^^^^^^^^^^ DEPR05
+ 230 |             Log    Found book: ${title}
+ 231 |             BREAK
+     |
+
+/tests/resources/BooksAPI.resource:234:1 SPC01 Trailing whitespace at the end of line
+     |
+ 232 |         END
+ 233 |     END
+ 234 |
+     | ^^^^ SPC01
+ 235 |     RETURN    ${book}
+     |
+
+/tests/resources/BooksAPI.resource:239:8 SPC01 Trailing whitespace at the end of line
+     |
+ 237 | Verify Book In List
+ 238 |     [Documentation]    Verifies that a book with the given ID exists in the books list
+ 239 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 240 |     ...                Arguments:
+ 241 |     ...                - response: HTTP response object containing list of books
+     |
+
+/tests/resources/BooksAPI.resource:244:1 SPC01 Trailing whitespace at the end of line
+     |
+ 242 |     ...                - book_id: ID of the book to find
+ 243 |     [Arguments]    ${response}    ${book_id}
+ 244 |
+     | ^^^^ SPC01
+ 245 |     ${books}=    Set Variable    ${response.json()}
+ 246 |     @{book_ids}=    Create List
+     |
+
+/tests/resources/BooksAPI.resource:245:18 DEPR05 Set Variable used instead of VAR
+     |
+ 245 |     ${books}=    Set Variable    ${response.json()}
+     |                  ^^^^^^^^^^^^ DEPR05
+ 246 |     @{book_ids}=    Create List
+     |
+
+/tests/resources/BooksAPI.resource:246:21 DEPR06 Create List used instead of VAR
+     |
+ 244 |
+ 245 |     ${books}=    Set Variable    ${response.json()}
+ 246 |     @{book_ids}=    Create List
+     |                     ^^^^^^^^^^^ DEPR06
+     |
+
+/tests/resources/BooksAPI.resource:247:1 SPC01 Trailing whitespace at the end of line
+     |
+ 245 |     ${books}=    Set Variable    ${response.json()}
+ 246 |     @{book_ids}=    Create List
+ 247 |
+     | ^^^^ SPC01
+ 248 |     FOR    ${book}    IN    @{books}
+ 249 |         Append To List    ${book_ids}    ${book}[id]
+     |
+
+/tests/resources/BooksAPI.resource:251:1 SPC01 Trailing whitespace at the end of line
+     |
+ 249 |         Append To List    ${book_ids}    ${book}[id]
+ 250 |     END
+ 251 |
+     | ^^^^ SPC01
+ 252 |     List Should Contain Value    ${book_ids}    ${book_id}
+ 253 |     Log    Verified book ${book_id} exists in list
+     |
+
+/tests/resources/BooksAPI.resource:257:8 SPC01 Trailing whitespace at the end of line
+     |
+ 255 | Verify Book Not In List
+ 256 |     [Documentation]    Verifies that a book with the given ID does not exist in the books list
+ 257 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 258 |     ...                Arguments:
+ 259 |     ...                - response: HTTP response object containing list of books
+     |
+
+/tests/resources/BooksAPI.resource:262:1 SPC01 Trailing whitespace at the end of line
+     |
+ 260 |     ...                - book_id: ID of the book to verify is absent
+ 261 |     [Arguments]    ${response}    ${book_id}
+ 262 |
+     | ^^^^ SPC01
+ 263 |     ${books}=    Set Variable    ${response.json()}
+ 264 |     @{book_ids}=    Create List
+     |
+
+/tests/resources/BooksAPI.resource:263:18 DEPR05 Set Variable used instead of VAR
+     |
+ 263 |     ${books}=    Set Variable    ${response.json()}
+     |                  ^^^^^^^^^^^^ DEPR05
+ 264 |     @{book_ids}=    Create List
+     |
+
+/tests/resources/BooksAPI.resource:264:21 DEPR06 Create List used instead of VAR
+     |
+ 262 |
+ 263 |     ${books}=    Set Variable    ${response.json()}
+ 264 |     @{book_ids}=    Create List
+     |                     ^^^^^^^^^^^ DEPR06
+     |
+
+/tests/resources/BooksAPI.resource:265:1 SPC01 Trailing whitespace at the end of line
+     |
+ 263 |     ${books}=    Set Variable    ${response.json()}
+ 264 |     @{book_ids}=    Create List
+ 265 |
+     | ^^^^ SPC01
+ 266 |     FOR    ${book}    IN    @{books}
+ 267 |         Append To List    ${book_ids}    ${book}[id]
+     |
+
+/tests/resources/BooksAPI.resource:269:1 SPC01 Trailing whitespace at the end of line
+     |
+ 267 |         Append To List    ${book_ids}    ${book}[id]
+ 268 |     END
+ 269 |
+     | ^^^^ SPC01
+ 270 |     List Should Not Contain Value    ${book_ids}    ${book_id}
+ 271 |     Log    Verified book ${book_id} does not exist in list
+     |
+
+/tests/books_api.robot:3:4 SPC01 Trailing whitespace at the end of line
+   |
+ 1 | *** Settings ***
+ 2 | Documentation     Books API Test Suite
+ 3 | ...
+   |    ^^^^^^^^^^^^^^^ SPC01
+ 4 | ...               This suite tests the Books REST API functionality including:
+ 5 | ...               - Creating new books (POST)
+   |
+
+/tests/books_api.robot:10:4 SPC01 Trailing whitespace at the end of line
+    |
+  8 | ...               - Deleting books (DELETE)
+  9 | ...               - Error handling and validation
+ 10 | ...
+    |    ^^^^^^^^^^^^^^^ SPC01
+ 11 | ...               Prerequisites:
+ 12 | ...               - Books service running at http://books-service:8000
+    |
+
+/tests/books_api.robot:17:19 IMP01 BuiltIn library import 'Collections' should be placed before 'RequestsLibrary'
+    |
+ 15 |
+ 16 | Library           RequestsLibrary
+ 17 | Library           Collections
+    |                   ^^^^^^^^^^^ IMP01
+ 18 | Resource          resources/common.resource
+ 19 | Resource          resources/BooksAPI.resource
+    |
+
+/tests/books_api.robot:26:1 DEPR02 'Force Tags' is deprecated since Robot Framework version 6.0, use 'Test Tags' instead
+    |
+ 26 | Force Tags        api    books
+    | ^^^^^^^^^^ DEPR02
+ 27 | Default Tags      regression
+    |
+
+/tests/books_api.robot:27:1 TAG07 Tags defined in Default Tags are always overwritten
+    |
+ 25 |
+ 26 | Force Tags        api    books
+ 27 | Default Tags      regression
+    | ^^^^^^^^^^^^ TAG07
+    |
+
+/tests/books_api.robot:28:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 26 | Force Tags        api    books
+ 27 | Default Tags      regression
+ 28 |
+    | ^ SPC03
+ 29 | *** Variables ***
+ 30 | ${SUITE_START_TIME}       ${EMPTY}
+    |
+
+/tests/books_api.robot:33:1 SPC03 Invalid number of empty lines between sections (1/2)
+    |
+ 31 | ${TEST_START_TIME}        ${EMPTY}
+ 32 | ${TEST_BOOK_IDS}          @{EMPTY}
+ 33 |
+    | ^ SPC03
+ 34 | *** Test Cases ***
+ 35 | User Should Be Able To Create A New Book Via API
+    |
+
+/tests/books_api.robot:37:8 SPC01 Trailing whitespace at the end of line
+    |
+ 35 | User Should Be Able To Create A New Book Via API
+ 36 |     [Documentation]    Verify that a new book can be created via POST request
+ 37 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 38 |     ...                This test verifies:
+ 39 |     ...                - POST request creates a book successfully
+    |
+
+/tests/books_api.robot:44:1 SPC01 Trailing whitespace at the end of line
+    |
+ 42 |     ...                - Book appears in the books list
+ 43 |     [Tags]    smoke    create    priority-high
+ 44 |
+    | ^^^^ SPC01
+ 45 |     Given API Session Is Active
+ 46 |     When User Creates A New Book With Valid Data
+    |
+
+/tests/books_api.robot:53:8 SPC01 Trailing whitespace at the end of line
+    |
+ 51 | User Should Be Able To Retrieve All Books Via API
+ 52 |     [Documentation]    Verify that all books can be retrieved via GET request
+ 53 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 54 |     ...                This test verifies:
+ 55 |     ...                - GET request returns all books
+    |
+
+/tests/books_api.robot:60:1 SPC01 Trailing whitespace at the end of line
+    |
+ 58 |     ...                - At least one book is returned
+ 59 |     [Tags]    smoke    read    priority-high
+ 60 |
+    | ^^^^ SPC01
+ 61 |     Given API Session Is Active
+ 62 |     When User Retrieves All Books
+    |
+
+/tests/books_api.robot:68:8 SPC01 Trailing whitespace at the end of line
+    |
+ 66 | User Should Be Able To Retrieve Book Details Via API
+ 67 |     [Documentation]    Verify that book details can be retrieved via GET request
+ 68 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 69 |     ...                This test verifies:
+ 70 |     ...                - GET request for specific book returns correct data
+    |
+
+/tests/books_api.robot:75:1 SPC01 Trailing whitespace at the end of line
+    |
+ 73 |     ...                - Book data matches what was created
+ 74 |     [Tags]    read    priority-high
+ 75 |
+    | ^^^^ SPC01
+ 76 |     Given API Session Is Active
+ 77 |     And A Book Exists In The System
+    |
+
+/tests/books_api.robot:84:8 SPC01 Trailing whitespace at the end of line
+    |
+ 82 | User Should Be Able To Update Book Information Via API
+ 83 |     [Documentation]    Verify that book information can be updated via PUT request
+ 84 |     ...
+    |        ^^^^^^^^^^^^^^^^ SPC01
+ 85 |     ...                This test verifies:
+ 86 |     ...                - PUT request updates book successfully
+    |
+
+/tests/books_api.robot:91:1 SPC01 Trailing whitespace at the end of line
+    |
+ 89 |     ...                - GET request returns updated data
+ 90 |     [Tags]    update    priority-high
+ 91 |
+    | ^^^^ SPC01
+ 92 |     Given API Session Is Active
+ 93 |     And A Book Exists In The System
+    |
+
+/tests/books_api.robot:100:8 SPC01 Trailing whitespace at the end of line
+     |
+  98 | User Should Be Able To Delete A Book Via API
+  99 |     [Documentation]    Verify that a book can be deleted via DELETE request
+ 100 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 101 |     ...                This test verifies:
+ 102 |     ...                - DELETE request removes book successfully
+     |
+
+/tests/books_api.robot:107:1 SPC01 Trailing whitespace at the end of line
+     |
+ 105 |     ...                - GET request for deleted book returns 404
+ 106 |     [Tags]    delete    priority-high
+ 107 |
+     | ^^^^ SPC01
+ 108 |     Given API Session Is Active
+ 109 |     And A Book Exists In The System
+     |
+
+/tests/books_api.robot:116:8 SPC01 Trailing whitespace at the end of line
+     |
+ 114 | API Should Return 404 For Nonexistent Book
+ 115 |     [Documentation]    Verify that API returns 404 for nonexistent book ID
+ 116 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 117 |     ...                This test verifies:
+ 118 |     ...                - GET request for invalid ID returns 404
+     |
+
+/tests/books_api.robot:122:1 SPC01 Trailing whitespace at the end of line
+     |
+ 120 |     ...                - No exception is raised
+ 121 |     [Tags]    error-handling    negative    priority-medium
+ 122 |
+     | ^^^^ SPC01
+ 123 |     Given API Session Is Active
+ 124 |     When User Requests Nonexistent Book
+     |
+
+/tests/books_api.robot:129:8 SPC01 Trailing whitespace at the end of line
+     |
+ 127 | API Should Validate Required Fields On Create
+ 128 |     [Documentation]    Verify that API validates required fields when creating a book
+ 129 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 130 |     ...                This test verifies:
+ 131 |     ...                - POST request without required fields returns 422
+     |
+
+/tests/books_api.robot:135:1 SPC01 Trailing whitespace at the end of line
+     |
+ 133 |     ...                - No book is created
+ 134 |     [Tags]    validation    negative    priority-medium
+ 135 |
+     | ^^^^ SPC01
+ 136 |     Given API Session Is Active
+ 137 |     When User Attempts To Create Book Without Required Fields
+     |
+
+/tests/books_api.robot:143:8 SPC01 Trailing whitespace at the end of line
+     |
+ 141 | User Should Be Able To Create Multiple Books
+ 142 |     [Documentation]    Verify that multiple books can be created in sequence
+ 143 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 144 |     ...                This test verifies:
+ 145 |     ...                - Multiple POST requests succeed
+     |
+
+/tests/books_api.robot:149:1 SPC01 Trailing whitespace at the end of line
+     |
+ 147 |     ...                - All books appear in the books list
+ 148 |     [Tags]    create    priority-medium
+ 149 |
+     | ^^^^ SPC01
+ 150 |     Given API Session Is Active
+ 151 |     When User Creates Multiple Books
+     |
+
+/tests/books_api.robot:157:8 SPC01 Trailing whitespace at the end of line
+     |
+ 155 | API Should Handle Concurrent Requests
+ 156 |     [Documentation]    Verify that API handles multiple requests correctly
+ 157 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 158 |     ...                This test verifies:
+ 159 |     ...                - API can handle multiple GET requests
+     |
+
+/tests/books_api.robot:163:1 SPC01 Trailing whitespace at the end of line
+     |
+ 161 |     ...                - No data corruption occurs
+ 162 |     [Tags]    performance    priority-low
+ 163 |
+     | ^^^^ SPC01
+ 164 |     Given API Session Is Active
+ 165 |     When User Makes Multiple Concurrent Requests
+     |
+
+/tests/books_api.robot:167:1 SPC03 Invalid number of empty lines between sections (1/2)
+     |
+ 165 |     When User Makes Multiple Concurrent Requests
+ 166 |     Then All Requests Should Complete Successfully
+ 167 |
+     | ^ SPC03
+ 168 | *** Keywords ***
+ 169 | Initialize API Test Suite
+     |
+
+/tests/books_api.robot:171:8 SPC01 Trailing whitespace at the end of line
+     |
+ 169 | Initialize API Test Suite
+ 170 |     [Documentation]    Runs once before all API tests in this suite
+ 171 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 172 |     ...                This keyword:
+ 173 |     ...                - Logs suite start
+     |
+
+/tests/books_api.robot:177:1 SPC01 Trailing whitespace at the end of line
+     |
+ 175 |     ...                - Verifies API is available
+ 176 |     ...                - Records suite start time
+ 177 |
+     | ^^^^ SPC01
+ 178 |     Log    Starting Books API Test Suite    level=INFO
+ 179 |     ${start_time}=    Get Time    epoch
+     |
+
+/tests/books_api.robot:180:52 VAR05 Variable defined with suite scope
+     |
+ 178 |     Log    Starting Books API Test Suite    level=INFO
+ 179 |     ${start_time}=    Get Time    epoch
+ 180 |     VAR    ${SUITE_START_TIME}    ${start_time}    scope=SUITE
+     |                                                    ^^^^^^^^^^^ VAR05
+ 181 |     Create API Session
+ 182 |     Verify API Is Available
+     |
+
+/tests/books_api.robot:186:8 SPC01 Trailing whitespace at the end of line
+     |
+ 184 | Cleanup API Test Suite
+ 185 |     [Documentation]    Runs once after all API tests in this suite
+ 186 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 187 |     ...                This keyword:
+ 188 |     ...                - Closes API sessions
+     |
+
+/tests/books_api.robot:191:1 SPC01 Trailing whitespace at the end of line
+     |
+ 189 |     ...                - Logs suite completion
+ 190 |     ...                - Calculates and logs suite duration
+ 191 |
+     | ^^^^ SPC01
+ 192 |     Close API Session
+     |
+
+/tests/books_api.robot:193:1 SPC01 Trailing whitespace at the end of line
+     |
+ 191 |
+ 192 |     Close API Session
+ 193 |
+     | ^^^^ SPC01
+ 194 |     TRY
+ 195 |         ${end_time}=    Get Time    epoch
+     |
+
+/tests/books_api.robot:204:8 SPC01 Trailing whitespace at the end of line
+     |
+ 202 | Initialize API Test
+ 203 |     [Documentation]    Runs before each API test case
+ 204 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 205 |     ...                This keyword:
+ 206 |     ...                - Records test start time
+     |
+
+/tests/books_api.robot:209:1 SPC01 Trailing whitespace at the end of line
+     |
+ 207 |     ...                - Initializes empty list for test book IDs
+ 208 |     ...                - Logs test start
+ 209 |
+     | ^^^^ SPC01
+ 210 |     ${start_time}=    Get Time    epoch
+ 211 |     VAR    ${TEST_START_TIME}    ${start_time}    scope=TEST
+     |
+
+/tests/books_api.robot:211:51 VAR06 Variable defined with test/task scope
+     |
+ 209 |
+ 210 |     ${start_time}=    Get Time    epoch
+ 211 |     VAR    ${TEST_START_TIME}    ${start_time}    scope=TEST
+     |                                                   ^^^^^^^^^^ VAR06
+ 212 |     VAR    @{TEST_BOOK_IDS}    @{EMPTY}    scope=TEST
+ 213 |     Log    Starting test: ${TEST_NAME}
+     |
+
+/tests/books_api.robot:212:44 VAR06 Variable defined with test/task scope
+     |
+ 210 |     ${start_time}=    Get Time    epoch
+ 211 |     VAR    ${TEST_START_TIME}    ${start_time}    scope=TEST
+ 212 |     VAR    @{TEST_BOOK_IDS}    @{EMPTY}    scope=TEST
+     |                                            ^^^^^^^^^^ VAR06
+ 213 |     Log    Starting test: ${TEST_NAME}
+     |
+
+/tests/books_api.robot:217:8 SPC01 Trailing whitespace at the end of line
+     |
+ 215 | Cleanup API Test
+ 216 |     [Documentation]    Runs after each API test case
+ 217 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 218 |     ...                This keyword:
+ 219 |     ...                - Deletes all test books created during the test
+     |
+
+/tests/books_api.robot:222:1 SPC01 Trailing whitespace at the end of line
+     |
+ 220 |     ...                - Logs test completion
+ 221 |     ...                - Calculates and logs test duration
+ 222 |
+     | ^^^^ SPC01
+ 223 |     TRY
+ 224 |         FOR    ${book_id}    IN    @{TEST_BOOK_IDS}
+     |
+
+/tests/books_api.robot:230:1 SPC01 Trailing whitespace at the end of line
+     |
+ 228 |         Log    Warning: Test cleanup failed: ${error}    level=WARN
+ 229 |     END
+ 230 |
+     | ^^^^ SPC01
+ 231 |     Log Test Duration    ${TEST_START_TIME}
+     |
+
+/tests/books_api.robot:235:8 SPC01 Trailing whitespace at the end of line
+     |
+ 233 | API Session Is Active
+ 234 |     [Documentation]    Verifies API session is active
+ 235 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 236 |     ...                This is a Gherkin-style Given keyword that:
+ 237 |     ...                - Checks if session exists
+     |
+
+/tests/books_api.robot:239:1 SPC01 Trailing whitespace at the end of line
+     |
+ 237 |     ...                - Checks if session exists
+ 238 |     ...                - Verifies session is ready for requests
+ 239 |
+     | ^^^^ SPC01
+ 240 |     ${exists}=    Session Exists    books_api
+ 241 |     Should Be True    ${exists}    API session not found
+     |
+
+/tests/books_api.robot:245:8 SPC01 Trailing whitespace at the end of line
+     |
+ 243 | User Creates A New Book With Valid Data
+ 244 |     [Documentation]    Creates a new book with valid test data
+ 245 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 246 |     ...                This is a Gherkin-style When keyword that:
+ 247 |     ...                - Generates unique book data
+     |
+
+/tests/books_api.robot:250:1 SPC01 Trailing whitespace at the end of line
+     |
+ 248 |     ...                - Sends POST request to create book
+ 249 |     ...                - Stores book ID for cleanup
+ 250 |
+     | ^^^^ SPC01
+ 251 |     &{book_data}=    Generate Unique Book Data
+ 252 |     ${response}=    Create Book Via API    &{book_data}
+     |
+
+/tests/books_api.robot:253:1 SPC01 Trailing whitespace at the end of line
+     |
+ 251 |     &{book_data}=    Generate Unique Book Data
+ 252 |     ${response}=    Create Book Via API    &{book_data}
+ 253 |
+     | ^^^^ SPC01
+ 254 |     ${book_id}=    Extract Book ID From Response    ${response}
+ 255 |     Append To List    ${TEST_BOOK_IDS}    ${book_id}
+     |
+
+/tests/books_api.robot:256:1 SPC01 Trailing whitespace at the end of line
+     |
+ 254 |     ${book_id}=    Extract Book ID From Response    ${response}
+ 255 |     Append To List    ${TEST_BOOK_IDS}    ${book_id}
+ 256 |
+     | ^^^^ SPC01
+ 257 |     VAR    ${CREATED_BOOK_ID}    ${book_id}    scope=TEST
+ 258 |     VAR    &{CREATED_BOOK_DATA}    &{book_data}    scope=TEST
+     |
+
+/tests/books_api.robot:257:48 VAR06 Variable defined with test/task scope
+     |
+ 257 |     VAR    ${CREATED_BOOK_ID}    ${book_id}    scope=TEST
+     |                                                ^^^^^^^^^^ VAR06
+ 258 |     VAR    &{CREATED_BOOK_DATA}    &{book_data}    scope=TEST
+ 259 |     VAR    ${CREATED_RESPONSE}    ${response}    scope=TEST
+     |
+
+/tests/books_api.robot:258:52 VAR06 Variable defined with test/task scope
+     |
+ 256 |
+ 257 |     VAR    ${CREATED_BOOK_ID}    ${book_id}    scope=TEST
+ 258 |     VAR    &{CREATED_BOOK_DATA}    &{book_data}    scope=TEST
+     |                                                    ^^^^^^^^^^ VAR06
+ 259 |     VAR    ${CREATED_RESPONSE}    ${response}    scope=TEST
+     |
+
+/tests/books_api.robot:259:50 VAR06 Variable defined with test/task scope
+     |
+ 257 |     VAR    ${CREATED_BOOK_ID}    ${book_id}    scope=TEST
+ 258 |     VAR    &{CREATED_BOOK_DATA}    &{book_data}    scope=TEST
+ 259 |     VAR    ${CREATED_RESPONSE}    ${response}    scope=TEST
+     |                                                  ^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:260:1 SPC01 Trailing whitespace at the end of line
+     |
+ 258 |     VAR    &{CREATED_BOOK_DATA}    &{book_data}    scope=TEST
+ 259 |     VAR    ${CREATED_RESPONSE}    ${response}    scope=TEST
+ 260 |
+     | ^^^^ SPC01
+ 261 |     RETURN    ${response}
+     |
+
+/tests/books_api.robot:265:8 SPC01 Trailing whitespace at the end of line
+     |
+ 263 | Book Should Be Created Successfully
+ 264 |     [Documentation]    Verifies book was created successfully
+ 265 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 266 |     ...                This is a Gherkin-style Then keyword that:
+ 267 |     ...                - Verifies response status is 200
+     |
+
+/tests/books_api.robot:269:1 SPC01 Trailing whitespace at the end of line
+     |
+ 267 |     ...                - Verifies response status is 200
+ 268 |     ...                - Verifies book ID was returned
+ 269 |
+     | ^^^^ SPC01
+ 270 |     Should Be True    ${CREATED_BOOK_ID} is not None    Book ID should not be None
+ 271 |     Status Should Be    200    ${CREATED_RESPONSE}
+     |
+
+/tests/books_api.robot:276:8 SPC01 Trailing whitespace at the end of line
+     |
+ 274 | Book Should Appear In Books List
+ 275 |     [Documentation]    Verifies created book appears in books list
+ 276 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 277 |     ...                This is a Gherkin-style And keyword that:
+ 278 |     ...                - Retrieves all books
+     |
+
+/tests/books_api.robot:280:1 SPC01 Trailing whitespace at the end of line
+     |
+ 278 |     ...                - Retrieves all books
+ 279 |     ...                - Verifies created book is in the list
+ 280 |
+     | ^^^^ SPC01
+ 281 |     ${response}=    Get All Books Via API
+ 282 |     Verify Book In List    ${response}    ${CREATED_BOOK_ID}
+     |
+
+/tests/books_api.robot:286:8 SPC01 Trailing whitespace at the end of line
+     |
+ 284 | Response Should Contain All Required Fields
+ 285 |     [Documentation]    Verifies response contains all required book fields
+ 286 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 287 |     ...                This is a Gherkin-style And keyword that:
+ 288 |     ...                - Checks for required fields (id, title, author, etc.)
+     |
+
+/tests/books_api.robot:290:1 SPC01 Trailing whitespace at the end of line
+     |
+ 288 |     ...                - Checks for required fields (id, title, author, etc.)
+ 289 |     ...                - Verifies field values are not empty
+ 290 |
+     | ^^^^ SPC01
+ 291 |     Verify Response Contains Required Fields    ${CREATED_RESPONSE}
+     |
+
+/tests/books_api.robot:295:8 SPC01 Trailing whitespace at the end of line
+     |
+ 293 | User Retrieves All Books
+ 294 |     [Documentation]    Retrieves all books via GET request
+ 295 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 296 |     ...                This is a Gherkin-style When keyword that:
+ 297 |     ...                - Sends GET request to /books/
+     |
+
+/tests/books_api.robot:299:1 SPC01 Trailing whitespace at the end of line
+     |
+ 297 |     ...                - Sends GET request to /books/
+ 298 |     ...                - Stores response for verification
+ 299 |
+     | ^^^^ SPC01
+ 300 |     ${response}=    Get All Books Via API
+ 301 |     VAR    ${ALL_BOOKS_RESPONSE}    ${response}    scope=TEST
+     |
+
+/tests/books_api.robot:301:52 VAR06 Variable defined with test/task scope
+     |
+ 299 |
+ 300 |     ${response}=    Get All Books Via API
+ 301 |     VAR    ${ALL_BOOKS_RESPONSE}    ${response}    scope=TEST
+     |                                                    ^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:305:8 SPC01 Trailing whitespace at the end of line
+     |
+ 303 | Books List Should Be Returned Successfully
+ 304 |     [Documentation]    Verifies books list was returned successfully
+ 305 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 306 |     ...                This is a Gherkin-style Then keyword that:
+ 307 |     ...                - Verifies response status is 200
+     |
+
+/tests/books_api.robot:309:1 SPC01 Trailing whitespace at the end of line
+     |
+ 307 |     ...                - Verifies response status is 200
+ 308 |     ...                - Verifies response is a list
+ 309 |
+     | ^^^^ SPC01
+ 310 |     Status Should Be    200    ${ALL_BOOKS_RESPONSE}
+ 311 |     ${books}=    Set Variable    ${ALL_BOOKS_RESPONSE.json()}
+     |
+
+/tests/books_api.robot:311:18 DEPR05 Set Variable used instead of VAR
+     |
+ 309 |
+ 310 |     Status Should Be    200    ${ALL_BOOKS_RESPONSE}
+ 311 |     ${books}=    Set Variable    ${ALL_BOOKS_RESPONSE.json()}
+     |                  ^^^^^^^^^^^^ DEPR05
+ 312 |     ${is_list}=    Evaluate    isinstance(${books}, list)
+ 313 |     Should Be True    ${is_list}    Response is not a list
+     |
+
+/tests/books_api.robot:317:8 SPC01 Trailing whitespace at the end of line
+     |
+ 315 | Books List Should Not Be Empty
+ 316 |     [Documentation]    Verifies books list is not empty
+ 317 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 318 |     ...                This is a Gherkin-style And keyword that:
+ 319 |     ...                - Gets count of books in response
+     |
+
+/tests/books_api.robot:321:1 SPC01 Trailing whitespace at the end of line
+     |
+ 319 |     ...                - Gets count of books in response
+ 320 |     ...                - Verifies count is greater than zero
+ 321 |
+     | ^^^^ SPC01
+ 322 |     ${count}=    Get Book Count From Response    ${ALL_BOOKS_RESPONSE}
+ 323 |     Should Be True    ${count} > 0    Books list is empty
+     |
+
+/tests/books_api.robot:327:8 SPC01 Trailing whitespace at the end of line
+     |
+ 325 | A Book Exists In The System
+ 326 |     [Documentation]    Creates a test book for the test
+ 327 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 328 |     ...                This is a Gherkin-style Given keyword that:
+ 329 |     ...                - Creates a new book
+     |
+
+/tests/books_api.robot:331:1 SPC01 Trailing whitespace at the end of line
+     |
+ 329 |     ...                - Creates a new book
+ 330 |     ...                - Stores book data for later verification
+ 331 |
+     | ^^^^ SPC01
+ 332 |     User Creates A New Book With Valid Data
+     |
+
+/tests/books_api.robot:336:8 SPC01 Trailing whitespace at the end of line
+     |
+ 334 | User Retrieves Book Details
+ 335 |     [Documentation]    Retrieves book details via GET request
+ 336 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 337 |     ...                This is a Gherkin-style When keyword that:
+ 338 |     ...                - Sends GET request for specific book
+     |
+
+/tests/books_api.robot:340:1 SPC01 Trailing whitespace at the end of line
+     |
+ 338 |     ...                - Sends GET request for specific book
+ 339 |     ...                - Stores response for verification
+ 340 |
+     | ^^^^ SPC01
+ 341 |     ${response}=    Get Book By ID Via API    ${CREATED_BOOK_ID}
+ 342 |     VAR    ${RETRIEVED_RESPONSE}    ${response}    scope=TEST
+     |
+
+/tests/books_api.robot:342:52 VAR06 Variable defined with test/task scope
+     |
+ 340 |
+ 341 |     ${response}=    Get Book By ID Via API    ${CREATED_BOOK_ID}
+ 342 |     VAR    ${RETRIEVED_RESPONSE}    ${response}    scope=TEST
+     |                                                    ^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:346:8 SPC01 Trailing whitespace at the end of line
+     |
+ 344 | Book Details Should Be Returned Successfully
+ 345 |     [Documentation]    Verifies book details were returned successfully
+ 346 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 347 |     ...                This is a Gherkin-style Then keyword that:
+ 348 |     ...                - Verifies response status is 200
+     |
+
+/tests/books_api.robot:350:1 SPC01 Trailing whitespace at the end of line
+     |
+ 348 |     ...                - Verifies response status is 200
+ 349 |     ...                - Verifies response contains book data
+ 350 |
+     | ^^^^ SPC01
+ 351 |     Status Should Be    200    ${RETRIEVED_RESPONSE}
+ 352 |     Verify Response Contains Required Fields    ${RETRIEVED_RESPONSE}
+     |
+
+/tests/books_api.robot:356:8 SPC01 Trailing whitespace at the end of line
+     |
+ 354 | Book Details Should Match Expected Data
+ 355 |     [Documentation]    Verifies retrieved book details match expected
+ 356 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 357 |     ...                This is a Gherkin-style And keyword that:
+ 358 |     ...                - Compares retrieved data with created data
+     |
+
+/tests/books_api.robot:360:1 SPC01 Trailing whitespace at the end of line
+     |
+ 358 |     ...                - Compares retrieved data with created data
+ 359 |     ...                - Verifies all fields match
+ 360 |
+     | ^^^^ SPC01
+ 361 |     Verify Response Contains Book Data    ${RETRIEVED_RESPONSE}    &{CREATED_BOOK_DATA}
+     |
+
+/tests/books_api.robot:365:8 SPC01 Trailing whitespace at the end of line
+     |
+ 363 | User Updates Book Information
+ 364 |     [Documentation]    Updates book information via PUT request
+ 365 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 366 |     ...                This is a Gherkin-style When keyword that:
+ 367 |     ...                - Generates updated book data
+     |
+
+/tests/books_api.robot:369:1 SPC01 Trailing whitespace at the end of line
+     |
+ 367 |     ...                - Generates updated book data
+ 368 |     ...                - Sends PUT request to update book
+ 369 |
+     | ^^^^ SPC01
+ 370 |     ${timestamp}=    Generate Unique Timestamp
+ 371 |     VAR    &{update_data}
+     |
+
+/tests/books_api.robot:377:1 SPC01 Trailing whitespace at the end of line
+     |
+ 375 |     ...    category=${CREATED_BOOK_DATA}[category]
+ 376 |     ...    favorite=${CREATED_BOOK_DATA}[favorite]
+ 377 |
+     | ^^^^ SPC01
+ 378 |     ${response}=    Update Book Via API    ${CREATED_BOOK_ID}    &{update_data}
+ 379 |     VAR    &{UPDATED_DATA}    &{update_data}    scope=TEST
+     |
+
+/tests/books_api.robot:379:49 VAR06 Variable defined with test/task scope
+     |
+ 377 |
+ 378 |     ${response}=    Update Book Via API    ${CREATED_BOOK_ID}    &{update_data}
+ 379 |     VAR    &{UPDATED_DATA}    &{update_data}    scope=TEST
+     |                                                 ^^^^^^^^^^ VAR06
+ 380 |     VAR    ${UPDATE_RESPONSE}    ${response}    scope=TEST
+     |
+
+/tests/books_api.robot:380:49 VAR06 Variable defined with test/task scope
+     |
+ 378 |     ${response}=    Update Book Via API    ${CREATED_BOOK_ID}    &{update_data}
+ 379 |     VAR    &{UPDATED_DATA}    &{update_data}    scope=TEST
+ 380 |     VAR    ${UPDATE_RESPONSE}    ${response}    scope=TEST
+     |                                                 ^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:384:8 SPC01 Trailing whitespace at the end of line
+     |
+ 382 | Book Should Be Updated Successfully
+ 383 |     [Documentation]    Verifies book was updated successfully
+ 384 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 385 |     ...                This is a Gherkin-style Then keyword that:
+ 386 |     ...                - Verifies response status is 200
+     |
+
+/tests/books_api.robot:388:1 SPC01 Trailing whitespace at the end of line
+     |
+ 386 |     ...                - Verifies response status is 200
+ 387 |     ...                - Verifies update data is not empty
+ 388 |
+     | ^^^^ SPC01
+ 389 |     Status Should Be    200    ${UPDATE_RESPONSE}
+ 390 |     Should Not Be Empty    ${UPDATED_DATA}
+     |
+
+/tests/books_api.robot:394:8 SPC01 Trailing whitespace at the end of line
+     |
+ 392 | Updated Information Should Be Persisted
+ 393 |     [Documentation]    Verifies updated information is persisted
+ 394 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 395 |     ...                This is a Gherkin-style And keyword that:
+ 396 |     ...                - Retrieves book again
+     |
+
+/tests/books_api.robot:398:1 SPC01 Trailing whitespace at the end of line
+     |
+ 396 |     ...                - Retrieves book again
+ 397 |     ...                - Verifies updated fields match
+ 398 |
+     | ^^^^ SPC01
+ 399 |     ${response}=    Get Book By ID Via API    ${CREATED_BOOK_ID}
+ 400 |     Verify Response Contains Book Data    ${response}    &{UPDATED_DATA}
+     |
+
+/tests/books_api.robot:404:8 SPC01 Trailing whitespace at the end of line
+     |
+ 402 | User Deletes The Book
+ 403 |     [Documentation]    Deletes book via DELETE request
+ 404 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 405 |     ...                This is a Gherkin-style When keyword that:
+ 406 |     ...                - Sends DELETE request for the book
+     |
+
+/tests/books_api.robot:408:1 SPC01 Trailing whitespace at the end of line
+     |
+ 406 |     ...                - Sends DELETE request for the book
+ 407 |     ...                - Removes book ID from cleanup list
+ 408 |
+     | ^^^^ SPC01
+ 409 |     Delete Book Via API    ${CREATED_BOOK_ID}
+ 410 |     Remove Values From List    ${TEST_BOOK_IDS}    ${CREATED_BOOK_ID}
+     |
+
+/tests/books_api.robot:414:8 SPC01 Trailing whitespace at the end of line
+     |
+ 412 | Book Should Be Deleted Successfully
+ 413 |     [Documentation]    Verifies book was deleted successfully
+ 414 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 415 |     ...                This is a Gherkin-style Then keyword that:
+ 416 |     ...                - Verifies book no longer exists
+     |
+
+/tests/books_api.robot:418:1 SPC01 Trailing whitespace at the end of line
+     |
+ 416 |     ...                - Verifies book no longer exists
+ 417 |     ...                - Confirms deletion was successful
+ 418 |
+     | ^^^^ SPC01
+ 419 |     Verify Book Does Not Exist Via API    ${CREATED_BOOK_ID}
+     |
+
+/tests/books_api.robot:423:8 SPC01 Trailing whitespace at the end of line
+     |
+ 421 | Book Should Not Appear In Books List
+ 422 |     [Documentation]    Verifies deleted book does not appear in list
+ 423 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 424 |     ...                This is a Gherkin-style And keyword that:
+ 425 |     ...                - Retrieves all books
+     |
+
+/tests/books_api.robot:427:1 SPC01 Trailing whitespace at the end of line
+     |
+ 425 |     ...                - Retrieves all books
+ 426 |     ...                - Verifies deleted book is not in the list
+ 427 |
+     | ^^^^ SPC01
+ 428 |     ${response}=    Get All Books Via API
+ 429 |     Verify Book Not In List    ${response}    ${CREATED_BOOK_ID}
+     |
+
+/tests/books_api.robot:433:8 SPC01 Trailing whitespace at the end of line
+     |
+ 431 | User Requests Nonexistent Book
+ 432 |     [Documentation]    Requests a nonexistent book
+ 433 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 434 |     ...                This is a Gherkin-style When keyword that:
+ 435 |     ...                - Sends GET request for invalid book ID
+     |
+
+/tests/books_api.robot:437:1 SPC01 Trailing whitespace at the end of line
+     |
+ 435 |     ...                - Sends GET request for invalid book ID
+ 436 |     ...                - Stores error response
+ 437 |
+     | ^^^^ SPC01
+ 438 |     ${response}=    GET On Session    books_api    ${API_ENDPOINT}99999    expected_status=404
+ 439 |     VAR    ${ERROR_RESPONSE}    ${response}    scope=TEST
+     |
+
+/tests/books_api.robot:439:48 VAR06 Variable defined with test/task scope
+     |
+ 437 |
+ 438 |     ${response}=    GET On Session    books_api    ${API_ENDPOINT}99999    expected_status=404
+ 439 |     VAR    ${ERROR_RESPONSE}    ${response}    scope=TEST
+     |                                                ^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:443:8 SPC01 Trailing whitespace at the end of line
+     |
+ 441 | API Should Return 404 Status Code
+ 442 |     [Documentation]    Verifies API returned 404
+ 443 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 444 |     ...                This is a Gherkin-style Then keyword that:
+ 445 |     ...                - Verifies response status is 404
+     |
+
+/tests/books_api.robot:447:1 SPC01 Trailing whitespace at the end of line
+     |
+ 445 |     ...                - Verifies response status is 404
+ 446 |     ...                - Confirms error handling is correct
+ 447 |
+     | ^^^^ SPC01
+ 448 |     Status Should Be    404    ${ERROR_RESPONSE}
+     |
+
+/tests/books_api.robot:452:8 SPC01 Trailing whitespace at the end of line
+     |
+ 450 | User Attempts To Create Book Without Required Fields
+ 451 |     [Documentation]    Attempts to create book with missing required fields
+ 452 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 453 |     ...                This is a Gherkin-style When keyword that:
+ 454 |     ...                - Sends POST request with incomplete data
+     |
+
+/tests/books_api.robot:456:1 SPC01 Trailing whitespace at the end of line
+     |
+ 454 |     ...                - Sends POST request with incomplete data
+ 455 |     ...                - Stores validation error response
+ 456 |
+     | ^^^^ SPC01
+ 457 |     VAR    &{invalid_data}    author=Test Author
+ 458 |     ${response}=    POST On Session
+     |
+
+/tests/books_api.robot:463:1 SPC01 Trailing whitespace at the end of line
+     |
+ 461 |     ...    json=&{invalid_data}
+ 462 |     ...    expected_status=422
+ 463 |
+     | ^^^^ SPC01
+ 464 |     VAR    ${VALIDATION_RESPONSE}    ${response}    scope=TEST
+     |
+
+/tests/books_api.robot:464:53 VAR06 Variable defined with test/task scope
+     |
+ 464 |     VAR    ${VALIDATION_RESPONSE}    ${response}    scope=TEST
+     |                                                     ^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:468:8 SPC01 Trailing whitespace at the end of line
+     |
+ 466 | API Should Return 422 Status Code
+ 467 |     [Documentation]    Verifies API returned 422
+ 468 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 469 |     ...                This is a Gherkin-style Then keyword that:
+ 470 |     ...                - Verifies response status is 422
+     |
+
+/tests/books_api.robot:472:1 SPC01 Trailing whitespace at the end of line
+     |
+ 470 |     ...                - Verifies response status is 422
+ 471 |     ...                - Confirms validation is working
+ 472 |
+     | ^^^^ SPC01
+ 473 |     Status Should Be    422    ${VALIDATION_RESPONSE}
+     |
+
+/tests/books_api.robot:477:8 SPC01 Trailing whitespace at the end of line
+     |
+ 475 | Response Should Contain Validation Errors
+ 476 |     [Documentation]    Verifies response contains validation error details
+ 477 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 478 |     ...                This is a Gherkin-style And keyword that:
+ 479 |     ...                - Checks for error details in response
+     |
+
+/tests/books_api.robot:481:1 SPC01 Trailing whitespace at the end of line
+     |
+ 479 |     ...                - Checks for error details in response
+ 480 |     ...                - Verifies error message is present
+ 481 |
+     | ^^^^ SPC01
+ 482 |     ${error_data}=    Set Variable    ${VALIDATION_RESPONSE.json()}
+ 483 |     Dictionary Should Contain Key    ${error_data}    detail
+     |
+
+/tests/books_api.robot:482:23 DEPR05 Set Variable used instead of VAR
+     |
+ 482 |     ${error_data}=    Set Variable    ${VALIDATION_RESPONSE.json()}
+     |                       ^^^^^^^^^^^^ DEPR05
+ 483 |     Dictionary Should Contain Key    ${error_data}    detail
+     |
+
+/tests/books_api.robot:487:8 SPC01 Trailing whitespace at the end of line
+     |
+ 485 | User Creates Multiple Books
+ 486 |     [Documentation]    Creates multiple books in sequence
+ 487 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 488 |     ...                This is a Gherkin-style When keyword that:
+ 489 |     ...                - Creates 3 books with unique data
+     |
+
+/tests/books_api.robot:491:1 SPC01 Trailing whitespace at the end of line
+     |
+ 489 |     ...                - Creates 3 books with unique data
+ 490 |     ...                - Stores all book IDs
+ 491 |
+     | ^^^^ SPC01
+ 492 |     @{created_ids}=    Create List
+     |
+
+/tests/books_api.robot:492:24 DEPR06 Create List used instead of VAR
+     |
+ 492 |     @{created_ids}=    Create List
+     |                        ^^^^^^^^^^^ DEPR06
+     |
+
+/tests/books_api.robot:493:1 SPC01 Trailing whitespace at the end of line
+     |
+ 491 |
+ 492 |     @{created_ids}=    Create List
+ 493 |
+     | ^^^^ SPC01
+ 494 |     FOR    ${i}    IN RANGE    3
+ 495 |         &{book_data}=    Generate Unique Book Data
+     |
+
+/tests/books_api.robot:494:12 VAR02 Variable '${i}' is assigned but not used
+     |
+ 494 |     FOR    ${i}    IN RANGE    3
+     |            ^^^^ VAR02
+ 495 |         &{book_data}=    Generate Unique Book Data
+ 496 |         ${response}=    Create Book Via API    &{book_data}
+     |
+
+/tests/books_api.robot:501:1 SPC01 Trailing whitespace at the end of line
+     |
+ 499 |         Append To List    ${TEST_BOOK_IDS}    ${book_id}
+ 500 |     END
+ 501 |
+     | ^^^^ SPC01
+ 502 |     VAR    @{MULTIPLE_BOOK_IDS}    @{created_ids}    scope=TEST
+     |
+
+/tests/books_api.robot:502:54 VAR06 Variable defined with test/task scope
+     |
+ 502 |     VAR    @{MULTIPLE_BOOK_IDS}    @{created_ids}    scope=TEST
+     |                                                      ^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:506:8 SPC01 Trailing whitespace at the end of line
+     |
+ 504 | All Books Should Be Created Successfully
+ 505 |     [Documentation]    Verifies all books were created successfully
+ 506 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 507 |     ...                This is a Gherkin-style Then keyword that:
+ 508 |     ...                - Verifies all book IDs are unique
+     |
+
+/tests/books_api.robot:510:1 SPC01 Trailing whitespace at the end of line
+     |
+ 508 |     ...                - Verifies all book IDs are unique
+ 509 |     ...                - Confirms all creations succeeded
+ 510 |
+     | ^^^^ SPC01
+ 511 |     ${count}=    Get Length    ${MULTIPLE_BOOK_IDS}
+ 512 |     Should Be Equal As Integers    ${count}    3
+     |
+
+/tests/books_api.robot:517:8 SPC01 Trailing whitespace at the end of line
+     |
+ 515 | All Books Should Appear In Books List
+ 516 |     [Documentation]    Verifies all created books appear in the list
+ 517 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 518 |     ...                This is a Gherkin-style And keyword that:
+ 519 |     ...                - Retrieves all books
+     |
+
+/tests/books_api.robot:521:1 SPC01 Trailing whitespace at the end of line
+     |
+ 519 |     ...                - Retrieves all books
+ 520 |     ...                - Verifies each created book is in the list
+ 521 |
+     | ^^^^ SPC01
+ 522 |     ${response}=    Get All Books Via API
+     |
+
+/tests/books_api.robot:523:1 SPC01 Trailing whitespace at the end of line
+     |
+ 521 |
+ 522 |     ${response}=    Get All Books Via API
+ 523 |
+     | ^^^^ SPC01
+ 524 |     FOR    ${book_id}    IN    @{MULTIPLE_BOOK_IDS}
+ 525 |         Verify Book In List    ${response}    ${book_id}
+     |
+
+/tests/books_api.robot:530:8 SPC01 Trailing whitespace at the end of line
+     |
+ 528 | User Makes Multiple Concurrent Requests
+ 529 |     [Documentation]    Makes multiple GET requests
+ 530 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 531 |     ...                This is a Gherkin-style When keyword that:
+ 532 |     ...                - Sends multiple GET requests
+     |
+
+/tests/books_api.robot:534:1 SPC01 Trailing whitespace at the end of line
+     |
+ 532 |     ...                - Sends multiple GET requests
+ 533 |     ...                - Stores all responses
+ 534 |
+     | ^^^^ SPC01
+ 535 |     @{responses}=    Create List
+     |
+
+/tests/books_api.robot:535:22 DEPR06 Create List used instead of VAR
+     |
+ 535 |     @{responses}=    Create List
+     |                      ^^^^^^^^^^^ DEPR06
+     |
+
+/tests/books_api.robot:536:1 SPC01 Trailing whitespace at the end of line
+     |
+ 534 |
+ 535 |     @{responses}=    Create List
+ 536 |
+     | ^^^^ SPC01
+ 537 |     FOR    ${i}    IN RANGE    5
+ 538 |         ${response}=    Get All Books Via API
+     |
+
+/tests/books_api.robot:537:12 VAR02 Variable '${i}' is assigned but not used
+     |
+ 537 |     FOR    ${i}    IN RANGE    5
+     |            ^^^^ VAR02
+ 538 |         ${response}=    Get All Books Via API
+ 539 |         Append To List    ${responses}    ${response}
+     |
+
+/tests/books_api.robot:541:1 SPC01 Trailing whitespace at the end of line
+     |
+ 539 |         Append To List    ${responses}    ${response}
+ 540 |     END
+ 541 |
+     | ^^^^ SPC01
+ 542 |     VAR    @{CONCURRENT_RESPONSES}    @{responses}    scope=TEST
+     |
+
+/tests/books_api.robot:542:55 VAR06 Variable defined with test/task scope
+     |
+ 542 |     VAR    @{CONCURRENT_RESPONSES}    @{responses}    scope=TEST
+     |                                                       ^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:546:8 SPC01 Trailing whitespace at the end of line
+     |
+ 544 | All Requests Should Complete Successfully
+ 545 |     [Documentation]    Verifies all requests completed successfully
+ 546 |     ...
+     |        ^^^^^^^^^^^^^^^^ SPC01
+ 547 |     ...                This is a Gherkin-style Then keyword that:
+ 548 |     ...                - Verifies all responses have status 200
+     |
+
+/tests/books_api.robot:550:1 SPC01 Trailing whitespace at the end of line
+     |
+ 548 |     ...                - Verifies all responses have status 200
+ 549 |     ...                - Confirms no errors occurred
+ 550 |
+     | ^^^^ SPC01
+ 551 |     FOR    ${response}    IN    @{CONCURRENT_RESPONSES}
+ 552 |         Status Should Be    200    ${response}
+     |
+
+/tests/books_api.robot:554:1 SPC01 Trailing whitespace at the end of line
+     |
+ 552 |         Status Should Be    200    ${response}
+ 553 |     END
+ 554 |
+     | ^^^^ SPC01
+ 555 |     ${count}=    Get Length    ${CONCURRENT_RESPONSES}
+ 556 |     Should Be Equal As Integers    ${count}    5
+     |
+
+/tests/books_api.robot:556:1 LEN28 File has too many lines (556/400)
