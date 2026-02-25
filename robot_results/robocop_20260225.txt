@@ -1,0 +1,1443 @@
+/tests/books_ui.robot:17:1 DEPR02 'Force Tags' is deprecated since Robot Framework version 6.0, use 'Test Tags' instead
+    |
+ 17 | Force Tags        ui    regression
+    | ^^^^^^^^^^ DEPR02
+    |
+
+/tests/books_ui.robot:145:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 145 | # Test Setup/Teardown
+     | ^ SPC05
+ 146 | Prepare UI Test
+ 147 |     [Documentation]    Prepares for each individual test
+     |
+
+/tests/books_ui.robot:160:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 160 | # GIVEN Keywords
+     | ^ SPC05
+ 161 | Given User Opens Books Application
+ 162 |     [Documentation]    User navigates to the application homepage
+     |
+
+/tests/books_ui.robot:172:12 VAR07 Non local variable is not uppercase
+     |
+ 170 |     [Documentation]    Prepares test data for book creation
+ 171 |     ${book_data}=    Generate Test Book Data
+ 172 |     VAR    ${ui_test_book_data}    ${book_data}    scope=TEST
+     |            ^^^^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_ui.robot:172:52 VAR06 Variable defined with test/task scope
+     |
+ 170 |     [Documentation]    Prepares test data for book creation
+ 171 |     ${book_data}=    Generate Test Book Data
+ 172 |     VAR    ${ui_test_book_data}    ${book_data}    scope=TEST
+     |                                                    ^^^^^^^^^^ VAR06
+     |
+
+/tests/books_ui.robot:176:23 DEPR06 Create List used instead of VAR
+     |
+ 174 | Given Multiple Books Exist In The System
+ 175 |     [Documentation]    Creates multiple test books via API
+ 176 |     @{test_books}=    Create List
+     |                       ^^^^^^^^^^^ DEPR06
+     |
+
+/tests/books_ui.robot:177:1 SPC01 Trailing whitespace at the end of line
+     |
+ 175 |     [Documentation]    Creates multiple test books via API
+ 176 |     @{test_books}=    Create List
+ 177 |
+     | ^^^^ SPC01
+ 178 |     FOR    ${i}    IN RANGE    3
+ 179 |         ${book_data}=    Generate Test Book Data
+     |
+
+/tests/books_ui.robot:178:12 VAR02 Variable '${i}' is assigned but not used
+     |
+ 178 |     FOR    ${i}    IN RANGE    3
+     |            ^^^^ VAR02
+ 179 |         ${book_data}=    Generate Test Book Data
+ 180 |         ${response}=    Create Book Via API    &{book_data}
+     |
+
+/tests/books_ui.robot:180:9 VAR02 Variable '${response}' is assigned but not used
+     |
+ 178 |     FOR    ${i}    IN RANGE    3
+ 179 |         ${book_data}=    Generate Test Book Data
+ 180 |         ${response}=    Create Book Via API    &{book_data}
+     |         ^^^^^^^^^^^ VAR02
+ 181 |         Append To List    ${test_books}    ${book_data}
+ 182 |     END
+     |
+
+/tests/books_ui.robot:183:1 SPC01 Trailing whitespace at the end of line
+     |
+ 181 |         Append To List    ${test_books}    ${book_data}
+ 182 |     END
+ 183 |
+     | ^^^^ SPC01
+ 184 |     Set Test Variable    ${ui_test_books}    ${test_books}
+ 185 |     Reload Books Page
+     |
+
+/tests/books_ui.robot:184:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 184 |     Set Test Variable    ${ui_test_books}    ${test_books}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 185 |     Reload Books Page
+ 186 |     Search For Book    RF_TEST
+     |
+
+/tests/books_ui.robot:184:5 VAR06 Variable defined with test/task scope
+     |
+ 184 |     Set Test Variable    ${ui_test_books}    ${test_books}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 185 |     Reload Books Page
+ 186 |     Search For Book    RF_TEST
+     |
+
+/tests/books_ui.robot:184:26 VAR07 Non local variable is not uppercase
+     |
+ 184 |     Set Test Variable    ${ui_test_books}    ${test_books}
+     |                          ^^^^^^^^^^^^^^^^ VAR07
+ 185 |     Reload Books Page
+ 186 |     Search For Book    RF_TEST
+     |
+
+/tests/books_ui.robot:190:20 DEPR06 Create List used instead of VAR
+     |
+ 188 | Given Books With Different Authors Exist
+ 189 |     [Documentation]    Creates books with different author names
+ 190 |     @{authors}=    Create List    RF_AUTHOR_Jane    RF_AUTHOR_John    RF_AUTHOR_Alice
+     |                    ^^^^^^^^^^^ DEPR06
+ 191 |     @{test_books}=    Create List
+     |
+
+/tests/books_ui.robot:191:23 DEPR06 Create List used instead of VAR
+     |
+ 189 |     [Documentation]    Creates books with different author names
+ 190 |     @{authors}=    Create List    RF_AUTHOR_Jane    RF_AUTHOR_John    RF_AUTHOR_Alice
+ 191 |     @{test_books}=    Create List
+     |                       ^^^^^^^^^^^ DEPR06
+     |
+
+/tests/books_ui.robot:192:1 SPC01 Trailing whitespace at the end of line
+     |
+ 190 |     @{authors}=    Create List    RF_AUTHOR_Jane    RF_AUTHOR_John    RF_AUTHOR_Alice
+ 191 |     @{test_books}=    Create List
+ 192 |
+     | ^^^^ SPC01
+ 193 |     FOR    ${author}    IN    @{authors}
+ 194 |         ${book_data}=    Generate Test Book Data    author=${author}
+     |
+
+/tests/books_ui.robot:195:9 VAR02 Variable '${response}' is assigned but not used
+     |
+ 193 |     FOR    ${author}    IN    @{authors}
+ 194 |         ${book_data}=    Generate Test Book Data    author=${author}
+ 195 |         ${response}=    Create Book Via API    &{book_data}
+     |         ^^^^^^^^^^^ VAR02
+ 196 |         Append To List    ${test_books}    ${book_data}
+ 197 |     END
+     |
+
+/tests/books_ui.robot:198:1 SPC01 Trailing whitespace at the end of line
+     |
+ 196 |         Append To List    ${test_books}    ${book_data}
+ 197 |     END
+ 198 |
+     | ^^^^ SPC01
+ 199 |     Set Test Variable    ${ui_test_books_by_author}    ${test_books}
+ 200 |     Set Test Variable    ${ui_search_author}    RF_AUTHOR_Jane
+     |
+
+/tests/books_ui.robot:199:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 199 |     Set Test Variable    ${ui_test_books_by_author}    ${test_books}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 200 |     Set Test Variable    ${ui_search_author}    RF_AUTHOR_Jane
+ 201 |     Reload Books Page
+     |
+
+/tests/books_ui.robot:199:5 VAR06 Variable defined with test/task scope
+     |
+ 199 |     Set Test Variable    ${ui_test_books_by_author}    ${test_books}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 200 |     Set Test Variable    ${ui_search_author}    RF_AUTHOR_Jane
+ 201 |     Reload Books Page
+     |
+
+/tests/books_ui.robot:199:26 VAR07 Non local variable is not uppercase
+     |
+ 199 |     Set Test Variable    ${ui_test_books_by_author}    ${test_books}
+     |                          ^^^^^^^^^^^^^^^^^^^^^^^^^^ VAR07
+ 200 |     Set Test Variable    ${ui_search_author}    RF_AUTHOR_Jane
+ 201 |     Reload Books Page
+     |
+
+/tests/books_ui.robot:200:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 198 |
+ 199 |     Set Test Variable    ${ui_test_books_by_author}    ${test_books}
+ 200 |     Set Test Variable    ${ui_search_author}    RF_AUTHOR_Jane
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 201 |     Reload Books Page
+ 202 |     Search For Book    RF_TEST
+     |
+
+/tests/books_ui.robot:200:5 VAR06 Variable defined with test/task scope
+     |
+ 198 |
+ 199 |     Set Test Variable    ${ui_test_books_by_author}    ${test_books}
+ 200 |     Set Test Variable    ${ui_search_author}    RF_AUTHOR_Jane
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 201 |     Reload Books Page
+ 202 |     Search For Book    RF_TEST
+     |
+
+/tests/books_ui.robot:200:26 VAR07 Non local variable is not uppercase
+     |
+ 198 |
+ 199 |     Set Test Variable    ${ui_test_books_by_author}    ${test_books}
+ 200 |     Set Test Variable    ${ui_search_author}    RF_AUTHOR_Jane
+     |                          ^^^^^^^^^^^^^^^^^^^ VAR07
+ 201 |     Reload Books Page
+ 202 |     Search For Book    RF_TEST
+     |
+
+/tests/books_ui.robot:207:5 VAR02 Variable '${response1}' is assigned but not used
+     |
+ 205 |     [Documentation]    Creates books in different categories
+ 206 |     ${scifi_data}=    Generate Test Book Data
+ 207 |     ${response1}=    Create Book Via API    &{scifi_data}
+     |     ^^^^^^^^^^^^ VAR02
+     |
+
+/tests/books_ui.robot:208:1 SPC01 Trailing whitespace at the end of line
+     |
+ 206 |     ${scifi_data}=    Generate Test Book Data
+ 207 |     ${response1}=    Create Book Via API    &{scifi_data}
+ 208 |
+     | ^^^^ SPC01
+ 209 |     ${fantasy_data}=    Generate Test Book Data    category=Fantasy
+ 210 |     ${response2}=    Create Book Via API    &{fantasy_data}
+     |
+
+/tests/books_ui.robot:210:5 VAR02 Variable '${response2}' is assigned but not used
+     |
+ 208 |
+ 209 |     ${fantasy_data}=    Generate Test Book Data    category=Fantasy
+ 210 |     ${response2}=    Create Book Via API    &{fantasy_data}
+     |     ^^^^^^^^^^^^ VAR02
+     |
+
+/tests/books_ui.robot:211:1 SPC01 Trailing whitespace at the end of line
+     |
+ 209 |     ${fantasy_data}=    Generate Test Book Data    category=Fantasy
+ 210 |     ${response2}=    Create Book Via API    &{fantasy_data}
+ 211 |
+     | ^^^^ SPC01
+ 212 |     Set Test Variable    ${ui_scifi_book}    ${scifi_data}
+ 213 |     Set Test Variable    ${ui_fantasy_book}    ${fantasy_data}
+     |
+
+/tests/books_ui.robot:212:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 212 |     Set Test Variable    ${ui_scifi_book}    ${scifi_data}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 213 |     Set Test Variable    ${ui_fantasy_book}    ${fantasy_data}
+ 214 |     Reload Books Page
+     |
+
+/tests/books_ui.robot:212:5 VAR06 Variable defined with test/task scope
+     |
+ 212 |     Set Test Variable    ${ui_scifi_book}    ${scifi_data}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 213 |     Set Test Variable    ${ui_fantasy_book}    ${fantasy_data}
+ 214 |     Reload Books Page
+     |
+
+/tests/books_ui.robot:212:26 VAR07 Non local variable is not uppercase
+     |
+ 212 |     Set Test Variable    ${ui_scifi_book}    ${scifi_data}
+     |                          ^^^^^^^^^^^^^^^^ VAR07
+ 213 |     Set Test Variable    ${ui_fantasy_book}    ${fantasy_data}
+ 214 |     Reload Books Page
+     |
+
+/tests/books_ui.robot:213:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 211 |
+ 212 |     Set Test Variable    ${ui_scifi_book}    ${scifi_data}
+ 213 |     Set Test Variable    ${ui_fantasy_book}    ${fantasy_data}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 214 |     Reload Books Page
+     |
+
+/tests/books_ui.robot:213:5 VAR06 Variable defined with test/task scope
+     |
+ 211 |
+ 212 |     Set Test Variable    ${ui_scifi_book}    ${scifi_data}
+ 213 |     Set Test Variable    ${ui_fantasy_book}    ${fantasy_data}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 214 |     Reload Books Page
+     |
+
+/tests/books_ui.robot:213:26 VAR07 Non local variable is not uppercase
+     |
+ 211 |
+ 212 |     Set Test Variable    ${ui_scifi_book}    ${scifi_data}
+ 213 |     Set Test Variable    ${ui_fantasy_book}    ${fantasy_data}
+     |                          ^^^^^^^^^^^^^^^^^^ VAR07
+ 214 |     Reload Books Page
+     |
+
+/tests/books_ui.robot:222:1 SPC01 Trailing whitespace at the end of line
+     |
+ 220 |     ${book1_id}=    Extract Book ID From Response    ${response1}
+ 221 |     Toggle Book Favorite Via API    ${book1_id}    ${True}
+ 222 |
+     | ^^^^ SPC01
+ 223 |     ${book2_data}=    Generate Test Book Data
+ 224 |     ${response2}=    Create Book Via API    &{book2_data}
+     |
+
+/tests/books_ui.robot:224:5 VAR02 Variable '${response2}' is assigned but not used
+     |
+ 222 |
+ 223 |     ${book2_data}=    Generate Test Book Data
+ 224 |     ${response2}=    Create Book Via API    &{book2_data}
+     |     ^^^^^^^^^^^^ VAR02
+     |
+
+/tests/books_ui.robot:225:1 SPC01 Trailing whitespace at the end of line
+     |
+ 223 |     ${book2_data}=    Generate Test Book Data
+ 224 |     ${response2}=    Create Book Via API    &{book2_data}
+ 225 |
+     | ^^^^ SPC01
+ 226 |     Set Test Variable    ${ui_favorite_book}    ${book1_data}
+ 227 |     Set Test Variable    ${ui_normal_book}    ${book2_data}
+     |
+
+/tests/books_ui.robot:226:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 226 |     Set Test Variable    ${ui_favorite_book}    ${book1_data}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 227 |     Set Test Variable    ${ui_normal_book}    ${book2_data}
+ 228 |     Reload Books Page
+     |
+
+/tests/books_ui.robot:226:5 VAR06 Variable defined with test/task scope
+     |
+ 226 |     Set Test Variable    ${ui_favorite_book}    ${book1_data}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 227 |     Set Test Variable    ${ui_normal_book}    ${book2_data}
+ 228 |     Reload Books Page
+     |
+
+/tests/books_ui.robot:226:26 VAR07 Non local variable is not uppercase
+     |
+ 226 |     Set Test Variable    ${ui_favorite_book}    ${book1_data}
+     |                          ^^^^^^^^^^^^^^^^^^^ VAR07
+ 227 |     Set Test Variable    ${ui_normal_book}    ${book2_data}
+ 228 |     Reload Books Page
+     |
+
+/tests/books_ui.robot:227:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 225 |
+ 226 |     Set Test Variable    ${ui_favorite_book}    ${book1_data}
+ 227 |     Set Test Variable    ${ui_normal_book}    ${book2_data}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 228 |     Reload Books Page
+ 229 |     Search For Book    RF_TEST
+     |
+
+/tests/books_ui.robot:227:5 VAR06 Variable defined with test/task scope
+     |
+ 225 |
+ 226 |     Set Test Variable    ${ui_favorite_book}    ${book1_data}
+ 227 |     Set Test Variable    ${ui_normal_book}    ${book2_data}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 228 |     Reload Books Page
+ 229 |     Search For Book    RF_TEST
+     |
+
+/tests/books_ui.robot:227:26 VAR07 Non local variable is not uppercase
+     |
+ 225 |
+ 226 |     Set Test Variable    ${ui_favorite_book}    ${book1_data}
+ 227 |     Set Test Variable    ${ui_normal_book}    ${book2_data}
+     |                          ^^^^^^^^^^^^^^^^^ VAR07
+ 228 |     Reload Books Page
+ 229 |     Search For Book    RF_TEST
+     |
+
+/tests/books_ui.robot:234:5 MISC09 IF can be replaced with inline IF
+     |
+ 232 |     [Documentation]    Ensures multiple books are displayed
+ 233 |     ${count}=    Get Books Count In UI
+ 234 |     IF    ${count} < 3
+     |     ^^ MISC09
+ 235 |         Given Multiple Books Exist In The System
+ 236 |     END
+     |
+
+/tests/books_ui.robot:241:5 VAR02 Variable '${response}' is assigned but not used
+     |
+ 239 |     [Documentation]    Creates a single test book in the system
+ 240 |     ${book_data}=    Generate Test Book Data
+ 241 |     ${response}=    Create Book Via API    &{book_data}
+     |     ^^^^^^^^^^^ VAR02
+ 242 |     Set Test Variable    ${ui_existing_book}    ${book_data}
+ 243 |     Reload Books Page
+     |
+
+/tests/books_ui.robot:242:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 240 |     ${book_data}=    Generate Test Book Data
+ 241 |     ${response}=    Create Book Via API    &{book_data}
+ 242 |     Set Test Variable    ${ui_existing_book}    ${book_data}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 243 |     Reload Books Page
+ 244 |     Search For Book    ${book_data['title']}
+     |
+
+/tests/books_ui.robot:242:5 VAR06 Variable defined with test/task scope
+     |
+ 240 |     ${book_data}=    Generate Test Book Data
+ 241 |     ${response}=    Create Book Via API    &{book_data}
+ 242 |     Set Test Variable    ${ui_existing_book}    ${book_data}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 243 |     Reload Books Page
+ 244 |     Search For Book    ${book_data['title']}
+     |
+
+/tests/books_ui.robot:242:26 VAR07 Non local variable is not uppercase
+     |
+ 240 |     ${book_data}=    Generate Test Book Data
+ 241 |     ${response}=    Create Book Via API    &{book_data}
+ 242 |     Set Test Variable    ${ui_existing_book}    ${book_data}
+     |                          ^^^^^^^^^^^^^^^^^^^ VAR07
+ 243 |     Reload Books Page
+ 244 |     Search For Book    ${book_data['title']}
+     |
+
+/tests/books_ui.robot:249:5 VAR02 Variable '${response}' is assigned but not used
+     |
+ 247 |     [Documentation]    Creates a book that is not favorited
+ 248 |     ${book_data}=    Generate Test Book Data
+ 249 |     ${response}=    Create Book Via API    &{book_data}
+     |     ^^^^^^^^^^^ VAR02
+ 250 |     Set Test Variable    ${ui_non_favorite_book}    ${book_data}
+ 251 |     Reload Books Page
+     |
+
+/tests/books_ui.robot:250:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 248 |     ${book_data}=    Generate Test Book Data
+ 249 |     ${response}=    Create Book Via API    &{book_data}
+ 250 |     Set Test Variable    ${ui_non_favorite_book}    ${book_data}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 251 |     Reload Books Page
+ 252 |     Search For Book    ${book_data['title']}
+     |
+
+/tests/books_ui.robot:250:5 VAR06 Variable defined with test/task scope
+     |
+ 248 |     ${book_data}=    Generate Test Book Data
+ 249 |     ${response}=    Create Book Via API    &{book_data}
+ 250 |     Set Test Variable    ${ui_non_favorite_book}    ${book_data}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 251 |     Reload Books Page
+ 252 |     Search For Book    ${book_data['title']}
+     |
+
+/tests/books_ui.robot:250:26 VAR07 Non local variable is not uppercase
+     |
+ 248 |     ${book_data}=    Generate Test Book Data
+ 249 |     ${response}=    Create Book Via API    &{book_data}
+ 250 |     Set Test Variable    ${ui_non_favorite_book}    ${book_data}
+     |                          ^^^^^^^^^^^^^^^^^^^^^^^ VAR07
+ 251 |     Reload Books Page
+ 252 |     Search For Book    ${book_data['title']}
+     |
+
+/tests/books_ui.robot:258:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 258 | # WHEN Keywords
+     | ^ SPC05
+ 259 | When User Fills Book Creation Form
+ 260 |     [Documentation]    User fills out the book creation form
+     |
+
+/tests/books_ui.robot:277:12 VAR07 Non local variable is not uppercase
+     |
+ 275 | When User Searches For Specific Book Title
+ 276 |     [Documentation]    User enters search term matching specific book
+ 277 |     VAR    ${search_title}    ${ui_test_books[0]['title']}    scope=TEST
+     |            ^^^^^^^^^^^^^^^ VAR07
+ 278 |     Search For Book    ${search_title}
+     |
+
+/tests/books_ui.robot:277:63 VAR06 Variable defined with test/task scope
+     |
+ 275 | When User Searches For Specific Book Title
+ 276 |     [Documentation]    User enters search term matching specific book
+ 277 |     VAR    ${search_title}    ${ui_test_books[0]['title']}    scope=TEST
+     |                                                               ^^^^^^^^^^ VAR06
+ 278 |     Search For Book    ${search_title}
+     |
+
+/tests/books_ui.robot:298:24 DEPR05 Set Variable used instead of VAR
+     |
+ 296 | When User Searches For Science Fiction Test Book
+ 297 |     [Documentation]    Search for specific scifi test book
+ 298 |     ${scifi_title}=    Set Variable    ${ui_scifi_book}[title]
+     |                        ^^^^^^^^^^^^ DEPR05
+ 299 |     Search For Book    ${scifi_title}
+     |
+
+/tests/books_ui.robot:303:27 DEPR05 Set Variable used instead of VAR
+     |
+ 301 | When User Searches For Favorite Test Book
+ 302 |     [Documentation]    Search for specific favorite test book
+ 303 |     ${favorite_title}=    Set Variable    ${ui_favorite_book}[title]
+     |                           ^^^^^^^^^^^^ DEPR05
+ 304 |     Search For Book    ${favorite_title}
+     |
+
+/tests/books_ui.robot:316:12 VAR07 Non local variable is not uppercase
+     |
+ 314 | When User Updates Book Title
+ 315 |     [Documentation]    User modifies the book title in edit form
+ 316 |     VAR    ${new_title}    ${ui_existing_book}[title]_UPDATED    scope=TEST
+     |            ^^^^^^^^^^^^ VAR07
+ 317 |     Update Book In Edit Form    new_title=${new_title}
+     |
+
+/tests/books_ui.robot:316:66 VAR06 Variable defined with test/task scope
+     |
+ 314 | When User Updates Book Title
+ 315 |     [Documentation]    User modifies the book title in edit form
+ 316 |     VAR    ${new_title}    ${ui_existing_book}[title]_UPDATED    scope=TEST
+     |                                                                  ^^^^^^^^^^ VAR06
+ 317 |     Update Book In Edit Form    new_title=${new_title}
+     |
+
+/tests/books_ui.robot:329:12 VAR07 Non local variable is not uppercase
+     |
+ 327 | When User Clicks Delete Button For Book
+ 328 |     [Documentation]    User clicks the delete button
+ 329 |     VAR    ${book_to_delete}    ${ui_existing_book}[title]    scope=TEST
+     |            ^^^^^^^^^^^^^^^^^ VAR07
+ 330 |     Click Delete Button For Book    ${book_to_delete}
+     |
+
+/tests/books_ui.robot:329:63 VAR06 Variable defined with test/task scope
+     |
+ 327 | When User Clicks Delete Button For Book
+ 328 |     [Documentation]    User clicks the delete button
+ 329 |     VAR    ${book_to_delete}    ${ui_existing_book}[title]    scope=TEST
+     |                                                               ^^^^^^^^^^ VAR06
+ 330 |     Click Delete Button For Book    ${book_to_delete}
+     |
+
+/tests/books_ui.robot:357:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 357 | # THEN Keywords
+     | ^ SPC05
+ 358 | Then Books Library Page Should Be Visible
+ 359 |     [Documentation]    Validates the main page elements are displayed
+     |
+
+/tests/books_ui.robot:384:22 DEPR05 Set Variable used instead of VAR
+     |
+ 382 |     [Documentation]    Validates non-matching books are filtered out
+ 383 |     FOR    ${book}    IN    @{ui_test_books}
+ 384 |         ${title}=    Set Variable    ${book}[title]
+     |                      ^^^^^^^^^^^^ DEPR05
+ 385 |         IF    '${title}' != '${search_title}'
+ 386 |             Verify Book Does Not Appear In UI    ${title}
+     |
+
+/tests/books_ui.robot:393:23 DEPR05 Set Variable used instead of VAR
+     |
+ 391 |     [Documentation]    Validates only books by searched author appear
+ 392 |     FOR    ${book}    IN    @{ui_test_books_by_author}
+ 393 |         ${author}=    Set Variable    ${book}[author]
+     |                       ^^^^^^^^^^^^ DEPR05
+ 394 |         ${title}=    Set Variable    ${book}[title]
+ 395 |         IF    '${author}' == '${ui_search_author}'
+     |
+
+/tests/books_ui.robot:394:22 DEPR05 Set Variable used instead of VAR
+     |
+ 392 |     FOR    ${book}    IN    @{ui_test_books_by_author}
+ 393 |         ${author}=    Set Variable    ${book}[author]
+ 394 |         ${title}=    Set Variable    ${book}[title]
+     |                      ^^^^^^^^^^^^ DEPR05
+ 395 |         IF    '${author}' == '${ui_search_author}'
+ 396 |             Verify Book Appears In UI    ${title}
+     |
+
+/tests/books_ui.robot:402:24 DEPR05 Set Variable used instead of VAR
+     |
+ 400 | Then Science Fiction Book Should Be Visible
+ 401 |     [Documentation]    Validates Science Fiction book is visible
+ 402 |     ${scifi_title}=    Set Variable    ${ui_scifi_book}[title]
+     |                        ^^^^^^^^^^^^ DEPR05
+ 403 |     Verify Book Appears In UI    ${scifi_title}
+     |
+
+/tests/books_ui.robot:407:27 DEPR05 Set Variable used instead of VAR
+     |
+ 405 | Then Only Favorite Books Should Be Displayed
+ 406 |     [Documentation]    Validates only favorite books are shown
+ 407 |     ${favorite_title}=    Set Variable    ${ui_favorite_book}[title]
+     |                           ^^^^^^^^^^^^ DEPR05
+ 408 |     Verify Book Appears In UI    ${favorite_title}
+     |
+
+/tests/books_ui.robot:457:1 LEN28 File has too many lines (457/400)
+/tests/resources/api_keywords.resource:6:19 IMP01 BuiltIn library import 'Collections' should be placed before 'RequestsLibrary'
+   |
+ 4 |
+ 5 | Library           RequestsLibrary
+ 6 | Library           Collections
+   |                   ^^^^^^^^^^^ IMP01
+ 7 | Resource          common.resource
+   |
+
+/tests/resources/api_keywords.resource:82:18 DEPR05 Set Variable used instead of VAR
+    |
+ 80 |     [Documentation]    Validates that a book with specific title exists in API response
+ 81 |     [Arguments]    ${response}    ${expected_title}
+ 82 |     ${books}=    Set Variable    ${response.json()}
+    |                  ^^^^^^^^^^^^ DEPR05
+ 83 |     VAR    ${found}    ${False}
+    |
+
+/tests/resources/api_keywords.resource:84:1 SPC01 Trailing whitespace at the end of line
+    |
+ 82 |     ${books}=    Set Variable    ${response.json()}
+ 83 |     VAR    ${found}    ${False}
+ 84 |
+    | ^^^^ SPC01
+ 85 |     FOR    ${book}    IN    @{books}
+ 86 |         IF    '${book['title']}' == '${expected_title}'
+    |
+
+/tests/resources/api_keywords.resource:91:1 SPC01 Trailing whitespace at the end of line
+    |
+ 89 |         END
+ 90 |     END
+ 91 |
+    | ^^^^ SPC01
+ 92 |     Should Be True    ${found}    msg=Book with title '${expected_title}' not found in response
+    |
+
+/tests/resources/api_keywords.resource:97:17 DEPR05 Set Variable used instead of VAR
+    |
+ 95 |     [Documentation]    Validates that book data in response matches expected values
+ 96 |     [Arguments]    ${response}    &{expected_data}
+ 97 |     ${book}=    Set Variable    ${response.json()}
+    |                 ^^^^^^^^^^^^ DEPR05
+    |
+
+/tests/resources/api_keywords.resource:98:1 SPC01 Trailing whitespace at the end of line
+    |
+ 96 |     [Arguments]    ${response}    &{expected_data}
+ 97 |     ${book}=    Set Variable    ${response.json()}
+ 98 |
+    | ^^^^ SPC01
+ 99 |     FOR    ${key}    ${value}    IN    &{expected_data}
+100 |         IF    '${key}' == 'pages' or '${key}' == 'year'
+    |
+
+/tests/resources/api_keywords.resource:113:9 VAR02 Variable '${response}' is assigned but not used
+     |
+ 111 |     [Arguments]    ${book_id}
+ 112 |     TRY
+ 113 |         ${response}=    GET On Session    books_api    /books/${book_id}
+     |         ^^^^^^^^^^^ VAR02
+ 114 |         ...    expected_status=404
+ 115 |         ...    timeout=${API_TIMEOUT}
+     |
+
+/tests/resources/api_keywords.resource:125:18 DEPR05 Set Variable used instead of VAR
+     |
+ 123 |     [Documentation]    Returns the number of books in API response
+ 124 |     [Arguments]    ${response}
+ 125 |     ${books}=    Set Variable    ${response.json()}
+     |                  ^^^^^^^^^^^^ DEPR05
+ 126 |     ${count}=    Get Length    ${books}
+ 127 |     RETURN    ${count}
+     |
+
+/tests/resources/common.resource:7:19 IMP01 BuiltIn library import 'Collections' should be placed before 'Browser'
+   |
+ 5 | Library           Browser
+ 6 | Library           RequestsLibrary
+ 7 | Library           Collections
+   |                   ^^^^^^^^^^^ IMP01
+ 8 | Library           String
+ 9 | Library           DateTime
+   |
+
+/tests/resources/common.resource:8:19 IMP01 BuiltIn library import 'String' should be placed before 'Browser'
+   |
+ 6 | Library           RequestsLibrary
+ 7 | Library           Collections
+ 8 | Library           String
+   |                   ^^^^^^ IMP01
+ 9 | Library           DateTime
+   |
+
+/tests/resources/common.resource:9:19 IMP01 BuiltIn library import 'DateTime' should be placed before 'Browser'
+   |
+ 7 | Library           Collections
+ 8 | Library           String
+ 9 | Library           DateTime
+   |                   ^^^^^^^^ IMP01
+   |
+
+/tests/resources/common.resource:9:19 IMP02 BuiltIn library import 'DateTime' should be placed before 'String'
+   |
+ 7 | Library           Collections
+ 8 | Library           String
+ 9 | Library           DateTime
+   |                   ^^^^^^^^ IMP02
+   |
+
+/tests/resources/common.resource:43:25 DEPR05 Set Variable used instead of VAR
+    |
+ 41 |     ...                to avoid conflicts in test execution
+ 42 |     ${timestamp}=    Get Current Date    result_format=%Y%m%d_%H%M%S
+ 43 |     ${unique_title}=    Set Variable    ${TEST_TITLE_PREFIX}_${timestamp}
+    |                         ^^^^^^^^^^^^ DEPR05
+ 44 |     RETURN    ${unique_title}
+    |
+
+/tests/resources/common.resource:48:120 LEN08 Line is too long (122/120)
+    |
+ 46 | Generate Test Book Data
+ 47 |     [Documentation]    Creates a complete book data dictionary for testing
+ 48 |     [Arguments]    ${title}=${EMPTY}    ${author}=${TEST_AUTHOR}    ${pages}=${TEST_PAGES}    ${category}=${TEST_CATEGORY}
+    |                                                                                                                        ^^^ LEN08
+ 49 |     VAR    ${book_title}    ${title}
+ 50 |     IF    '${book_title}' == '${EMPTY}'
+    | Suggestion: Break long lines using the '...' continuation syntax.
+    |
+
+/tests/resources/common.resource:53:1 SPC01 Trailing whitespace at the end of line
+    |
+ 51 |         ${book_title}=    Generate Unique Book Title
+ 52 |     END
+ 53 |
+    | ^^^^ SPC01
+ 54 |     VAR    &{book_data}
+ 55 |     ...    title=${book_title}
+    |
+
+/tests/resources/common.resource:59:1 SPC01 Trailing whitespace at the end of line
+    |
+ 57 |     ...    pages=${pages}
+ 58 |     ...    category=${category}
+ 59 |
+    | ^^^^ SPC01
+ 60 |     RETURN    ${book_data}
+    |
+
+/tests/resources/common.resource:64:20 VAR11 Argument '${test_name}' overwrites reserved variable '${TEST_NAME}'
+    |
+ 62 | Log Test Start
+ 63 |     [Documentation]    Logs the start of a test with timestamp
+ 64 |     [Arguments]    ${test_name}
+    |                    ^^^^^^^^^^^^ VAR11
+ 65 |     VAR    ${current_time}    Get Current Date    result_format=%Y-%m-%d %H:%M:%S
+ 66 |     Log    Starting test: ${test_name} at ${current_time}    console=True
+    |
+
+/tests/resources/common.resource:70:20 VAR11 Argument '${test_name}' overwrites reserved variable '${TEST_NAME}'
+    |
+ 68 | Log Test End
+ 69 |     [Documentation]    Logs the end of a test with timestamp
+ 70 |     [Arguments]    ${test_name}
+    |                    ^^^^^^^^^^^^ VAR11
+ 71 |     VAR    ${current_time}    Get Current Date    result_format=%Y-%m-%d %H:%M:%S
+ 72 |     Log    Completed test: ${test_name} at ${current_time}    console=True
+    |
+
+/tests/resources/common.resource:84:26 DEPR05 Set Variable used instead of VAR
+    |
+ 82 |     [Documentation]    Extracts book ID from API response
+ 83 |     [Arguments]    ${response}
+ 84 |     ${response_json}=    Set Variable    ${response.json()}
+    |                          ^^^^^^^^^^^^ DEPR05
+ 85 |     ${book_id}=    Set Variable    ${response_json['id']}
+ 86 |     Should Be True    ${book_id} > 0    msg=Book ID should be positive integer
+    |
+
+/tests/resources/common.resource:85:20 DEPR05 Set Variable used instead of VAR
+    |
+ 83 |     [Arguments]    ${response}
+ 84 |     ${response_json}=    Set Variable    ${response.json()}
+ 85 |     ${book_id}=    Set Variable    ${response_json['id']}
+    |                    ^^^^^^^^^^^^ DEPR05
+ 86 |     Should Be True    ${book_id} > 0    msg=Book ID should be positive integer
+ 87 |     RETURN    ${book_id}
+    |
+
+/tests/resources/ui_keywords.resource:39:120 LEN08 Line is too long (196/120)
+    |
+ 37 | # Dynamic Locators (use with placeholders)
+ 38 | ${BOOK_CARD_BY_TITLE}        //div[contains(@class, 'book-card')]//h3[@class='book-title' and text()='{title}']
+ 39 | ${DELETE_BUTTON_BY_TITLE}    //div[contains(@class, 'book-card')]//h3[@class='book-title' and text()='{title}']/ancestor::div[contains(@class, 'book-card')]//button[contains(@class, 'delete-btn')]
+    |                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN08
+ 40 | ${EDIT_BUTTON_BY_TITLE}      //div[contains(@class, 'book-card')]//h3[@class='book-title' and text()='{title}']/ancestor::div[contains(@class, 'book-card')]//button[contains(@class, 'edit-btn')]
+ 41 | ${FAVORITE_BUTTON_BY_TITLE}  //div[contains(@class, 'book-card')]//h3[@class='book-title' and text()='{title}']/ancestor::div[contains(@class, 'book-card')]//button[contains(@class, 'favorite-btn')]
+    | Suggestion: Break long lines using the '...' continuation syntax.
+    |
+
+/tests/resources/ui_keywords.resource:40:120 LEN08 Line is too long (194/120)
+    |
+ 38 | ${BOOK_CARD_BY_TITLE}        //div[contains(@class, 'book-card')]//h3[@class='book-title' and text()='{title}']
+ 39 | ${DELETE_BUTTON_BY_TITLE}    //div[contains(@class, 'book-card')]//h3[@class='book-title' and text()='{title}']/ancestor::div[contains(@class, 'book-card')]//button[contains(@class, 'delete-btn')]
+ 40 | ${EDIT_BUTTON_BY_TITLE}      //div[contains(@class, 'book-card')]//h3[@class='book-title' and text()='{title}']/ancestor::div[contains(@class, 'book-card')]//button[contains(@class, 'edit-btn')]
+    |                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN08
+ 41 | ${FAVORITE_BUTTON_BY_TITLE}  //div[contains(@class, 'book-card')]//h3[@class='book-title' and text()='{title}']/ancestor::div[contains(@class, 'book-card')]//button[contains(@class, 'favorite-btn')]
+    | Suggestion: Break long lines using the '...' continuation syntax.
+    |
+
+/tests/resources/ui_keywords.resource:41:120 LEN08 Line is too long (198/120)
+    |
+ 39 | ${DELETE_BUTTON_BY_TITLE}    //div[contains(@class, 'book-card')]//h3[@class='book-title' and text()='{title}']/ancestor::div[contains(@class, 'book-card')]//button[contains(@class, 'delete-btn')]
+ 40 | ${EDIT_BUTTON_BY_TITLE}      //div[contains(@class, 'book-card')]//h3[@class='book-title' and text()='{title}']/ancestor::div[contains(@class, 'book-card')]//button[contains(@class, 'edit-btn')]
+ 41 | ${FAVORITE_BUTTON_BY_TITLE}  //div[contains(@class, 'book-card')]//h3[@class='book-title' and text()='{title}']/ancestor::div[contains(@class, 'book-card')]//button[contains(@class, 'favorite-btn')]
+    |                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN08
+    | Suggestion: Break long lines using the '...' continuation syntax.
+    |
+
+/tests/resources/ui_keywords.resource:91:20 DEPR05 Set Variable used instead of VAR
+    |
+ 89 |     ${all_cards}=    Get Element Count    //div[contains(@class, 'book-card')]
+ 90 |     Log    Total book cards visible: ${all_cards}    console=True
+ 91 |     ${locator}=    Set Variable    ${BOOK_CARD_BY_TITLE.replace('{title}', '${title}')}
+    |                    ^^^^^^^^^^^^ DEPR05
+ 92 |     ${count}=    Get Element Count    ${locator}
+ 93 |     Should Be True    ${count} > 0    msg=Book '${title}' should be visible but found ${count} instances
+    |
+
+/tests/resources/ui_keywords.resource:172:1 SPC01 Trailing whitespace at the end of line
+     |
+ 170 |     [Arguments]    ${new_title}=${EMPTY}    ${new_author}=${EMPTY}    ${new_pages}=${EMPTY}
+ 171 |     Wait For Elements State    ${EDIT_MODAL}    visible    timeout=${DEFAULT_TIMEOUT}
+ 172 |
+     | ^^^^ SPC01
+ 173 |     IF    '${new_title}' != '${EMPTY}'
+ 174 |         Fill Text    ${EDIT_TITLE_INPUT}    ${new_title}
+     |
+
+/tests/resources/ui_keywords.resource:182:1 SPC01 Trailing whitespace at the end of line
+     |
+ 180 |         Fill Text    ${EDIT_PAGES_INPUT}    ${new_pages}
+ 181 |     END
+ 182 |
+     | ^^^^ SPC01
+ 183 |     Click    ${UPDATE_BUTTON}
+ 184 |     Wait For Elements State    ${EDIT_MODAL}    hidden    timeout=${DEFAULT_TIMEOUT}
+     |
+
+/tests/resources/ui_keywords.resource:217:20 VAR11 Argument '${test_name}' overwrites reserved variable '${TEST_NAME}'
+     |
+ 215 | Take Screenshot On Failure
+ 216 |     [Documentation]    Captures screenshot when test fails
+ 217 |     [Arguments]    ${test_name}=test_failure
+     |                    ^^^^^^^^^^^^ VAR11
+ 218 |     TRY
+ 219 |         VAR    ${timestamp}    Get Current Date    result_format=%Y%m%d_%H%M%S
+     |
+
+/tests/books_api.robot:7:19 IMP01 BuiltIn library import 'Collections' should be placed before 'RequestsLibrary'
+   |
+ 5 |
+ 6 | Library           RequestsLibrary
+ 7 | Library           Collections
+   |                   ^^^^^^^^^^^ IMP01
+ 8 | Resource          resources/common.resource
+ 9 | Resource          resources/api_keywords.resource
+   |
+
+/tests/books_api.robot:17:1 DEPR02 'Force Tags' is deprecated since Robot Framework version 6.0, use 'Test Tags' instead
+    |
+ 17 | Force Tags        api    regression
+    | ^^^^^^^^^^ DEPR02
+    |
+
+/tests/books_api.robot:32:35 SPC01 Trailing whitespace at the end of line
+    |
+ 30 |     [Documentation]    Verifies that POST /books/ creates a new book successfully
+ 31 |     [Tags]    smoke    create    crud
+ 32 |     Given Books API Session Exists
+    |                                   ^^^^ SPC01
+ 33 |     Given User Has Valid Book Data
+ 34 |     When User Submits Book Creation Request
+    |
+
+/tests/books_api.robot:122:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 120 |     [Documentation]    Prepares valid book data for creation
+ 121 |     &{test_book_data}=    Generate Test Book Data
+ 122 |     Set Test Variable    &{test_book_data}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:122:5 VAR06 Variable defined with test/task scope
+     |
+ 120 |     [Documentation]    Prepares valid book data for creation
+ 121 |     &{test_book_data}=    Generate Test Book Data
+ 122 |     Set Test Variable    &{test_book_data}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:122:26 VAR07 Non local variable is not uppercase
+     |
+ 120 |     [Documentation]    Prepares valid book data for creation
+ 121 |     &{test_book_data}=    Generate Test Book Data
+ 122 |     Set Test Variable    &{test_book_data}
+     |                          ^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_api.robot:129:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 127 |     ${response}=    Create Book Via API    &{book_data}
+ 128 |     ${test_book_id}=    Extract Book ID From Response    ${response}
+ 129 |     Set Test Variable    ${test_book_id}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 130 |     ${test_book_title}=    Set Variable    ${book_data['title']}
+ 131 |     Set Test Variable    ${test_book_title}
+     |
+
+/tests/books_api.robot:129:5 VAR06 Variable defined with test/task scope
+     |
+ 127 |     ${response}=    Create Book Via API    &{book_data}
+ 128 |     ${test_book_id}=    Extract Book ID From Response    ${response}
+ 129 |     Set Test Variable    ${test_book_id}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 130 |     ${test_book_title}=    Set Variable    ${book_data['title']}
+ 131 |     Set Test Variable    ${test_book_title}
+     |
+
+/tests/books_api.robot:129:26 VAR07 Non local variable is not uppercase
+     |
+ 127 |     ${response}=    Create Book Via API    &{book_data}
+ 128 |     ${test_book_id}=    Extract Book ID From Response    ${response}
+ 129 |     Set Test Variable    ${test_book_id}
+     |                          ^^^^^^^^^^^^^^^ VAR07
+ 130 |     ${test_book_title}=    Set Variable    ${book_data['title']}
+ 131 |     Set Test Variable    ${test_book_title}
+     |
+
+/tests/books_api.robot:130:28 DEPR05 Set Variable used instead of VAR
+     |
+ 128 |     ${test_book_id}=    Extract Book ID From Response    ${response}
+ 129 |     Set Test Variable    ${test_book_id}
+ 130 |     ${test_book_title}=    Set Variable    ${book_data['title']}
+     |                            ^^^^^^^^^^^^ DEPR05
+ 131 |     Set Test Variable    ${test_book_title}
+ 132 |     Set Test Variable    ${book_data}
+     |
+
+/tests/books_api.robot:131:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 129 |     Set Test Variable    ${test_book_id}
+ 130 |     ${test_book_title}=    Set Variable    ${book_data['title']}
+ 131 |     Set Test Variable    ${test_book_title}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 132 |     Set Test Variable    ${book_data}
+ 133 |     Set Test Variable    ${original_book_data}    ${book_data}
+     |
+
+/tests/books_api.robot:131:5 VAR06 Variable defined with test/task scope
+     |
+ 129 |     Set Test Variable    ${test_book_id}
+ 130 |     ${test_book_title}=    Set Variable    ${book_data['title']}
+ 131 |     Set Test Variable    ${test_book_title}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 132 |     Set Test Variable    ${book_data}
+ 133 |     Set Test Variable    ${original_book_data}    ${book_data}
+     |
+
+/tests/books_api.robot:131:26 VAR07 Non local variable is not uppercase
+     |
+ 129 |     Set Test Variable    ${test_book_id}
+ 130 |     ${test_book_title}=    Set Variable    ${book_data['title']}
+ 131 |     Set Test Variable    ${test_book_title}
+     |                          ^^^^^^^^^^^^^^^^^^ VAR07
+ 132 |     Set Test Variable    ${book_data}
+ 133 |     Set Test Variable    ${original_book_data}    ${book_data}
+     |
+
+/tests/books_api.robot:132:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 130 |     ${test_book_title}=    Set Variable    ${book_data['title']}
+ 131 |     Set Test Variable    ${test_book_title}
+ 132 |     Set Test Variable    ${book_data}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 133 |     Set Test Variable    ${original_book_data}    ${book_data}
+     |
+
+/tests/books_api.robot:132:5 VAR06 Variable defined with test/task scope
+     |
+ 130 |     ${test_book_title}=    Set Variable    ${book_data['title']}
+ 131 |     Set Test Variable    ${test_book_title}
+ 132 |     Set Test Variable    ${book_data}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 133 |     Set Test Variable    ${original_book_data}    ${book_data}
+     |
+
+/tests/books_api.robot:132:26 VAR07 Non local variable is not uppercase
+     |
+ 130 |     ${test_book_title}=    Set Variable    ${book_data['title']}
+ 131 |     Set Test Variable    ${test_book_title}
+ 132 |     Set Test Variable    ${book_data}
+     |                          ^^^^^^^^^^^^ VAR07
+ 133 |     Set Test Variable    ${original_book_data}    ${book_data}
+     |
+
+/tests/books_api.robot:133:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 131 |     Set Test Variable    ${test_book_title}
+ 132 |     Set Test Variable    ${book_data}
+ 133 |     Set Test Variable    ${original_book_data}    ${book_data}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:133:5 VAR06 Variable defined with test/task scope
+     |
+ 131 |     Set Test Variable    ${test_book_title}
+ 132 |     Set Test Variable    ${book_data}
+ 133 |     Set Test Variable    ${original_book_data}    ${book_data}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:133:26 VAR07 Non local variable is not uppercase
+     |
+ 131 |     Set Test Variable    ${test_book_title}
+ 132 |     Set Test Variable    ${book_data}
+ 133 |     Set Test Variable    ${original_book_data}    ${book_data}
+     |                          ^^^^^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_api.robot:137:26 DEPR05 Set Variable used instead of VAR
+     |
+ 135 | Given User Has Updated Book Data
+ 136 |     [Documentation]    Prepares modified book data for update operation
+ 137 |     ${updated_title}=    Set Variable    ${test_book_title}_UPDATED
+     |                          ^^^^^^^^^^^^ DEPR05
+ 138 |     Set Test Variable    ${updated_title}
+ 139 |     VAR    &{update_data}
+     |
+
+/tests/books_api.robot:138:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 136 |     [Documentation]    Prepares modified book data for update operation
+ 137 |     ${updated_title}=    Set Variable    ${test_book_title}_UPDATED
+ 138 |     Set Test Variable    ${updated_title}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 139 |     VAR    &{update_data}
+ 140 |     ...    title=${updated_title}
+     |
+
+/tests/books_api.robot:138:5 VAR06 Variable defined with test/task scope
+     |
+ 136 |     [Documentation]    Prepares modified book data for update operation
+ 137 |     ${updated_title}=    Set Variable    ${test_book_title}_UPDATED
+ 138 |     Set Test Variable    ${updated_title}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 139 |     VAR    &{update_data}
+ 140 |     ...    title=${updated_title}
+     |
+
+/tests/books_api.robot:138:26 VAR07 Non local variable is not uppercase
+     |
+ 136 |     [Documentation]    Prepares modified book data for update operation
+ 137 |     ${updated_title}=    Set Variable    ${test_book_title}_UPDATED
+ 138 |     Set Test Variable    ${updated_title}
+     |                          ^^^^^^^^^^^^^^^^ VAR07
+ 139 |     VAR    &{update_data}
+ 140 |     ...    title=${updated_title}
+     |
+
+/tests/books_api.robot:144:1 SPC01 Trailing whitespace at the end of line
+     |
+ 142 |     ...    pages=500
+ 143 |     ...    category=${TEST_CATEGORY}
+ 144 |
+     | ^^^^ SPC01
+ 145 |     Set Test Variable    ${test_update_data}    ${update_data}
+     |
+
+/tests/books_api.robot:145:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 145 |     Set Test Variable    ${test_update_data}    ${update_data}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:145:5 VAR06 Variable defined with test/task scope
+     |
+ 145 |     Set Test Variable    ${test_update_data}    ${update_data}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:145:26 VAR07 Non local variable is not uppercase
+     |
+ 145 |     Set Test Variable    ${test_update_data}    ${update_data}
+     |                          ^^^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_api.robot:147:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 147 | # WHEN Keywords
+     | ^ SPC05
+ 148 | When User Requests All Books
+ 149 |     [Documentation]    Executes GET request to retrieve all books
+     |
+
+/tests/books_api.robot:151:12 VAR07 Non local variable is not uppercase
+     |
+ 149 |     [Documentation]    Executes GET request to retrieve all books
+ 150 |     ${all_books_response}=    Get All Books Via API
+ 151 |     VAR    ${all_books_response}    ${all_books_response}    scope=TEST
+     |            ^^^^^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_api.robot:151:62 VAR06 Variable defined with test/task scope
+     |
+ 149 |     [Documentation]    Executes GET request to retrieve all books
+ 150 |     ${all_books_response}=    Get All Books Via API
+ 151 |     VAR    ${all_books_response}    ${all_books_response}    scope=TEST
+     |                                                              ^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:156:12 VAR07 Non local variable is not uppercase
+     |
+ 154 |     [Documentation]    Executes POST request to create a book
+ 155 |     ${create_response}=    Create Book Via API    &{test_book_data}
+ 156 |     VAR    ${create_response}    ${create_response}    scope=TEST
+     |            ^^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_api.robot:156:56 VAR06 Variable defined with test/task scope
+     |
+ 154 |     [Documentation]    Executes POST request to create a book
+ 155 |     ${create_response}=    Create Book Via API    &{test_book_data}
+ 156 |     VAR    ${create_response}    ${create_response}    scope=TEST
+     |                                                        ^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:161:12 VAR07 Non local variable is not uppercase
+     |
+ 159 |     [Documentation]    Executes GET request for specific book
+ 160 |     ${get_book_response}=    Get Book By ID Via API    ${test_book_id}
+ 161 |     VAR    ${get_book_response}    ${get_book_response}    scope=TEST
+     |            ^^^^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_api.robot:161:60 VAR06 Variable defined with test/task scope
+     |
+ 159 |     [Documentation]    Executes GET request for specific book
+ 160 |     ${get_book_response}=    Get Book By ID Via API    ${test_book_id}
+ 161 |     VAR    ${get_book_response}    ${get_book_response}    scope=TEST
+     |                                                            ^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:166:12 VAR07 Non local variable is not uppercase
+     |
+ 164 |     [Documentation]    Executes PUT request to update book
+ 165 |     ${update_response}=    Update Book Via API    ${test_book_id}    &{test_update_data}
+ 166 |     VAR    ${update_response}    ${update_response}    scope=TEST
+     |            ^^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_api.robot:166:56 VAR06 Variable defined with test/task scope
+     |
+ 164 |     [Documentation]    Executes PUT request to update book
+ 165 |     ${update_response}=    Update Book Via API    ${test_book_id}    &{test_update_data}
+ 166 |     VAR    ${update_response}    ${update_response}    scope=TEST
+     |                                                        ^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:171:12 VAR07 Non local variable is not uppercase
+     |
+ 169 |     [Documentation]    Executes DELETE request to remove book
+ 170 |     ${delete_response}=    Delete Book Via API    ${test_book_id}
+ 171 |     VAR    ${delete_response}    ${delete_response}    scope=TEST
+     |            ^^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_api.robot:171:56 VAR06 Variable defined with test/task scope
+     |
+ 169 |     [Documentation]    Executes DELETE request to remove book
+ 170 |     ${delete_response}=    Delete Book Via API    ${test_book_id}
+ 171 |     VAR    ${delete_response}    ${delete_response}    scope=TEST
+     |                                                        ^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:176:12 VAR07 Non local variable is not uppercase
+     |
+ 174 |     [Documentation]    Sets book favorite status to true
+ 175 |     ${favorite_response}=    Toggle Book Favorite Via API    ${test_book_id}    ${True}
+ 176 |     VAR    ${favorite_response}    ${favorite_response}    scope=TEST
+     |            ^^^^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_api.robot:176:60 VAR06 Variable defined with test/task scope
+     |
+ 174 |     [Documentation]    Sets book favorite status to true
+ 175 |     ${favorite_response}=    Toggle Book Favorite Via API    ${test_book_id}    ${True}
+ 176 |     VAR    ${favorite_response}    ${favorite_response}    scope=TEST
+     |                                                            ^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:181:12 VAR07 Non local variable is not uppercase
+     |
+ 179 |     [Documentation]    Sets book favorite status to false
+ 180 |     ${favorite_response}=    Toggle Book Favorite Via API    ${test_book_id}    ${False}
+ 181 |     VAR    ${favorite_response}    ${favorite_response}    scope=TEST
+     |            ^^^^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_api.robot:181:60 VAR06 Variable defined with test/task scope
+     |
+ 179 |     [Documentation]    Sets book favorite status to false
+ 180 |     ${favorite_response}=    Toggle Book Favorite Via API    ${test_book_id}    ${False}
+ 181 |     VAR    ${favorite_response}    ${favorite_response}    scope=TEST
+     |                                                            ^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:190:26 DEPR06 Create List used instead of VAR
+     |
+ 188 | When User Creates Three Different Books
+ 189 |     [Documentation]    Creates three books with different data
+ 190 |     @{created_books}=    Create List
+     |                          ^^^^^^^^^^^ DEPR06
+     |
+
+/tests/books_api.robot:191:1 SPC01 Trailing whitespace at the end of line
+     |
+ 189 |     [Documentation]    Creates three books with different data
+ 190 |     @{created_books}=    Create List
+ 191 |
+     | ^^^^ SPC01
+ 192 |     FOR    ${i}    IN RANGE    3
+ 193 |         ${book_data}=    Generate Test Book Data
+     |
+
+/tests/books_api.robot:192:12 VAR02 Variable '${i}' is assigned but not used
+     |
+ 192 |     FOR    ${i}    IN RANGE    3
+     |            ^^^^ VAR02
+ 193 |         ${book_data}=    Generate Test Book Data
+ 194 |         ${response}=    Create Book Via API    &{book_data}
+     |
+
+/tests/books_api.robot:198:1 SPC01 Trailing whitespace at the end of line
+     |
+ 196 |         Append To List    ${created_books}    ${book_id}
+ 197 |     END
+ 198 |
+     | ^^^^ SPC01
+ 199 |     Set Test Variable    ${test_created_books}    ${created_books}
+     |
+
+/tests/books_api.robot:199:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 199 |     Set Test Variable    ${test_created_books}    ${created_books}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:199:5 VAR06 Variable defined with test/task scope
+     |
+ 199 |     Set Test Variable    ${test_created_books}    ${created_books}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:199:26 VAR07 Non local variable is not uppercase
+     |
+ 199 |     Set Test Variable    ${test_created_books}    ${created_books}
+     |                          ^^^^^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_api.robot:203:12 VAR07 Non local variable is not uppercase
+     |
+ 201 | When User Updates Only Book Title
+ 202 |     [Documentation]    Updates only the title field of the book
+ 203 |     VAR    ${new_title}    ${test_book_title}_TITLE_ONLY_UPDATE    scope=TEST
+     |            ^^^^^^^^^^^^ VAR07
+ 204 |     VAR    &{partial_update}
+ 205 |     ...    title=${new_title}
+     |
+
+/tests/books_api.robot:203:68 VAR06 Variable defined with test/task scope
+     |
+ 201 | When User Updates Only Book Title
+ 202 |     [Documentation]    Updates only the title field of the book
+ 203 |     VAR    ${new_title}    ${test_book_title}_TITLE_ONLY_UPDATE    scope=TEST
+     |                                                                    ^^^^^^^^^^ VAR06
+ 204 |     VAR    &{partial_update}
+ 205 |     ...    title=${new_title}
+     |
+
+/tests/books_api.robot:209:1 SPC01 Trailing whitespace at the end of line
+     |
+ 207 |     ...    pages=${original_book_data['pages']}
+ 208 |     ...    category=${original_book_data['category']}
+ 209 |
+     | ^^^^ SPC01
+ 210 |     ${partial_update_response}=    Update Book Via API    ${test_book_id}    &{partial_update}
+ 211 |     VAR    ${partial_update_response}    ${partial_update_response}    scope=TEST
+     |
+
+/tests/books_api.robot:211:12 VAR07 Non local variable is not uppercase
+     |
+ 209 |
+ 210 |     ${partial_update_response}=    Update Book Via API    ${test_book_id}    &{partial_update}
+ 211 |     VAR    ${partial_update_response}    ${partial_update_response}    scope=TEST
+     |            ^^^^^^^^^^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_api.robot:211:72 VAR06 Variable defined with test/task scope
+     |
+ 209 |
+ 210 |     ${partial_update_response}=    Update Book Via API    ${test_book_id}    &{partial_update}
+ 211 |     VAR    ${partial_update_response}    ${partial_update_response}    scope=TEST
+     |                                                                        ^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:217:12 VAR07 Non local variable is not uppercase
+     |
+ 215 |     ${book_data}=    Generate Test Book Data
+ 216 |     ${all_fields_response}=    Create Book Via API    &{book_data}
+ 217 |     VAR    ${all_fields_response}    ${all_fields_response}    scope=TEST
+     |            ^^^^^^^^^^^^^^^^^^^^^^ VAR07
+ 218 |     Set Test Variable    ${all_fields_data}    ${book_data}
+     |
+
+/tests/books_api.robot:217:64 VAR06 Variable defined with test/task scope
+     |
+ 215 |     ${book_data}=    Generate Test Book Data
+ 216 |     ${all_fields_response}=    Create Book Via API    &{book_data}
+ 217 |     VAR    ${all_fields_response}    ${all_fields_response}    scope=TEST
+     |                                                                ^^^^^^^^^^ VAR06
+ 218 |     Set Test Variable    ${all_fields_data}    ${book_data}
+     |
+
+/tests/books_api.robot:218:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 216 |     ${all_fields_response}=    Create Book Via API    &{book_data}
+ 217 |     VAR    ${all_fields_response}    ${all_fields_response}    scope=TEST
+ 218 |     Set Test Variable    ${all_fields_data}    ${book_data}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:218:5 VAR06 Variable defined with test/task scope
+     |
+ 216 |     ${all_fields_response}=    Create Book Via API    &{book_data}
+ 217 |     VAR    ${all_fields_response}    ${all_fields_response}    scope=TEST
+ 218 |     Set Test Variable    ${all_fields_data}    ${book_data}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:218:26 VAR07 Non local variable is not uppercase
+     |
+ 216 |     ${all_fields_response}=    Create Book Via API    &{book_data}
+ 217 |     VAR    ${all_fields_response}    ${all_fields_response}    scope=TEST
+ 218 |     Set Test Variable    ${all_fields_data}    ${book_data}
+     |                          ^^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_api.robot:220:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 220 | # THEN Keywords
+     | ^ SPC05
+ 221 | Then Response Should Contain Books List
+ 222 |     [Documentation]    Validates response contains a list of books
+     |
+
+/tests/books_api.robot:223:18 DEPR05 Set Variable used instead of VAR
+     |
+ 221 | Then Response Should Contain Books List
+ 222 |     [Documentation]    Validates response contains a list of books
+ 223 |     ${books}=    Set Variable    ${all_books_response.json()}
+     |                  ^^^^^^^^^^^^ DEPR05
+ 224 |     Should Not Be Empty    ${books}    msg=Books list should not be empty
+     |
+
+/tests/books_api.robot:238:12 VAR07 Non local variable is not uppercase
+     |
+ 236 |     [Documentation]    Validates response includes a valid book ID
+ 237 |     ${book_id}=    Extract Book ID From Response    ${create_response}
+ 238 |     VAR    ${created_book_id}    ${book_id}    scope=TEST
+     |            ^^^^^^^^^^^^^^^^^^ VAR07
+     |
+
+/tests/books_api.robot:238:48 VAR06 Variable defined with test/task scope
+     |
+ 236 |     [Documentation]    Validates response includes a valid book ID
+ 237 |     ${book_id}=    Extract Book ID From Response    ${create_response}
+ 238 |     VAR    ${created_book_id}    ${book_id}    scope=TEST
+     |                                                ^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:250:17 DEPR05 Set Variable used instead of VAR
+     |
+ 248 | Then Book Data Should Match Expected Values
+ 249 |     [Documentation]    Validates retrieved book data is correct
+ 250 |     ${book}=    Set Variable    ${get_book_response.json()}
+     |                 ^^^^^^^^^^^^ DEPR05
+ 251 |     Should Be Equal As Integers    ${book['id']}    ${test_book_id}
+     |
+
+/tests/books_api.robot:271:17 DEPR05 Set Variable used instead of VAR
+     |
+ 269 | Then Book Favorite Status Should Be True
+ 270 |     [Documentation]    Validates favorite status is true
+ 271 |     ${book}=    Set Variable    ${favorite_response.json()}
+     |                 ^^^^^^^^^^^^ DEPR05
+ 272 |     Should Be True    ${book['favorite']}    msg=Favorite status should be True
+     |
+
+/tests/books_api.robot:276:17 DEPR05 Set Variable used instead of VAR
+     |
+ 274 | Then Book Favorite Status Should Be False
+ 275 |     [Documentation]    Validates favorite status is false
+ 276 |     ${book}=    Set Variable    ${favorite_response.json()}
+     |                 ^^^^^^^^^^^^ DEPR05
+ 277 |     Should Not Be True    ${book['favorite']}    msg=Favorite status should be False
+     |
+
+/tests/books_api.robot:292:17 DEPR05 Set Variable used instead of VAR
+     |
+ 290 | Then Title Should Be Updated
+ 291 |     [Documentation]    Validates title field was updated
+ 292 |     ${book}=    Set Variable    ${partial_update_response.json()}
+     |                 ^^^^^^^^^^^^ DEPR05
+ 293 |     Should Be Equal    ${book['title']}    ${new_title}
+ 294 |     ...    msg=Title should be updated to ${new_title}
+     |
+
+/tests/books_api.robot:298:17 DEPR05 Set Variable used instead of VAR
+     |
+ 296 | Then Other Book Fields Should Remain Unchanged
+ 297 |     [Documentation]    Validates other fields were not modified
+ 298 |     ${book}=    Set Variable    ${partial_update_response.json()}
+     |                 ^^^^^^^^^^^^ DEPR05
+ 299 |     Should Be Equal    ${book['author']}    ${original_book_data['author']}
+ 300 |     Should Be Equal As Integers    ${book['pages']}    ${original_book_data['pages']}
+     |
+

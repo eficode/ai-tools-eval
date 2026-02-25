@@ -1,0 +1,24 @@
+{
+  "mcpServers": {
+    "RobotFramework": {
+      "command": "/usr/bin/docker",
+      "args": [
+        "exec",
+        "-i",
+        "robotframework-mcp",
+        "python",
+        "/app/server.py"
+      ]
+    },
+    "rf-docs": {
+      "command": "/usr/bin/docker",
+      "args": [
+        "exec",
+        "-i",
+        "rf-docs-mcp",
+        "python",
+        "/app/rf_docs_server.py"
+      ]
+    }
+  }
+}
