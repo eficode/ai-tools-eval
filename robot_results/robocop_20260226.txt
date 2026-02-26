@@ -1,0 +1,1068 @@
+/tests/books_ui.robot:24:1 DEPR02 'Force Tags' is deprecated since Robot Framework version 6.0, use 'Test Tags' instead
+    |
+ 24 | Force Tags        ui    books    browser
+    | ^^^^^^^^^^ DEPR02
+ 25 | Default Tags      smoke
+    |
+
+/tests/books_ui.robot:25:1 TAG07 Tags defined in Default Tags are always overwritten
+    |
+ 23 |
+ 24 | Force Tags        ui    books    browser
+ 25 | Default Tags      smoke
+    | ^^^^^^^^^^^^ TAG07
+    |
+
+/tests/books_ui.robot:30:1 VAR02 Variable '${SEARCH_TERM_COMMON}' is assigned but not used
+    |
+ 28 | *** Variables ***
+ 29 | ${SEARCH_TERM_VALID}      Hero
+ 30 | ${SEARCH_TERM_COMMON}     the
+    | ^^^^^^^^^^^^^^^^^^^^^ VAR02
+ 31 | ${SEARCH_TERM_INVALID}    XYZNONEXISTENT123
+    |
+
+/tests/books_ui.robot:131:15 TAG06 Tag 'ui' is already set by Force Tags in suite settings
+     |
+ 129 |     ...
+ 130 |     ...                Expected: Page is fully functional and responsive
+ 131 |     [Tags]    ui    layout    positive    priority-low
+     |               ^^ TAG06
+     |
+
+/tests/books_ui.robot:146:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 146 | # When Keywords (Actions)
+     | ^ SPC05
+ 147 | When User Searches For Books With Term
+ 148 |     [Documentation]    Action: User performs search operation
+     |
+
+/tests/books_ui.robot:157:23 DEPR05 Set Variable used instead of VAR
+     |
+ 155 |
+ 156 |     @{cards}=    Get All Book Cards
+ 157 |     ${first_card}=    Set Variable    ${cards}[0]
+     |                       ^^^^^^^^^^^^ DEPR05
+ 158 |     Set Test Variable    ${CURRENT_CARD}    ${first_card}
+     |
+
+/tests/books_ui.robot:158:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 156 |     @{cards}=    Get All Book Cards
+ 157 |     ${first_card}=    Set Variable    ${cards}[0]
+ 158 |     Set Test Variable    ${CURRENT_CARD}    ${first_card}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_ui.robot:158:5 VAR06 Variable defined with test/task scope
+     |
+ 156 |     @{cards}=    Get All Book Cards
+ 157 |     ${first_card}=    Set Variable    ${cards}[0]
+ 158 |     Set Test Variable    ${CURRENT_CARD}    ${first_card}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_ui.robot:160:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 160 | # Then Keywords (Verifications)
+     | ^ SPC05
+ 161 | Then Books Catalog Should Be Displayed
+ 162 |     [Documentation]    Verification: Books catalog page is visible
+     |
+
+/tests/books_ui.robot:236:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 236 | # And Keywords (Additional Verifications)
+     | ^ SPC05
+ 237 | And Multiple Books Should Be Visible
+ 238 |     [Documentation]    Additional verification: Multiple books displayed
+     |
+
+/tests/books_ui.robot:274:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 274 | # Suite Lifecycle Keywords
+     | ^ SPC05
+ 275 | Initialize UI Test Suite
+ 276 |     [Documentation]    Setup for entire UI test suite
+     |
+
+/tests/books_ui.robot:291:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 291 | # Test Lifecycle Keywords
+     | ^ SPC05
+ 292 | Setup Individual UI Test
+ 293 |     [Documentation]    Setup for individual UI test case
+     |
+
+/tests/resources/common.resource:11:19 IMP01 BuiltIn library import 'Collections' should be placed before 'Browser'
+    |
+  9 | Library           Browser    timeout=10s    retry_assertions_for=1s
+ 10 | Library           RequestsLibrary
+ 11 | Library           Collections
+    |                   ^^^^^^^^^^^ IMP01
+ 12 | Library           String
+ 13 | Library           DateTime
+    |
+
+/tests/resources/common.resource:12:19 IMP01 BuiltIn library import 'String' should be placed before 'Browser'
+    |
+ 10 | Library           RequestsLibrary
+ 11 | Library           Collections
+ 12 | Library           String
+    |                   ^^^^^^ IMP01
+ 13 | Library           DateTime
+ 14 | Library           OperatingSystem
+    |
+
+/tests/resources/common.resource:13:19 IMP01 BuiltIn library import 'DateTime' should be placed before 'Browser'
+    |
+ 11 | Library           Collections
+ 12 | Library           String
+ 13 | Library           DateTime
+    |                   ^^^^^^^^ IMP01
+ 14 | Library           OperatingSystem
+    |
+
+/tests/resources/common.resource:13:19 IMP02 BuiltIn library import 'DateTime' should be placed before 'String'
+    |
+ 11 | Library           Collections
+ 12 | Library           String
+ 13 | Library           DateTime
+    |                   ^^^^^^^^ IMP02
+ 14 | Library           OperatingSystem
+    |
+
+/tests/resources/common.resource:14:19 IMP01 BuiltIn library import 'OperatingSystem' should be placed before 'Browser'
+    |
+ 12 | Library           String
+ 13 | Library           DateTime
+ 14 | Library           OperatingSystem
+    |                   ^^^^^^^^^^^^^^^ IMP01
+    |
+
+/tests/resources/common.resource:41:1 VAR01 Empty variable value
+    |
+ 39 | # Test Data Prefixes (to avoid conflicts with real data)
+ 40 | ${TEST_PREFIX}           TEST_
+ 41 | ${TEST_TIMESTAMP}        # Set dynamically in Suite Setup
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ VAR01
+    |
+
+/tests/resources/common.resource:66:5 DEPR05 Set Suite Variable used instead of VAR
+    |
+ 64 |
+ 65 |     ${timestamp}=    Get Time    epoch
+ 66 |     Set Suite Variable    ${TEST_TIMESTAMP}    ${timestamp}
+    |     ^^^^^^^^^^^^^^^^^^ DEPR05
+ 67 |     Log    Test suite started at: ${TEST_TIMESTAMP}
+    |
+
+/tests/resources/common.resource:66:5 VAR05 Variable defined with suite scope
+    |
+ 64 |
+ 65 |     ${timestamp}=    Get Time    epoch
+ 66 |     Set Suite Variable    ${TEST_TIMESTAMP}    ${timestamp}
+    |     ^^^^^^^^^^^^^^^^^^ VAR05
+ 67 |     Log    Test suite started at: ${TEST_TIMESTAMP}
+    |
+
+/tests/resources/common.resource:137:22 DEPR05 Set Variable used instead of VAR
+     |
+ 137 |     ${json_data}=    Set Variable    ${response.json()}
+     |                      ^^^^^^^^^^^^ DEPR05
+ 138 |     ${value}=        Get Variable Value    ${json_data}${json_path}    ${None}
+     |
+
+/tests/resources/common.resource:147:5 VAR11 Variable '${test_name}' overwrites reserved variable '${TEST_NAME}'
+     |
+ 145 |
+ 146 |     ${timestamp}=    Get Time    epoch
+ 147 |     ${test_name}=    Set Variable    ${TEST_NAME}
+     |     ^^^^^^^^^^^^ VAR11
+ 148 |     ${filename}=     Catenate    SEPARATOR=_    ${test_name}    ${timestamp}.png
+     |
+
+/tests/resources/common.resource:147:22 DEPR05 Set Variable used instead of VAR
+     |
+ 145 |
+ 146 |     ${timestamp}=    Get Time    epoch
+ 147 |     ${test_name}=    Set Variable    ${TEST_NAME}
+     |                      ^^^^^^^^^^^^ DEPR05
+ 148 |     ${filename}=     Catenate    SEPARATOR=_    ${test_name}    ${timestamp}.png
+     |
+
+/tests/resources/common.resource:162:5 MISC09 IF can be replaced with inline IF
+     |
+ 160 |
+ 161 |     Log    Request: ${method} ${endpoint}    level=INFO
+ 162 |     IF    ${data} is not ${None}
+     |     ^^ MISC09
+ 163 |         Log    Request Data: ${data}    level=DEBUG
+ 164 |     END
+     |
+
+/tests/resources/api/BooksAPI.resource:10:19 IMP01 BuiltIn library import 'Collections' should be placed before 'RequestsLibrary'
+    |
+  8 |
+  9 | Library           RequestsLibrary
+ 10 | Library           Collections
+    |                   ^^^^^^^^^^^ IMP01
+ 11 | Library           String
+ 12 | Resource          ../common.resource
+    |
+
+/tests/resources/api/BooksAPI.resource:11:19 IMP01 BuiltIn library import 'String' should be placed before 'RequestsLibrary'
+    |
+  9 | Library           RequestsLibrary
+ 10 | Library           Collections
+ 11 | Library           String
+    |                   ^^^^^^ IMP01
+ 12 | Resource          ../common.resource
+    |
+
+/tests/resources/api/BooksAPI.resource:38:1 SPC05 Invalid number of empty lines between keywords (0/1)
+    |
+ 38 | # HTTP GET Operations
+    | ^ SPC05
+ 39 | Get All Books
+ 40 |     [Documentation]    Retrieve all books from API
+    |
+
+/tests/resources/api/BooksAPI.resource:59:21 DEPR05 Set Variable used instead of VAR
+    |
+ 59 |     ${endpoint}=    Set Variable    /books/${book_id}
+    |                     ^^^^^^^^^^^^ DEPR05
+ 60 |     Log Request Details    GET    ${endpoint}
+    |
+
+/tests/resources/api/BooksAPI.resource:75:21 DEPR05 Set Variable used instead of VAR
+    |
+ 75 |     ${endpoint}=    Set Variable    /books/${book_id}
+    |                     ^^^^^^^^^^^^ DEPR05
+ 76 |     Log Request Details    GET    ${endpoint}
+    |
+
+/tests/resources/api/BooksAPI.resource:112:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 112 | # HTTP POST Operations
+     | ^ SPC05
+ 113 | Create Book
+ 114 |     [Documentation]    Create new book via API
+     |
+
+/tests/resources/api/BooksAPI.resource:151:21 DEPR05 Set Variable used instead of VAR
+     |
+ 151 |     ${expected}=    Set Variable    ${HTTP_UNPROCESSABLE_ENTITY}
+     |                     ^^^^^^^^^^^^ DEPR05
+ 152 |     Log Request Details    POST    ${BOOKS_LIST_ENDPOINT}    ${book_data}
+     |
+
+/tests/resources/api/BooksAPI.resource:160:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 160 | # HTTP PUT Operations
+     | ^ SPC05
+ 161 | Update Book
+ 162 |     [Documentation]    Update existing book via API
+     |
+
+/tests/resources/api/BooksAPI.resource:169:21 DEPR05 Set Variable used instead of VAR
+     |
+ 167 |
+ 168 |     VAR    &{book_data}    title=${title}    author=${author}    pages=${pages}    category=${category}
+ 169 |     ${endpoint}=    Set Variable    /books/${book_id}
+     |                     ^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/resources/api/BooksAPI.resource:186:21 DEPR05 Set Variable used instead of VAR
+     |
+ 186 |     ${endpoint}=    Set Variable    /books/${book_id}
+     |                     ^^^^^^^^^^^^ DEPR05
+ 187 |     Log Request Details    PUT    ${endpoint}    ${book_data}
+     |
+
+/tests/resources/api/BooksAPI.resource:195:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 195 | # HTTP PATCH Operations (Partial Update)
+     | ^ SPC05
+ 196 | Partial Update Book
+ 197 |     [Documentation]    Partially update book fields
+     |
+
+/tests/resources/api/BooksAPI.resource:203:21 DEPR05 Set Variable used instead of VAR
+     |
+ 203 |     ${endpoint}=    Set Variable    /books/${book_id}
+     |                     ^^^^^^^^^^^^ DEPR05
+ 204 |     Log Request Details    PATCH    ${endpoint}    ${fields_to_update}
+     |
+
+/tests/resources/api/BooksAPI.resource:213:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 213 | # HTTP DELETE Operations
+     | ^ SPC05
+ 214 | Delete Book
+ 215 |     [Documentation]    Delete book by ID
+     |
+
+/tests/resources/api/BooksAPI.resource:221:21 DEPR05 Set Variable used instead of VAR
+     |
+ 221 |     ${endpoint}=    Set Variable    /books/${book_id}
+     |                     ^^^^^^^^^^^^ DEPR05
+ 222 |     Log Request Details    DELETE    ${endpoint}
+     |
+
+/tests/resources/api/BooksAPI.resource:238:21 DEPR05 Set Variable used instead of VAR
+     |
+ 238 |     ${endpoint}=    Set Variable    /books/${book_id}
+     |                     ^^^^^^^^^^^^ DEPR05
+ 239 |     Log Request Details    DELETE    ${endpoint}
+     |
+
+/tests/resources/api/BooksAPI.resource:247:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 247 | # Verification Keywords
+     | ^ SPC05
+ 248 | Verify Book Response Contains Required Fields
+ 249 |     [Documentation]    Verify book response has all required fields
+     |
+
+/tests/resources/api/BooksAPI.resource:252:17 DEPR05 Set Variable used instead of VAR
+     |
+ 252 |     ${book}=    Set Variable    ${response.json()}
+     |                 ^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/resources/api/BooksAPI.resource:265:17 DEPR05 Set Variable used instead of VAR
+     |
+ 265 |     ${book}=    Set Variable    ${response.json()}
+     |                 ^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/resources/api/BooksAPI.resource:279:18 DEPR05 Set Variable used instead of VAR
+     |
+ 279 |     ${books}=    Set Variable    ${response.json()}
+     |                  ^^^^^^^^^^^^ DEPR05
+ 280 |     ${count}=    Get Length    ${books}
+     |
+
+/tests/resources/api/BooksAPI.resource:288:18 DEPR05 Set Variable used instead of VAR
+     |
+ 288 |     ${books}=    Set Variable    ${response.json()}
+     |                  ^^^^^^^^^^^^ DEPR05
+ 289 |     ${count}=    Get Length    ${books}
+     |
+
+/tests/resources/api/BooksAPI.resource:305:17 DEPR05 Set Variable used instead of VAR
+     |
+ 305 |     ${book}=    Set Variable    ${response.json()}
+     |                 ^^^^^^^^^^^^ DEPR05
+ 306 |     Dictionary Should Contain Key    ${book}    id
+     |
+
+/tests/resources/api/BooksAPI.resource:308:20 DEPR05 Set Variable used instead of VAR
+     |
+ 308 |     ${book_id}=    Set Variable    ${book}[id]
+     |                    ^^^^^^^^^^^^ DEPR05
+ 309 |     Should Not Be Equal    ${book_id}    ${None}    msg=Book ID is None
+     |
+
+/tests/resources/api/BooksAPI.resource:313:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 313 | # Helper Keywords
+     | ^ SPC05
+ 314 | Extract Book ID From Response
+ 315 |     [Documentation]    Extract book ID from API response
+     |
+
+/tests/resources/api/BooksAPI.resource:319:17 DEPR05 Set Variable used instead of VAR
+     |
+ 319 |     ${book}=    Set Variable    ${response.json()}
+     |                 ^^^^^^^^^^^^ DEPR05
+ 320 |     ${book_id}=    Set Variable    ${book}[id]
+     |
+
+/tests/resources/api/BooksAPI.resource:320:20 DEPR05 Set Variable used instead of VAR
+     |
+ 318 |
+ 319 |     ${book}=    Set Variable    ${response.json()}
+ 320 |     ${book_id}=    Set Variable    ${book}[id]
+     |                    ^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/resources/api/BooksAPI.resource:330:17 DEPR05 Set Variable used instead of VAR
+     |
+ 330 |     ${book}=    Set Variable    ${response.json()}
+     |                 ^^^^^^^^^^^^ DEPR05
+ 331 |     ${value}=    Set Variable    ${book}[${field_name}]
+     |
+
+/tests/resources/api/BooksAPI.resource:331:18 DEPR05 Set Variable used instead of VAR
+     |
+ 329 |
+ 330 |     ${book}=    Set Variable    ${response.json()}
+ 331 |     ${value}=    Set Variable    ${book}[${field_name}]
+     |                  ^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/resources/api/BooksAPI.resource:343:18 DEPR05 Set Variable used instead of VAR
+     |
+ 341 |     ${title}=    Catenate    Test Book    ${unique_id}
+ 342 |     ${author}=    Catenate    Test Author    ${unique_id}
+ 343 |     ${pages}=    Set Variable    ${250}
+     |                  ^^^^^^^^^^^^ DEPR05
+ 344 |     ${category}=    Set Variable    Test
+     |
+
+/tests/resources/api/BooksAPI.resource:344:21 DEPR05 Set Variable used instead of VAR
+     |
+ 342 |     ${author}=    Catenate    Test Author    ${unique_id}
+ 343 |     ${pages}=    Set Variable    ${250}
+ 344 |     ${category}=    Set Variable    Test
+     |                     ^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/resources/pages/BooksPage.resource:10:19 IMP01 BuiltIn library import 'String' should be placed before 'Browser'
+    |
+  8 |
+  9 | Library           Browser    timeout=10s    retry_assertions_for=1s
+ 10 | Library           String
+    |                   ^^^^^^ IMP01
+ 11 | Resource          ../common.resource
+    |
+
+/tests/resources/pages/BooksPage.resource:75:1 SPC05 Invalid number of empty lines between keywords (0/1)
+    |
+ 75 | # Search Keywords
+    | ^ SPC05
+ 76 | Search For Books
+ 77 |     [Documentation]    Perform search operation
+    |
+
+/tests/resources/pages/BooksPage.resource:137:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 137 | # Book Cards Keywords
+     | ^ SPC05
+ 138 | Get All Book Cards
+ 139 |     [Documentation]    Retrieve all book card elements on page
+     |
+
+/tests/resources/pages/BooksPage.resource:157:11 MISC13 'IF' condition can be simplified
+     |
+ 155 |
+ 156 |     # If primary selector returns 0, try alternative
+ 157 |     IF    ${count} == 0
+     |           ^^^^^^^^^^^^^ MISC13
+ 158 |         ${count}=    Get Element Count    ${BOOK_CARD_ALT}
+ 159 |     END
+     |
+
+/tests/resources/pages/BooksPage.resource:169:120 LEN08 Line is too long (151/120)
+     |
+ 169 |     VAR    ${selector}    xpath=//div[contains(@class, 'book-card') or contains(@class, 'book-item')]//descendant::*[contains(text(), '${book_title}')]
+     |                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN08
+ 170 |     Wait For Elements State    ${selector}    visible    timeout=${MEDIUM_TIMEOUT}
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/resources/pages/BooksPage.resource:214:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 214 | # Verification Keywords
+     | ^ SPC05
+ 215 | Verify Book Card Contains Text
+ 216 |     [Documentation]    Verify book card contains expected text
+     |
+
+/tests/resources/pages/BooksPage.resource:260:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 260 | # Utility Keywords
+     | ^ SPC05
+ 261 | Get All Visible Book Titles
+ 262 |     [Documentation]    Extract all book titles currently visible
+     |
+
+/tests/resources/pages/BooksPage.resource:266:19 DEPR06 Create List used instead of VAR
+     |
+ 264 |
+ 265 |     @{cards}=     Get All Book Cards
+ 266 |     @{titles}=    Create List
+     |                   ^^^^^^^^^^^ DEPR06
+     |
+
+/tests/resources/pages/BooksPage.resource:283:19 DEPR05 Set Variable used instead of VAR
+     |
+ 281 |
+ 282 |     @{titles}=    Get All Visible Book Titles
+ 283 |     ${found}=     Set Variable    ${False}
+     |                   ^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/resources/pages/BooksPage.resource:290:26 DEPR05 Set Variable used instead of VAR
+     |
+ 288 |
+ 289 |         IF    '${term_lower}' in '${title_lower}'
+ 290 |             ${found}=    Set Variable    ${True}
+     |                          ^^^^^^^^^^^^ DEPR05
+ 291 |             BREAK
+ 292 |         END
+     |
+
+/tests/books_api.robot:25:1 DEPR02 'Force Tags' is deprecated since Robot Framework version 6.0, use 'Test Tags' instead
+    |
+ 25 | Force Tags        api    books    rest
+    | ^^^^^^^^^^ DEPR02
+ 26 | Default Tags      smoke
+    |
+
+/tests/books_api.robot:26:1 TAG07 Tags defined in Default Tags are always overwritten
+    |
+ 24 |
+ 25 | Force Tags        api    books    rest
+ 26 | Default Tags      smoke
+    | ^^^^^^^^^^^^ TAG07
+    |
+
+/tests/books_api.robot:31:1 VAR02 Variable '${INVALID_BOOK_ID}' is assigned but not used
+    |
+ 29 | *** Variables ***
+ 30 | ${NONEXISTENT_BOOK_ID}    999999
+ 31 | ${INVALID_BOOK_ID}        invalid_id
+    | ^^^^^^^^^^^^^^^^^^ VAR02
+    |
+
+/tests/books_api.robot:244:21 DEPR05 Set Variable used instead of VAR
+     |
+ 242 |
+ 243 |     ${response}=    Get All Books
+ 244 |     ${books}=       Set Variable    ${response.json()}
+     |                     ^^^^^^^^^^^^ DEPR05
+ 245 |     ${first_book}=  Set Variable    ${books}[0]
+ 246 |     ${book_id}=     Set Variable    ${first_book}[id]
+     |
+
+/tests/books_api.robot:245:21 DEPR05 Set Variable used instead of VAR
+     |
+ 243 |     ${response}=    Get All Books
+ 244 |     ${books}=       Set Variable    ${response.json()}
+ 245 |     ${first_book}=  Set Variable    ${books}[0]
+     |                     ^^^^^^^^^^^^ DEPR05
+ 246 |     ${book_id}=     Set Variable    ${first_book}[id]
+     |
+
+/tests/books_api.robot:246:21 DEPR05 Set Variable used instead of VAR
+     |
+ 244 |     ${books}=       Set Variable    ${response.json()}
+ 245 |     ${first_book}=  Set Variable    ${books}[0]
+ 246 |     ${book_id}=     Set Variable    ${first_book}[id]
+     |                     ^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:248:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 248 |     Set Test Variable    ${VALID_BOOK_ID}    ${book_id}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 249 |     Log    Using book ID: ${book_id}
+     |
+
+/tests/books_api.robot:248:5 VAR06 Variable defined with test/task scope
+     |
+ 248 |     Set Test Variable    ${VALID_BOOK_ID}    ${book_id}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 249 |     Log    Using book ID: ${book_id}
+     |
+
+/tests/books_api.robot:255:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 253 |
+ 254 |     &{book_data}=    Create Unique Test Book Data
+ 255 |     Set Test Variable    ${TEST_BOOK_DATA}    ${book_data}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:255:5 VAR06 Variable defined with test/task scope
+     |
+ 253 |
+ 254 |     &{book_data}=    Create Unique Test Book Data
+ 255 |     Set Test Variable    ${TEST_BOOK_DATA}    ${book_data}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:266:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 266 |     Set Test Variable    ${TEST_BOOK_ID}      ${created_id}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 267 |     Set Test Variable    ${TEST_BOOK_DATA}    ${book_data}
+     |
+
+/tests/books_api.robot:266:5 VAR06 Variable defined with test/task scope
+     |
+ 266 |     Set Test Variable    ${TEST_BOOK_ID}      ${created_id}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 267 |     Set Test Variable    ${TEST_BOOK_DATA}    ${book_data}
+     |
+
+/tests/books_api.robot:267:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 265 |
+ 266 |     Set Test Variable    ${TEST_BOOK_ID}      ${created_id}
+ 267 |     Set Test Variable    ${TEST_BOOK_DATA}    ${book_data}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:267:5 VAR06 Variable defined with test/task scope
+     |
+ 265 |
+ 266 |     Set Test Variable    ${TEST_BOOK_ID}      ${created_id}
+ 267 |     Set Test Variable    ${TEST_BOOK_DATA}    ${book_data}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:271:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 271 | # When Keywords (Actions)
+     | ^ SPC05
+ 272 | When User Requests All Books From API
+ 273 |     [Documentation]    Action: Send GET request for all books
+     |
+
+/tests/books_api.robot:276:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 274 |
+ 275 |     ${response}=    Get All Books
+ 276 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:276:5 VAR06 Variable defined with test/task scope
+     |
+ 274 |
+ 275 |     ${response}=    Get All Books
+ 276 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:282:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 280 |
+ 281 |     ${response}=    Get Book By ID    ${VALID_BOOK_ID}
+ 282 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:282:5 VAR06 Variable defined with test/task scope
+     |
+ 280 |
+ 281 |     ${response}=    Get Book By ID    ${VALID_BOOK_ID}
+ 282 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:289:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 287 |
+ 288 |     ${response}=    Get Book By ID Expecting Error    ${book_id}    expected_status=${HTTP_NOT_FOUND}
+ 289 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:289:5 VAR06 Variable defined with test/task scope
+     |
+ 287 |
+ 288 |     ${response}=    Get Book By ID Expecting Error    ${book_id}    expected_status=${HTTP_NOT_FOUND}
+ 289 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:295:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 293 |
+ 294 |     ${response}=    Create Book With Data    &{TEST_BOOK_DATA}
+ 295 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:295:5 VAR06 Variable defined with test/task scope
+     |
+ 293 |
+ 294 |     ${response}=    Create Book With Data    &{TEST_BOOK_DATA}
+ 295 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:298:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 296 |
+ 297 |     ${created_id}=    Extract Book ID From Response    ${response}
+ 298 |     Set Test Variable    ${CREATED_BOOK_ID}    ${created_id}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:298:5 VAR06 Variable defined with test/task scope
+     |
+ 296 |
+ 297 |     ${created_id}=    Extract Book ID From Response    ${response}
+ 298 |     Set Test Variable    ${CREATED_BOOK_ID}    ${created_id}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:305:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 303 |     VAR    &{invalid_data}    author=Test Author    pages=${200}
+ 304 |     ${response}=    Create Book Expecting Error    &{invalid_data}
+ 305 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:305:5 VAR06 Variable defined with test/task scope
+     |
+ 303 |     VAR    &{invalid_data}    author=Test Author    pages=${200}
+ 304 |     ${response}=    Create Book Expecting Error    &{invalid_data}
+ 305 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:315:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 313 |
+ 314 |     ${response}=    Update Book    ${TEST_BOOK_ID}    ${new_title}    ${new_author}    ${300}    UpdatedCategory
+ 315 |     Set Test Variable    ${API_RESPONSE}      ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 316 |     Set Test Variable    ${UPDATED_TITLE}     ${new_title}
+ 317 |     Set Test Variable    ${UPDATED_AUTHOR}    ${new_author}
+     |
+
+/tests/books_api.robot:315:5 VAR06 Variable defined with test/task scope
+     |
+ 313 |
+ 314 |     ${response}=    Update Book    ${TEST_BOOK_ID}    ${new_title}    ${new_author}    ${300}    UpdatedCategory
+ 315 |     Set Test Variable    ${API_RESPONSE}      ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 316 |     Set Test Variable    ${UPDATED_TITLE}     ${new_title}
+ 317 |     Set Test Variable    ${UPDATED_AUTHOR}    ${new_author}
+     |
+
+/tests/books_api.robot:316:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 314 |     ${response}=    Update Book    ${TEST_BOOK_ID}    ${new_title}    ${new_author}    ${300}    UpdatedCategory
+ 315 |     Set Test Variable    ${API_RESPONSE}      ${response}
+ 316 |     Set Test Variable    ${UPDATED_TITLE}     ${new_title}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 317 |     Set Test Variable    ${UPDATED_AUTHOR}    ${new_author}
+     |
+
+/tests/books_api.robot:316:5 VAR06 Variable defined with test/task scope
+     |
+ 314 |     ${response}=    Update Book    ${TEST_BOOK_ID}    ${new_title}    ${new_author}    ${300}    UpdatedCategory
+ 315 |     Set Test Variable    ${API_RESPONSE}      ${response}
+ 316 |     Set Test Variable    ${UPDATED_TITLE}     ${new_title}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 317 |     Set Test Variable    ${UPDATED_AUTHOR}    ${new_author}
+     |
+
+/tests/books_api.robot:317:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 315 |     Set Test Variable    ${API_RESPONSE}      ${response}
+ 316 |     Set Test Variable    ${UPDATED_TITLE}     ${new_title}
+ 317 |     Set Test Variable    ${UPDATED_AUTHOR}    ${new_author}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:317:5 VAR06 Variable defined with test/task scope
+     |
+ 315 |     Set Test Variable    ${API_RESPONSE}      ${response}
+ 316 |     Set Test Variable    ${UPDATED_TITLE}     ${new_title}
+ 317 |     Set Test Variable    ${UPDATED_AUTHOR}    ${new_author}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:326:9 VAR02 Variable '${response}' is assigned but not used
+     |
+ 324 |
+ 325 |     TRY
+ 326 |         ${response}=    Update Book With Data    ${book_id}    &{book_data}
+     |         ^^^^^^^^^^^ VAR02
+ 327 |         Fail    Expected 404 error but request succeeded
+ 328 |     EXCEPT    AS    ${error}
+     |
+
+/tests/books_api.robot:328:21 VAR02 Variable '${error}' is assigned but not used
+     |
+ 326 |         ${response}=    Update Book With Data    ${book_id}    &{book_data}
+ 327 |         Fail    Expected 404 error but request succeeded
+ 328 |     EXCEPT    AS    ${error}
+     |                     ^^^^^^^^ VAR02
+ 329 |         # Expected to fail, catch and verify via DELETE endpoint
+ 330 |         ${response}=    Delete Book Expecting Error    ${book_id}    expected_status=${HTTP_NOT_FOUND}
+     |
+
+/tests/books_api.robot:331:9 DEPR05 Set Test Variable used instead of VAR
+     |
+ 329 |         # Expected to fail, catch and verify via DELETE endpoint
+ 330 |         ${response}=    Delete Book Expecting Error    ${book_id}    expected_status=${HTTP_NOT_FOUND}
+ 331 |         Set Test Variable    ${API_RESPONSE}    ${response}
+     |         ^^^^^^^^^^^^^^^^^ DEPR05
+ 332 |     END
+     |
+
+/tests/books_api.robot:331:9 VAR06 Variable defined with test/task scope
+     |
+ 329 |         # Expected to fail, catch and verify via DELETE endpoint
+ 330 |         ${response}=    Delete Book Expecting Error    ${book_id}    expected_status=${HTTP_NOT_FOUND}
+ 331 |         Set Test Variable    ${API_RESPONSE}    ${response}
+     |         ^^^^^^^^^^^^^^^^^ VAR06
+ 332 |     END
+     |
+
+/tests/books_api.robot:338:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 336 |
+ 337 |     ${response}=    Delete Book    ${TEST_BOOK_ID}
+ 338 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:338:5 VAR06 Variable defined with test/task scope
+     |
+ 336 |
+ 337 |     ${response}=    Delete Book    ${TEST_BOOK_ID}
+ 338 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:345:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 343 |
+ 344 |     ${response}=    Delete Book Expecting Error    ${book_id}    expected_status=${HTTP_NOT_FOUND}
+ 345 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:345:5 VAR06 Variable defined with test/task scope
+     |
+ 343 |
+ 344 |     ${response}=    Delete Book Expecting Error    ${book_id}    expected_status=${HTTP_NOT_FOUND}
+ 345 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:356:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 356 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 357 |     Set Test Variable    ${PATCHED_TITLE}   ${new_title}
+     |
+
+/tests/books_api.robot:356:5 VAR06 Variable defined with test/task scope
+     |
+ 356 |     Set Test Variable    ${API_RESPONSE}    ${response}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 357 |     Set Test Variable    ${PATCHED_TITLE}   ${new_title}
+     |
+
+/tests/books_api.robot:357:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 355 |
+ 356 |     Set Test Variable    ${API_RESPONSE}    ${response}
+ 357 |     Set Test Variable    ${PATCHED_TITLE}   ${new_title}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:357:5 VAR06 Variable defined with test/task scope
+     |
+ 355 |
+ 356 |     Set Test Variable    ${API_RESPONSE}    ${response}
+ 357 |     Set Test Variable    ${PATCHED_TITLE}   ${new_title}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:366:9 DEPR05 Set Test Variable used instead of VAR
+     |
+ 364 |         ${response}=    PATCH On Session    books_api    /books/${TEST_BOOK_ID}
+ 365 |         ...            json=${fields}    expected_status=405
+ 366 |         Set Test Variable    ${API_RESPONSE}    ${response}
+     |         ^^^^^^^^^^^^^^^^^ DEPR05
+ 367 |     EXCEPT
+ 368 |         Fail    PATCH request did not return expected 405 status
+     |
+
+/tests/books_api.robot:366:9 VAR06 Variable defined with test/task scope
+     |
+ 364 |         ${response}=    PATCH On Session    books_api    /books/${TEST_BOOK_ID}
+ 365 |         ...            json=${fields}    expected_status=405
+ 366 |         Set Test Variable    ${API_RESPONSE}    ${response}
+     |         ^^^^^^^^^^^^^^^^^ VAR06
+ 367 |     EXCEPT
+ 368 |         Fail    PATCH request did not return expected 405 status
+     |
+
+/tests/books_api.robot:371:1 LEN03 Keyword 'When User Performs Complete CRUD Cycle' has too many keywords inside (13/10)
+     |
+ 371 | When User Performs Complete CRUD Cycle
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ LEN03
+ 372 |     [Documentation]    Action: Execute full CRUD workflow
+     |
+
+/tests/books_api.robot:384:120 LEN08 Line is too long (137/120)
+     |
+ 382 |     # UPDATE
+ 383 |     ${new_title}=    Catenate    Updated    ${book_data}[title]
+ 384 |     ${update_resp}=    Update Book    ${book_id}    ${new_title}    ${book_data}[author]    ${book_data}[pages]    ${book_data}[category]
+     |                                                                                                                        ^^^^^^^^^^^^^^^^^^ LEN08
+     | Suggestion: Break long lines using the '...' continuation syntax.
+     |
+
+/tests/books_api.robot:393:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 391 |
+ 392 |     # Store results
+ 393 |     Set Test Variable    ${CRUD_CREATE_RESPONSE}    ${create_resp}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 394 |     Set Test Variable    ${CRUD_READ_RESPONSE}      ${read_resp}
+ 395 |     Set Test Variable    ${CRUD_UPDATE_RESPONSE}    ${update_resp}
+     |
+
+/tests/books_api.robot:393:5 VAR06 Variable defined with test/task scope
+     |
+ 391 |
+ 392 |     # Store results
+ 393 |     Set Test Variable    ${CRUD_CREATE_RESPONSE}    ${create_resp}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 394 |     Set Test Variable    ${CRUD_READ_RESPONSE}      ${read_resp}
+ 395 |     Set Test Variable    ${CRUD_UPDATE_RESPONSE}    ${update_resp}
+     |
+
+/tests/books_api.robot:394:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 392 |     # Store results
+ 393 |     Set Test Variable    ${CRUD_CREATE_RESPONSE}    ${create_resp}
+ 394 |     Set Test Variable    ${CRUD_READ_RESPONSE}      ${read_resp}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 395 |     Set Test Variable    ${CRUD_UPDATE_RESPONSE}    ${update_resp}
+ 396 |     Set Test Variable    ${CRUD_DELETE_RESPONSE}    ${delete_resp}
+     |
+
+/tests/books_api.robot:394:5 VAR06 Variable defined with test/task scope
+     |
+ 392 |     # Store results
+ 393 |     Set Test Variable    ${CRUD_CREATE_RESPONSE}    ${create_resp}
+ 394 |     Set Test Variable    ${CRUD_READ_RESPONSE}      ${read_resp}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 395 |     Set Test Variable    ${CRUD_UPDATE_RESPONSE}    ${update_resp}
+ 396 |     Set Test Variable    ${CRUD_DELETE_RESPONSE}    ${delete_resp}
+     |
+
+/tests/books_api.robot:395:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 393 |     Set Test Variable    ${CRUD_CREATE_RESPONSE}    ${create_resp}
+ 394 |     Set Test Variable    ${CRUD_READ_RESPONSE}      ${read_resp}
+ 395 |     Set Test Variable    ${CRUD_UPDATE_RESPONSE}    ${update_resp}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 396 |     Set Test Variable    ${CRUD_DELETE_RESPONSE}    ${delete_resp}
+ 397 |     Set Test Variable    ${CRUD_VERIFY_RESPONSE}    ${verify_resp}
+     |
+
+/tests/books_api.robot:395:5 VAR06 Variable defined with test/task scope
+     |
+ 393 |     Set Test Variable    ${CRUD_CREATE_RESPONSE}    ${create_resp}
+ 394 |     Set Test Variable    ${CRUD_READ_RESPONSE}      ${read_resp}
+ 395 |     Set Test Variable    ${CRUD_UPDATE_RESPONSE}    ${update_resp}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 396 |     Set Test Variable    ${CRUD_DELETE_RESPONSE}    ${delete_resp}
+ 397 |     Set Test Variable    ${CRUD_VERIFY_RESPONSE}    ${verify_resp}
+     |
+
+/tests/books_api.robot:396:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 394 |     Set Test Variable    ${CRUD_READ_RESPONSE}      ${read_resp}
+ 395 |     Set Test Variable    ${CRUD_UPDATE_RESPONSE}    ${update_resp}
+ 396 |     Set Test Variable    ${CRUD_DELETE_RESPONSE}    ${delete_resp}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+ 397 |     Set Test Variable    ${CRUD_VERIFY_RESPONSE}    ${verify_resp}
+     |
+
+/tests/books_api.robot:396:5 VAR06 Variable defined with test/task scope
+     |
+ 394 |     Set Test Variable    ${CRUD_READ_RESPONSE}      ${read_resp}
+ 395 |     Set Test Variable    ${CRUD_UPDATE_RESPONSE}    ${update_resp}
+ 396 |     Set Test Variable    ${CRUD_DELETE_RESPONSE}    ${delete_resp}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+ 397 |     Set Test Variable    ${CRUD_VERIFY_RESPONSE}    ${verify_resp}
+     |
+
+/tests/books_api.robot:397:5 DEPR05 Set Test Variable used instead of VAR
+     |
+ 395 |     Set Test Variable    ${CRUD_UPDATE_RESPONSE}    ${update_resp}
+ 396 |     Set Test Variable    ${CRUD_DELETE_RESPONSE}    ${delete_resp}
+ 397 |     Set Test Variable    ${CRUD_VERIFY_RESPONSE}    ${verify_resp}
+     |     ^^^^^^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:397:5 VAR06 Variable defined with test/task scope
+     |
+ 395 |     Set Test Variable    ${CRUD_UPDATE_RESPONSE}    ${update_resp}
+ 396 |     Set Test Variable    ${CRUD_DELETE_RESPONSE}    ${delete_resp}
+ 397 |     Set Test Variable    ${CRUD_VERIFY_RESPONSE}    ${verify_resp}
+     |     ^^^^^^^^^^^^^^^^^ VAR06
+     |
+
+/tests/books_api.robot:399:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 399 | # Then Keywords (Verifications)
+     | ^ SPC05
+ 400 | Then Response Status Should Be Success
+ 401 |     [Documentation]    Verification: Response has 200 OK status
+     |
+
+/tests/books_api.robot:434:18 DEPR05 Set Variable used instead of VAR
+     |
+ 434 |     ${books}=    Set Variable    ${API_RESPONSE.json()}
+     |                  ^^^^^^^^^^^^ DEPR05
+ 435 |     ${length}=    Get Length    ${books}
+ 436 |     Should Be True    ${length} >= 0    msg=Response is not a list
+     |
+
+/tests/books_api.robot:446:17 DEPR05 Set Variable used instead of VAR
+     |
+ 446 |     ${book}=    Set Variable    ${API_RESPONSE.json()}
+     |                 ^^^^^^^^^^^^ DEPR05
+ 447 |     Should Not Be Equal    ${book}    ${None}
+     |
+
+/tests/books_api.robot:482:17 DEPR05 Set Variable used instead of VAR
+     |
+ 482 |     ${book}=    Set Variable    ${API_RESPONSE.json()}
+     |                 ^^^^^^^^^^^^ DEPR05
+     |
+
+/tests/books_api.robot:518:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 518 | # And Keywords (Additional Verifications)
+     | ^ SPC05
+ 519 | And Response Should Contain Books List
+ 520 |     [Documentation]    Additional verification: Books list present
+     |
+
+/tests/books_api.robot:590:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 590 | # Suite Lifecycle Keywords
+     | ^ SPC05
+ 591 | Initialize API Test Suite
+ 592 |     [Documentation]    Setup for entire API test suite
+     |
+
+/tests/books_api.robot:605:1 SPC05 Invalid number of empty lines between keywords (0/1)
+     |
+ 605 | # Test Lifecycle Keywords
+     | ^ SPC05
+ 606 | Setup Individual API Test
+ 607 |     [Documentation]    Setup for individual API test case
+     |
+
+/tests/books_api.robot:615:5 MISC09 IF can be replaced with inline IF
+     |
+ 615 |     IF    '${TEST_STATUS}' == 'FAIL'
+     |     ^^ MISC09
+ 616 |         Log    API test failed: ${TEST_NAME}
+ 617 |     END
+     |
+
+/tests/books_api.robot:638:1 LEN28 File has too many lines (638/400)
