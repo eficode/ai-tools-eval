@@ -18,8 +18,7 @@ Suite Teardown    <OPTIONAL_SUITE_TEARDOWN_KEYWORD>
 Test Setup        <OPTIONAL_TEST_SETUP_KEYWORD>
 Test Teardown     <OPTIONAL_TEST_TEARDOWN_KEYWORD>
 
-Force Tags        <OPTIONAL_GLOBAL_TAGS>
-Default Tags      <OPTIONAL_DEFAULT_TAGS>
+Test Tags         <OPTIONAL_TAGS_FOR_ALL_TESTS>
 
 
 *** Variables ***
